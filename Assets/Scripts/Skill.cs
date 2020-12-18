@@ -18,6 +18,7 @@ public enum SkillType
 /// This is a data class that represents a skill.
 /// Skills are created via initialization statement. (Example in Shop start)
 /// </summary>
+[Serializable]
 public class Skill
 {
     // The current level of the skill

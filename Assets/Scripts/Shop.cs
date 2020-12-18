@@ -12,27 +12,17 @@ public class Shop : MonoBehaviour
     /// </summary>
     private Dictionary<string, Skill> skillDictionary;
 
+    private DataSavingManager dataSavingManager;
+
     [SerializeField]
     private Player player;
 
     // Start is called before the first frame update
     private void Start()
     {
-        skillDictionary = new Dictionary<string, Skill>();
-        // This is the basic flat damage skill
-        skillDictionary.Add("Damage",
-            new Skill
-            {
-                name = "Damage",
-                currentValue = 1,
-                level = 1,
-                maxLevel = 100,
-                oldValue = 0,
-                type = SkillType.DMG,
-                upgradeCost = 5,
-                costFunction = (x) => x * 2,
-                improvementFunction = (x) => ++x
-            });
+        dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
+        skillDictionary = dataSavingManager.GetSkillDictionary();
+        player.Money = (int)dataSavingManager.GetOtherValue("Money");
     }
 
     // Update is called once per frame
@@ -72,6 +62,10 @@ public class Shop : MonoBehaviour
         if (upgradedSkill.Upgrade(player.Money, out remainingMoney))
         {
             player.Money = remainingMoney;
+            dataSavingManager.SetOtherValue("Money", player.Money);
+            dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);
+            dataSavingManager.Save();
+
             ApplyPlayerUpgrades(upgradedSkill);
             return true;
         }

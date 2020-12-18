@@ -7,50 +7,23 @@ using UnityEngine;
 
 public class DataSavingManager : MonoBehaviour
 {
-    /* Saving Example Usage
-
-    class YourClass
-    {
-        private DataSavingManager dataSavingManager;
-
-        private int tempSaveValue;
-
-        void Start()
-        {
-            dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
-        }
-
-        void LoadMySettings()
-        {
-            // Data type returned is "object", so depending upon data type it may be necessary to cast
-            tempSaveValue = dataSavingManager.Get("String to map the value to");
-        }
-
-        void SaveMySettings()
-        {
-            // Data being stored must be [SERIALIZABLE], all native types (string, int, float, etc.) are.
-            dataSavingManager.Set("String to map the value to", tempSaveValue)
-
-            // File should be saved after making changes
-            dataSavingManager.Save();
-        }
-    }
- */
-
     #region Fields
 
     // Path and file name used to load\save player configuration data
     private string saveFileName = "/GameData.xml";
+
     private string saveFilePath;
 
     private GameData gameData = new GameData();
 
-    #endregion
+    public bool NewGame = false;
+
+    #endregion Fields
 
     #region Unity Methods
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         saveFilePath = Application.persistentDataPath + saveFileName;
 
@@ -58,15 +31,14 @@ public class DataSavingManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
-    #endregion
-
+    #endregion Unity Methods
 
     #region Plagiarized Public Methods
+
     // These functions were borrowed and altered from Asteroid Escape (Matt's Code)
 
     public void InitializeGameData()
@@ -75,7 +47,7 @@ public class DataSavingManager : MonoBehaviour
         this.SetGameData();
 
         // If player config has been saved previously, load it
-        if (File.Exists(saveFilePath))
+        if (File.Exists(saveFilePath) && !NewGame)
             this.Load();
     }
 
@@ -85,7 +57,6 @@ public class DataSavingManager : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(this.saveFilePath);
-
 
             // Serialize data into file
             bf.Serialize(file, this.gameData);
@@ -112,8 +83,6 @@ public class DataSavingManager : MonoBehaviour
             {
                 Debug.Log("Game data file is corrupt and could not be loaded");
             }
-
-            
         }
         else
             Debug.Log("There is no save data!");
@@ -135,22 +104,27 @@ public class DataSavingManager : MonoBehaviour
             Debug.Log("No save data to delete.");
     }
 
-    public object GetSkill(string key)
+    public Skill GetSkill(string key)
     {
         return
             (
-                (gameData.Skills.ContainsKey(key))
-                ? gameData.Skills[key]
+                (gameData.skillDictionary.ContainsKey(key))
+                ? gameData.skillDictionary[key]
                 : null
             );
     }
 
+    public Dictionary<string, Skill> GetSkillDictionary()
+    {
+        return gameData.skillDictionary;
+    }
+
     public void SetSkill(string key, Skill value)
     {
-        if (gameData.Skills.ContainsKey(key))
-            gameData.Skills[key] = value;
+        if (gameData.skillDictionary.ContainsKey(key))
+            gameData.skillDictionary[key] = value;
         else
-            gameData.Skills.Add(key, value);
+            gameData.skillDictionary.Add(key, value);
     }
 
     public object GetOtherValue(string key)
@@ -173,26 +147,34 @@ public class DataSavingManager : MonoBehaviour
 
     public void SetGameData()
     {
-        Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>()
-                {
-                     { "Damage", new Skill() }
-                };
+        Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
-        this.gameData.Skills = skillDictionary;
+        skillDictionary.Add("Damage",
+            new Skill
+            {
+                name = "Damage",
+                currentValue = 1,
+                level = 1,
+                maxLevel = 100,
+                oldValue = 0,
+                type = SkillType.DMG,
+                upgradeCost = 5,
+                costFunction = (x) => x * 2,
+                improvementFunction = (x) => ++x
+            });
+
+        this.gameData.skillDictionary = skillDictionary;
 
         Dictionary<string, object> otherValueDictionary = new Dictionary<string, object>()
                 {
-                     { "TotalBlocksSpawned", 1 }
+                     { "TotalBlocksSpawned", 1 },
+                     {"Money", 0 }
                 };
 
-        this.gameData.Skills = skillDictionary;
         this.gameData.OtherValues = otherValueDictionary;
-
     }
 
-
     #endregion Plagiarized Public Methods
-
 }
 
 /// <summary>
@@ -203,14 +185,12 @@ public class GameData
 {
     public Dictionary<string, object> OtherValues;
 
-    public Dictionary<string, Skill> Skills;
-
+    public Dictionary<string, Skill> skillDictionary;
 
     public GameData()
     {
         OtherValues = new Dictionary<string, object>();
 
-        Skills = new Dictionary<string, Skill>();
+        skillDictionary = new Dictionary<string, Skill>();
     }
 }
-
