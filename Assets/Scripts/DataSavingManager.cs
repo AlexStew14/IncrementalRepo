@@ -113,8 +113,7 @@ public class DataSavingManager : MonoBehaviour
                 Debug.Log("Game data file is corrupt and could not be loaded");
             }
 
-            // Update values (whether a file was loaded or not)
-            UpdateGameData();
+            
         }
         else
             Debug.Log("There is no save data!");
@@ -183,7 +182,7 @@ public class DataSavingManager : MonoBehaviour
 
         Dictionary<string, object> otherValueDictionary = new Dictionary<string, object>()
                 {
-                     { "TotalBlocksSpawned", 0 }
+                     { "TotalBlocksSpawned", 1 }
                 };
 
         this.gameData.Skills = skillDictionary;

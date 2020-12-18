@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CurrentMoney
   - SoundManager
+  - DataSavingManager
   layers:
   - Default
   - TransparentFX

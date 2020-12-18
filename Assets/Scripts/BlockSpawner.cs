@@ -35,5 +35,6 @@ public class BlockSpawner : MonoBehaviour
             TotalBlocksSpawned++;
 
             dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
+        }
     }
 }
