@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +15,24 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Shop shop;
 
+    private TextMeshProUGUI currentMoney;
+
+    private Player player;
+
     // Start is called before the first frame update
     private void Start()
     {
         shopPanel.SetActive(false);
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
+        currentMoney.text = "Money: " + player.Money;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        currentMoney.text = "Money: " + player.Money;
     }
 
     /// <summary>
