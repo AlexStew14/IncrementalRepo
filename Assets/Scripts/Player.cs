@@ -53,10 +53,15 @@ public class Player : MonoBehaviour
 
     private bool damageTimerRunning = false;
 
+
+    private SoundManager soundManager;
+
     //   private 2Dbox
     // Start is called before the first frame update
     private void Start()
     {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
     }
 
     private void Awake()
@@ -102,6 +107,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Attacked()
     {
+        soundManager.PlayAttack();
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
@@ -123,6 +129,7 @@ public class Player : MonoBehaviour
     public void KilledBlock(Block block)
     {
         Money++;
+        soundManager.PlayBlockDestroyed();
     }
 
     // Update is called once per frame

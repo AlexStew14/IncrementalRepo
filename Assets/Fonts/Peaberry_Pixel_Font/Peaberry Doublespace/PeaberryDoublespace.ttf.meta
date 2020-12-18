@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6c6a6e70d84ef804d8af18af99dd7791
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - peaberry2px
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8776ca9e37efe7e4788c3e9c26003931, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
