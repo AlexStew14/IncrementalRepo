@@ -31,7 +31,7 @@ public class Shop : MonoBehaviour
                 type = SkillType.DMG,
                 upgradeCost = 5,
                 costFunction = (x) => x * 2,
-                improvementFunction = (x) => x++
+                improvementFunction = (x) => ++x
             });
     }
 
