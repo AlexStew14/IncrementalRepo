@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class handles all UI, at least for the shop.
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
@@ -22,6 +25,12 @@ public class UIManager : MonoBehaviour
     {
     }
 
+    /// <summary>
+    /// This method is called by clicking the shop buttons for skill upgrades.
+    /// The method takes in the button that clicks it.
+    /// This calls UpgradeSkill on the shop and sets the description text for display.
+    /// </summary>
+    /// <param name="skillButton"></param>
     public void UpgradeSkill(Button skillButton)
     {
         string skillName = skillButton.name;
@@ -33,6 +42,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called by the shop button and toggles the shopPanel
+    /// </summary>
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);

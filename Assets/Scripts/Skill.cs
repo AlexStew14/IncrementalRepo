@@ -3,37 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// This enum represents what aspect of the player the skill affects.
+/// </summary>
+public enum SkillType
+{
+    DMG,
+    DMGPCT,
+    ATTKSPEED,
+    ATTKSPEEDPCT
+}
+
+/// <summary>
+/// This is a data class that represents a skill.
+/// Skills are created via initialization statement. (Example in Shop start)
+/// </summary>
 public class Skill
 {
-    public int level { get; private set; }
-    public int maxLevel { get; private set; }
-    public int upgradeCost { get; private set; }
-    public int oldValue { get; private set; }
-    public int currentValue { get; private set; }
-    private string name;
-    public string type { get; private set; }
-    private Func<int, int> costFunction;
+    // The current level of the skill
+    public int level { get; set; }
 
-    private Func<int, int> improvementFunction;
+    // The max level of the skill
+    public int maxLevel { get; set; }
 
-    public Skill(int level, int maxLevel, int upgradeCost, int currentValue, string type, string name, Func<int, int> costFunction, Func<int, int> improvementFunction)
-    {
-        this.level = level;
-        this.maxLevel = maxLevel;
-        this.upgradeCost = upgradeCost;
-        this.currentValue = currentValue;
-        this.type = type;
-        this.name = name;
-        this.costFunction = costFunction;
-        this.improvementFunction = improvementFunction;
-        oldValue = 0;
-    }
+    // The money cost for upgrading the skill
+    public int upgradeCost { get; set; }
 
+    // The old value of the skill (value is how much the skill affects the player)
+    public float oldValue { get; set; }
+
+    // The current value of the skill
+    public float currentValue { get; set; }
+
+    // The name of the skill
+    public string name { get; set; }
+
+    // The type of skill
+    public SkillType type { get; set; }
+
+    // An anonymous function used to determine the price of the next upgrade level given the current price.
+    public Func<int, int> costFunction { get; set; }
+
+    // An anonymous function used to determine the value of the next upgrade level given the current value.
+    public Func<float, float> improvementFunction { get; set; }
+
+    /// <summary>
+    /// Checks to make sure the upgrade can occur
+    /// </summary>
+    /// <param name="currentMoney"></param>
+    /// <returns></returns>
     public bool CheckUpgrade(int currentMoney)
     {
         return (currentMoney >= upgradeCost) && (level < maxLevel);
     }
 
+    /// <summary>
+    /// Calls CheckUpgrade, handles the internal state of the skill and provides the remaining amount of money the player has.
+    /// </summary>
+    /// <param name="currentMoney"></param>
+    /// <param name="remainingMoney"></param>
+    /// <returns></returns>
     public bool Upgrade(int currentMoney, out int remainingMoney)
     {
         if (!CheckUpgrade(currentMoney))

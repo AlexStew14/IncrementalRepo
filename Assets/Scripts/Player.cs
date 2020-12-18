@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class represents the player and holds stats and handles gameplay related to the player.
+/// </summary>
 public class Player : MonoBehaviour
 {
     // This represents the base damage before multipliers are applied.
@@ -61,6 +64,10 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    /// <summary>
+    /// Provides the final damage value.
+    /// </summary>
+    /// <returns></returns>
     public float GetDamage()
     {
         if (damageUpdated)
@@ -71,6 +78,10 @@ public class Player : MonoBehaviour
         return finalDamage;
     }
 
+    /// <summary>
+    /// Provides the final attack speed value.
+    /// </summary>
+    /// <returns></returns>
     public float GetAttackSpeed()
     {
         if (attackSpeedUpdated)
@@ -86,13 +97,20 @@ public class Player : MonoBehaviour
         return !damageTimerRunning;
     }
 
+    /// <summary>
+    /// Called when the player has attacked, used to reset timer.
+    /// </summary>
     public void Attacked()
     {
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
 
-    public void FlatDmgIncrease(int damageIncrease)
+    /// <summary>
+    /// Called by the Shop to increase the player by a flat amount when damage is upgraded.
+    /// </summary>
+    /// <param name="damageIncrease"></param>
+    public void FlatDmgIncrease(float damageIncrease)
     {
         baseDamage += damageIncrease;
         damageUpdated = true;
