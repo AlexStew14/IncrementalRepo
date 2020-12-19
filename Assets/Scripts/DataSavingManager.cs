@@ -192,12 +192,28 @@ public class DataSavingManager : MonoBehaviour
                 name = "Damage",
                 currentStatIncrease = 0,
                 nextStatIncrease = 1,
+                totalStatIncrease = 0,
                 level = 1,
                 maxLevel = 100,
                 type = SkillType.DMG,
                 upgradeCost = 5,
                 costFunction = (x) => x * 2,
                 improvementFunction = (x) => ++x
+            });
+
+        skillDictionary.Add("AttackSpeed",
+            new Skill
+            {
+                name = "AttackSpeed",
+                currentStatIncrease = 0,
+                nextStatIncrease = .05f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 15,
+                type = SkillType.ATTKSPEED,
+                upgradeCost = 10,
+                costFunction = (x) => (int)(x * 1.7f),
+                improvementFunction = (x) => x
             });
 
         return skillDictionary;

@@ -8,11 +8,6 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    // This is set to true when the multipliers are changed and damage needs to be recalculated.
-    private bool damageUpdated = true;
-
-    private bool attackSpeedUpdated = true;
-
     private float damageTimeRemaining = -1.0f;
 
     private bool damageTimerRunning = false;
@@ -42,18 +37,23 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    private void UpdateDamage()
+    {
+        playerData.finalDamage = playerData.baseDamage * playerData.prestigeDmgMultiplier * playerData.runDmgMultiplier;
+    }
+
     /// <summary>
     /// Provides the final damage value.
     /// </summary>
     /// <returns></returns>
     public float GetDamage()
     {
-        if (damageUpdated)
-        {
-            playerData.finalDamage = playerData.baseDamage * playerData.prestigeDmgMultiplier * playerData.runDmgMultiplier;
-            damageUpdated = false;
-        }
         return playerData.finalDamage;
+    }
+
+    private void UpdateAttackSpeed()
+    {
+        playerData.finalAttackSpeed = playerData.baseAttackSpeed * playerData.prestigeAtkSpeedMult * playerData.runAtkSpeedMult;
     }
 
     /// <summary>
@@ -62,11 +62,6 @@ public class Player : MonoBehaviour
     /// <returns></returns>
     public float GetAttackSpeed()
     {
-        if (attackSpeedUpdated)
-        {
-            playerData.finalAttackSpeed = playerData.baseAttackSpeed * playerData.prestigeAtkSpeedMult * playerData.runAtkSpeedMult;
-            attackSpeedUpdated = false;
-        }
         return playerData.finalAttackSpeed;
     }
 
@@ -92,9 +87,17 @@ public class Player : MonoBehaviour
     public void FlatDmgIncrease(float damageIncrease)
     {
         playerData.baseDamage += damageIncrease;
+        UpdateDamage();
         dataSavingManager.SetPlayerData(playerData);
         dataSavingManager.Save();
-        damageUpdated = true;
+    }
+
+    public void FlatAttackSpeedIncrease(float attkSpeedIncrease)
+    {
+        playerData.baseAttackSpeed -= attkSpeedIncrease;
+        UpdateAttackSpeed();
+        dataSavingManager.SetPlayerData(playerData);
+        dataSavingManager.Save();
     }
 
     /// <summary>

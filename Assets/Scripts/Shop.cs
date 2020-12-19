@@ -73,6 +73,10 @@ public class Shop : MonoBehaviour
         {
             player.FlatDmgIncrease(upgradedSkill.currentStatIncrease);
         }
+        else if (upgradedSkill.type == SkillType.ATTKSPEED)
+        {
+            player.FlatAttackSpeedIncrease(upgradedSkill.currentStatIncrease);
+        }
     }
 
     /// <summary>

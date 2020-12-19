@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
     private void SetDescriptionText(Button skillButton, Skill skill)
     {
         var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
-        description.text = "Price: " + skill.upgradeCost + "\nCurrent Stat Increase: " + skill.currentStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
+        description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
     }
 
     /// <summary>
