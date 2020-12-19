@@ -22,14 +22,24 @@ public class Block : MonoBehaviour
     [SerializeField]
     private Slider slider;
 
+    [SerializeField]
+    private GameObject killEffect;
+
     private Canvas healthCanvas;
+
+    private Rigidbody2D physicsBody;
 
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
+        physicsBody = GetComponent<Rigidbody2D>();
+        InitializeHealthBar();
+    }
 
+    private void InitializeHealthBar()
+    {
         slider.maxValue = maxHealth;
         slider.minValue = 0f;
         slider.value = maxHealth;
@@ -59,10 +69,20 @@ public class Block : MonoBehaviour
                 {
                     player.KilledBlock(this);
                     Destroy(slider.gameObject);
-                    Destroy(this.gameObject);
+                    Killed();
                 }
             }
         }
+    }
+
+    private void Killed()
+    {
+        var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
+        // Destroy(effect, 1.0f);
+        physicsBody.bodyType = RigidbodyType2D.Dynamic;
+        physicsBody.WakeUp();
+        physicsBody.AddForce(new Vector2(Random.Range(-2000, 2000), Random.Range(-2000, 2000)));
+        Destroy(transform.gameObject, 1.0f);
     }
 
     public int GetKillReward()

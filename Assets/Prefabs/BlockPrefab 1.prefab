@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2546545456718245199}
   - component: {fileID: 1251983889748143081}
   - component: {fileID: 220901689309567997}
+  - component: {fileID: 8317212338060629006}
   m_Layer: 0
   m_Name: BlockPrefab 1
   m_TagString: Untagged
@@ -109,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9e28d1e44dbe2944098477f157438a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,6 +163,28 @@ MonoBehaviour:
   maxHealth: 5
   killReward: 1
   slider: {fileID: 2160073145401219827}
+  killEffect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+--- !u!50 &8317212338060629006
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111843364376483748}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 2
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2725854465463008933
 GameObject:
   m_ObjectHideFlags: 0
