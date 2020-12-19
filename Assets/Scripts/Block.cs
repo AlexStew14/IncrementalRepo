@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Block : MonoBehaviour
 {
     [SerializeField]
-    private float health = 5.0f;
+    private float maxHealth = 5.0f;
+
+    private float currentHealth = 5.0f;
 
     private string blockType;
 
@@ -17,23 +19,30 @@ public class Block : MonoBehaviour
     [SerializeField]
     private int killReward = 1;
 
-    public GameObject healthBar;
-    public Slider slider;
+    [SerializeField]
+    private Slider slider;
+
+    private Canvas healthCanvas;
 
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        slider.value = health;
-        healthBar.SetActive(true);
+        healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
+
+        slider.maxValue = maxHealth;
+        slider.minValue = 0f;
+        slider.value = maxHealth;
+
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        pos.y += 40.0f;
+        slider.transform.position = pos;
+        slider.transform.SetParent(healthCanvas.transform, true);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        slider.value = health;
-
-        healthBar.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -42,12 +51,14 @@ public class Block : MonoBehaviour
         {
             if (player.CanAttack())
             {
-                health -= player.GetDamage();
-                Debug.Log("Block attacked, health: " + health);
+                currentHealth -= player.GetDamage();
+                slider.value = currentHealth;
+                Debug.Log("Block attacked, health: " + currentHealth);
                 player.Attacked();
-                if (health <= 0)
+                if (currentHealth <= 0)
                 {
                     player.KilledBlock(this);
+                    Destroy(slider.gameObject);
                     Destroy(this.gameObject);
                 }
             }

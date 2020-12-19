@@ -14,7 +14,7 @@ public class BlockSpawner : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
-    public int TotalBlocksSpawned { get; private set; } 
+    public int TotalBlocksSpawned { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
@@ -29,7 +29,7 @@ public class BlockSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            Vector2 randPos = new Vector2(Random.Range(-11f, 11f), Random.Range(-4.5f, 4.5f));
+            Vector2 randPos = new Vector2(Random.Range(-11f, 10f), Random.Range(-4.5f, 4.5f));
             var block = Instantiate(blockPrefab, randPos, transform.rotation);
             timer = Random.Range(1.0f, upperSpawnTimerBound);
             TotalBlocksSpawned++;

@@ -9,6 +9,7 @@ TagManager:
   - DataSavingManager
   - UIManager
   - Shop
+  - HealthCanvas
   layers:
   - Default
   - TransparentFX
