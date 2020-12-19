@@ -11,7 +11,9 @@ public enum SkillType
     DMG,
     DMGPCT,
     ATTKSPEED,
-    ATTKSPEEDPCT
+    ATTKSPEEDPCT,
+    KILLREWARD,
+    KILLREWARDPCT
 }
 
 /// <summary>

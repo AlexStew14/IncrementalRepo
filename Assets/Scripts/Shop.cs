@@ -26,6 +26,8 @@ public class Shop : MonoBehaviour
     /// </summary>
     private int playerMoney;
 
+    private float playerMoneyMult;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,6 +35,8 @@ public class Shop : MonoBehaviour
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"));
+
+        playerMoneyMult = (float)dataSavingManager.GetOtherValue("MoneyMultiplier");
 
         // Load skill dictionary into shop and ui
         skillDictionary = dataSavingManager.GetSkillDictionary();
@@ -44,9 +48,9 @@ public class Shop : MonoBehaviour
     {
     }
 
-    public void AddPlayerMoney(int moneyToAdd)
+    public void KilledBlock(int killReward)
     {
-        UpdatePlayerMoneyAndUI(moneyToAdd + playerMoney);
+        UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney);
     }
 
     /// <summary>
@@ -76,6 +80,12 @@ public class Shop : MonoBehaviour
         else if (upgradedSkill.type == SkillType.ATTKSPEED)
         {
             player.FlatAttackSpeedIncrease(upgradedSkill.currentStatIncrease);
+        }
+        else if (upgradedSkill.type == SkillType.KILLREWARD)
+        {
+            playerMoneyMult += upgradedSkill.currentStatIncrease;
+            dataSavingManager.SetOtherValue("MoneyMultiplier", playerMoneyMult);
+            dataSavingManager.Save();
         }
     }
 

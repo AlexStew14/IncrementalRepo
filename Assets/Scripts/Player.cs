@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
     /// <param name="block"></param>
     public void KilledBlock(Block block)
     {
-        shop.AddPlayerMoney(block.GetKillReward());
+        shop.KilledBlock(block.GetKillReward());
         soundManager.PlayBlockDestroyed();
     }
 
