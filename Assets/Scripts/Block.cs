@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Block : MonoBehaviour
 {
@@ -16,15 +17,23 @@ public class Block : MonoBehaviour
     [SerializeField]
     private int killReward = 1;
 
+    public GameObject healthBar;
+    public Slider slider;
+
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        slider.value = health;
+        healthBar.SetActive(true);
     }
 
     // Update is called once per frame
     private void Update()
     {
+        slider.value = health;
+
+        healthBar.SetActive(true);
     }
 
     private void FixedUpdate()
