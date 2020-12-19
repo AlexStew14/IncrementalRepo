@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// This class handles the state of all skills and updates the player to reflect skill changes.
+/// It also acts as a controller for the UIManager and updates the UI.
 /// </summary>
 public class Shop : MonoBehaviour
 {
@@ -14,15 +15,28 @@ public class Shop : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
+    private UIManager uiManager;
+
     [SerializeField]
     private Player player;
+
+    /// <summary>
+    /// The shop manages the player's money.
+    /// This class is the only place the player's money should be altered.
+    /// </summary>
+    private int playerMoney;
 
     // Start is called before the first frame update
     private void Start()
     {
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
+        UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"));
+
+        // Load skill dictionary into shop and ui
         skillDictionary = dataSavingManager.GetSkillDictionary();
-        player.Money = (int)dataSavingManager.GetOtherValue("Money");
+        uiManager.LoadSkillDescriptions(skillDictionary);
     }
 
     // Update is called once per frame
@@ -30,16 +44,34 @@ public class Shop : MonoBehaviour
     {
     }
 
+    public void AddPlayerMoney(int moneyToAdd)
+    {
+        UpdatePlayerMoneyAndUI(moneyToAdd + playerMoney);
+    }
+
+    /// <summary>
+    /// NOTE THIS CURRENTLY SAVES EVERYTIME MONEY IS CHANGED FOR TESTING.
+    /// This is the only place where the player's money is changed.
+    /// </summary>
+    /// <param name="money"></param>
+    private void UpdatePlayerMoneyAndUI(int money)
+    {
+        playerMoney = money;
+        uiManager.SetMoneyText(money);
+        dataSavingManager.SetOtherValue("Money", money);
+        dataSavingManager.Save();
+    }
+
     /// <summary>
     /// This method is called after skills are upgraded and changes the player to reflect the skill upgrades.
     /// It first switches on skill type and then calls player methods to handle changes.
     /// </summary>
     /// <param name="upgradedSkill"></param>
-    private void ApplyPlayerUpgrades(Skill upgradedSkill)
+    private void ApplyPlayerUpgrade(Skill upgradedSkill)
     {
         if (upgradedSkill.type == SkillType.DMG)
         {
-            player.FlatDmgIncrease(upgradedSkill.currentValue);
+            player.FlatDmgIncrease(upgradedSkill.currentStatIncrease);
         }
     }
 
@@ -59,14 +91,15 @@ public class Shop : MonoBehaviour
             return false;
 
         int remainingMoney;
-        if (upgradedSkill.Upgrade(player.Money, out remainingMoney))
+        if (upgradedSkill.Upgrade(playerMoney, out remainingMoney))
         {
-            player.Money = remainingMoney;
-            dataSavingManager.SetOtherValue("Money", player.Money);
+            UpdatePlayerMoneyAndUI(remainingMoney);
+
+            dataSavingManager.SetOtherValue("Money", playerMoney);
             dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);
             dataSavingManager.Save();
 
-            ApplyPlayerUpgrades(upgradedSkill);
+            ApplyPlayerUpgrade(upgradedSkill);
             return true;
         }
         return false;

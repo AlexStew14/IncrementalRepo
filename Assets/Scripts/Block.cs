@@ -13,6 +13,9 @@ public class Block : MonoBehaviour
 
     private Player player;
 
+    [SerializeField]
+    private int killReward = 1;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -40,6 +43,11 @@ public class Block : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int GetKillReward()
+    {
+        return killReward;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

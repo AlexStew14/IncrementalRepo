@@ -1116,7 +1116,7 @@ GameObject:
   - component: {fileID: 793392058}
   m_Layer: 5
   m_Name: MainCanvas
-  m_TagString: Untagged
+  m_TagString: UIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1218,6 +1218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 742786349}
   shop: {fileID: 1783183463}
+  buttons:
+  - {fileID: 1193260081}
 --- !u!1 &930165167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,6 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa754806df745934fbe14fe9761d6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingMoney: 5
 --- !u!1 &1383883766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,15 +1987,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f92247ac1343b44a28eada7e8e4f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 2
-  finalDamage: 1
-  prestigeDmgMultiplier: 1
-  runDmgMultiplier: 1
-  baseAttackSpeed: 0.5
-  finalAttackSpeed: 1
-  runAtkSpeedMult: 1
-  prestigeAtkSpeedMult: 1
-  Money: 5
+  playerData:
+    baseDamage: 0
+    finalDamage: 0
+    prestigeDmgMultiplier: 0
+    runDmgMultiplier: 0
+    baseAttackSpeed: 0
+    finalAttackSpeed: 0
+    runAtkSpeedMult: 0
+    prestigeAtkSpeedMult: 0
 --- !u!61 &1709711388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2074,8 +2077,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158.47118, y: -4.6980896}
-  m_SizeDelta: {x: 167.8301, y: 39.3962}
+  m_AnchoredPosition: {x: 174.5051, y: -14.0081}
+  m_SizeDelta: {x: 199.8978, y: 58.0161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724953250
 MonoBehaviour:
@@ -2133,7 +2136,7 @@ GameObject:
   - component: {fileID: 1783183463}
   m_Layer: 0
   m_Name: Shop
-  m_TagString: Untagged
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

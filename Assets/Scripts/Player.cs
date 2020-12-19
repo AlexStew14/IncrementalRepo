@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,61 +8,33 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    // This represents the base damage before multipliers are applied.
-    [SerializeField]
-    [Header("Damage")]
-    private float baseDamage = 1.0f;
-
-    // This represents damage after multiplers applied.
-    [SerializeField]
-    private float finalDamage = 1.0f;
-
-    // Multipliers from prestige upgrades.
-    [SerializeField]
-    private float prestigeDmgMultiplier = 1.0f;
-
-    // Multipliers from the current run.
-    [SerializeField]
-    private float runDmgMultiplier = 1.0f;
-
     // This is set to true when the multipliers are changed and damage needs to be recalculated.
     private bool damageUpdated = true;
 
-    // This represents the base attack speed before multipliers are applied.
-    // This represents the time in seconds between attacks.
-    // Multipliers will decrease the attack speed value
-    [SerializeField]
-    [Header("Attack Speed")]
-    private float baseAttackSpeed = 1.0f;
-
-    [SerializeField]
-    private float finalAttackSpeed = 1.0f;
-
-    [SerializeField]
-    private float runAtkSpeedMult = 1.0f;
-
-    [SerializeField]
-    private float prestigeAtkSpeedMult = 1.0f;
-
     private bool attackSpeedUpdated = true;
-
-    [SerializeField]
-    [Header("Money")]
-    public int Money = 0;
 
     private float damageTimeRemaining = -1.0f;
 
     private bool damageTimerRunning = false;
 
+    [SerializeField]
+    private PlayerData playerData;
 
     private SoundManager soundManager;
+
+    private Shop shop;
+
+    private DataSavingManager dataSavingManager;
 
     //   private 2Dbox
     // Start is called before the first frame update
     private void Start()
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
+        dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
 
+        playerData = dataSavingManager.GetPlayerData();
     }
 
     private void Awake()
@@ -77,10 +50,10 @@ public class Player : MonoBehaviour
     {
         if (damageUpdated)
         {
-            finalDamage = baseDamage * prestigeDmgMultiplier * runDmgMultiplier;
+            playerData.finalDamage = playerData.baseDamage * playerData.prestigeDmgMultiplier * playerData.runDmgMultiplier;
             damageUpdated = false;
         }
-        return finalDamage;
+        return playerData.finalDamage;
     }
 
     /// <summary>
@@ -91,10 +64,10 @@ public class Player : MonoBehaviour
     {
         if (attackSpeedUpdated)
         {
-            finalAttackSpeed = baseAttackSpeed * prestigeAtkSpeedMult * runAtkSpeedMult;
+            playerData.finalAttackSpeed = playerData.baseAttackSpeed * playerData.prestigeAtkSpeedMult * playerData.runAtkSpeedMult;
             attackSpeedUpdated = false;
         }
-        return finalAttackSpeed;
+        return playerData.finalAttackSpeed;
     }
 
     public bool CanAttack()
@@ -118,7 +91,9 @@ public class Player : MonoBehaviour
     /// <param name="damageIncrease"></param>
     public void FlatDmgIncrease(float damageIncrease)
     {
-        baseDamage += damageIncrease;
+        playerData.baseDamage += damageIncrease;
+        dataSavingManager.SetPlayerData(playerData);
+        dataSavingManager.Save();
         damageUpdated = true;
     }
 
@@ -128,7 +103,7 @@ public class Player : MonoBehaviour
     /// <param name="block"></param>
     public void KilledBlock(Block block)
     {
-        Money++;
+        shop.AddPlayerMoney(block.GetKillReward());
         soundManager.PlayBlockDestroyed();
     }
 
@@ -159,4 +134,31 @@ public class Player : MonoBehaviour
 
         this.transform.position = mousePos;
     }
+}
+
+[Serializable]
+public class PlayerData
+{
+    // This represents the base damage before multipliers are applied.
+    public float baseDamage;
+
+    // This represents damage after multiplers applied.
+    public float finalDamage;
+
+    // Multipliers from prestige upgrades.
+    public float prestigeDmgMultiplier;
+
+    // Multipliers from the current run.
+    public float runDmgMultiplier;
+
+    // This represents the base attack speed before multipliers are applied.
+    // This represents the time in seconds between attacks.
+    // Multipliers will decrease the attack speed value
+    public float baseAttackSpeed;
+
+    public float finalAttackSpeed;
+
+    public float runAtkSpeedMult;
+
+    public float prestigeAtkSpeedMult;
 }

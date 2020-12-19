@@ -30,11 +30,11 @@ public class Skill
     // The money cost for upgrading the skill
     public int upgradeCost { get; set; }
 
-    // The old value of the skill (value is how much the skill affects the player)
-    public float oldValue { get; set; }
+    // The current amount the skill is affecting the player, can be flat or percentage.
+    public float currentStatIncrease { get; set; }
 
-    // The current value of the skill
-    public float currentValue { get; set; }
+    // The next value in the improvement function, used for displaying on ui.
+    public float nextStatIncrease { get; set; }
 
     // The name of the skill
     public string name { get; set; }
@@ -74,8 +74,8 @@ public class Skill
 
         remainingMoney = currentMoney - upgradeCost;
         ++level;
-        oldValue = currentValue;
-        currentValue = improvementFunction(currentValue);
+        currentStatIncrease = nextStatIncrease;
+        nextStatIncrease = improvementFunction(currentStatIncrease);
         upgradeCost = costFunction(upgradeCost);
 
         return true;

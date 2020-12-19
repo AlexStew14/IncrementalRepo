@@ -17,22 +17,41 @@ public class UIManager : MonoBehaviour
 
     private TextMeshProUGUI currentMoney;
 
-    private Player player;
+    [SerializeField]
+    private Button[] buttons;
 
     // Start is called before the first frame update
     private void Start()
     {
         shopPanel.SetActive(false);
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
-        currentMoney.text = "Money: " + player.Money;
     }
 
-    // Update is called once per frame
-    private void Update()
+    /// <summary>
+    /// Called by the shop when the game starts.
+    /// </summary>
+    /// <param name="skillDictionary"></param>
+    public void LoadSkillDescriptions(Dictionary<string, Skill> skillDictionary)
     {
-        currentMoney.text = "Money: " + player.Money;
+        foreach (Button b in buttons)
+        {
+            string skillName = b.name;
+            Skill s = skillDictionary[skillName];
+            if (s == null)
+                continue;
+
+            SetDescriptionText(b, s);
+        }
+    }
+
+    /// <summary>
+    /// Called by shop when the player's money changes.
+    /// </summary>
+    /// <param name="money"></param>
+    public void SetMoneyText(int money)
+    {
+        currentMoney.text = "Money: " + money;
     }
 
     /// <summary>
@@ -47,9 +66,14 @@ public class UIManager : MonoBehaviour
         Skill upgradedSkill;
         if (shop.UpgradeSkill(skillName, out upgradedSkill))
         {
-            var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
-            description.text = "Price: " + upgradedSkill.upgradeCost + "\nCurrent Value: " + upgradedSkill.currentValue;
+            SetDescriptionText(skillButton, upgradedSkill);
         }
+    }
+
+    private void SetDescriptionText(Button skillButton, Skill skill)
+    {
+        var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
+        description.text = "Price: " + skill.upgradeCost + "\nCurrent Stat Increase: " + skill.currentStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
     }
 
     /// <summary>

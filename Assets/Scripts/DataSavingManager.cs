@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -14,9 +13,9 @@ public class DataSavingManager : MonoBehaviour
 
     private string saveFilePath;
 
-    private GameData gameData = new GameData();
+    private GameData gameData;
 
-    public bool NewGame = false;
+    public int startingMoney;
 
     #endregion Fields
 
@@ -37,18 +36,17 @@ public class DataSavingManager : MonoBehaviour
 
     #endregion Unity Methods
 
-    #region Plagiarized Public Methods
-
-    // These functions were borrowed and altered from Asteroid Escape (Matt's Code)
-
     public void InitializeGameData()
     {
-        // Set defaults as baseline for any values not loaded from file
-        this.SetGameData();
-
         // If player config has been saved previously, load it
-        if (File.Exists(saveFilePath) && !NewGame)
-            this.Load();
+        if (File.Exists(saveFilePath))
+        {
+            Load();
+        }
+        else
+        {
+            SeedGameData();
+        }
     }
 
     public void Save()
@@ -67,25 +65,20 @@ public class DataSavingManager : MonoBehaviour
 
     private void Load()
     {
-        if (File.Exists(saveFilePath))
+        try
         {
-            try
-            {
-                // Load serialized data from file, right into a deserialized data object
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream file = File.Open(saveFilePath, FileMode.Open);
-                this.gameData = (GameData)bf.Deserialize(file);
-                file.Close();
+            // Load serialized data from file, right into a deserialized data object
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(saveFilePath, FileMode.Open);
+            gameData = (GameData)bf.Deserialize(file);
+            file.Close();
 
-                Debug.Log("Game data loaded");
-            }
-            catch (Exception)
-            {
-                Debug.Log("Game data file is corrupt and could not be loaded");
-            }
+            Debug.Log("Game data loaded");
         }
-        else
-            Debug.Log("There is no save data!");
+        catch (Exception)
+        {
+            Debug.Log("Game data file is corrupt and could not be loaded");
+        }
     }
 
     /// <summary>
@@ -145,7 +138,51 @@ public class DataSavingManager : MonoBehaviour
             gameData.OtherValues.Add(key, value);
     }
 
-    public void SetGameData()
+    public PlayerData GetPlayerData()
+    {
+        return gameData.playerData;
+    }
+
+    public void SetPlayerData(PlayerData playerData)
+    {
+        gameData.playerData = playerData;
+    }
+
+    private void SeedGameData()
+    {
+        gameData = new GameData
+        {
+            OtherValues = SeedOtherValues(),
+            playerData = SeedPlayerData(),
+            skillDictionary = SeedSkills()
+        };
+    }
+
+    private PlayerData SeedPlayerData()
+    {
+        return new PlayerData
+        {
+            baseAttackSpeed = 1.0f,
+            baseDamage = 1.0f,
+            finalAttackSpeed = 1.0f,
+            finalDamage = 1.0f,
+            prestigeAtkSpeedMult = 1.0f,
+            prestigeDmgMultiplier = 1.0f,
+            runAtkSpeedMult = 1.0f,
+            runDmgMultiplier = 1.0f
+        };
+    }
+
+    private Dictionary<string, object> SeedOtherValues()
+    {
+        return new Dictionary<string, object>()
+            {
+                { "TotalBlocksSpawned", 1 },
+                {"Money", startingMoney}
+            };
+    }
+
+    private Dictionary<string, Skill> SeedSkills()
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
@@ -153,28 +190,18 @@ public class DataSavingManager : MonoBehaviour
             new Skill
             {
                 name = "Damage",
-                currentValue = 1,
+                currentStatIncrease = 0,
+                nextStatIncrease = 1,
                 level = 1,
                 maxLevel = 100,
-                oldValue = 0,
                 type = SkillType.DMG,
                 upgradeCost = 5,
                 costFunction = (x) => x * 2,
                 improvementFunction = (x) => ++x
             });
 
-        this.gameData.skillDictionary = skillDictionary;
-
-        Dictionary<string, object> otherValueDictionary = new Dictionary<string, object>()
-                {
-                     { "TotalBlocksSpawned", 1 },
-                     {"Money", 0 }
-                };
-
-        this.gameData.OtherValues = otherValueDictionary;
+        return skillDictionary;
     }
-
-    #endregion Plagiarized Public Methods
 }
 
 /// <summary>
@@ -187,10 +214,5 @@ public class GameData
 
     public Dictionary<string, Skill> skillDictionary;
 
-    public GameData()
-    {
-        OtherValues = new Dictionary<string, object>();
-
-        skillDictionary = new Dictionary<string, Skill>();
-    }
+    public PlayerData playerData;
 }
