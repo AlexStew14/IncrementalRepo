@@ -83,4 +83,5 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
     }
+
 }
