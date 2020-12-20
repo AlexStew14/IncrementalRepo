@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BlockSpawner : MonoBehaviour
 {
     // Set in inspector
     public Transform blockPrefab;
 
-    private float timer = 1.0f;
+    private float timer = -1.0f;
 
-    [SerializeField]
-    private float upperSpawnTimerBound = 3.0f;
+    private int currentBlockCount = 0;
 
     private DataSavingManager dataSavingManager;
+
+    [SerializeField]
+    private BlockSpawnData blockSpawnData;
 
     public int TotalBlocksSpawned { get; private set; }
 
@@ -21,20 +24,51 @@ public class BlockSpawner : MonoBehaviour
     {
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         TotalBlocksSpawned = (int)dataSavingManager.GetOtherValue("TotalBlocksSpawned");
+        blockSpawnData = dataSavingManager.GetBlockSpawnData();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
+        if (currentBlockCount < blockSpawnData.maxCurrentBlocks)
         {
-            Vector2 randPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-4f, 4));
-            var block = Instantiate(blockPrefab, randPos, transform.rotation);
-            timer = Random.Range(1.0f, upperSpawnTimerBound);
-            TotalBlocksSpawned++;
-
-            dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                CreateBlock();
+                timer = blockSpawnData.spawnTime;
+            }
         }
     }
+
+    private void CreateBlock()
+    {
+        Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
+        var block = Instantiate(blockPrefab, randPos, transform.rotation);
+
+        ++TotalBlocksSpawned;
+        ++currentBlockCount;
+
+        dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
+    }
+
+    public void BlockDestroyed()
+    {
+        --currentBlockCount;
+    }
+
+    public void FlatSpawnSpeedIncrease(float spawnSpeedIncrease)
+    {
+        blockSpawnData.spawnTime -= spawnSpeedIncrease;
+        dataSavingManager.SetBlockSpawnData(blockSpawnData);
+        dataSavingManager.Save();
+    }
+}
+
+[Serializable]
+public class BlockSpawnData
+{
+    public int maxCurrentBlocks;
+
+    public float spawnTime;
 }

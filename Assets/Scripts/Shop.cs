@@ -17,6 +17,8 @@ public class Shop : MonoBehaviour
 
     private UIManager uiManager;
 
+    private BlockSpawner blockSpawner;
+
     [SerializeField]
     private Player player;
 
@@ -33,6 +35,7 @@ public class Shop : MonoBehaviour
     {
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
         UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"));
 
@@ -86,6 +89,10 @@ public class Shop : MonoBehaviour
             playerMoneyMult += upgradedSkill.currentStatIncrease;
             dataSavingManager.SetOtherValue("MoneyMultiplier", playerMoneyMult);
             dataSavingManager.Save();
+        }
+        else if (upgradedSkill.type == SkillType.SPAWNSPEED)
+        {
+            blockSpawner.FlatSpawnSpeedIncrease(upgradedSkill.currentStatIncrease);
         }
     }
 

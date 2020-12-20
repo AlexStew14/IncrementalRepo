@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject shopPanel;
 
-    [SerializeField]
     private Shop shop;
 
     private TextMeshProUGUI currentMoney;
@@ -25,6 +24,7 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(false);
 
+        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
     }
 
@@ -83,5 +83,4 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
     }
-
 }

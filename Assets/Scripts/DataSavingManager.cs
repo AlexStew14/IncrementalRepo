@@ -78,6 +78,7 @@ public class DataSavingManager : MonoBehaviour
         catch (Exception)
         {
             Debug.Log("Game data file is corrupt and could not be loaded");
+            Delete();
         }
     }
 
@@ -148,13 +149,24 @@ public class DataSavingManager : MonoBehaviour
         gameData.playerData = playerData;
     }
 
+    public BlockSpawnData GetBlockSpawnData()
+    {
+        return gameData.blockSpawnData;
+    }
+
+    public void SetBlockSpawnData(BlockSpawnData blockSpawnData)
+    {
+        gameData.blockSpawnData = blockSpawnData;
+    }
+
     private void SeedGameData()
     {
         gameData = new GameData
         {
             OtherValues = SeedOtherValues(),
             playerData = SeedPlayerData(),
-            skillDictionary = SeedSkills()
+            skillDictionary = SeedSkills(),
+            blockSpawnData = SeedBlockSpawnData()
         };
     }
 
@@ -170,6 +182,15 @@ public class DataSavingManager : MonoBehaviour
             prestigeDmgMultiplier = 1.0f,
             runAtkSpeedMult = 1.0f,
             runDmgMultiplier = 1.0f
+        };
+    }
+
+    private BlockSpawnData SeedBlockSpawnData()
+    {
+        return new BlockSpawnData
+        {
+            maxCurrentBlocks = 3,
+            spawnTime = 3.0f
         };
     }
 
@@ -225,9 +246,24 @@ public class DataSavingManager : MonoBehaviour
                 nextStatIncrease = 1,
                 totalStatIncrease = 0,
                 level = 1,
-                maxLevel = 9,
+                maxLevel = 10,
                 type = SkillType.KILLREWARD,
                 upgradeCost = 15,
+                costFunction = (x) => (int)(x * 1.5f),
+                improvementFunction = (x) => x
+            });
+
+        skillDictionary.Add("SpawnSpeed",
+            new Skill
+            {
+                name = "SpawnSpeed",
+                currentStatIncrease = 0,
+                nextStatIncrease = .1f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 25,
+                type = SkillType.SPAWNSPEED,
+                upgradeCost = 20,
                 costFunction = (x) => (int)(x * 1.5f),
                 improvementFunction = (x) => x
             });
@@ -247,4 +283,6 @@ public class GameData
     public Dictionary<string, Skill> skillDictionary;
 
     public PlayerData playerData;
+
+    public BlockSpawnData blockSpawnData;
 }

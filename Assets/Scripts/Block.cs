@@ -31,11 +31,14 @@ public class Block : MonoBehaviour
 
     private Rigidbody2D physicsBody;
 
+    private BlockSpawner blockSpawner;
+
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
+        blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         physicsBody = GetComponent<Rigidbody2D>();
         InitializeHealthBar();
     }
@@ -81,11 +84,11 @@ public class Block : MonoBehaviour
         player.KilledBlock(this);
         Destroy(slider.gameObject);
         var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
-        // Destroy(effect, 1.0f);
         physicsBody.bodyType = RigidbodyType2D.Dynamic;
         physicsBody.WakeUp();
         // TODO THE BLOCK SHOULD FLY AWAY FROM THE DIRECTION THE PLAYER HIT IT.
         physicsBody.AddForce(new Vector2(Random.Range(-2000, 2000), Random.Range(-2000, 2000)));
+        blockSpawner.BlockDestroyed();
         Destroy(transform.gameObject, 1.0f);
     }
 

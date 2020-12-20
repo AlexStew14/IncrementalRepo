@@ -10,6 +10,9 @@ TagManager:
   - UIManager
   - Shop
   - HealthCanvas
+  - FxTemporaire
+  - BlockSpawner
+  - SkillButton
   layers:
   - Default
   - TransparentFX

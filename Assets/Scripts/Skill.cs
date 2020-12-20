@@ -13,7 +13,9 @@ public enum SkillType
     ATTKSPEED,
     ATTKSPEEDPCT,
     KILLREWARD,
-    KILLREWARDPCT
+    KILLREWARDPCT,
+    SPAWNSPEED,
+    SPAWNSPEEDPCT
 }
 
 /// <summary>
