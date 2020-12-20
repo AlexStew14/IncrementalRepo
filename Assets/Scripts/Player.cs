@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
+    [SerializeField]
+    private float speed = 1.0f;
+
+    private Vector3 clickPos = new Vector3(0,0,0);
+
     //   private 2Dbox
     // Start is called before the first frame update
     private void Start()
@@ -30,6 +35,8 @@ public class Player : MonoBehaviour
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
 
         playerData = dataSavingManager.GetPlayerData();
+
+        transform.position = clickPos;
     }
 
     private void Awake()
@@ -130,12 +137,19 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 pos = transform.position;
-        Vector3 temp = Input.mousePosition;
-        temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(temp);
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 temp = Input.mousePosition;
+            temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
+            clickPos = Camera.main.ScreenToWorldPoint(temp);
+            Debug.Log(clickPos);
+        }
+        if (transform.position != clickPos)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, clickPos, speed * Time.deltaTime);
+        }
 
-        this.transform.position = mousePos;
+        //this.transform.position = mousePos;
     }
 }
 
