@@ -14,6 +14,8 @@ public class Block : MonoBehaviour
 
     private bool colliding = false;
 
+    private bool isDead = false;
+
     private Player player;
 
     [SerializeField]
@@ -57,7 +59,7 @@ public class Block : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (colliding)
+        if (colliding && !isDead)
         {
             if (player.CanAttack())
             {
@@ -67,8 +69,6 @@ public class Block : MonoBehaviour
                 player.Attacked();
                 if (currentHealth <= 0)
                 {
-                    player.KilledBlock(this);
-                    Destroy(slider.gameObject);
                     Killed();
                 }
             }
@@ -77,10 +77,14 @@ public class Block : MonoBehaviour
 
     private void Killed()
     {
+        isDead = true;
+        player.KilledBlock(this);
+        Destroy(slider.gameObject);
         var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
         // Destroy(effect, 1.0f);
         physicsBody.bodyType = RigidbodyType2D.Dynamic;
         physicsBody.WakeUp();
+        // TODO THE BLOCK SHOULD FLY AWAY FROM THE DIRECTION THE PLAYER HIT IT.
         physicsBody.AddForce(new Vector2(Random.Range(-2000, 2000), Random.Range(-2000, 2000)));
         Destroy(transform.gameObject, 1.0f);
     }

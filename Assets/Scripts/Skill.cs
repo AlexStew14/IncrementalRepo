@@ -11,7 +11,9 @@ public enum SkillType
     DMG,
     DMGPCT,
     ATTKSPEED,
-    ATTKSPEEDPCT
+    ATTKSPEEDPCT,
+    KILLREWARD,
+    KILLREWARDPCT
 }
 
 /// <summary>
@@ -32,6 +34,8 @@ public class Skill
 
     // The current amount the skill is affecting the player, can be flat or percentage.
     public float currentStatIncrease { get; set; }
+
+    public float totalStatIncrease { get; set; }
 
     // The next value in the improvement function, used for displaying on ui.
     public float nextStatIncrease { get; set; }
@@ -74,6 +78,7 @@ public class Skill
 
         remainingMoney = currentMoney - upgradeCost;
         ++level;
+        totalStatIncrease += nextStatIncrease;
         currentStatIncrease = nextStatIncrease;
         nextStatIncrease = improvementFunction(currentStatIncrease);
         upgradeCost = costFunction(upgradeCost);

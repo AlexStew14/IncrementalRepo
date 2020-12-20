@@ -178,7 +178,8 @@ public class DataSavingManager : MonoBehaviour
         return new Dictionary<string, object>()
             {
                 { "TotalBlocksSpawned", 1 },
-                {"Money", startingMoney}
+                {"Money", startingMoney},
+                {"MoneyMultiplier", 1.0f }
             };
     }
 
@@ -192,6 +193,7 @@ public class DataSavingManager : MonoBehaviour
                 name = "Damage",
                 currentStatIncrease = 0,
                 nextStatIncrease = 1,
+                totalStatIncrease = 0,
                 level = 1,
                 maxLevel = 100,
                 type = SkillType.DMG,
@@ -212,6 +214,36 @@ public class DataSavingManager : MonoBehaviour
                 upgradeCost = 5,
                 costFunction = (x) => x * 2,
                 improvementFunction = (x) => ++x
+            });
+
+        skillDictionary.Add("AttackSpeed",
+            new Skill
+            {
+                name = "AttackSpeed",
+                currentStatIncrease = 0,
+                nextStatIncrease = .05f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 15,
+                type = SkillType.ATTKSPEED,
+                upgradeCost = 10,
+                costFunction = (x) => (int)(x * 1.7f),
+                improvementFunction = (x) => x
+            });
+
+        skillDictionary.Add("KillReward",
+            new Skill
+            {
+                name = "KillReward",
+                currentStatIncrease = 0,
+                nextStatIncrease = 1,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 9,
+                type = SkillType.KILLREWARD,
+                upgradeCost = 15,
+                costFunction = (x) => (int)(x * 1.5f),
+                improvementFunction = (x) => x
             });
 
         return skillDictionary;
