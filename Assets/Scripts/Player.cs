@@ -21,10 +21,7 @@ public class Player : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
-    [SerializeField]
-    private float speed = 1.0f;
-
-    private Vector3 clickPos = new Vector3(0,0,0);
+    private Vector3 clickPos = new Vector3(0, 0, 0);
 
     private Rigidbody2D rb;
 
@@ -41,7 +38,6 @@ public class Player : MonoBehaviour
         transform.position = clickPos;
         //rb = GetComponent<Rigidbody2D>();
         //rb.isKinematic = false;
-        
     }
 
     private void Awake()
@@ -151,7 +147,7 @@ public class Player : MonoBehaviour
         }
         if (transform.position != clickPos)
         {
-            transform.position = Vector3.MoveTowards(transform.position, clickPos, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.moveSpeed * Time.deltaTime);
         }
 
         //this.transform.position = mousePos;
@@ -188,4 +184,6 @@ public class PlayerData
     public float runAtkSpeedMult;
 
     public float prestigeAtkSpeedMult;
+
+    public float moveSpeed;
 }

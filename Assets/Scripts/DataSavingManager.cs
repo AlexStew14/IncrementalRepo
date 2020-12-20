@@ -181,7 +181,8 @@ public class DataSavingManager : MonoBehaviour
             prestigeAtkSpeedMult = 1.0f,
             prestigeDmgMultiplier = 1.0f,
             runAtkSpeedMult = 1.0f,
-            runDmgMultiplier = 1.0f
+            runDmgMultiplier = 1.0f,
+            moveSpeed = 1.0f
         };
     }
 
