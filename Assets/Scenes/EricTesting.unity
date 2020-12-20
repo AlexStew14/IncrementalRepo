@@ -1300,6 +1300,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 742786349}
+  buttons:
+  - {fileID: 1193260081}
+  - {fileID: 1960031693}
+  - {fileID: 398959054}
+  - {fileID: 1220884462}
 --- !u!1 &913148792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa754806df745934fbe14fe9761d6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 500
+  startingMoney: 50000
 --- !u!1 &1383883766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2263,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 5337500704207960144, guid: 4dd0c379ec567ea409696f937a0a6399, type: 3}
+  blockSpawnData:
+    maxCurrentBlocks: 0
+    spawnTime: 0
 --- !u!4 &1383883768
 Transform:
   m_ObjectHideFlags: 0
@@ -2683,7 +2691,7 @@ MonoBehaviour:
     finalAttackSpeed: 0
     runAtkSpeedMult: 0
     prestigeAtkSpeedMult: 0
-  speed: 1
+    moveSpeed: 0
 --- !u!61 &1709711388
 BoxCollider2D:
   m_ObjectHideFlags: 0
