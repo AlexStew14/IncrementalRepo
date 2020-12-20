@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject pink_guy;
     private Animator anim;
-    private float cdValue;
+    private bool moving = false;
+    private SpriteRenderer sprite;
 
     //   private 2Dbox
     // Start is called before the first frame update
@@ -41,10 +42,9 @@ public class Player : MonoBehaviour
         playerData = dataSavingManager.GetPlayerData();
 
         transform.position = clickPos;
-        //rb = GetComponent<Rigidbody2D>();
-        //rb.isKinematic = false;
 
         anim = pink_guy.GetComponent<Animator>();
+        sprite = pink_guy.GetComponent<SpriteRenderer>();
     }
 
     private void Awake()
@@ -91,8 +91,7 @@ public class Player : MonoBehaviour
     public void Attacked()
     {
         soundManager.PlayAttack();
-        anim.SetBool("Punch", true);
-        StartCoroutine(StartCountdown(1.0f));
+        //anim.SetTrigger("Punch");
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
@@ -143,6 +142,8 @@ public class Player : MonoBehaviour
                 damageTimerRunning = false;
             }
         }
+
+        anim.SetBool("Moving", moving);
     }
 
     private void MovePlayer()
@@ -152,37 +153,32 @@ public class Player : MonoBehaviour
             Vector3 temp = Input.mousePosition;
             temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
             clickPos = Camera.main.ScreenToWorldPoint(temp);
-            anim.SetBool("Moving", true);
-            //Debug.Log(clickPos);
+            moving = true;
+
+            if (clickPos.x < 0)
+            {
+                sprite.flipX = true;
+            }
+            else if (clickPos.x >= 0)
+            {
+                sprite.flipX = false;
+            }
         }
-        if (transform.position != clickPos)
+
+        if (transform.position != clickPos && moving)
         {
             transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.moveSpeed * Time.deltaTime);
-            anim.SetBool("Moving", true);
         }
         else
         {
-            anim.SetBool("Moving", false);
+            moving = false;
         }
-
-        //this.transform.position = mousePos;
     }
 
     public void StopMoving()
     {
         clickPos = transform.position;
-        anim.SetBool("Moving", false);
-    }
-
-    private IEnumerator StartCountdown(float countdownValue)
-    {
-        cdValue = countdownValue;
-        while (cdValue > 0)
-        {
-            yield return new WaitForSeconds(0.1f);
-            cdValue--;
-        }
-        anim.SetBool("Punch", false);
+        moving = false;
     }
 }
 
