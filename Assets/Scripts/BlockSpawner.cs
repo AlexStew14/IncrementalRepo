@@ -29,7 +29,7 @@ public class BlockSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            Vector2 randPos = new Vector2(Random.Range(-11f, 10f), Random.Range(-4.5f, 4.5f));
+            Vector2 randPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-4f, 4));
             var block = Instantiate(blockPrefab, randPos, transform.rotation);
             timer = Random.Range(1.0f, upperSpawnTimerBound);
             TotalBlocksSpawned++;

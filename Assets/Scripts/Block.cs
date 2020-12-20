@@ -47,7 +47,7 @@ public class Block : MonoBehaviour
         slider.value = maxHealth;
 
         var pos = Camera.main.WorldToScreenPoint(transform.position);
-        pos.y += 40.0f;
+        pos.y += 80.0f;
         slider.transform.position = pos;
         slider.transform.SetParent(healthCanvas.transform, true);
     }
