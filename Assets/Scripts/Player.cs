@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private GameObject pink_guy;
+    private Animator anim;
+    private float cdValue;
+
     //   private 2Dbox
     // Start is called before the first frame update
     private void Start()
@@ -38,6 +43,8 @@ public class Player : MonoBehaviour
         transform.position = clickPos;
         //rb = GetComponent<Rigidbody2D>();
         //rb.isKinematic = false;
+
+        anim = pink_guy.GetComponent<Animator>();
     }
 
     private void Awake()
@@ -84,6 +91,8 @@ public class Player : MonoBehaviour
     public void Attacked()
     {
         soundManager.PlayAttack();
+        anim.SetBool("Punch", true);
+        StartCoroutine(StartCountdown(1.0f));
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
@@ -143,11 +152,17 @@ public class Player : MonoBehaviour
             Vector3 temp = Input.mousePosition;
             temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
             clickPos = Camera.main.ScreenToWorldPoint(temp);
+            anim.SetBool("Moving", true);
             //Debug.Log(clickPos);
         }
         if (transform.position != clickPos)
         {
             transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.moveSpeed * Time.deltaTime);
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
         }
 
         //this.transform.position = mousePos;
@@ -156,6 +171,18 @@ public class Player : MonoBehaviour
     public void StopMoving()
     {
         clickPos = transform.position;
+        anim.SetBool("Moving", false);
+    }
+
+    private IEnumerator StartCountdown(float countdownValue)
+    {
+        cdValue = countdownValue;
+        while (cdValue > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            cdValue--;
+        }
+        anim.SetBool("Punch", false);
     }
 }
 
