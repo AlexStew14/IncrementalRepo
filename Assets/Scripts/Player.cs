@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
 
     private Vector3 clickPos = new Vector3(0,0,0);
 
+    private Rigidbody2D rb;
+
     //   private 2Dbox
     // Start is called before the first frame update
     private void Start()
@@ -37,6 +39,9 @@ public class Player : MonoBehaviour
         playerData = dataSavingManager.GetPlayerData();
 
         transform.position = clickPos;
+        //rb = GetComponent<Rigidbody2D>();
+        //rb.isKinematic = false;
+        
     }
 
     private void Awake()
@@ -142,7 +147,7 @@ public class Player : MonoBehaviour
             Vector3 temp = Input.mousePosition;
             temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
             clickPos = Camera.main.ScreenToWorldPoint(temp);
-            Debug.Log(clickPos);
+            //Debug.Log(clickPos);
         }
         if (transform.position != clickPos)
         {
@@ -150,6 +155,11 @@ public class Player : MonoBehaviour
         }
 
         //this.transform.position = mousePos;
+    }
+
+    public void StopMoving()
+    {
+        clickPos = transform.position;
     }
 }
 

@@ -75,12 +75,14 @@ public class Block : MonoBehaviour
                     Killed();
                 }
             }
+            player.StopMoving();
         }
     }
 
     private void Killed()
     {
         isDead = true;
+        gameObject.layer = 6;
         player.KilledBlock(this);
         Destroy(slider.gameObject);
         var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
