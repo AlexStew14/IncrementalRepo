@@ -201,20 +201,6 @@ public class DataSavingManager : MonoBehaviour
                 costFunction = (x) => x * 2,
                 improvementFunction = (x) => ++x
             });
-        skillDictionary.Add("AttackSpeed",
-            new Skill
-            {
-                //todo fix stats 
-                name = "AttackSpeed",
-                currentStatIncrease = 0,
-                nextStatIncrease = 1,
-                level = 1,
-                maxLevel = 100,
-                type = SkillType.ATTKSPEED,
-                upgradeCost = 5,
-                costFunction = (x) => x * 2,
-                improvementFunction = (x) => ++x
-            });
 
         skillDictionary.Add("AttackSpeed",
             new Skill
