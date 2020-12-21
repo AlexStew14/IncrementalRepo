@@ -6,43 +6,39 @@ using UnityEngine.SceneManagement;
 public class ButtonControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     /// <summary>
-    /// OnClick method for the start button being pressed 
+    /// OnClick method for the start button being pressed
     /// </summary>
     public void StartPressed()
     {
-        SceneManager.LoadScene("EricTesting");
+        SceneManager.LoadScene("Test2Scene");
     }
 
     /// <summary>
-    /// OnClick method for the start button being pressed 
+    /// OnClick method for the start button being pressed
     /// </summary>
     public void HowToPlayPressed()
     {
-        
     }
 
     /// <summary>
-    /// OnClick method for the start button being pressed 
+    /// OnClick method for the start button being pressed
     /// </summary>
     public void SettingsPressed()
     {
-        
     }
 
     /// <summary>
-    /// OnClick method for the start button being pressed 
+    /// OnClick method for the start button being pressed
     /// </summary>
     public void QuitPressed()
     {
