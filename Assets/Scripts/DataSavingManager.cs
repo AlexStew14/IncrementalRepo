@@ -36,7 +36,9 @@ public class DataSavingManager : MonoBehaviour
 
     #endregion Unity Methods
 
-    public void InitializeGameData()
+    #region Save/Load/Delete File Methods
+
+    private void InitializeGameData()
     {
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
@@ -97,6 +99,10 @@ public class DataSavingManager : MonoBehaviour
         else
             Debug.Log("No save data to delete.");
     }
+
+    #endregion
+
+    #region Get/Set Value Methods
 
     public Skill GetSkill(string key)
     {
@@ -159,6 +165,28 @@ public class DataSavingManager : MonoBehaviour
         gameData.blockSpawnData = blockSpawnData;
     }
 
+    public HelperData GetHelperData(string key)
+    {
+        return
+            (
+                (gameData.HelperDictionary.ContainsKey(key))
+                ? gameData.HelperDictionary[key]
+                : null
+            );
+    }
+
+    public void SetHelperData(string key, HelperData value)
+    {
+        if (gameData.HelperDictionary.ContainsKey(key))
+            gameData.HelperDictionary[key] = value;
+        else
+            gameData.HelperDictionary.Add(key, value);
+    }
+
+    #endregion
+
+    #region Seed Data Methods
+
     private void SeedGameData()
     {
         gameData = new GameData
@@ -184,6 +212,27 @@ public class DataSavingManager : MonoBehaviour
             runDmgMultiplier = 1.0f,
             moveSpeed = 1.0f
         };
+    }
+
+    private Dictionary<string, HelperData> SeedHelperData()
+    {
+        Dictionary<string, HelperData> helperDictionary = new Dictionary<string, HelperData>();
+
+        helperDictionary.Add("Helper1",
+            new HelperData
+            {
+                baseAttackSpeed = 1.0f,
+                baseDamage = 1.0f,
+                finalAttackSpeed = 1.0f,
+                finalDamage = 1.0f,
+                prestigeAtkSpeedMult = 1.0f,
+                prestigeDmgMultiplier = 1.0f,
+                runAtkSpeedMult = 1.0f,
+                runDmgMultiplier = 1.0f,
+                moveSpeed = 1.0f
+            });
+
+        return helperDictionary;
     }
 
     private BlockSpawnData SeedBlockSpawnData()
@@ -271,6 +320,8 @@ public class DataSavingManager : MonoBehaviour
 
         return skillDictionary;
     }
+
+    #endregion
 }
 
 /// <summary>
@@ -282,6 +333,8 @@ public class GameData
     public Dictionary<string, object> OtherValues;
 
     public Dictionary<string, Skill> skillDictionary;
+
+    public Dictionary<string, HelperData> HelperDictionary;
 
     public PlayerData playerData;
 

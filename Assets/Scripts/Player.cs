@@ -8,12 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    private float damageTimeRemaining = -1.0f;
-
-    private bool damageTimerRunning = false;
-
-    [SerializeField]
-    private PlayerData playerData;
+    #region Private Fields
 
     private SoundManager soundManager;
 
@@ -21,17 +16,29 @@ public class Player : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
-    private Vector3 clickPos = new Vector3(0, 0, 0);
+    [SerializeField]
+    private PlayerData playerData;
 
-    private Rigidbody2D rb;
-
+    // Animation Fields
     [SerializeField]
     private GameObject pink_guy;
     private Animator anim;
+
+    // Movement Fields
+    private Vector3 clickPos = new Vector3(0, 0, 0);
     private bool moving = false;
+
+    // Attack Speed handling
+    private float damageTimeRemaining = -1.0f;
+    private bool damageTimerRunning = false;
+    
+    // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
-    //   private 2Dbox
+    #endregion
+
+    #region Unity Methods
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -52,6 +59,29 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    // Update is called once per frame
+    private void Update()
+    {
+        MovePlayer();
+
+        if (damageTimerRunning)
+        {
+            if (damageTimeRemaining > 0)
+            {
+                damageTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                damageTimerRunning = false;
+            }
+        }
+
+        anim.SetBool("Moving", moving);
+    }
+
+    #endregion
+
+    #region Skill Methods
     private void UpdateDamage()
     {
         playerData.finalDamage = playerData.baseDamage * playerData.prestigeDmgMultiplier * playerData.runDmgMultiplier;
@@ -116,50 +146,24 @@ public class Player : MonoBehaviour
         dataSavingManager.Save();
     }
 
-    /// <summary>
-    /// This will handle the rewards for the player killing enemy.
-    /// </summary>
-    /// <param name="block"></param>
-    public void KilledBlock(Block block)
-    {
-        shop.KilledBlock(block.GetKillReward());
-        soundManager.PlayBlockDestroyed();
-    }
+    #endregion
 
-    // Update is called once per frame
-    private void Update()
-    {
-        MovePlayer();
-
-        if (damageTimerRunning)
-        {
-            if (damageTimeRemaining > 0)
-            {
-                damageTimeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                damageTimerRunning = false;
-            }
-        }
-
-        anim.SetBool("Moving", moving);
-    }
+    #region Movement
 
     private void MovePlayer()
     {
         if (Input.GetMouseButton(0))
         {
             Vector3 temp = Input.mousePosition;
-            temp.z = 10f; // Set this to be the distance you want the object to be placed in front of the camera.
+            temp.z = 10f; 
             clickPos = Camera.main.ScreenToWorldPoint(temp);
             moving = true;
 
-            if (clickPos.x < 0)
+            if (clickPos.x < transform.position.x)
             {
                 sprite.flipX = true;
             }
-            else if (clickPos.x >= 0)
+            else if (clickPos.x >= transform.position.x)
             {
                 sprite.flipX = false;
             }
@@ -180,8 +184,27 @@ public class Player : MonoBehaviour
         clickPos = transform.position;
         moving = false;
     }
+
+    #endregion
+
+    #region Block Death Events
+
+    /// <summary>
+    /// This will handle the rewards for the player killing enemy.
+    /// </summary>
+    /// <param name="block"></param>
+    public void KilledBlock(Block block)
+    {
+        shop.KilledBlock(block.GetKillReward());
+        soundManager.PlayBlockDestroyed();
+    }
+
+    #endregion
 }
 
+/// <summary>
+/// Stores the base and final stats for the players skills as well as their prestige multiplies.
+/// </summary>
 [Serializable]
 public class PlayerData
 {

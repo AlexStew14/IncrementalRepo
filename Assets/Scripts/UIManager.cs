@@ -63,8 +63,7 @@ public class UIManager : MonoBehaviour
     public void UpgradeSkill(Button skillButton)
     {
         string skillName = skillButton.name;
-        Skill upgradedSkill;
-        if (shop.UpgradeSkill(skillName, out upgradedSkill))
+        if (shop.UpgradeSkill(skillName, out Skill upgradedSkill))
         {
             SetDescriptionText(skillButton, upgradedSkill);
         }
@@ -74,6 +73,14 @@ public class UIManager : MonoBehaviour
     {
         var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
         description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
+        if (shop.GetMoney() < skill.upgradeCost)
+        {
+            skillButton.interactable = false;
+        }
+        else
+        {
+            skillButton.interactable = true; ;
+        }
     }
 
     /// <summary>

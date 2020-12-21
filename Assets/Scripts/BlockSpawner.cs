@@ -17,7 +17,13 @@ public class BlockSpawner : MonoBehaviour
     [SerializeField]
     private BlockSpawnData blockSpawnData;
 
+    public Dictionary<int, Transform> BlockDictionary { get; private set; }
+
     public int TotalBlocksSpawned { get; private set; }
+
+
+    [SerializeField]
+    private Sprite[] blockSprites;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +31,7 @@ public class BlockSpawner : MonoBehaviour
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         TotalBlocksSpawned = (int)dataSavingManager.GetOtherValue("TotalBlocksSpawned");
         blockSpawnData = dataSavingManager.GetBlockSpawnData();
+        BlockDictionary = new Dictionary<int, Transform>();
     }
 
     // Update is called once per frame
@@ -44,12 +51,14 @@ public class BlockSpawner : MonoBehaviour
     private void CreateBlock()
     {
         Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
-        var block = Instantiate(blockPrefab, randPos, transform.rotation);
+        Transform block = Instantiate(blockPrefab, randPos, transform.rotation);
 
         ++TotalBlocksSpawned;
         ++currentBlockCount;
 
         dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
+
+        BlockDictionary.Add(TotalBlocksSpawned, block);
     }
 
     public void BlockDestroyed()

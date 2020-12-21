@@ -109,10 +109,12 @@ public class Shop : MonoBehaviour
     {
         upgradedSkill = skillDictionary[skillName];
         if (upgradedSkill == null)
+        {
             return false;
+        }
 
-        int remainingMoney;
-        if (upgradedSkill.Upgrade(playerMoney, out remainingMoney))
+
+        if (upgradedSkill.Upgrade(playerMoney, out int remainingMoney))
         {
             UpdatePlayerMoneyAndUI(remainingMoney);
 
@@ -124,5 +126,10 @@ public class Shop : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public int GetMoney()
+    {
+        return playerMoney;
     }
 }
