@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class Shop : MonoBehaviour
 {
+    #region Private Fields
+
     /// <summary>
     /// This dictionary holds all skills with the skillName being the key.
     /// </summary>
@@ -30,6 +32,10 @@ public class Shop : MonoBehaviour
 
     private float playerMoneyMult;
 
+    #endregion Private Fields
+
+    #region Unity Methods
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -51,6 +57,15 @@ public class Shop : MonoBehaviour
     {
     }
 
+    #endregion Unity Methods
+
+    #region Money Handling
+
+    /// <summary>
+    /// This method is called by the player when a block is killed and handles the reward money for killing
+    /// blocks.
+    /// </summary>
+    /// <param name="killReward"></param>
     public void KilledBlock(int killReward)
     {
         UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney);
@@ -68,6 +83,19 @@ public class Shop : MonoBehaviour
         dataSavingManager.SetOtherValue("Money", money);
         dataSavingManager.Save();
     }
+
+    /// <summary>
+    /// Getter for the player's money.
+    /// </summary>
+    /// <returns></returns>
+    public int GetMoney()
+    {
+        return playerMoney;
+    }
+
+    #endregion Money Handling
+
+    #region Player Upgrading
 
     /// <summary>
     /// This method is called after skills are upgraded and changes the player to reflect the skill upgrades.
@@ -113,7 +141,6 @@ public class Shop : MonoBehaviour
             return false;
         }
 
-
         if (upgradedSkill.Upgrade(playerMoney, out int remainingMoney))
         {
             UpdatePlayerMoneyAndUI(remainingMoney);
@@ -128,8 +155,5 @@ public class Shop : MonoBehaviour
         return false;
     }
 
-    public int GetMoney()
-    {
-        return playerMoney;
-    }
+    #endregion Player Upgrading
 }

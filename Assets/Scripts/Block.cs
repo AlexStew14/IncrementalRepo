@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Block : MonoBehaviour
 {
+    #region Private Fields
+
     [SerializeField]
     private float maxHealth = 5.0f;
 
@@ -33,6 +35,10 @@ public class Block : MonoBehaviour
 
     private BlockSpawner blockSpawner;
 
+    #endregion Private Fields
+
+    #region Unity Methods
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -43,23 +49,15 @@ public class Block : MonoBehaviour
         InitializeHealthBar();
     }
 
-    private void InitializeHealthBar()
-    {
-        slider.maxValue = maxHealth;
-        slider.minValue = 0f;
-        slider.value = maxHealth;
-
-        var pos = Camera.main.WorldToScreenPoint(transform.position);
-        pos.y += 80.0f;
-        slider.transform.position = pos;
-        slider.transform.SetParent(healthCanvas.transform, true);
-    }
-
     // Update is called once per frame
     private void Update()
     {
     }
 
+    /// <summary>
+    /// Handles physics and collisions.
+    /// Blocks take damage when they collide with player if the player can attack.
+    /// </summary>
     private void FixedUpdate()
     {
         if (colliding && !isDead)
@@ -79,6 +77,61 @@ public class Block : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Unity method for collision enter.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject c = collision.gameObject;
+
+        if (c.tag == "Player")
+        {
+            colliding = true;
+        }
+    }
+
+    /// <summary>
+    /// Unity method for collision exit.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        GameObject c = collision.gameObject;
+
+        if (c.tag == "Player")
+        {
+            colliding = false;
+        }
+    }
+
+    #endregion Unity Methods
+
+    #region UI Methods
+
+    /// <summary>
+    /// Setups health bar for this block on spawn.
+    /// </summary>
+    private void InitializeHealthBar()
+    {
+        slider.maxValue = maxHealth;
+        slider.minValue = 0f;
+        slider.value = maxHealth;
+
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        pos.y += 80.0f;
+        slider.transform.position = pos;
+        slider.transform.SetParent(healthCanvas.transform, true);
+    }
+
+    #endregion UI Methods
+
+    #region Death Methods
+
+    /// <summary>
+    /// This method is called when the block is killed.
+    /// It displays death effects and notifies the player that the block was killed.
+    /// </summary>
     private void Killed()
     {
         isDead = true;
@@ -94,28 +147,14 @@ public class Block : MonoBehaviour
         Destroy(transform.gameObject, 1.0f);
     }
 
+    /// <summary>
+    /// Simple getter for the kill reward
+    /// </summary>
+    /// <returns></returns>
     public int GetKillReward()
     {
         return killReward;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject c = collision.gameObject;
-
-        if (c.tag == "Player")
-        {
-            colliding = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        GameObject c = collision.gameObject;
-
-        if (c.tag == "Player")
-        {
-            colliding = false;
-        }
-    }
+    #endregion Death Methods
 }

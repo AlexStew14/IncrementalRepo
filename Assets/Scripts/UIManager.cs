@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// </summary>
 public class UIManager : MonoBehaviour
 {
+    #region Private Fields
+
     [SerializeField]
     private GameObject shopPanel;
 
@@ -16,8 +18,15 @@ public class UIManager : MonoBehaviour
 
     private TextMeshProUGUI currentMoney;
 
+    /// <summary>
+    /// Buttons used for skills in the shop panel.
+    /// </summary>
     [SerializeField]
     private Button[] buttons;
+
+    #endregion Private Fields
+
+    #region Unity Methods
 
     // Start is called before the first frame update
     private void Start()
@@ -28,8 +37,13 @@ public class UIManager : MonoBehaviour
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
     }
 
+    #endregion Unity Methods
+
+    #region Skill UI Methods
+
     /// <summary>
     /// Called by the shop when the game starts.
+    /// Sets up the ui of each skill.
     /// </summary>
     /// <param name="skillDictionary"></param>
     public void LoadSkillDescriptions(Dictionary<string, Skill> skillDictionary)
@@ -42,30 +56,6 @@ public class UIManager : MonoBehaviour
                 continue;
 
             SetDescriptionText(b, s);
-        }
-    }
-
-    /// <summary>
-    /// Called by shop when the player's money changes.
-    /// </summary>
-    /// <param name="money"></param>
-    public void SetMoneyText(int money)
-    {
-        currentMoney.text = "Money: " + money;
-    }
-
-    /// <summary>
-    /// This method is called by clicking the shop buttons for skill upgrades.
-    /// The method takes in the button that clicks it.
-    /// This calls UpgradeSkill on the shop and sets the description text for display.
-    /// </summary>
-    /// <param name="skillButton"></param>
-    public void UpgradeSkill(Button skillButton)
-    {
-        string skillName = skillButton.name;
-        if (shop.UpgradeSkill(skillName, out Skill upgradedSkill))
-        {
-            SetDescriptionText(skillButton, upgradedSkill);
         }
     }
 
@@ -84,10 +74,36 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Called by shop when the player's money changes.
+    /// </summary>
+    /// <param name="money"></param>
+    public void SetMoneyText(int money)
+    {
+        currentMoney.text = "Money: " + money;
+    }
+
+    /// <summary>
     /// This method is called by the shop button and toggles the shopPanel
     /// </summary>
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
     }
+
+    /// <summary>
+    /// This method is called by clicking the shop buttons for skill upgrades.
+    /// The method takes in the button that clicks it.
+    /// This calls UpgradeSkill on the shop and sets the description text for display.
+    /// </summary>
+    /// <param name="skillButton"></param>
+    public void UpgradeSkill(Button skillButton)
+    {
+        string skillName = skillButton.name;
+        if (shop.UpgradeSkill(skillName, out Skill upgradedSkill))
+        {
+            SetDescriptionText(skillButton, upgradedSkill);
+        }
+    }
+
+    #endregion Skill UI Methods
 }
