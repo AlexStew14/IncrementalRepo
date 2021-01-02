@@ -100,7 +100,7 @@ public class DataSavingManager : MonoBehaviour
             Debug.Log("No save data to delete.");
     }
 
-    #endregion
+    #endregion Save/Load/Delete File Methods
 
     #region Get/Set Value Methods
 
@@ -183,7 +183,7 @@ public class DataSavingManager : MonoBehaviour
             gameData.HelperDictionary.Add(key, value);
     }
 
-    #endregion
+    #endregion Get/Set Value Methods
 
     #region Seed Data Methods
 
@@ -318,10 +318,25 @@ public class DataSavingManager : MonoBehaviour
                 improvementFunction = (x) => x
             });
 
+        skillDictionary.Add("MovementSpeed",
+            new Skill
+            {
+                name = "MovementSpeed",
+                currentStatIncrease = 0,
+                nextStatIncrease = .15f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 25,
+                type = SkillType.MOVEMENTSPEED,
+                upgradeCost = 20,
+                costFunction = (x) => (int)(x * 1.5f),
+                improvementFunction = (x) => x
+            });
+
         return skillDictionary;
     }
 
-    #endregion
+    #endregion Seed Data Methods
 }
 
 /// <summary>
