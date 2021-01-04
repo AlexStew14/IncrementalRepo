@@ -24,6 +24,9 @@ public class Block : MonoBehaviour
     private int killReward = 1;
 
     [SerializeField]
+    private int killExpReward = 10;
+
+    [SerializeField]
     private Slider slider;
 
     [SerializeField]
@@ -154,6 +157,11 @@ public class Block : MonoBehaviour
     public int GetKillReward()
     {
         return killReward;
+    }
+
+    public int GetKillExpReward()
+    {
+        return killExpReward;
     }
 
     #endregion Death Methods

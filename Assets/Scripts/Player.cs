@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
@@ -210,7 +210,9 @@ public class Player : MonoBehaviour
     public void KilledBlock(Block block)
     {
         shop.KilledBlock(block.GetKillReward());
+        playerData.level += block.GetKillExpReward();
         soundManager.PlayBlockDestroyed();
+        Debug.Log(playerData.level);
     }
 
     #endregion Block Death Events
@@ -222,6 +224,8 @@ public class Player : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
+    public float level;
+
     // This represents the base damage before multipliers are applied.
     public float baseDamage;
 

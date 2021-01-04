@@ -202,6 +202,7 @@ public class DataSavingManager : MonoBehaviour
     {
         return new PlayerData
         {
+            level = 1000.0f,
             baseAttackSpeed = 1.0f,
             baseDamage = 1.0f,
             finalAttackSpeed = 1.0f,
