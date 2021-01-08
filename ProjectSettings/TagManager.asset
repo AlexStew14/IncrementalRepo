@@ -13,6 +13,8 @@ TagManager:
   - FxTemporaire
   - BlockSpawner
   - SkillButton
+  - Exp
+  - LevelText
   layers:
   - Default
   - TransparentFX

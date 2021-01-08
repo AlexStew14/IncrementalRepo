@@ -22,20 +22,23 @@ public class Player : MonoBehaviour
     // Animation Fields
     [SerializeField]
     private GameObject pink_guy;
+
     private Animator anim;
 
     // Movement Fields
     private Vector3 clickPos = new Vector3(0, 0, 0);
+
     private bool moving = false;
 
     // Attack Speed handling
     private float damageTimeRemaining = -1.0f;
+
     private bool damageTimerRunning = false;
-    
+
     // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
-    #endregion
+    #endregion Private Fields
 
     #region Unity Methods
 
@@ -79,9 +82,10 @@ public class Player : MonoBehaviour
         anim.SetBool("Moving", moving);
     }
 
-    #endregion
+    #endregion Unity Methods
 
     #region Skill Methods
+
     private void UpdateDamage()
     {
         playerData.finalDamage = playerData.baseDamage * playerData.prestigeDmgMultiplier * playerData.runDmgMultiplier;
@@ -134,19 +138,29 @@ public class Player : MonoBehaviour
     {
         playerData.baseDamage += damageIncrease;
         UpdateDamage();
-        dataSavingManager.SetPlayerData(playerData);
-        dataSavingManager.Save();
+        SavePlayerData();
     }
 
     public void FlatAttackSpeedIncrease(float attkSpeedIncrease)
     {
         playerData.baseAttackSpeed -= attkSpeedIncrease;
         UpdateAttackSpeed();
+        SavePlayerData();
+    }
+
+    public void FlatMovementSpeedIncrease(float movementSpeedIncrease)
+    {
+        playerData.moveSpeed += movementSpeedIncrease;
+        SavePlayerData();
+    }
+
+    private void SavePlayerData()
+    {
         dataSavingManager.SetPlayerData(playerData);
         dataSavingManager.Save();
     }
 
-    #endregion
+    #endregion Skill Methods
 
     #region Movement
 
@@ -155,7 +169,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 temp = Input.mousePosition;
-            temp.z = 10f; 
+            temp.z = 10f;
             clickPos = Camera.main.ScreenToWorldPoint(temp);
             moving = true;
 
@@ -185,7 +199,7 @@ public class Player : MonoBehaviour
         moving = false;
     }
 
-    #endregion
+    #endregion Movement
 
     #region Block Death Events
 
@@ -196,10 +210,12 @@ public class Player : MonoBehaviour
     public void KilledBlock(Block block)
     {
         shop.KilledBlock(block.GetKillReward());
+        playerData.level += block.GetKillExpReward();
         soundManager.PlayBlockDestroyed();
+        Debug.Log(playerData.level);
     }
 
-    #endregion
+    #endregion Block Death Events
 }
 
 /// <summary>
@@ -208,6 +224,8 @@ public class Player : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
+    public float level;
+
     // This represents the base damage before multipliers are applied.
     public float baseDamage;
 

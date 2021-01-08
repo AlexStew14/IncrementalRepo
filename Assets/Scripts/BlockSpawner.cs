@@ -24,7 +24,8 @@ public class BlockSpawner : MonoBehaviour
     public int TotalBlocksSpawned { get; private set; }
 
     [SerializeField]
-    private Sprite[] blockSprites;
+    private Sprite[] currentBlockSpriteArray;
+
 
     #endregion
 
@@ -63,6 +64,10 @@ public class BlockSpawner : MonoBehaviour
     {
         Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
         Transform block = Instantiate(blockPrefab, randPos, transform.rotation);
+
+        SpriteRenderer blockSprite = block.gameObject.GetComponent<SpriteRenderer>();
+
+        blockSprite.sprite = currentBlockSpriteArray[(int)UnityEngine.Random.Range(0f, 5f)];
 
         ++TotalBlocksSpawned;
         ++currentBlockCount;
