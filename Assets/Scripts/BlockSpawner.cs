@@ -5,6 +5,8 @@ using System;
 
 public class BlockSpawner : MonoBehaviour
 {
+    #region Fields
+
     // Set in inspector
     public Transform blockPrefab;
 
@@ -21,9 +23,13 @@ public class BlockSpawner : MonoBehaviour
 
     public int TotalBlocksSpawned { get; private set; }
 
-
     [SerializeField]
     private Sprite[] blockSprites;
+
+    #endregion
+
+
+    #region Unity Methods
 
     // Start is called before the first frame update
     private void Start()
@@ -47,6 +53,11 @@ public class BlockSpawner : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+
+    #region Block Spawning Methods
 
     private void CreateBlock()
     {
@@ -72,6 +83,8 @@ public class BlockSpawner : MonoBehaviour
         dataSavingManager.SetBlockSpawnData(blockSpawnData);
         dataSavingManager.Save();
     }
+
+    #endregion
 }
 
 [Serializable]
