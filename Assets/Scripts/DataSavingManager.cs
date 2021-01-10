@@ -222,16 +222,8 @@ public class DataSavingManager : MonoBehaviour
         helperDictionary.Add("Helper1",
             new HelperData
             {
-                baseAttackSpeed = 1.0f,
                 baseDamage = 1.0f,
-                finalAttackSpeed = 1.0f,
-                finalDamage = 1.0f,
-                prestigeAtkSpeedMult = 1.0f,
-                prestigeDmgMultiplier = 1.0f,
-                runAtkSpeedMult = 1.0f,
-                runDmgMultiplier = 1.0f,
-                moveSpeed = 1.0f
-            });
+            }); ;
 
         return helperDictionary;
     }

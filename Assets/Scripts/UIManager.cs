@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
 
         parent.Find("Level").gameObject.GetComponent<TextMeshProUGUI>().text = "Lv. " + skill.level;
         parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>().text = "+" + skill.nextStatIncrease;
-        parent.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
+        skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
 
         //description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
         /*if (shop.GetMoney() < skill.upgradeCost)
