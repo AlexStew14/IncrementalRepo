@@ -91,6 +91,7 @@ public class Block : MonoBehaviour
         if (c.tag == "Player")
         {
             colliding = true;
+            player.Punching(true);
         }
     }
 
@@ -105,6 +106,7 @@ public class Block : MonoBehaviour
         if (c.tag == "Player")
         {
             colliding = false;
+            player.Punching(false);
         }
     }
 

@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
+    public bool canMove = true;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -65,7 +67,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        MovePlayer();
+        if (canMove)
+            MovePlayer();
 
         if (damageTimerRunning)
         {
@@ -125,7 +128,7 @@ public class Player : MonoBehaviour
     public void Attacked()
     {
         soundManager.PlayAttack();
-        //anim.SetTrigger("Punch");
+
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
@@ -197,6 +200,11 @@ public class Player : MonoBehaviour
     {
         clickPos = transform.position;
         moving = false;
+    }
+
+    public void Punching(bool b)
+    {
+        anim.SetBool("Punching", b);
     }
 
     #endregion Movement

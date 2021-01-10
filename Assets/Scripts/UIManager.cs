@@ -18,11 +18,19 @@ public class UIManager : MonoBehaviour
 
     private TextMeshProUGUI currentMoney;
 
+    private Player player;
+
     /// <summary>
     /// Buttons used for skills in the shop panel.
     /// </summary>
     [SerializeField]
     private Button[] buttons;
+
+    /// <summary>
+    /// Panels used for displaying different shop sections.
+    /// </summary>
+    [SerializeField]
+    private GameObject[] panels;
 
     #endregion Private Fields
 
@@ -35,6 +43,7 @@ public class UIManager : MonoBehaviour
 
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     #endregion Unity Methods
@@ -61,16 +70,22 @@ public class UIManager : MonoBehaviour
 
     private void SetDescriptionText(Button skillButton, Skill skill)
     {
-        var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
-        description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
-        if (shop.GetMoney() < skill.upgradeCost)
+        //var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
+        var parent = skillButton.gameObject.transform.parent;
+
+        parent.Find("Level").gameObject.GetComponent<TextMeshProUGUI>().text = "Lv. " + skill.level;
+        parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>().text = "+" + skill.nextStatIncrease;
+        parent.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
+
+        //description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
+        /*if (shop.GetMoney() < skill.upgradeCost)
         {
             skillButton.interactable = false;
         }
         else
         {
             skillButton.interactable = true; ;
-        }
+        }*/
     }
 
     /// <summary>
@@ -88,6 +103,8 @@ public class UIManager : MonoBehaviour
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
+        player.StopMoving();
+        player.canMove = !player.canMove;
     }
 
     /// <summary>
@@ -103,6 +120,16 @@ public class UIManager : MonoBehaviour
         {
             SetDescriptionText(skillButton, upgradedSkill);
         }
+    }
+
+    public void SwitchPanel(GameObject panel)
+    {
+        foreach (GameObject p in panels)
+        {
+            p.SetActive(false);
+        }
+
+        panel.SetActive(true);
     }
 
     #endregion Skill UI Methods
