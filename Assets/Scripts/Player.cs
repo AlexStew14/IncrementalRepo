@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// This class represents the player and holds stats and handles gameplay related to the player.
 /// </summary>
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IAttacker
 {
     #region Private Fields
 
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         return playerData.finalAttackSpeed;
     }
 
-    public bool CanAttack()
+    public bool CanAttack(Transform target)
     {
         return !damageTimerRunning;
     }

@@ -15,6 +15,7 @@ TagManager:
   - SkillButton
   - Exp
   - LevelText
+  - Helper
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Water
   - UI
   - Dead
-  - 
-  - 
+  - Helper
+  - Block
   - 
   - 
   - 

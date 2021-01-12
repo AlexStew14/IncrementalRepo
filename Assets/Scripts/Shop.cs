@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// This class handles the state of all skills and updates the player to reflect skill changes.
@@ -53,6 +54,7 @@ public class Shop : MonoBehaviour
         // Load skill dictionary into shop and ui
         skillDictionary = dataSavingManager.GetSkillDictionary();
         uiManager.LoadSkillDescriptions(skillDictionary);
+        LoadHelpers();
     }
 
     // Update is called once per frame
@@ -61,6 +63,22 @@ public class Shop : MonoBehaviour
     }
 
     #endregion Unity Methods
+
+    #region Init Methods
+
+    private void LoadHelpers()
+    {
+        // Gets only skills that are helpers and unlocked.
+        var helpers = skillDictionary.Where(s => s.Value.type == SkillType.HELPER && s.Value.level >= 2).ToList();
+
+        helpers.ForEach(s =>
+        {
+            var helper = Instantiate(helperPrefab);
+            helper.gameObject.GetComponent<Helper>().Init(s.Value.name);
+        });
+    }
+
+    #endregion Init Methods
 
     #region Money Handling
 
@@ -105,7 +123,7 @@ public class Shop : MonoBehaviour
     /// It first switches on skill type and then calls player methods to handle changes.
     /// </summary>
     /// <param name="upgradedSkill"></param>
-    private void ApplyPlayerUpgrade(Skill upgradedSkill)
+    private void ApplyUpgrade(Skill upgradedSkill)
     {
         if (upgradedSkill.type == SkillType.DMG)
         {
@@ -164,7 +182,7 @@ public class Shop : MonoBehaviour
             dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);
             dataSavingManager.Save();
 
-            ApplyPlayerUpgrade(upgradedSkill);
+            ApplyUpgrade(upgradedSkill);
             return true;
         }
         return false;

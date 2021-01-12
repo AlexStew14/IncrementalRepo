@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753574509836833748}
   - component: {fileID: 7447274389381602876}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 9133571848522912150}
   - component: {fileID: 5534854113457070975}
   - component: {fileID: 400837550598768541}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 3301202552712813762}
   - component: {fileID: 7525483487059096681}
   - component: {fileID: 951260821459384445}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3065252980116414531}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 7782192924519264038}
   - component: {fileID: 8768749713187987250}
   - component: {fileID: 706144864507384001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlockPrefab 1 1 1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,6 +404,7 @@ MonoBehaviour:
   killExpReward: 10
   slider: {fileID: 7447274389381602876}
   killEffect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  blockKey: 0
 --- !u!50 &706144864507384001
 Rigidbody2D:
   serializedVersion: 4

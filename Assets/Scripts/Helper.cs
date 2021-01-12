@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Helper : MonoBehaviour
+public class Helper : MonoBehaviour, IAttacker
 {
     #region Private Fields
 
@@ -33,6 +34,11 @@ public class Helper : MonoBehaviour
 
     private float offset = 1.5f;
 
+    private Transform currentTarget;
+    private Shop shop;
+
+    private bool countDownRunning = false;
+
     #endregion Private Fields
 
     // Start is called before the first frame update
@@ -45,6 +51,7 @@ public class Helper : MonoBehaviour
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
+        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
 
         transform.position = targetPos;
         helperData = dataSavingManager.GetSkill(name).helperData;
@@ -55,6 +62,24 @@ public class Helper : MonoBehaviour
     private void Update()
     {
         MoveHelper();
+
+        if (currentTarget != null && currentTarget.gameObject.GetComponent<Block>().isDead)
+        {
+            currentTarget = null;
+            StartCoroutine(StartCountdown(helperData.idleTime));
+        }
+
+        if (damageTimerRunning)
+        {
+            if (damageTimeRemaining > 0)
+            {
+                damageTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                damageTimerRunning = false;
+            }
+        }
     }
 
     private void MoveHelper()
@@ -89,14 +114,71 @@ public class Helper : MonoBehaviour
     private IEnumerator StartCountdown(float countdownValue)
     {
         cdValue = countdownValue;
+        countDownRunning = true;
+        moving = false;
         while (cdValue > 0)
         {
             UnityEngine.Debug.Log("Countdown: " + cdValue);
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(Math.Min(1.0f, cdValue));
             cdValue--;
         }
-        moving = FindBlockInRadius();
+
+        countDownRunning = false;
+        if (blockSpawner.BlockDictionary.Count == 0)
+        {
+            StartCoroutine(StartCountdown(helperData.idleTime));
+        }
+        else
+        {
+            // Gets closest block
+            targetPos = blockSpawner.BlockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value.position;
+            currentTarget = blockSpawner.BlockDictionary.ElementAt(0).Value;
+
+            moving = true;
+        }
     }
+
+    #region IAttacker Methods
+
+    public bool CanAttack(Transform target)
+    {
+        if (!damageTimerRunning && !countDownRunning)
+        {
+            currentTarget = target;
+            targetPos = currentTarget.position;
+            return true;
+        }
+        return false;
+    }
+
+    public float GetDamage()
+    {
+        return helperData.attackDamage;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return helperData.attackSpeed;
+    }
+
+    public void Attacked()
+    {
+        damageTimeRemaining = GetAttackSpeed();
+        damageTimerRunning = true;
+    }
+
+    public void KilledBlock(Block block)
+    {
+        shop.KilledBlock(block.GetKillReward());
+    }
+
+    public void StopMoving()
+    {
+        moving = false;
+        targetPos = transform.position;
+    }
+
+    #endregion IAttacker Methods
 }
 
 [Serializable]

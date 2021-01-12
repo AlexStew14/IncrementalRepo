@@ -14,9 +14,7 @@ public class Block : MonoBehaviour
 
     private string blockType;
 
-    private bool colliding = false;
-
-    private bool isDead = false;
+    public bool isDead { get; private set; } = false;
 
     private Player player;
 
@@ -38,7 +36,11 @@ public class Block : MonoBehaviour
 
     private BlockSpawner blockSpawner;
 
+    private List<IAttacker> collidingAttackers;
+
     #endregion Private Fields
+
+    public int blockKey;
 
     #region Unity Methods
 
@@ -49,6 +51,7 @@ public class Block : MonoBehaviour
         healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         physicsBody = GetComponent<Rigidbody2D>();
+        collidingAttackers = new List<IAttacker>();
         InitializeHealthBar();
     }
 
@@ -63,20 +66,24 @@ public class Block : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (colliding && !isDead)
+        if (collidingAttackers.Count != 0 && !isDead)
         {
-            if (player.CanAttack())
+            foreach (IAttacker a in collidingAttackers)
             {
-                currentHealth -= player.GetDamage();
-                slider.value = currentHealth;
-                Debug.Log("Block attacked, health: " + currentHealth);
-                player.Attacked();
-                if (currentHealth <= 0)
+                if (a.CanAttack(transform))
                 {
-                    Killed();
+                    currentHealth -= a.GetDamage();
+                    slider.value = currentHealth;
+                    Debug.Log("Block attacked, health: " + currentHealth);
+                    a.Attacked();
+                    a.StopMoving();
+                    if (currentHealth <= 0)
+                    {
+                        Killed();
+                        return;
+                    }
                 }
             }
-            player.StopMoving();
         }
     }
 
@@ -90,8 +97,12 @@ public class Block : MonoBehaviour
 
         if (c.tag == "Player")
         {
-            colliding = true;
             player.Punching(true);
+            collidingAttackers.Add(c.GetComponent<Player>());
+        }
+        else if (c.tag == "Helper")
+        {
+            collidingAttackers.Add(c.GetComponent<Helper>());
         }
     }
 
@@ -105,8 +116,12 @@ public class Block : MonoBehaviour
 
         if (c.tag == "Player")
         {
-            colliding = false;
             player.Punching(false);
+            collidingAttackers.Remove(c.GetComponent<Player>());
+        }
+        else if (c.tag == "Helper")
+        {
+            collidingAttackers.Remove(c.GetComponent<Helper>());
         }
     }
 
@@ -139,6 +154,7 @@ public class Block : MonoBehaviour
     /// </summary>
     private void Killed()
     {
+        blockSpawner.BlockDestroyed(transform);
         isDead = true;
         gameObject.layer = 6;
         player.KilledBlock(this);
@@ -148,7 +164,7 @@ public class Block : MonoBehaviour
         physicsBody.WakeUp();
         // TODO THE BLOCK SHOULD FLY AWAY FROM THE DIRECTION THE PLAYER HIT IT.
         physicsBody.AddForce(new Vector2(Random.Range(-2000, 2000), Random.Range(-2000, 2000)));
-        blockSpawner.BlockDestroyed();
+
         Destroy(transform.gameObject, 1.0f);
     }
 

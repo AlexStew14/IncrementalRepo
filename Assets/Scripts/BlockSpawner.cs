@@ -26,9 +26,7 @@ public class BlockSpawner : MonoBehaviour
     [SerializeField]
     private Sprite[] currentBlockSpriteArray;
 
-
-    #endregion
-
+    #endregion Fields
 
     #region Unity Methods
 
@@ -55,8 +53,7 @@ public class BlockSpawner : MonoBehaviour
         }
     }
 
-    #endregion
-
+    #endregion Unity Methods
 
     #region Block Spawning Methods
 
@@ -64,22 +61,24 @@ public class BlockSpawner : MonoBehaviour
     {
         Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
         Transform block = Instantiate(blockPrefab, randPos, transform.rotation);
+        block.GetComponent<Block>().blockKey = TotalBlocksSpawned;
 
         SpriteRenderer blockSprite = block.gameObject.GetComponent<SpriteRenderer>();
 
         blockSprite.sprite = currentBlockSpriteArray[(int)UnityEngine.Random.Range(0f, 5f)];
 
-        ++TotalBlocksSpawned;
-        ++currentBlockCount;
-
         dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
 
-        BlockDictionary.Add(TotalBlocksSpawned, block);
+        BlockDictionary.Add(block.GetComponent<Block>().blockKey, block);
+
+        ++TotalBlocksSpawned;
+        ++currentBlockCount;
     }
 
-    public void BlockDestroyed()
+    public void BlockDestroyed(Transform block)
     {
         --currentBlockCount;
+        BlockDictionary.Remove(block.GetComponent<Block>().blockKey);
     }
 
     public void FlatSpawnSpeedIncrease(float spawnSpeedIncrease)
@@ -89,7 +88,7 @@ public class BlockSpawner : MonoBehaviour
         dataSavingManager.Save();
     }
 
-    #endregion
+    #endregion Block Spawning Methods
 }
 
 [Serializable]
