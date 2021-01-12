@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_shop" kind="class" prot="public">
+    <compoundname>Shop</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_shop_1a5cc97b8e25ede694e5e9e9f93f1ee879" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, <ref refid="class_skill" kindref="compound">Skill</ref> &gt;</type>
+        <definition>Dictionary&lt;string, Skill&gt; Shop.skillDictionary</definition>
+        <argsstring></argsstring>
+        <name>skillDictionary</name>
+        <briefdescription>
+<para>This dictionary holds all skills with the skillName being the key. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="16" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="16" bodyend="-1"/>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+        <referencedby refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" compoundref="_shop_8cs" startline="140" endline="160">UpgradeSkill</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a404199ff8f5b20ebcd99a273c06cf99f" prot="private" static="no" mutable="no">
+        <type><ref refid="class_data_saving_manager" kindref="compound">DataSavingManager</ref></type>
+        <definition>DataSavingManager Shop.dataSavingManager</definition>
+        <argsstring></argsstring>
+        <name>dataSavingManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="18" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a0f9baa693a9a17141e327000ff857c09" prot="private" static="no" mutable="no">
+        <type><ref refid="class_u_i_manager" kindref="compound">UIManager</ref></type>
+        <definition>UIManager Shop.uiManager</definition>
+        <argsstring></argsstring>
+        <name>uiManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="20" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a73b3542e4ace7d63972ce2d285387b94" prot="private" static="no" mutable="no">
+        <type><ref refid="class_block_spawner" kindref="compound">BlockSpawner</ref></type>
+        <definition>BlockSpawner Shop.blockSpawner</definition>
+        <argsstring></argsstring>
+        <name>blockSpawner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="22" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a6398a78486c0bab84f6d9b82a2051113" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player Shop.player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="25" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Shop.playerMoney</definition>
+        <argsstring></argsstring>
+        <name>playerMoney</name>
+        <briefdescription>
+<para>The shop manages the player&apos;s money. This class is the only place the player&apos;s money should be altered. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="31" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="31" bodyend="-1"/>
+        <referencedby refid="class_shop_1a41dfdf955bc1042875f10070f42bd264" compoundref="_shop_8cs" startline="91" endline="94">GetMoney</referencedby>
+        <referencedby refid="class_shop_1a475d4930e1136798b42df6c5f1524d2c" compoundref="_shop_8cs" startline="69" endline="72">KilledBlock</referencedby>
+        <referencedby refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" compoundref="_shop_8cs" startline="79" endline="85">UpdatePlayerMoneyAndUI</referencedby>
+        <referencedby refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" compoundref="_shop_8cs" startline="140" endline="160">UpgradeSkill</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Shop.playerMoneyMult</definition>
+        <argsstring></argsstring>
+        <name>playerMoneyMult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="33" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="33" bodyend="-1"/>
+        <referencedby refid="class_shop_1a2f67645669cd30e9379e2564e545f691" compoundref="_shop_8cs" startline="105" endline="129">ApplyPlayerUpgrade</referencedby>
+        <referencedby refid="class_shop_1a475d4930e1136798b42df6c5f1524d2c" compoundref="_shop_8cs" startline="69" endline="72">KilledBlock</referencedby>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_shop_1ae0e651cd12e281aa7a6436d02355756b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shop.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="40" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="40" bodyend="53"/>
+        <references refid="class_shop_1a73b3542e4ace7d63972ce2d285387b94" compoundref="_shop_8cs" startline="22">blockSpawner</references>
+        <references refid="class_shop_1a404199ff8f5b20ebcd99a273c06cf99f" compoundref="_shop_8cs" startline="18">dataSavingManager</references>
+        <references refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" compoundref="_data_saving_manager_8cs" startline="130" endline="138">DataSavingManager.GetOtherValue</references>
+        <references refid="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" compoundref="_shop_8cs" startline="33">playerMoneyMult</references>
+        <references refid="class_shop_1a5cc97b8e25ede694e5e9e9f93f1ee879" compoundref="_shop_8cs" startline="16">skillDictionary</references>
+        <references refid="class_shop_1a0f9baa693a9a17141e327000ff857c09" compoundref="_shop_8cs" startline="20">uiManager</references>
+        <references refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" compoundref="_shop_8cs" startline="79" endline="85">UpdatePlayerMoneyAndUI</references>
+      </memberdef>
+      <memberdef kind="function" id="class_shop_1a41ec87cc228509d14232052a67281eb7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shop.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="56" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shop.UpdatePlayerMoneyAndUI</definition>
+        <argsstring>(int money)</argsstring>
+        <name>UpdatePlayerMoneyAndUI</name>
+        <param>
+          <type>int</type>
+          <declname>money</declname>
+        </param>
+        <briefdescription>
+<para>NOTE THIS CURRENTLY SAVES EVERYTIME MONEY IS CHANGED FOR TESTING. This is the only place where the player&apos;s money is changed. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>money</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="79" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="79" bodyend="85"/>
+        <references refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" compoundref="_shop_8cs" startline="31">playerMoney</references>
+        <referencedby refid="class_shop_1a475d4930e1136798b42df6c5f1524d2c" compoundref="_shop_8cs" startline="69" endline="72">KilledBlock</referencedby>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Start</referencedby>
+        <referencedby refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" compoundref="_shop_8cs" startline="140" endline="160">UpgradeSkill</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_shop_1a2f67645669cd30e9379e2564e545f691" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shop.ApplyPlayerUpgrade</definition>
+        <argsstring>(Skill upgradedSkill)</argsstring>
+        <name>ApplyPlayerUpgrade</name>
+        <param>
+          <type><ref refid="class_skill" kindref="compound">Skill</ref></type>
+          <declname>upgradedSkill</declname>
+        </param>
+        <briefdescription>
+<para>This method is called after skills are upgraded and changes the player to reflect the skill upgrades. It first switches on skill type and then calls player methods to handle changes. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>upgradedSkill</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="105" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="105" bodyend="129"/>
+        <references refid="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" compoundref="_shop_8cs" startline="33">playerMoneyMult</references>
+        <references refid="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" compoundref="_skill_8cs" startline="50">Skill.type</references>
+        <referencedby refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" compoundref="_shop_8cs" startline="140" endline="160">UpgradeSkill</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_shop_1a475d4930e1136798b42df6c5f1524d2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Shop.KilledBlock</definition>
+        <argsstring>(int killReward)</argsstring>
+        <name>KilledBlock</name>
+        <param>
+          <type>int</type>
+          <declname>killReward</declname>
+        </param>
+        <briefdescription>
+<para>This method is called by the player when a block is killed and handles the reward money for killing blocks. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>killReward</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="69" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="69" bodyend="72"/>
+        <references refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" compoundref="_shop_8cs" startline="31">playerMoney</references>
+        <references refid="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" compoundref="_shop_8cs" startline="33">playerMoneyMult</references>
+        <references refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" compoundref="_shop_8cs" startline="79" endline="85">UpdatePlayerMoneyAndUI</references>
+      </memberdef>
+      <memberdef kind="function" id="class_shop_1a41dfdf955bc1042875f10070f42bd264" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Shop.GetMoney</definition>
+        <argsstring>()</argsstring>
+        <name>GetMoney</name>
+        <briefdescription>
+<para>Getter for the player&apos;s money. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="91" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="91" bodyend="94"/>
+        <references refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" compoundref="_shop_8cs" startline="31">playerMoney</references>
+        <referencedby refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" compoundref="_u_i_manager_8cs" startline="62" endline="74">UIManager.SetDescriptionText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Shop.UpgradeSkill</definition>
+        <argsstring>(string skillName, out Skill upgradedSkill)</argsstring>
+        <name>UpgradeSkill</name>
+        <param>
+          <type>string</type>
+          <declname>skillName</declname>
+        </param>
+        <param>
+          <type>out <ref refid="class_skill" kindref="compound">Skill</ref></type>
+          <declname>upgradedSkill</declname>
+        </param>
+        <briefdescription>
+<para>This method is called by the <ref refid="class_u_i_manager" kindref="compound">UIManager</ref> when an upgrade button is clicked. The skillName is provided and upgradedSkill is given alongside a bool as the return value. If the upgrade succeeds (enough money, not max level, etc), then the method returns true and upgradedSkill will be the skill that was changed. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>skillName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>upgradedSkill</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="140" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="140" bodyend="160"/>
+        <references refid="class_shop_1a2f67645669cd30e9379e2564e545f691" compoundref="_shop_8cs" startline="105" endline="129">ApplyPlayerUpgrade</references>
+        <references refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" compoundref="_shop_8cs" startline="31">playerMoney</references>
+        <references refid="class_shop_1a5cc97b8e25ede694e5e9e9f93f1ee879" compoundref="_shop_8cs" startline="16">skillDictionary</references>
+        <references refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" compoundref="_shop_8cs" startline="79" endline="85">UpdatePlayerMoneyAndUI</references>
+        <referencedby refid="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" compoundref="_u_i_manager_8cs" startline="99" endline="106">UIManager.UpgradeSkill</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class handles the state of all skills and updates the player to reflect skill changes. It also acts as a controller for the <ref refid="class_u_i_manager" kindref="compound">UIManager</ref> and updates the UI. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="69">
+        <label>Shop</label>
+        <link refid="class_shop"/>
+        <childnode refid="70" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="74">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="75">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="71">
+        <label>Shop</label>
+        <link refid="class_shop"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>uiManager</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="80">
+        <label>SoundManager</label>
+        <link refid="class_sound_manager"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>UIManager</label>
+        <link refid="class_u_i_manager"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="72">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="79">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>soundManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" line="10" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Shop.cs" bodystart="9" bodyend="163"/>
+    <listofallmembers>
+      <member refid="class_shop_1a2f67645669cd30e9379e2564e545f691" prot="private" virt="non-virtual"><scope>Shop</scope><name>ApplyPlayerUpgrade</name></member>
+      <member refid="class_shop_1a73b3542e4ace7d63972ce2d285387b94" prot="private" virt="non-virtual"><scope>Shop</scope><name>blockSpawner</name></member>
+      <member refid="class_shop_1a404199ff8f5b20ebcd99a273c06cf99f" prot="private" virt="non-virtual"><scope>Shop</scope><name>dataSavingManager</name></member>
+      <member refid="class_shop_1a41dfdf955bc1042875f10070f42bd264" prot="public" virt="non-virtual"><scope>Shop</scope><name>GetMoney</name></member>
+      <member refid="class_shop_1a475d4930e1136798b42df6c5f1524d2c" prot="public" virt="non-virtual"><scope>Shop</scope><name>KilledBlock</name></member>
+      <member refid="class_shop_1a6398a78486c0bab84f6d9b82a2051113" prot="private" virt="non-virtual"><scope>Shop</scope><name>player</name></member>
+      <member refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" prot="private" virt="non-virtual"><scope>Shop</scope><name>playerMoney</name></member>
+      <member refid="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" prot="private" virt="non-virtual"><scope>Shop</scope><name>playerMoneyMult</name></member>
+      <member refid="class_shop_1a5cc97b8e25ede694e5e9e9f93f1ee879" prot="private" virt="non-virtual"><scope>Shop</scope><name>skillDictionary</name></member>
+      <member refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" prot="private" virt="non-virtual"><scope>Shop</scope><name>Start</name></member>
+      <member refid="class_shop_1a0f9baa693a9a17141e327000ff857c09" prot="private" virt="non-virtual"><scope>Shop</scope><name>uiManager</name></member>
+      <member refid="class_shop_1a41ec87cc228509d14232052a67281eb7" prot="private" virt="non-virtual"><scope>Shop</scope><name>Update</name></member>
+      <member refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" prot="private" virt="non-virtual"><scope>Shop</scope><name>UpdatePlayerMoneyAndUI</name></member>
+      <member refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" prot="public" virt="non-virtual"><scope>Shop</scope><name>UpgradeSkill</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

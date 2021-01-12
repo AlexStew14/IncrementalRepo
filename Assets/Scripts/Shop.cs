@@ -24,6 +24,9 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    [SerializeField]
+    private Transform helperPrefab;
+
     /// <summary>
     /// The shop manages the player's money.
     /// This class is the only place the player's money should be altered.
@@ -125,6 +128,14 @@ public class Shop : MonoBehaviour
         else if (upgradedSkill.type == SkillType.MOVEMENTSPEED)
         {
             player.FlatMovementSpeedIncrease(upgradedSkill.currentStatIncrease);
+        }
+        else if (upgradedSkill.type == SkillType.HELPER)
+        {
+            if (upgradedSkill.level == 2)
+            {
+                var helper = Instantiate(helperPrefab);
+                helper.gameObject.GetComponent<Helper>().Init(upgradedSkill.name);
+            }
         }
     }
 

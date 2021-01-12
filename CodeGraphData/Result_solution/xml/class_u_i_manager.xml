@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_u_i_manager" kind="class" prot="public">
+    <compoundname>UIManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_i_manager_1ac88c8cf3c60b85683f2c2a4d7407bb51" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject UIManager.shopPanel</definition>
+        <argsstring></argsstring>
+        <name>shopPanel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="15" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" prot="private" static="no" mutable="no">
+        <type><ref refid="class_shop" kindref="compound">Shop</ref></type>
+        <definition>Shop UIManager.shop</definition>
+        <argsstring></argsstring>
+        <name>shop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="17" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" compoundref="_u_i_manager_8cs" startline="62" endline="74">SetDescriptionText</referencedby>
+        <referencedby refid="class_u_i_manager_1a2bd6b48b13b9e14e6292e4b713f59584" compoundref="_u_i_manager_8cs" startline="32" endline="38">Start</referencedby>
+        <referencedby refid="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" compoundref="_u_i_manager_8cs" startline="99" endline="106">UpgradeSkill</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_manager_1acea02a15e2e9cb939eae73f9363b0896" prot="private" static="no" mutable="no">
+        <type>TextMeshProUGUI</type>
+        <definition>TextMeshProUGUI UIManager.currentMoney</definition>
+        <argsstring></argsstring>
+        <name>currentMoney</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="19" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_u_i_manager_1a2bd6b48b13b9e14e6292e4b713f59584" compoundref="_u_i_manager_8cs" startline="32" endline="38">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_manager_1aa7ac2d7330aafa0cdeeb6a08a0a2bcb1" prot="private" static="no" mutable="no">
+        <type>Button[]</type>
+        <definition>Button [] UIManager.buttons</definition>
+        <argsstring></argsstring>
+        <name>buttons</name>
+        <briefdescription>
+<para>Buttons used for skills in the shop panel. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="25" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_u_i_manager_1ab30f65b7af910abac8dbdb1775cc526f" compoundref="_u_i_manager_8cs" startline="49" endline="60">LoadSkillDescriptions</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_u_i_manager_1a2bd6b48b13b9e14e6292e4b713f59584" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="32" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="32" bodyend="38"/>
+        <references refid="class_u_i_manager_1acea02a15e2e9cb939eae73f9363b0896" compoundref="_u_i_manager_8cs" startline="19">currentMoney</references>
+        <references refid="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" compoundref="_u_i_manager_8cs" startline="17">shop</references>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.SetDescriptionText</definition>
+        <argsstring>(Button skillButton, Skill skill)</argsstring>
+        <name>SetDescriptionText</name>
+        <param>
+          <type>Button</type>
+          <declname>skillButton</declname>
+        </param>
+        <param>
+          <type><ref refid="class_skill" kindref="compound">Skill</ref></type>
+          <declname>skill</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="62" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="62" bodyend="74"/>
+        <references refid="class_shop_1a41dfdf955bc1042875f10070f42bd264" compoundref="_shop_8cs" startline="91" endline="94">Shop.GetMoney</references>
+        <references refid="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" compoundref="_u_i_manager_8cs" startline="17">shop</references>
+        <referencedby refid="class_u_i_manager_1ab30f65b7af910abac8dbdb1775cc526f" compoundref="_u_i_manager_8cs" startline="49" endline="60">LoadSkillDescriptions</referencedby>
+        <referencedby refid="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" compoundref="_u_i_manager_8cs" startline="99" endline="106">UpgradeSkill</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_i_manager_1ab30f65b7af910abac8dbdb1775cc526f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.LoadSkillDescriptions</definition>
+        <argsstring>(Dictionary&lt; string, Skill &gt; skillDictionary)</argsstring>
+        <name>LoadSkillDescriptions</name>
+        <param>
+          <type>Dictionary&lt; string, <ref refid="class_skill" kindref="compound">Skill</ref> &gt;</type>
+          <declname>skillDictionary</declname>
+        </param>
+        <briefdescription>
+<para>Called by the shop when the game starts. Sets up the ui of each skill. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>skillDictionary</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="49" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="49" bodyend="60"/>
+        <references refid="class_u_i_manager_1aa7ac2d7330aafa0cdeeb6a08a0a2bcb1" compoundref="_u_i_manager_8cs" startline="25">buttons</references>
+        <references refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" compoundref="_u_i_manager_8cs" startline="62" endline="74">SetDescriptionText</references>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_manager_1a4a694dac7968c09248d821cd66186a88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.SetMoneyText</definition>
+        <argsstring>(int money)</argsstring>
+        <name>SetMoneyText</name>
+        <param>
+          <type>int</type>
+          <declname>money</declname>
+        </param>
+        <briefdescription>
+<para>Called by shop when the player&apos;s money changes. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>money</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="80" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_manager_1a9bde1d0d0bf76445db78cad8161c2594" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.ToggleShopPanel</definition>
+        <argsstring>()</argsstring>
+        <name>ToggleShopPanel</name>
+        <briefdescription>
+<para>This method is called by the shop button and toggles the shopPanel </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="88" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UIManager.UpgradeSkill</definition>
+        <argsstring>(Button skillButton)</argsstring>
+        <name>UpgradeSkill</name>
+        <param>
+          <type>Button</type>
+          <declname>skillButton</declname>
+        </param>
+        <briefdescription>
+<para>This method is called by clicking the shop buttons for skill upgrades. The method takes in the button that clicks it. This calls UpgradeSkill on the shop and sets the description text for display. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>skillButton</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="99" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="99" bodyend="106"/>
+        <references refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" compoundref="_u_i_manager_8cs" startline="62" endline="74">SetDescriptionText</references>
+        <references refid="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" compoundref="_u_i_manager_8cs" startline="17">shop</references>
+        <references refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" compoundref="_shop_8cs" startline="140" endline="160">Shop.UpgradeSkill</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class handles all UI, at least for the shop. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="87">
+        <label>UIManager</label>
+        <link refid="class_u_i_manager"/>
+        <childnode refid="88" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="92">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="93">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="91">
+        <label>Shop</label>
+        <link refid="class_shop"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="89" relation="usage">
+          <edgelabel>uiManager</edgelabel>
+        </childnode>
+        <childnode refid="92" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="96">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="98">
+        <label>SoundManager</label>
+        <link refid="class_sound_manager"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>UIManager</label>
+        <link refid="class_u_i_manager"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+      </node>
+      <node id="95">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="93" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="90">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="97">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
+          <edgelabel>soundManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="94">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" line="11" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/UIManager.cs" bodystart="10" bodyend="109"/>
+    <listofallmembers>
+      <member refid="class_u_i_manager_1aa7ac2d7330aafa0cdeeb6a08a0a2bcb1" prot="private" virt="non-virtual"><scope>UIManager</scope><name>buttons</name></member>
+      <member refid="class_u_i_manager_1acea02a15e2e9cb939eae73f9363b0896" prot="private" virt="non-virtual"><scope>UIManager</scope><name>currentMoney</name></member>
+      <member refid="class_u_i_manager_1ab30f65b7af910abac8dbdb1775cc526f" prot="public" virt="non-virtual"><scope>UIManager</scope><name>LoadSkillDescriptions</name></member>
+      <member refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" prot="private" virt="non-virtual"><scope>UIManager</scope><name>SetDescriptionText</name></member>
+      <member refid="class_u_i_manager_1a4a694dac7968c09248d821cd66186a88" prot="public" virt="non-virtual"><scope>UIManager</scope><name>SetMoneyText</name></member>
+      <member refid="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" prot="private" virt="non-virtual"><scope>UIManager</scope><name>shop</name></member>
+      <member refid="class_u_i_manager_1ac88c8cf3c60b85683f2c2a4d7407bb51" prot="private" virt="non-virtual"><scope>UIManager</scope><name>shopPanel</name></member>
+      <member refid="class_u_i_manager_1a2bd6b48b13b9e14e6292e4b713f59584" prot="private" virt="non-virtual"><scope>UIManager</scope><name>Start</name></member>
+      <member refid="class_u_i_manager_1a9bde1d0d0bf76445db78cad8161c2594" prot="public" virt="non-virtual"><scope>UIManager</scope><name>ToggleShopPanel</name></member>
+      <member refid="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" prot="public" virt="non-virtual"><scope>UIManager</scope><name>UpgradeSkill</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

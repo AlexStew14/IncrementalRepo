@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_skill" kind="class" prot="public">
+    <compoundname>Skill</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int Skill.level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="30" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="30" bodyend="-1"/>
+        <referencedby refid="class_skill_1a42c367ba66b8ca908e24837da009d029" compoundref="_skill_8cs" startline="63" endline="66">CheckUpgrade</referencedby>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int Skill.maxLevel</definition>
+        <argsstring></argsstring>
+        <name>maxLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="33" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="33" bodyend="-1"/>
+        <referencedby refid="class_skill_1a42c367ba66b8ca908e24837da009d029" compoundref="_skill_8cs" startline="63" endline="66">CheckUpgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int Skill.upgradeCost</definition>
+        <argsstring></argsstring>
+        <name>upgradeCost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="36" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="36" bodyend="-1"/>
+        <referencedby refid="class_skill_1a42c367ba66b8ca908e24837da009d029" compoundref="_skill_8cs" startline="63" endline="66">CheckUpgrade</referencedby>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>float</type>
+        <definition>float Skill.currentStatIncrease</definition>
+        <argsstring></argsstring>
+        <name>currentStatIncrease</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="39" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="39" bodyend="-1"/>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1ab39bb774833c3358719b7c9a7c161284" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>float</type>
+        <definition>float Skill.totalStatIncrease</definition>
+        <argsstring></argsstring>
+        <name>totalStatIncrease</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="41" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>float</type>
+        <definition>float Skill.nextStatIncrease</definition>
+        <argsstring></argsstring>
+        <name>nextStatIncrease</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="44" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="44" bodyend="-1"/>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1a51ba89240d0da6427ed2b4c35742636e" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string Skill.name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="47" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" kindref="member">SkillType</ref></type>
+        <definition>SkillType Skill.type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="50" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="50" bodyend="-1"/>
+        <referencedby refid="class_shop_1a2f67645669cd30e9379e2564e545f691" compoundref="_shop_8cs" startline="105" endline="129">Shop.ApplyPlayerUpgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>Func&lt; int, int &gt;</type>
+        <definition>Func&lt;int, int&gt; Skill.costFunction</definition>
+        <argsstring></argsstring>
+        <name>costFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="53" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="53" bodyend="-1"/>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_skill_1af06914bc56bc6802155538ecc76e5d4c" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>Func&lt; float, float &gt;</type>
+        <definition>Func&lt;float, float&gt; Skill.improvementFunction</definition>
+        <argsstring></argsstring>
+        <name>improvementFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="56" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_skill_1a42c367ba66b8ca908e24837da009d029" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Skill.CheckUpgrade</definition>
+        <argsstring>(int currentMoney)</argsstring>
+        <name>CheckUpgrade</name>
+        <param>
+          <type>int</type>
+          <declname>currentMoney</declname>
+        </param>
+        <briefdescription>
+<para>Checks to make sure the upgrade can occur </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>currentMoney</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="63" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="63" bodyend="66"/>
+        <references refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" compoundref="_skill_8cs" startline="30">level</references>
+        <references refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" compoundref="_skill_8cs" startline="33">maxLevel</references>
+        <references refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" compoundref="_skill_8cs" startline="36">upgradeCost</references>
+        <referencedby refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" compoundref="_skill_8cs" startline="74" endline="90">Upgrade</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_skill_1a4bdac57ba69e19912150530204ef1f10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Skill.Upgrade</definition>
+        <argsstring>(int currentMoney, out int remainingMoney)</argsstring>
+        <name>Upgrade</name>
+        <param>
+          <type>int</type>
+          <declname>currentMoney</declname>
+        </param>
+        <param>
+          <type>out int</type>
+          <declname>remainingMoney</declname>
+        </param>
+        <briefdescription>
+<para>Calls CheckUpgrade, handles the internal state of the skill and provides the remaining amount of money the player has. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>currentMoney</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remainingMoney</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="74" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="74" bodyend="90"/>
+        <references refid="class_skill_1a42c367ba66b8ca908e24837da009d029" compoundref="_skill_8cs" startline="63" endline="66">CheckUpgrade</references>
+        <references refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" compoundref="_skill_8cs" startline="53">costFunction</references>
+        <references refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" compoundref="_skill_8cs" startline="39">currentStatIncrease</references>
+        <references refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" compoundref="_skill_8cs" startline="56">improvementFunction</references>
+        <references refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" compoundref="_skill_8cs" startline="30">level</references>
+        <references refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" compoundref="_skill_8cs" startline="44">nextStatIncrease</references>
+        <references refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" compoundref="_skill_8cs" startline="41">totalStatIncrease</references>
+        <references refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" compoundref="_skill_8cs" startline="36">upgradeCost</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is a data class that represents a skill. Skills are created via initialization statement. (Example in <ref refid="class_shop" kindref="compound">Shop</ref> start) </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="28" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="27" bodyend="91"/>
+    <listofallmembers>
+      <member refid="class_skill_1a42c367ba66b8ca908e24837da009d029" prot="public" virt="non-virtual"><scope>Skill</scope><name>CheckUpgrade</name></member>
+      <member refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" prot="public" virt="non-virtual"><scope>Skill</scope><name>costFunction</name></member>
+      <member refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" prot="public" virt="non-virtual"><scope>Skill</scope><name>currentStatIncrease</name></member>
+      <member refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" prot="public" virt="non-virtual"><scope>Skill</scope><name>improvementFunction</name></member>
+      <member refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" prot="public" virt="non-virtual"><scope>Skill</scope><name>level</name></member>
+      <member refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" prot="public" virt="non-virtual"><scope>Skill</scope><name>maxLevel</name></member>
+      <member refid="class_skill_1a51ba89240d0da6427ed2b4c35742636e" prot="public" virt="non-virtual"><scope>Skill</scope><name>name</name></member>
+      <member refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" prot="public" virt="non-virtual"><scope>Skill</scope><name>nextStatIncrease</name></member>
+      <member refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" prot="public" virt="non-virtual"><scope>Skill</scope><name>totalStatIncrease</name></member>
+      <member refid="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" prot="public" virt="non-virtual"><scope>Skill</scope><name>type</name></member>
+      <member refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" prot="public" virt="non-virtual"><scope>Skill</scope><name>Upgrade</name></member>
+      <member refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" prot="public" virt="non-virtual"><scope>Skill</scope><name>upgradeCost</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

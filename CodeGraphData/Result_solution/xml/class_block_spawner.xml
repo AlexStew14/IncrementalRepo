@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_block_spawner" kind="class" prot="public">
+    <compoundname>BlockSpawner</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_block_spawner_1a8f9d0d1d95ef437feb5c64e50902f01a" prot="public" static="no" mutable="no">
+        <type>Transform</type>
+        <definition>Transform BlockSpawner.blockPrefab</definition>
+        <argsstring></argsstring>
+        <name>blockPrefab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="9" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" compoundref="_block_spawner_8cs" startline="51" endline="66">CreateBlock</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_block_spawner_1a8771f890af7ae96b78721a0e53ea13f8" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BlockSpawner.timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <initializer>= -1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="11" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" compoundref="_block_spawner_8cs" startline="38" endline="49">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BlockSpawner.currentBlockCount</definition>
+        <argsstring></argsstring>
+        <name>currentBlockCount</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="13" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a26e6a1cc826702f80b0256ad27e86a56" compoundref="_block_spawner_8cs" startline="68" endline="71">BlockDestroyed</referencedby>
+        <referencedby refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" compoundref="_block_spawner_8cs" startline="51" endline="66">CreateBlock</referencedby>
+        <referencedby refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" compoundref="_block_spawner_8cs" startline="38" endline="49">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_spawner_1adf56f63e73f600ff37bb7795e24d388a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_data_saving_manager" kindref="compound">DataSavingManager</ref></type>
+        <definition>DataSavingManager BlockSpawner.dataSavingManager</definition>
+        <argsstring></argsstring>
+        <name>dataSavingManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="15" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" compoundref="_block_spawner_8cs" startline="29" endline="35">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_block_spawn_data" kindref="compound">BlockSpawnData</ref></type>
+        <definition>BlockSpawnData BlockSpawner.blockSpawnData</definition>
+        <argsstring></argsstring>
+        <name>blockSpawnData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="18" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a050616f65a9e26896101e42058666721" compoundref="_block_spawner_8cs" startline="73" endline="78">FlatSpawnSpeedIncrease</referencedby>
+        <referencedby refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" compoundref="_block_spawner_8cs" startline="29" endline="35">Start</referencedby>
+        <referencedby refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" compoundref="_block_spawner_8cs" startline="38" endline="49">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_spawner_1af0883aa99fdce9adc15d405002c44d6b" prot="private" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] BlockSpawner.currentBlockSpriteArray</definition>
+        <argsstring></argsstring>
+        <name>currentBlockSpriteArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="25" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" compoundref="_block_spawner_8cs" startline="51" endline="66">CreateBlock</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_block_spawner_1ab442660d0441854452ed78ecf13d7b3f" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>Dictionary&lt; int, Transform &gt;</type>
+        <definition>Dictionary&lt;int, Transform&gt; BlockSpawner.BlockDictionary</definition>
+        <argsstring></argsstring>
+        <name>BlockDictionary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="20" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" compoundref="_helper_8cs" startline="68" endline="83">Helper.FindBlockInRadius</referencedby>
+        <referencedby refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" compoundref="_block_spawner_8cs" startline="29" endline="35">Start</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_block_spawner_1a036b799612336cf9275ea4250bdf9a17" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int BlockSpawner.TotalBlocksSpawned</definition>
+        <argsstring></argsstring>
+        <name>TotalBlocksSpawned</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="22" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" compoundref="_block_spawner_8cs" startline="51" endline="66">CreateBlock</referencedby>
+        <referencedby refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" compoundref="_block_spawner_8cs" startline="29" endline="35">Start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockSpawner.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="29" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="29" bodyend="35"/>
+        <references refid="class_block_spawner_1ab442660d0441854452ed78ecf13d7b3f" compoundref="_block_spawner_8cs" startline="20">BlockDictionary</references>
+        <references refid="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" compoundref="_block_spawner_8cs" startline="18">blockSpawnData</references>
+        <references refid="class_block_spawner_1adf56f63e73f600ff37bb7795e24d388a" compoundref="_block_spawner_8cs" startline="15">dataSavingManager</references>
+        <references refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" compoundref="_data_saving_manager_8cs" startline="130" endline="138">DataSavingManager.GetOtherValue</references>
+        <references refid="class_block_spawner_1a036b799612336cf9275ea4250bdf9a17" compoundref="_block_spawner_8cs" startline="22">TotalBlocksSpawned</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockSpawner.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="38" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="38" bodyend="49"/>
+        <references refid="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" compoundref="_block_spawner_8cs" startline="18">blockSpawnData</references>
+        <references refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" compoundref="_block_spawner_8cs" startline="51" endline="66">CreateBlock</references>
+        <references refid="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" compoundref="_block_spawner_8cs" startline="13">currentBlockCount</references>
+        <references refid="class_block_spawn_data_1ab9935fd4ea260484a6d10ad6c1ac69f6" compoundref="_block_spawner_8cs" startline="84">BlockSpawnData.maxCurrentBlocks</references>
+        <references refid="class_block_spawner_1a8771f890af7ae96b78721a0e53ea13f8" compoundref="_block_spawner_8cs" startline="11">timer</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockSpawner.CreateBlock</definition>
+        <argsstring>()</argsstring>
+        <name>CreateBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="51" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="51" bodyend="66"/>
+        <references refid="class_block_spawner_1a8f9d0d1d95ef437feb5c64e50902f01a" compoundref="_block_spawner_8cs" startline="9">blockPrefab</references>
+        <references refid="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" compoundref="_block_spawner_8cs" startline="13">currentBlockCount</references>
+        <references refid="class_block_spawner_1af0883aa99fdce9adc15d405002c44d6b" compoundref="_block_spawner_8cs" startline="25">currentBlockSpriteArray</references>
+        <references refid="class_block_spawner_1a036b799612336cf9275ea4250bdf9a17" compoundref="_block_spawner_8cs" startline="22">TotalBlocksSpawned</references>
+        <referencedby refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" compoundref="_block_spawner_8cs" startline="38" endline="49">Update</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_block_spawner_1a26e6a1cc826702f80b0256ad27e86a56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockSpawner.BlockDestroyed</definition>
+        <argsstring>()</argsstring>
+        <name>BlockDestroyed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="68" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="68" bodyend="71"/>
+        <references refid="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" compoundref="_block_spawner_8cs" startline="13">currentBlockCount</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_spawner_1a050616f65a9e26896101e42058666721" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockSpawner.FlatSpawnSpeedIncrease</definition>
+        <argsstring>(float spawnSpeedIncrease)</argsstring>
+        <name>FlatSpawnSpeedIncrease</name>
+        <param>
+          <type>float</type>
+          <declname>spawnSpeedIncrease</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="73" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="73" bodyend="78"/>
+        <references refid="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" compoundref="_block_spawner_8cs" startline="18">blockSpawnData</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="15">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="17">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="22">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="21">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="20">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="7" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="6" bodyend="79"/>
+    <listofallmembers>
+      <member refid="class_block_spawner_1a26e6a1cc826702f80b0256ad27e86a56" prot="public" virt="non-virtual"><scope>BlockSpawner</scope><name>BlockDestroyed</name></member>
+      <member refid="class_block_spawner_1ab442660d0441854452ed78ecf13d7b3f" prot="public" virt="non-virtual"><scope>BlockSpawner</scope><name>BlockDictionary</name></member>
+      <member refid="class_block_spawner_1a8f9d0d1d95ef437feb5c64e50902f01a" prot="public" virt="non-virtual"><scope>BlockSpawner</scope><name>blockPrefab</name></member>
+      <member refid="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>blockSpawnData</name></member>
+      <member refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>CreateBlock</name></member>
+      <member refid="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>currentBlockCount</name></member>
+      <member refid="class_block_spawner_1af0883aa99fdce9adc15d405002c44d6b" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>currentBlockSpriteArray</name></member>
+      <member refid="class_block_spawner_1adf56f63e73f600ff37bb7795e24d388a" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>dataSavingManager</name></member>
+      <member refid="class_block_spawner_1a050616f65a9e26896101e42058666721" prot="public" virt="non-virtual"><scope>BlockSpawner</scope><name>FlatSpawnSpeedIncrease</name></member>
+      <member refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>Start</name></member>
+      <member refid="class_block_spawner_1a8771f890af7ae96b78721a0e53ea13f8" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>timer</name></member>
+      <member refid="class_block_spawner_1a036b799612336cf9275ea4250bdf9a17" prot="public" virt="non-virtual"><scope>BlockSpawner</scope><name>TotalBlocksSpawned</name></member>
+      <member refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" prot="private" virt="non-virtual"><scope>BlockSpawner</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

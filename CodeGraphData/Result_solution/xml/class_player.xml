@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_player" kind="class" prot="public">
+    <compoundname>Player</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_1a68faa49d3f538f449643730976414881" prot="private" static="no" mutable="no">
+        <type><ref refid="class_sound_manager" kindref="compound">SoundManager</ref></type>
+        <definition>SoundManager Player.soundManager</definition>
+        <argsstring></argsstring>
+        <name>soundManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="13" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a38ea9ee9f58c86fad6dd36fcae61f18b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_shop" kindref="compound">Shop</ref></type>
+        <definition>Shop Player.shop</definition>
+        <argsstring></argsstring>
+        <name>shop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="15" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a5882ac2500b3fb259dd74e9eaeced51e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_data_saving_manager" kindref="compound">DataSavingManager</ref></type>
+        <definition>DataSavingManager Player.dataSavingManager</definition>
+        <argsstring></argsstring>
+        <name>dataSavingManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="17" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a912c5b32576b7cbb68e6b6b3786fce48" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player_data" kindref="compound">PlayerData</ref></type>
+        <definition>PlayerData Player.playerData</definition>
+        <argsstring></argsstring>
+        <name>playerData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="20" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" compoundref="_player_8cs" startline="157" endline="161">SavePlayerData</referencedby>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a178b11c876e07c8f6866445329c5404d" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject Player.pink_guy</definition>
+        <argsstring></argsstring>
+        <name>pink_guy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="24" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a70b6b51d74cd56fa84d032a4024792e6" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator Player.anim</definition>
+        <argsstring></argsstring>
+        <name>anim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="26" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ab06efa71f49975563061ef3e5c6142e5" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 Player.clickPos</definition>
+        <argsstring></argsstring>
+        <name>clickPos</name>
+        <initializer>= new Vector3(0, 0, 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="29" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="29" bodyend="-1"/>
+        <referencedby refid="class_player_1ad1d691bf2e2e054aaed9fa388f651164" compoundref="_player_8cs" startline="167" endline="194">MovePlayer</referencedby>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+        <referencedby refid="class_player_1a83ba9e90bbff475b50cc4cdc5b000bad" compoundref="_player_8cs" startline="196" endline="200">StopMoving</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player.moving</definition>
+        <argsstring></argsstring>
+        <name>moving</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="31" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="31" bodyend="-1"/>
+        <referencedby refid="class_player_1ad1d691bf2e2e054aaed9fa388f651164" compoundref="_player_8cs" startline="167" endline="194">MovePlayer</referencedby>
+        <referencedby refid="class_player_1a83ba9e90bbff475b50cc4cdc5b000bad" compoundref="_player_8cs" startline="196" endline="200">StopMoving</referencedby>
+        <referencedby refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" compoundref="_player_8cs" startline="66" endline="83">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a5b344deb4c43c95fbc8575b9dd7716dc" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Player.damageTimeRemaining</definition>
+        <argsstring></argsstring>
+        <name>damageTimeRemaining</name>
+        <initializer>= -1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="34" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="34" bodyend="-1"/>
+        <referencedby refid="class_player_1aba4c4ee84133a2ebc1667102244e198d" compoundref="_player_8cs" startline="125" endline="131">Attacked</referencedby>
+        <referencedby refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" compoundref="_player_8cs" startline="66" endline="83">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ad14f0036230380f987e362b546454513" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player.damageTimerRunning</definition>
+        <argsstring></argsstring>
+        <name>damageTimerRunning</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="36" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="36" bodyend="-1"/>
+        <referencedby refid="class_player_1aba4c4ee84133a2ebc1667102244e198d" compoundref="_player_8cs" startline="125" endline="131">Attacked</referencedby>
+        <referencedby refid="class_player_1a781a319eafa17be389aedd1253f63f62" compoundref="_player_8cs" startline="117" endline="120">CanAttack</referencedby>
+        <referencedby refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" compoundref="_player_8cs" startline="66" endline="83">Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1aea53f64a37269e7378929cf92feba188" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer Player.sprite</definition>
+        <argsstring></argsstring>
+        <name>sprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="39" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="39" bodyend="-1"/>
+        <referencedby refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" compoundref="_player_8cs" startline="46" endline="58">Start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="46" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="46" bodyend="58"/>
+        <references refid="class_player_1a70b6b51d74cd56fa84d032a4024792e6" compoundref="_player_8cs" startline="26">anim</references>
+        <references refid="class_player_1ab06efa71f49975563061ef3e5c6142e5" compoundref="_player_8cs" startline="29">clickPos</references>
+        <references refid="class_player_1a5882ac2500b3fb259dd74e9eaeced51e" compoundref="_player_8cs" startline="17">dataSavingManager</references>
+        <references refid="class_player_1a912c5b32576b7cbb68e6b6b3786fce48" compoundref="_player_8cs" startline="20">playerData</references>
+        <references refid="class_player_1a38ea9ee9f58c86fad6dd36fcae61f18b" compoundref="_player_8cs" startline="15">shop</references>
+        <references refid="class_player_1a68faa49d3f538f449643730976414881" compoundref="_player_8cs" startline="13">soundManager</references>
+        <references refid="class_player_1aea53f64a37269e7378929cf92feba188" compoundref="_player_8cs" startline="39">sprite</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="60" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aace80372e18e32fe177e295fe5d93ba8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="66" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="66" bodyend="83"/>
+        <references refid="class_player_1a5b344deb4c43c95fbc8575b9dd7716dc" compoundref="_player_8cs" startline="34">damageTimeRemaining</references>
+        <references refid="class_player_1ad14f0036230380f987e362b546454513" compoundref="_player_8cs" startline="36">damageTimerRunning</references>
+        <references refid="class_player_1ad1d691bf2e2e054aaed9fa388f651164" compoundref="_player_8cs" startline="167" endline="194">MovePlayer</references>
+        <references refid="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" compoundref="_player_8cs" startline="31">moving</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a89714ea4c1fccb0a9265e61d3afd17ee" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.UpdateDamage</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateDamage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="89" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="89" bodyend="92"/>
+        <referencedby refid="class_player_1af6ef8664829276d4bb6399977991972c" compoundref="_player_8cs" startline="137" endline="142">FlatDmgIncrease</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a4110f439170b6aa377d4e749143bd00a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.UpdateAttackSpeed</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="103" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="103" bodyend="106"/>
+        <referencedby refid="class_player_1a8725d201010bac545c8f539be06da4f6" compoundref="_player_8cs" startline="144" endline="149">FlatAttackSpeedIncrease</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a6967af441e8792e3319bd0ea67bdd351" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.SavePlayerData</definition>
+        <argsstring>()</argsstring>
+        <name>SavePlayerData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="157" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="157" bodyend="161"/>
+        <references refid="class_player_1a912c5b32576b7cbb68e6b6b3786fce48" compoundref="_player_8cs" startline="20">playerData</references>
+        <referencedby refid="class_player_1a8725d201010bac545c8f539be06da4f6" compoundref="_player_8cs" startline="144" endline="149">FlatAttackSpeedIncrease</referencedby>
+        <referencedby refid="class_player_1af6ef8664829276d4bb6399977991972c" compoundref="_player_8cs" startline="137" endline="142">FlatDmgIncrease</referencedby>
+        <referencedby refid="class_player_1a4ac32f6974ade562cb2eb26f50ad89bc" compoundref="_player_8cs" startline="151" endline="155">FlatMovementSpeedIncrease</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ad1d691bf2e2e054aaed9fa388f651164" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.MovePlayer</definition>
+        <argsstring>()</argsstring>
+        <name>MovePlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="167" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="167" bodyend="194"/>
+        <references refid="class_player_1ab06efa71f49975563061ef3e5c6142e5" compoundref="_player_8cs" startline="29">clickPos</references>
+        <references refid="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" compoundref="_player_8cs" startline="31">moving</references>
+        <referencedby refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" compoundref="_player_8cs" startline="66" endline="83">Update</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_1ac8e3207a73ffba1ecbe813d5f080a36b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Player.GetDamage</definition>
+        <argsstring>()</argsstring>
+        <name>GetDamage</name>
+        <briefdescription>
+<para>Provides the final damage value. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="98" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1af77ca324319e67d3f031e9b2e23805e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Player.GetAttackSpeed</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttackSpeed</name>
+        <briefdescription>
+<para>Provides the final attack speed value. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="112" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="112" bodyend="115"/>
+        <referencedby refid="class_player_1aba4c4ee84133a2ebc1667102244e198d" compoundref="_player_8cs" startline="125" endline="131">Attacked</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a781a319eafa17be389aedd1253f63f62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Player.CanAttack</definition>
+        <argsstring>()</argsstring>
+        <name>CanAttack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="117" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="117" bodyend="120"/>
+        <references refid="class_player_1ad14f0036230380f987e362b546454513" compoundref="_player_8cs" startline="36">damageTimerRunning</references>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">Block.FixedUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aba4c4ee84133a2ebc1667102244e198d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Attacked</definition>
+        <argsstring>()</argsstring>
+        <name>Attacked</name>
+        <briefdescription>
+<para>Called when the player has attacked, used to reset timer. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="125" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="125" bodyend="131"/>
+        <references refid="class_player_1a5b344deb4c43c95fbc8575b9dd7716dc" compoundref="_player_8cs" startline="34">damageTimeRemaining</references>
+        <references refid="class_player_1ad14f0036230380f987e362b546454513" compoundref="_player_8cs" startline="36">damageTimerRunning</references>
+        <references refid="class_player_1af77ca324319e67d3f031e9b2e23805e3" compoundref="_player_8cs" startline="112" endline="115">GetAttackSpeed</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1af6ef8664829276d4bb6399977991972c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.FlatDmgIncrease</definition>
+        <argsstring>(float damageIncrease)</argsstring>
+        <name>FlatDmgIncrease</name>
+        <param>
+          <type>float</type>
+          <declname>damageIncrease</declname>
+        </param>
+        <briefdescription>
+<para>Called by the <ref refid="class_shop" kindref="compound">Shop</ref> to increase the player by a flat amount when damage is upgraded. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>damageIncrease</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="137" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="137" bodyend="142"/>
+        <references refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" compoundref="_player_8cs" startline="157" endline="161">SavePlayerData</references>
+        <references refid="class_player_1a89714ea4c1fccb0a9265e61d3afd17ee" compoundref="_player_8cs" startline="89" endline="92">UpdateDamage</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a8725d201010bac545c8f539be06da4f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.FlatAttackSpeedIncrease</definition>
+        <argsstring>(float attkSpeedIncrease)</argsstring>
+        <name>FlatAttackSpeedIncrease</name>
+        <param>
+          <type>float</type>
+          <declname>attkSpeedIncrease</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="144" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="144" bodyend="149"/>
+        <references refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" compoundref="_player_8cs" startline="157" endline="161">SavePlayerData</references>
+        <references refid="class_player_1a4110f439170b6aa377d4e749143bd00a" compoundref="_player_8cs" startline="103" endline="106">UpdateAttackSpeed</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a4ac32f6974ade562cb2eb26f50ad89bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.FlatMovementSpeedIncrease</definition>
+        <argsstring>(float movementSpeedIncrease)</argsstring>
+        <name>FlatMovementSpeedIncrease</name>
+        <param>
+          <type>float</type>
+          <declname>movementSpeedIncrease</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="151" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="151" bodyend="155"/>
+        <references refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" compoundref="_player_8cs" startline="157" endline="161">SavePlayerData</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a83ba9e90bbff475b50cc4cdc5b000bad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.StopMoving</definition>
+        <argsstring>()</argsstring>
+        <name>StopMoving</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="196" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="196" bodyend="200"/>
+        <references refid="class_player_1ab06efa71f49975563061ef3e5c6142e5" compoundref="_player_8cs" startline="29">clickPos</references>
+        <references refid="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" compoundref="_player_8cs" startline="31">moving</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a744ef42e8546b45bbbe359cfe4b765e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.KilledBlock</definition>
+        <argsstring>(Block block)</argsstring>
+        <name>KilledBlock</name>
+        <param>
+          <type><ref refid="class_block" kindref="compound">Block</ref></type>
+          <declname>block</declname>
+        </param>
+        <briefdescription>
+<para>This will handle the rewards for the player killing enemy. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>block</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="210" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="210" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class represents the player and holds stats and handles gameplay related to the player. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="56">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="55">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="56" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="65">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="63">
+        <label>Shop</label>
+        <link refid="class_shop"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>uiManager</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="57" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="59">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="66">
+        <label>SoundManager</label>
+        <link refid="class_sound_manager"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>UIManager</label>
+        <link refid="class_u_i_manager"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="58">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="57">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>soundManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="60">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="10" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="9" bodyend="219"/>
+    <listofallmembers>
+      <member refid="class_player_1a70b6b51d74cd56fa84d032a4024792e6" prot="private" virt="non-virtual"><scope>Player</scope><name>anim</name></member>
+      <member refid="class_player_1aba4c4ee84133a2ebc1667102244e198d" prot="public" virt="non-virtual"><scope>Player</scope><name>Attacked</name></member>
+      <member refid="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" prot="private" virt="non-virtual"><scope>Player</scope><name>Awake</name></member>
+      <member refid="class_player_1a781a319eafa17be389aedd1253f63f62" prot="public" virt="non-virtual"><scope>Player</scope><name>CanAttack</name></member>
+      <member refid="class_player_1ab06efa71f49975563061ef3e5c6142e5" prot="private" virt="non-virtual"><scope>Player</scope><name>clickPos</name></member>
+      <member refid="class_player_1a5b344deb4c43c95fbc8575b9dd7716dc" prot="private" virt="non-virtual"><scope>Player</scope><name>damageTimeRemaining</name></member>
+      <member refid="class_player_1ad14f0036230380f987e362b546454513" prot="private" virt="non-virtual"><scope>Player</scope><name>damageTimerRunning</name></member>
+      <member refid="class_player_1a5882ac2500b3fb259dd74e9eaeced51e" prot="private" virt="non-virtual"><scope>Player</scope><name>dataSavingManager</name></member>
+      <member refid="class_player_1a8725d201010bac545c8f539be06da4f6" prot="public" virt="non-virtual"><scope>Player</scope><name>FlatAttackSpeedIncrease</name></member>
+      <member refid="class_player_1af6ef8664829276d4bb6399977991972c" prot="public" virt="non-virtual"><scope>Player</scope><name>FlatDmgIncrease</name></member>
+      <member refid="class_player_1a4ac32f6974ade562cb2eb26f50ad89bc" prot="public" virt="non-virtual"><scope>Player</scope><name>FlatMovementSpeedIncrease</name></member>
+      <member refid="class_player_1af77ca324319e67d3f031e9b2e23805e3" prot="public" virt="non-virtual"><scope>Player</scope><name>GetAttackSpeed</name></member>
+      <member refid="class_player_1ac8e3207a73ffba1ecbe813d5f080a36b" prot="public" virt="non-virtual"><scope>Player</scope><name>GetDamage</name></member>
+      <member refid="class_player_1a744ef42e8546b45bbbe359cfe4b765e4" prot="public" virt="non-virtual"><scope>Player</scope><name>KilledBlock</name></member>
+      <member refid="class_player_1ad1d691bf2e2e054aaed9fa388f651164" prot="private" virt="non-virtual"><scope>Player</scope><name>MovePlayer</name></member>
+      <member refid="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" prot="private" virt="non-virtual"><scope>Player</scope><name>moving</name></member>
+      <member refid="class_player_1a178b11c876e07c8f6866445329c5404d" prot="private" virt="non-virtual"><scope>Player</scope><name>pink_guy</name></member>
+      <member refid="class_player_1a912c5b32576b7cbb68e6b6b3786fce48" prot="private" virt="non-virtual"><scope>Player</scope><name>playerData</name></member>
+      <member refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" prot="private" virt="non-virtual"><scope>Player</scope><name>SavePlayerData</name></member>
+      <member refid="class_player_1a38ea9ee9f58c86fad6dd36fcae61f18b" prot="private" virt="non-virtual"><scope>Player</scope><name>shop</name></member>
+      <member refid="class_player_1a68faa49d3f538f449643730976414881" prot="private" virt="non-virtual"><scope>Player</scope><name>soundManager</name></member>
+      <member refid="class_player_1aea53f64a37269e7378929cf92feba188" prot="private" virt="non-virtual"><scope>Player</scope><name>sprite</name></member>
+      <member refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" prot="private" virt="non-virtual"><scope>Player</scope><name>Start</name></member>
+      <member refid="class_player_1a83ba9e90bbff475b50cc4cdc5b000bad" prot="public" virt="non-virtual"><scope>Player</scope><name>StopMoving</name></member>
+      <member refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" prot="private" virt="non-virtual"><scope>Player</scope><name>Update</name></member>
+      <member refid="class_player_1a4110f439170b6aa377d4e749143bd00a" prot="private" virt="non-virtual"><scope>Player</scope><name>UpdateAttackSpeed</name></member>
+      <member refid="class_player_1a89714ea4c1fccb0a9265e61d3afd17ee" prot="private" virt="non-virtual"><scope>Player</scope><name>UpdateDamage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

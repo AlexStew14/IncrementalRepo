@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_helper" kind="class" prot="public">
+    <compoundname>Helper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_helper_1a205013cefeaebdbc057577ee85acdbf2" prot="private" static="no" mutable="no">
+        <type><ref refid="class_sound_manager" kindref="compound">SoundManager</ref></type>
+        <definition>SoundManager Helper.soundManager</definition>
+        <argsstring></argsstring>
+        <name>soundManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="10" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="10" bodyend="-1"/>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1affc9ea378a4dbb12606c2c0476b0de35" prot="private" static="no" mutable="no">
+        <type><ref refid="class_data_saving_manager" kindref="compound">DataSavingManager</ref></type>
+        <definition>DataSavingManager Helper.dataSavingManager</definition>
+        <argsstring></argsstring>
+        <name>dataSavingManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="12" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a67634e66cd897d6b60492b954e9a1095" prot="private" static="no" mutable="no">
+        <type><ref refid="class_helper_data" kindref="compound">HelperData</ref></type>
+        <definition>HelperData Helper.helperData</definition>
+        <argsstring></argsstring>
+        <name>helperData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="15" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 Helper.targetPos</definition>
+        <argsstring></argsstring>
+        <name>targetPos</name>
+        <initializer>= new Vector3(3,3,0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="18" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" compoundref="_helper_8cs" startline="68" endline="83">FindBlockInRadius</referencedby>
+        <referencedby refid="class_helper_1aed75b4532544984d2823a4af691ae591" compoundref="_helper_8cs" startline="56" endline="66">MoveHelper</referencedby>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a7a3d020a0245cd1846e29fc6c7f257f3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Helper.moving</definition>
+        <argsstring></argsstring>
+        <name>moving</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="19" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_helper_1aed75b4532544984d2823a4af691ae591" compoundref="_helper_8cs" startline="56" endline="66">MoveHelper</referencedby>
+        <referencedby refid="class_helper_1af9638b02acab7183a45010983131ee69" compoundref="_helper_8cs" startline="85" endline="95">StartCountdown</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a5abed7a9d825922f9b25e949f70e0d77" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Helper.damageTimeRemaining</definition>
+        <argsstring></argsstring>
+        <name>damageTimeRemaining</name>
+        <initializer>= -1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="22" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1ad399e3cb87ddd2d4e2eb70e9fb0c5c67" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Helper.damageTimerRunning</definition>
+        <argsstring></argsstring>
+        <name>damageTimerRunning</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="23" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1aa8bc9cbc3b34bed270b11b9f9fc80680" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer Helper.sprite</definition>
+        <argsstring></argsstring>
+        <name>sprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="26" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a706008c6cc1a2d59e5a8dd8c8c255f09" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Helper.cdValue</definition>
+        <argsstring></argsstring>
+        <name>cdValue</name>
+        <initializer>= 15.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="28" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="28" bodyend="-1"/>
+        <referencedby refid="class_helper_1af9638b02acab7183a45010983131ee69" compoundref="_helper_8cs" startline="85" endline="95">StartCountdown</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a784648072deb4827175fb1122228f223" prot="private" static="no" mutable="no">
+        <type><ref refid="class_block_spawner" kindref="compound">BlockSpawner</ref></type>
+        <definition>BlockSpawner Helper.blockSpawner</definition>
+        <argsstring></argsstring>
+        <name>blockSpawner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="30" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="30" bodyend="-1"/>
+        <referencedby refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" compoundref="_helper_8cs" startline="68" endline="83">FindBlockInRadius</referencedby>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_1a063cf736f3dd8e5e0c8120a58951adb9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Helper.offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <initializer>= 1.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="32" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="32" bodyend="-1"/>
+        <referencedby refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" compoundref="_helper_8cs" startline="68" endline="83">FindBlockInRadius</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Helper.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="37" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="37" bodyend="48"/>
+        <references refid="class_helper_1a784648072deb4827175fb1122228f223" compoundref="_helper_8cs" startline="30">blockSpawner</references>
+        <references refid="class_helper_1affc9ea378a4dbb12606c2c0476b0de35" compoundref="_helper_8cs" startline="12">dataSavingManager</references>
+        <references refid="class_helper_1a67634e66cd897d6b60492b954e9a1095" compoundref="_helper_8cs" startline="15">helperData</references>
+        <references refid="class_helper_1a205013cefeaebdbc057577ee85acdbf2" compoundref="_helper_8cs" startline="10">soundManager</references>
+        <references refid="class_helper_1af9638b02acab7183a45010983131ee69" compoundref="_helper_8cs" startline="85" endline="95">StartCountdown</references>
+        <references refid="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" compoundref="_helper_8cs" startline="18">targetPos</references>
+      </memberdef>
+      <memberdef kind="function" id="class_helper_1a4638a7e349f91f3bb8d742583a617b6b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Helper.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="51" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="51" bodyend="54"/>
+        <references refid="class_helper_1aed75b4532544984d2823a4af691ae591" compoundref="_helper_8cs" startline="56" endline="66">MoveHelper</references>
+      </memberdef>
+      <memberdef kind="function" id="class_helper_1aed75b4532544984d2823a4af691ae591" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Helper.MoveHelper</definition>
+        <argsstring>()</argsstring>
+        <name>MoveHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="56" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="56" bodyend="66"/>
+        <references refid="class_helper_1a7a3d020a0245cd1846e29fc6c7f257f3" compoundref="_helper_8cs" startline="19">moving</references>
+        <references refid="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" compoundref="_helper_8cs" startline="18">targetPos</references>
+        <referencedby refid="class_helper_1a4638a7e349f91f3bb8d742583a617b6b" compoundref="_helper_8cs" startline="51" endline="54">Update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Helper.FindBlockInRadius</definition>
+        <argsstring>()</argsstring>
+        <name>FindBlockInRadius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="68" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="68" bodyend="83"/>
+        <references refid="class_block_spawner_1ab442660d0441854452ed78ecf13d7b3f" compoundref="_block_spawner_8cs" startline="20">BlockSpawner.BlockDictionary</references>
+        <references refid="class_helper_1a784648072deb4827175fb1122228f223" compoundref="_helper_8cs" startline="30">blockSpawner</references>
+        <references refid="class_helper_1a063cf736f3dd8e5e0c8120a58951adb9" compoundref="_helper_8cs" startline="32">offset</references>
+        <references refid="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" compoundref="_helper_8cs" startline="18">targetPos</references>
+        <referencedby refid="class_helper_1af9638b02acab7183a45010983131ee69" compoundref="_helper_8cs" startline="85" endline="95">StartCountdown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_helper_1af9638b02acab7183a45010983131ee69" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Helper.StartCountdown</definition>
+        <argsstring>(float countdownValue)</argsstring>
+        <name>StartCountdown</name>
+        <param>
+          <type>float</type>
+          <declname>countdownValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="85" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="85" bodyend="95"/>
+        <references refid="class_helper_1a706008c6cc1a2d59e5a8dd8c8c255f09" compoundref="_helper_8cs" startline="28">cdValue</references>
+        <references refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" compoundref="_helper_8cs" startline="68" endline="83">FindBlockInRadius</references>
+        <references refid="class_helper_1a7a3d020a0245cd1846e29fc6c7f257f3" compoundref="_helper_8cs" startline="19">moving</references>
+        <referencedby refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" compoundref="_helper_8cs" startline="37" endline="48">Start</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>Helper</label>
+        <link refid="class_helper"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="46">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="51">
+        <label>HelperData</label>
+        <link refid="class_helper_data"/>
+      </node>
+      <node id="50">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="52">
+        <label>SoundManager</label>
+        <link refid="class_sound_manager"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>Helper</label>
+        <link refid="class_helper"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>helperData</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>soundManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="45">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="48">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="7" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="6" bodyend="96"/>
+    <listofallmembers>
+      <member refid="class_helper_1a784648072deb4827175fb1122228f223" prot="private" virt="non-virtual"><scope>Helper</scope><name>blockSpawner</name></member>
+      <member refid="class_helper_1a706008c6cc1a2d59e5a8dd8c8c255f09" prot="private" virt="non-virtual"><scope>Helper</scope><name>cdValue</name></member>
+      <member refid="class_helper_1a5abed7a9d825922f9b25e949f70e0d77" prot="private" virt="non-virtual"><scope>Helper</scope><name>damageTimeRemaining</name></member>
+      <member refid="class_helper_1ad399e3cb87ddd2d4e2eb70e9fb0c5c67" prot="private" virt="non-virtual"><scope>Helper</scope><name>damageTimerRunning</name></member>
+      <member refid="class_helper_1affc9ea378a4dbb12606c2c0476b0de35" prot="private" virt="non-virtual"><scope>Helper</scope><name>dataSavingManager</name></member>
+      <member refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" prot="private" virt="non-virtual"><scope>Helper</scope><name>FindBlockInRadius</name></member>
+      <member refid="class_helper_1a67634e66cd897d6b60492b954e9a1095" prot="private" virt="non-virtual"><scope>Helper</scope><name>helperData</name></member>
+      <member refid="class_helper_1aed75b4532544984d2823a4af691ae591" prot="private" virt="non-virtual"><scope>Helper</scope><name>MoveHelper</name></member>
+      <member refid="class_helper_1a7a3d020a0245cd1846e29fc6c7f257f3" prot="private" virt="non-virtual"><scope>Helper</scope><name>moving</name></member>
+      <member refid="class_helper_1a063cf736f3dd8e5e0c8120a58951adb9" prot="private" virt="non-virtual"><scope>Helper</scope><name>offset</name></member>
+      <member refid="class_helper_1a205013cefeaebdbc057577ee85acdbf2" prot="private" virt="non-virtual"><scope>Helper</scope><name>soundManager</name></member>
+      <member refid="class_helper_1aa8bc9cbc3b34bed270b11b9f9fc80680" prot="private" virt="non-virtual"><scope>Helper</scope><name>sprite</name></member>
+      <member refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" prot="private" virt="non-virtual"><scope>Helper</scope><name>Start</name></member>
+      <member refid="class_helper_1af9638b02acab7183a45010983131ee69" prot="private" virt="non-virtual"><scope>Helper</scope><name>StartCountdown</name></member>
+      <member refid="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" prot="private" virt="non-virtual"><scope>Helper</scope><name>targetPos</name></member>
+      <member refid="class_helper_1a4638a7e349f91f3bb8d742583a617b6b" prot="private" virt="non-virtual"><scope>Helper</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

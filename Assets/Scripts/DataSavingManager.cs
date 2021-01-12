@@ -165,24 +165,6 @@ public class DataSavingManager : MonoBehaviour
         gameData.blockSpawnData = blockSpawnData;
     }
 
-    public HelperData GetHelperData(string key)
-    {
-        return
-            (
-                (gameData.HelperDictionary.ContainsKey(key))
-                ? gameData.HelperDictionary[key]
-                : null
-            );
-    }
-
-    public void SetHelperData(string key, HelperData value)
-    {
-        if (gameData.HelperDictionary.ContainsKey(key))
-            gameData.HelperDictionary[key] = value;
-        else
-            gameData.HelperDictionary.Add(key, value);
-    }
-
     #endregion Get/Set Value Methods
 
     #region Seed Data Methods
@@ -213,19 +195,6 @@ public class DataSavingManager : MonoBehaviour
             runDmgMultiplier = 1.0f,
             moveSpeed = 1.0f
         };
-    }
-
-    private Dictionary<string, HelperData> SeedHelperData()
-    {
-        Dictionary<string, HelperData> helperDictionary = new Dictionary<string, HelperData>();
-
-        helperDictionary.Add("Helper1",
-            new HelperData
-            {
-                baseDamage = 1.0f,
-            }); ;
-
-        return helperDictionary;
     }
 
     private BlockSpawnData SeedBlockSpawnData()
@@ -326,6 +295,28 @@ public class DataSavingManager : MonoBehaviour
                 improvementFunction = (x) => x
             });
 
+        skillDictionary.Add("Helper1",
+            new Skill
+            {
+                name = "Helper1",
+                currentStatIncrease = 0,
+                nextStatIncrease = .05f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 50,
+                type = SkillType.HELPER,
+                upgradeCost = 25,
+                costFunction = (x) => (int)(x * 1.5f),
+                improvementFunction = (x) => x,
+                helperData = new HelperData
+                {
+                    attackDamage = 1.0f,
+                    attackSpeed = 1.0f,
+                    idleTime = 3.0f,
+                    movementSpeed = 1.0f,
+                }
+            });
+
         return skillDictionary;
     }
 
@@ -341,8 +332,6 @@ public class GameData
     public Dictionary<string, object> OtherValues;
 
     public Dictionary<string, Skill> skillDictionary;
-
-    public Dictionary<string, HelperData> HelperDictionary;
 
     public PlayerData playerData;
 

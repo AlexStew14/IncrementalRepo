@@ -16,7 +16,8 @@ public enum SkillType
     KILLREWARDPCT,
     SPAWNSPEED,
     SPAWNSPEEDPCT,
-    MOVEMENTSPEED
+    MOVEMENTSPEED,
+    HELPER
 }
 
 /// <summary>
@@ -55,6 +56,9 @@ public class Skill
     // An anonymous function used to determine the value of the next upgrade level given the current value.
     public Func<float, float> improvementFunction { get; set; }
 
+    // HelperData that the skill contains if the skill is of type HELPER
+    public HelperData helperData { get; set; } = null;
+
     /// <summary>
     /// Checks to make sure the upgrade can occur
     /// </summary>
@@ -80,12 +84,24 @@ public class Skill
         }
 
         remainingMoney = currentMoney - upgradeCost;
+
         ++level;
         totalStatIncrease += nextStatIncrease;
         currentStatIncrease = nextStatIncrease;
         nextStatIncrease = improvementFunction(currentStatIncrease);
         upgradeCost = costFunction(upgradeCost);
 
+        if (type == SkillType.HELPER)
+            HelperUpgrade();
+
         return true;
+    }
+
+    private void HelperUpgrade()
+    {
+        helperData.attackDamage *= (1.0f + currentStatIncrease);
+        helperData.attackSpeed *= (1.0f - currentStatIncrease);
+        helperData.idleTime *= (1.0f - currentStatIncrease);
+        helperData.movementSpeed *= (1.0f + currentStatIncrease);
     }
 }

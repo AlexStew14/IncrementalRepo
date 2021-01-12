@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_skill_8cs" kind="file">
+    <compoundname>Skill.cs</compoundname>
+    <innerclass refid="class_skill" prot="public">Skill</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" prot="public" static="no">
+        <name>SkillType</name>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a1c3167e87dbf05805c2478024dbfd684" prot="public">
+          <name>DMG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a9c4e227aba5e13caeea5838338d4bcdc" prot="public">
+          <name>DMGPCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a340a2c129bef9adc94da6ca1ca1a41ab" prot="public">
+          <name>ATTKSPEED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a649897481121960743eb84344472c503" prot="public">
+          <name>ATTKSPEEDPCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a41ea32179674d58970f5d1b83e2f1c6f" prot="public">
+          <name>KILLREWARD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a7f0a8e810ff821a5fe7c9856cdce770c" prot="public">
+          <name>KILLREWARDPCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a5f845a8184e99ec73520eb0777d900cf" prot="public">
+          <name>SPAWNSPEED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234aca0e8aebc4dbcb08546508c593622048" prot="public">
+          <name>SPAWNSPEEDPCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a8f5662373d8e0067e47c528dc1829a95" prot="public">
+          <name>MOVEMENTSPEED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>This enum represents what aspect of the player the skill affects. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" line="10" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs" bodystart="9" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>UnityEngine;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" refkind="member"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" kindref="member">SkillType</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a1c3167e87dbf05805c2478024dbfd684" kindref="member">DMG</ref>,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a9c4e227aba5e13caeea5838338d4bcdc" kindref="member">DMGPCT</ref>,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a340a2c129bef9adc94da6ca1ca1a41ab" kindref="member">ATTKSPEED</ref>,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a649897481121960743eb84344472c503" kindref="member">ATTKSPEEDPCT</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a41ea32179674d58970f5d1b83e2f1c6f" kindref="member">KILLREWARD</ref>,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a7f0a8e810ff821a5fe7c9856cdce770c" kindref="member">KILLREWARDPCT</ref>,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a5f845a8184e99ec73520eb0777d900cf" kindref="member">SPAWNSPEED</ref>,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234aca0e8aebc4dbcb08546508c593622048" kindref="member">SPAWNSPEEDPCT</ref>,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a8f5662373d8e0067e47c528dc1829a95" kindref="member">MOVEMENTSPEED</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">[Serializable]</highlight></codeline>
+<codeline lineno="27" refid="class_skill" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_skill" kindref="compound">Skill</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>current<sp/>level<sp/>of<sp/>the<sp/>skill</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" kindref="member">level</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>max<sp/>level<sp/>of<sp/>the<sp/>skill</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" kindref="member">maxLevel</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>money<sp/>cost<sp/>for<sp/>upgrading<sp/>the<sp/>skill</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" kindref="member">upgradeCost</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>current<sp/>amount<sp/>the<sp/>skill<sp/>is<sp/>affecting<sp/>the<sp/>player,<sp/>can<sp/>be<sp/>flat<sp/>or<sp/>percentage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" kindref="member">currentStatIncrease</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" kindref="member">totalStatIncrease</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>next<sp/>value<sp/>in<sp/>the<sp/>improvement<sp/>function,<sp/>used<sp/>for<sp/>displaying<sp/>on<sp/>ui.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" kindref="member">nextStatIncrease</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>name<sp/>of<sp/>the<sp/>skill</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="class_skill_1a51ba89240d0da6427ed2b4c35742636e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a51ba89240d0da6427ed2b4c35742636e" kindref="member">name</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>type<sp/>of<sp/>skill</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" kindref="member">SkillType</ref><sp/><ref refid="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" kindref="member">type</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>anonymous<sp/>function<sp/>used<sp/>to<sp/>determine<sp/>the<sp/>price<sp/>of<sp/>the<sp/>next<sp/>upgrade<sp/>level<sp/>given<sp/>the<sp/>current<sp/>price.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Func&lt;int,<sp/>int&gt;<sp/><ref refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" kindref="member">costFunction</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>anonymous<sp/>function<sp/>used<sp/>to<sp/>determine<sp/>the<sp/>value<sp/>of<sp/>the<sp/>next<sp/>upgrade<sp/>level<sp/>given<sp/>the<sp/>current<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Func&lt;float,<sp/>float&gt;<sp/><ref refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" kindref="member">improvementFunction</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="class_skill_1a42c367ba66b8ca908e24837da009d029" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a42c367ba66b8ca908e24837da009d029" kindref="member">CheckUpgrade</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentMoney)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(currentMoney<sp/>&gt;=<sp/><ref refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" kindref="member">upgradeCost</ref>)<sp/>&amp;&amp;<sp/>(<ref refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" kindref="member">level</ref><sp/>&lt;<sp/><ref refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" kindref="member">maxLevel</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" kindref="member">Upgrade</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentMoney,<sp/>out<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>remainingMoney)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_skill_1a42c367ba66b8ca908e24837da009d029" kindref="member">CheckUpgrade</ref>(currentMoney))</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remainingMoney<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remainingMoney<sp/>=<sp/>currentMoney<sp/>-<sp/><ref refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" kindref="member">upgradeCost</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++<ref refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" kindref="member">level</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" kindref="member">totalStatIncrease</ref><sp/>+=<sp/><ref refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" kindref="member">nextStatIncrease</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" kindref="member">currentStatIncrease</ref><sp/>=<sp/><ref refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" kindref="member">nextStatIncrease</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" kindref="member">nextStatIncrease</ref><sp/>=<sp/><ref refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" kindref="member">improvementFunction</ref>(<ref refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" kindref="member">currentStatIncrease</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upgradeCost<sp/>=<sp/><ref refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" kindref="member">costFunction</ref>(upgradeCost);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Skill.cs"/>
+  </compounddef>
+</doxygen>

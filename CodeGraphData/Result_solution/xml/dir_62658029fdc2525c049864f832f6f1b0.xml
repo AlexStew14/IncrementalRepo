@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_62658029fdc2525c049864f832f6f1b0" kind="dir">
+    <compoundname>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts</compoundname>
+    <innerdir refid="dir_d58819cb05d39c47c0041f0f78d6e469">C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts</innerdir>
+    <innerfile refid="_block_8cs">Block.cs</innerfile>
+    <innerfile refid="_block_spawner_8cs">BlockSpawner.cs</innerfile>
+    <innerfile refid="_data_saving_manager_8cs">DataSavingManager.cs</innerfile>
+    <innerfile refid="_helper_8cs">Helper.cs</innerfile>
+    <innerfile refid="_player_8cs">Player.cs</innerfile>
+    <innerfile refid="_shop_8cs">Shop.cs</innerfile>
+    <innerfile refid="_skill_8cs">Skill.cs</innerfile>
+    <innerfile refid="_sound_manager_8cs">SoundManager.cs</innerfile>
+    <innerfile refid="_u_i_manager_8cs">UIManager.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_data_saving_manager" kind="class" prot="public">
+    <compoundname>DataSavingManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_data_saving_manager_1a584b3c9e31d4166ae4710be72c1b3aaa" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string DataSavingManager.saveFileName</definition>
+        <argsstring></argsstring>
+        <name>saveFileName</name>
+        <initializer>= &quot;/GameData.xml&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="12" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" compoundref="_data_saving_manager_8cs" startline="25" endline="30">Awake</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string DataSavingManager.saveFilePath</definition>
+        <argsstring></argsstring>
+        <name>saveFilePath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="14" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="14" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" compoundref="_data_saving_manager_8cs" startline="25" endline="30">Awake</referencedby>
+        <referencedby refid="class_data_saving_manager_1a828e2c962f21dc2b4503fd75cc838057" compoundref="_data_saving_manager_8cs" startline="90" endline="101">Delete</referencedby>
+        <referencedby refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" compoundref="_data_saving_manager_8cs" startline="41" endline="52">InitializeGameData</referencedby>
+        <referencedby refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" compoundref="_data_saving_manager_8cs" startline="68" endline="85">Load</referencedby>
+        <referencedby refid="class_data_saving_manager_1af5431128323dfd3196c26adc2c7874ef" compoundref="_data_saving_manager_8cs" startline="54" endline="66">Save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_data" kindref="compound">GameData</ref></type>
+        <definition>GameData DataSavingManager.gameData</definition>
+        <argsstring></argsstring>
+        <name>gameData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="16" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="16" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a92cf0a3b955c0c9df3aab5ec22ef6f0c" compoundref="_data_saving_manager_8cs" startline="168" endline="176">GetHelperData</referencedby>
+        <referencedby refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" compoundref="_data_saving_manager_8cs" startline="130" endline="138">GetOtherValue</referencedby>
+        <referencedby refid="class_data_saving_manager_1a194efaf1d69b614d51341fb24dba618e" compoundref="_data_saving_manager_8cs" startline="107" endline="115">GetSkill</referencedby>
+        <referencedby refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" compoundref="_data_saving_manager_8cs" startline="68" endline="85">Load</referencedby>
+        <referencedby refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</referencedby>
+        <referencedby refid="class_data_saving_manager_1af1d6b712204f5af5f42bc11f51eb7b1a" compoundref="_data_saving_manager_8cs" startline="178" endline="184">SetHelperData</referencedby>
+        <referencedby refid="class_data_saving_manager_1aa3952a86c16f52c9f3e11d95caedbd4d" compoundref="_data_saving_manager_8cs" startline="140" endline="146">SetOtherValue</referencedby>
+        <referencedby refid="class_data_saving_manager_1ab0706c603400367c74f6c4abcd00e3a4" compoundref="_data_saving_manager_8cs" startline="122" endline="128">SetSkill</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_data_saving_manager_1a2ce6a87ee26cd107e1fa8c897633a2c1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DataSavingManager.startingMoney</definition>
+        <argsstring></argsstring>
+        <name>startingMoney</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="18" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a0ca8d3071a271af4ae20df60178eb5b3" compoundref="_data_saving_manager_8cs" startline="248" endline="256">SeedOtherValues</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="25" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="25" bodyend="30"/>
+        <references refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" compoundref="_data_saving_manager_8cs" startline="41" endline="52">InitializeGameData</references>
+        <references refid="class_data_saving_manager_1a584b3c9e31d4166ae4710be72c1b3aaa" compoundref="_data_saving_manager_8cs" startline="12">saveFileName</references>
+        <references refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" compoundref="_data_saving_manager_8cs" startline="14">saveFilePath</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a5a47b40b391fddd3874a8439632c856a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="33" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.InitializeGameData</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeGameData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="41" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="41" bodyend="52"/>
+        <references refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" compoundref="_data_saving_manager_8cs" startline="68" endline="85">Load</references>
+        <references refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" compoundref="_data_saving_manager_8cs" startline="14">saveFilePath</references>
+        <references refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</references>
+        <referencedby refid="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" compoundref="_data_saving_manager_8cs" startline="25" endline="30">Awake</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.Load</definition>
+        <argsstring>()</argsstring>
+        <name>Load</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="68" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="68" bodyend="85"/>
+        <references refid="class_data_saving_manager_1a828e2c962f21dc2b4503fd75cc838057" compoundref="_data_saving_manager_8cs" startline="90" endline="101">Delete</references>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" compoundref="_data_saving_manager_8cs" startline="14">saveFilePath</references>
+        <referencedby refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" compoundref="_data_saving_manager_8cs" startline="41" endline="52">InitializeGameData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SeedGameData</definition>
+        <argsstring>()</argsstring>
+        <name>SeedGameData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="190" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="190" bodyend="199"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_data_saving_manager_1a4cf5ed1a00c625035cce8f51416e9fed" compoundref="_data_saving_manager_8cs" startline="239" endline="246">SeedBlockSpawnData</references>
+        <references refid="class_data_saving_manager_1a0ca8d3071a271af4ae20df60178eb5b3" compoundref="_data_saving_manager_8cs" startline="248" endline="256">SeedOtherValues</references>
+        <references refid="class_data_saving_manager_1a0895200e9da10522f1a47fa5314eecc1" compoundref="_data_saving_manager_8cs" startline="201" endline="216">SeedPlayerData</references>
+        <references refid="class_data_saving_manager_1a1c5df6f33dcc5fb2b2bf1ee9830bc9c8" compoundref="_data_saving_manager_8cs" startline="258" endline="338">SeedSkills</references>
+        <referencedby refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" compoundref="_data_saving_manager_8cs" startline="41" endline="52">InitializeGameData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a0895200e9da10522f1a47fa5314eecc1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_player_data" kindref="compound">PlayerData</ref></type>
+        <definition>PlayerData DataSavingManager.SeedPlayerData</definition>
+        <argsstring>()</argsstring>
+        <name>SeedPlayerData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="201" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="201" bodyend="216"/>
+        <referencedby refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1ae72e7f98bb139911afb9d91b5c159773" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, <ref refid="class_helper_data" kindref="compound">HelperData</ref> &gt;</type>
+        <definition>Dictionary&lt;string, HelperData&gt; DataSavingManager.SeedHelperData</definition>
+        <argsstring>()</argsstring>
+        <name>SeedHelperData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="218" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="218" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a4cf5ed1a00c625035cce8f51416e9fed" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_block_spawn_data" kindref="compound">BlockSpawnData</ref></type>
+        <definition>BlockSpawnData DataSavingManager.SeedBlockSpawnData</definition>
+        <argsstring>()</argsstring>
+        <name>SeedBlockSpawnData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="239" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="239" bodyend="246"/>
+        <referencedby refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a0ca8d3071a271af4ae20df60178eb5b3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, object &gt;</type>
+        <definition>Dictionary&lt;string, object&gt; DataSavingManager.SeedOtherValues</definition>
+        <argsstring>()</argsstring>
+        <name>SeedOtherValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="248" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="248" bodyend="256"/>
+        <references refid="class_data_saving_manager_1a2ce6a87ee26cd107e1fa8c897633a2c1" compoundref="_data_saving_manager_8cs" startline="18">startingMoney</references>
+        <referencedby refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a1c5df6f33dcc5fb2b2bf1ee9830bc9c8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, <ref refid="class_skill" kindref="compound">Skill</ref> &gt;</type>
+        <definition>Dictionary&lt;string, Skill&gt; DataSavingManager.SeedSkills</definition>
+        <argsstring>()</argsstring>
+        <name>SeedSkills</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="258" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="258" bodyend="338"/>
+        <references refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a340a2c129bef9adc94da6ca1ca1a41ab">ATTKSPEED</references>
+        <references refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a1c3167e87dbf05805c2478024dbfd684">DMG</references>
+        <references refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a41ea32179674d58970f5d1b83e2f1c6f">KILLREWARD</references>
+        <references refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a8f5662373d8e0067e47c528dc1829a95">MOVEMENTSPEED</references>
+        <references refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a5f845a8184e99ec73520eb0777d900cf">SPAWNSPEED</references>
+        <referencedby refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" compoundref="_data_saving_manager_8cs" startline="190" endline="199">SeedGameData</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_saving_manager_1af5431128323dfd3196c26adc2c7874ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.Save</definition>
+        <argsstring>()</argsstring>
+        <name>Save</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="54" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="54" bodyend="66"/>
+        <references refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" compoundref="_data_saving_manager_8cs" startline="14">saveFilePath</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a828e2c962f21dc2b4503fd75cc838057" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.Delete</definition>
+        <argsstring>()</argsstring>
+        <name>Delete</name>
+        <briefdescription>
+<para>Wipes out local values, and deletes configuration file (drastic, and should only be done if file is corrupted) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="90" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="90" bodyend="101"/>
+        <references refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" compoundref="_data_saving_manager_8cs" startline="14">saveFilePath</references>
+        <referencedby refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" compoundref="_data_saving_manager_8cs" startline="68" endline="85">Load</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a194efaf1d69b614d51341fb24dba618e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_skill" kindref="compound">Skill</ref></type>
+        <definition>Skill DataSavingManager.GetSkill</definition>
+        <argsstring>(string key)</argsstring>
+        <name>GetSkill</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="107" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="107" bodyend="115"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1af08436b3965970f56a198dbce438ae82" compoundref="_data_saving_manager_8cs" startline="351">GameData.skillDictionary</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1ab95ea9507fd1ca984b1c2c374211c498" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, <ref refid="class_skill" kindref="compound">Skill</ref> &gt;</type>
+        <definition>Dictionary&lt;string, Skill&gt; DataSavingManager.GetSkillDictionary</definition>
+        <argsstring>()</argsstring>
+        <name>GetSkillDictionary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="117" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1ab0706c603400367c74f6c4abcd00e3a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SetSkill</definition>
+        <argsstring>(string key, Skill value)</argsstring>
+        <name>SetSkill</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="class_skill" kindref="compound">Skill</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="122" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="122" bodyend="128"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1af08436b3965970f56a198dbce438ae82" compoundref="_data_saving_manager_8cs" startline="351">GameData.skillDictionary</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>object</type>
+        <definition>object DataSavingManager.GetOtherValue</definition>
+        <argsstring>(string key)</argsstring>
+        <name>GetOtherValue</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="130" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="130" bodyend="138"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1a27a1518428fb413a633d44eb4635f64a" compoundref="_data_saving_manager_8cs" startline="349">GameData.OtherValues</references>
+        <referencedby refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" compoundref="_block_spawner_8cs" startline="29" endline="35">BlockSpawner.Start</referencedby>
+        <referencedby refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" compoundref="_shop_8cs" startline="40" endline="53">Shop.Start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1aa3952a86c16f52c9f3e11d95caedbd4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SetOtherValue</definition>
+        <argsstring>(string key, object value)</argsstring>
+        <name>SetOtherValue</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="140" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="140" bodyend="146"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1a27a1518428fb413a633d44eb4635f64a" compoundref="_data_saving_manager_8cs" startline="349">GameData.OtherValues</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a1eb0cb47896e2bc2305fd1839a5693b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_player_data" kindref="compound">PlayerData</ref></type>
+        <definition>PlayerData DataSavingManager.GetPlayerData</definition>
+        <argsstring>()</argsstring>
+        <name>GetPlayerData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="148" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a066eb3614c632bb21c63fa4ffc9530c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SetPlayerData</definition>
+        <argsstring>(PlayerData playerData)</argsstring>
+        <name>SetPlayerData</name>
+        <param>
+          <type><ref refid="class_player_data" kindref="compound">PlayerData</ref></type>
+          <declname>playerData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="153" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a69c7133c342b8d7589e85522b97c7312" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_block_spawn_data" kindref="compound">BlockSpawnData</ref></type>
+        <definition>BlockSpawnData DataSavingManager.GetBlockSpawnData</definition>
+        <argsstring>()</argsstring>
+        <name>GetBlockSpawnData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="158" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a0e3592f885dc70d8182caec56ebafda0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SetBlockSpawnData</definition>
+        <argsstring>(BlockSpawnData blockSpawnData)</argsstring>
+        <name>SetBlockSpawnData</name>
+        <param>
+          <type><ref refid="class_block_spawn_data" kindref="compound">BlockSpawnData</ref></type>
+          <declname>blockSpawnData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="163" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1a92cf0a3b955c0c9df3aab5ec22ef6f0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_helper_data" kindref="compound">HelperData</ref></type>
+        <definition>HelperData DataSavingManager.GetHelperData</definition>
+        <argsstring>(string key)</argsstring>
+        <name>GetHelperData</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="168" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="168" bodyend="176"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1aff57508aaaba2a8d751bae92a59221a0" compoundref="_data_saving_manager_8cs" startline="353">GameData.HelperDictionary</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_saving_manager_1af1d6b712204f5af5f42bc11f51eb7b1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataSavingManager.SetHelperData</definition>
+        <argsstring>(string key, HelperData value)</argsstring>
+        <name>SetHelperData</name>
+        <param>
+          <type>string</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="class_helper_data" kindref="compound">HelperData</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="178" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="178" bodyend="184"/>
+        <references refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" compoundref="_data_saving_manager_8cs" startline="16">gameData</references>
+        <references refid="class_game_data_1aff57508aaaba2a8d751bae92a59221a0" compoundref="_data_saving_manager_8cs" startline="353">GameData.HelperDictionary</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="32">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="31">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="32" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="36">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="37">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="35">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="36" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="34">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="33">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="8" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="7" bodyend="341"/>
+    <listofallmembers>
+      <member refid="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>Awake</name></member>
+      <member refid="class_data_saving_manager_1a828e2c962f21dc2b4503fd75cc838057" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>Delete</name></member>
+      <member refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>gameData</name></member>
+      <member refid="class_data_saving_manager_1a69c7133c342b8d7589e85522b97c7312" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetBlockSpawnData</name></member>
+      <member refid="class_data_saving_manager_1a92cf0a3b955c0c9df3aab5ec22ef6f0c" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetHelperData</name></member>
+      <member refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetOtherValue</name></member>
+      <member refid="class_data_saving_manager_1a1eb0cb47896e2bc2305fd1839a5693b6" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetPlayerData</name></member>
+      <member refid="class_data_saving_manager_1a194efaf1d69b614d51341fb24dba618e" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetSkill</name></member>
+      <member refid="class_data_saving_manager_1ab95ea9507fd1ca984b1c2c374211c498" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>GetSkillDictionary</name></member>
+      <member refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>InitializeGameData</name></member>
+      <member refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>Load</name></member>
+      <member refid="class_data_saving_manager_1af5431128323dfd3196c26adc2c7874ef" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>Save</name></member>
+      <member refid="class_data_saving_manager_1a584b3c9e31d4166ae4710be72c1b3aaa" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>saveFileName</name></member>
+      <member refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>saveFilePath</name></member>
+      <member refid="class_data_saving_manager_1a4cf5ed1a00c625035cce8f51416e9fed" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedBlockSpawnData</name></member>
+      <member refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedGameData</name></member>
+      <member refid="class_data_saving_manager_1ae72e7f98bb139911afb9d91b5c159773" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedHelperData</name></member>
+      <member refid="class_data_saving_manager_1a0ca8d3071a271af4ae20df60178eb5b3" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedOtherValues</name></member>
+      <member refid="class_data_saving_manager_1a0895200e9da10522f1a47fa5314eecc1" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedPlayerData</name></member>
+      <member refid="class_data_saving_manager_1a1c5df6f33dcc5fb2b2bf1ee9830bc9c8" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>SeedSkills</name></member>
+      <member refid="class_data_saving_manager_1a0e3592f885dc70d8182caec56ebafda0" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>SetBlockSpawnData</name></member>
+      <member refid="class_data_saving_manager_1af1d6b712204f5af5f42bc11f51eb7b1a" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>SetHelperData</name></member>
+      <member refid="class_data_saving_manager_1aa3952a86c16f52c9f3e11d95caedbd4d" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>SetOtherValue</name></member>
+      <member refid="class_data_saving_manager_1a066eb3614c632bb21c63fa4ffc9530c3" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>SetPlayerData</name></member>
+      <member refid="class_data_saving_manager_1ab0706c603400367c74f6c4abcd00e3a4" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>SetSkill</name></member>
+      <member refid="class_data_saving_manager_1a2ce6a87ee26cd107e1fa8c897633a2c1" prot="public" virt="non-virtual"><scope>DataSavingManager</scope><name>startingMoney</name></member>
+      <member refid="class_data_saving_manager_1a5a47b40b391fddd3874a8439632c856a" prot="private" virt="non-virtual"><scope>DataSavingManager</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

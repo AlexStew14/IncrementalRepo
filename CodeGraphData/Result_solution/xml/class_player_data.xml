@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_player_data" kind="class" prot="public">
+    <compoundname>PlayerData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_player_data_1a7a9cecf91d9d2a0087c1afdb965b4a2a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="227" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a886645497ac35b23c3dd10572ab8473e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.baseDamage</definition>
+        <argsstring></argsstring>
+        <name>baseDamage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="230" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a54623d8105944881dbb307541a2acdf5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.finalDamage</definition>
+        <argsstring></argsstring>
+        <name>finalDamage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="233" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1ad0ea7b558295927312e791d0a4524cd8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.prestigeDmgMultiplier</definition>
+        <argsstring></argsstring>
+        <name>prestigeDmgMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="236" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1aa71c330e532655a8f74f42d9632d19ec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.runDmgMultiplier</definition>
+        <argsstring></argsstring>
+        <name>runDmgMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="239" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a71c73866840da5721eeb96686cf428f9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.baseAttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>baseAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="244" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a184f6bb7509138415826e5e88debfbf6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.finalAttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>finalAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="246" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a23e928c8b1b235f3a3edd60fb01952a6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.runAtkSpeedMult</definition>
+        <argsstring></argsstring>
+        <name>runAtkSpeedMult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="248" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a4dade69424407e7d2aba769695201c80" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.prestigeAtkSpeedMult</definition>
+        <argsstring></argsstring>
+        <name>prestigeAtkSpeedMult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="250" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_data_1a063b5264d06a45697e50b5c9dcd26276" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PlayerData.moveSpeed</definition>
+        <argsstring></argsstring>
+        <name>moveSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="252" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stores the base and final stats for the players skills as well as their prestige multiplies. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" line="226" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Player.cs" bodystart="225" bodyend="253"/>
+    <listofallmembers>
+      <member refid="class_player_data_1a71c73866840da5721eeb96686cf428f9" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>baseAttackSpeed</name></member>
+      <member refid="class_player_data_1a886645497ac35b23c3dd10572ab8473e" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>baseDamage</name></member>
+      <member refid="class_player_data_1a184f6bb7509138415826e5e88debfbf6" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>finalAttackSpeed</name></member>
+      <member refid="class_player_data_1a54623d8105944881dbb307541a2acdf5" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>finalDamage</name></member>
+      <member refid="class_player_data_1a7a9cecf91d9d2a0087c1afdb965b4a2a" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>level</name></member>
+      <member refid="class_player_data_1a063b5264d06a45697e50b5c9dcd26276" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>moveSpeed</name></member>
+      <member refid="class_player_data_1a4dade69424407e7d2aba769695201c80" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>prestigeAtkSpeedMult</name></member>
+      <member refid="class_player_data_1ad0ea7b558295927312e791d0a4524cd8" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>prestigeDmgMultiplier</name></member>
+      <member refid="class_player_data_1a23e928c8b1b235f3a3edd60fb01952a6" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>runAtkSpeedMult</name></member>
+      <member refid="class_player_data_1aa71c330e532655a8f74f42d9632d19ec" prot="public" virt="non-virtual"><scope>PlayerData</scope><name>runDmgMultiplier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

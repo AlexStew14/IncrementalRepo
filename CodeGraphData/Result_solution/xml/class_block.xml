@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_block" kind="class" prot="public">
+    <compoundname>Block</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_block_1a741e65e4bc06c6dda179f4022e771238" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Block.maxHealth</definition>
+        <argsstring></argsstring>
+        <name>maxHealth</name>
+        <initializer>= 5.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="11" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_block_1a6b8519d3020da91174a559812c5507a1" compoundref="_block_8cs" startline="118" endline="128">InitializeHealthBar</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a03a97fd9257760002053e67c9a03b68f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Block.currentHealth</definition>
+        <argsstring></argsstring>
+        <name>currentHealth</name>
+        <initializer>= 5.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="13" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">FixedUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a4d880b19ec8a1de74a72779f76b018de" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Block.blockType</definition>
+        <argsstring></argsstring>
+        <name>blockType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="15" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Block.colliding</definition>
+        <argsstring></argsstring>
+        <name>colliding</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="17" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">FixedUpdate</referencedby>
+        <referencedby refid="class_block_1a1b5fdaa7d789d5bd403a684c63d877b7" compoundref="_block_8cs" startline="87" endline="95">OnCollisionEnter2D</referencedby>
+        <referencedby refid="class_block_1aef3bf763908c134ccf661482c6173e01" compoundref="_block_8cs" startline="101" endline="109">OnCollisionExit2D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a51ba17e105f66d97e108af7d58a866e7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Block.isDead</definition>
+        <argsstring></argsstring>
+        <name>isDead</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="19" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">FixedUpdate</referencedby>
+        <referencedby refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" compoundref="_block_8cs" startline="138" endline="151">Killed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a7881b20981be7cc3b466089b586086ec" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player Block.player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="21" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">FixedUpdate</referencedby>
+        <referencedby refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" compoundref="_block_8cs" startline="46" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a020f60a52df860f2a176ecc94912fb6e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Block.killReward</definition>
+        <argsstring></argsstring>
+        <name>killReward</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="24" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_block_1ae942250d697a273bf784dd882bee800e" compoundref="_block_8cs" startline="157" endline="160">GetKillReward</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1ac6499321cf6579c29c7835a471471146" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Block.killExpReward</definition>
+        <argsstring></argsstring>
+        <name>killExpReward</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="27" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="27" bodyend="-1"/>
+        <referencedby refid="class_block_1ab3f46e8a6f03e77e117e179339283cd7" compoundref="_block_8cs" startline="162" endline="165">GetKillExpReward</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1ae2d733e9177e81a098a5e8ad41e657d7" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider Block.slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="30" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="30" bodyend="-1"/>
+        <referencedby refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" compoundref="_block_8cs" startline="138" endline="151">Killed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1ae6a8857e57ab779bc167cf58c8610adf" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject Block.killEffect</definition>
+        <argsstring></argsstring>
+        <name>killEffect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="33" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="33" bodyend="-1"/>
+        <referencedby refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" compoundref="_block_8cs" startline="138" endline="151">Killed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a249a4046cd0dde231bd0c02dfde32a03" prot="private" static="no" mutable="no">
+        <type>Canvas</type>
+        <definition>Canvas Block.healthCanvas</definition>
+        <argsstring></argsstring>
+        <name>healthCanvas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="35" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="35" bodyend="-1"/>
+        <referencedby refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" compoundref="_block_8cs" startline="46" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1a57e2f7c11023a1f05b24ad83354cc9b6" prot="private" static="no" mutable="no">
+        <type>Rigidbody2D</type>
+        <definition>Rigidbody2D Block.physicsBody</definition>
+        <argsstring></argsstring>
+        <name>physicsBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="37" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="37" bodyend="-1"/>
+        <referencedby refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" compoundref="_block_8cs" startline="46" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_1aea8a2421037f1766afa39f4e542221fb" prot="private" static="no" mutable="no">
+        <type><ref refid="class_block_spawner" kindref="compound">BlockSpawner</ref></type>
+        <definition>BlockSpawner Block.blockSpawner</definition>
+        <argsstring></argsstring>
+        <name>blockSpawner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="39" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="39" bodyend="-1"/>
+        <referencedby refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" compoundref="_block_8cs" startline="46" endline="53">Start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="46" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="46" bodyend="53"/>
+        <references refid="class_block_1aea8a2421037f1766afa39f4e542221fb" compoundref="_block_8cs" startline="39">blockSpawner</references>
+        <references refid="class_block_1a249a4046cd0dde231bd0c02dfde32a03" compoundref="_block_8cs" startline="35">healthCanvas</references>
+        <references refid="class_block_1a6b8519d3020da91174a559812c5507a1" compoundref="_block_8cs" startline="118" endline="128">InitializeHealthBar</references>
+        <references refid="class_block_1a57e2f7c11023a1f05b24ad83354cc9b6" compoundref="_block_8cs" startline="37">physicsBody</references>
+        <references refid="class_block_1a7881b20981be7cc3b466089b586086ec" compoundref="_block_8cs" startline="21">player</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1a9f15d04d26d5b046dc6f632e45995612" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="56" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.FixedUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>FixedUpdate</name>
+        <briefdescription>
+<para>Handles physics and collisions. Blocks take damage when they collide with player if the player can attack. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="64" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="64" bodyend="81"/>
+        <references refid="class_player_1a781a319eafa17be389aedd1253f63f62" compoundref="_player_8cs" startline="117" endline="120">Player.CanAttack</references>
+        <references refid="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" compoundref="_block_8cs" startline="17">colliding</references>
+        <references refid="class_block_1a03a97fd9257760002053e67c9a03b68f" compoundref="_block_8cs" startline="13">currentHealth</references>
+        <references refid="class_block_1a51ba17e105f66d97e108af7d58a866e7" compoundref="_block_8cs" startline="19">isDead</references>
+        <references refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" compoundref="_block_8cs" startline="138" endline="151">Killed</references>
+        <references refid="class_block_1a7881b20981be7cc3b466089b586086ec" compoundref="_block_8cs" startline="21">player</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1a1b5fdaa7d789d5bd403a684c63d877b7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.OnCollisionEnter2D</definition>
+        <argsstring>(Collision2D collision)</argsstring>
+        <name>OnCollisionEnter2D</name>
+        <param>
+          <type>Collision2D</type>
+          <declname>collision</declname>
+        </param>
+        <briefdescription>
+<para>Unity method for collision enter. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>collision</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="87" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="87" bodyend="95"/>
+        <references refid="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" compoundref="_block_8cs" startline="17">colliding</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1aef3bf763908c134ccf661482c6173e01" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.OnCollisionExit2D</definition>
+        <argsstring>(Collision2D collision)</argsstring>
+        <name>OnCollisionExit2D</name>
+        <param>
+          <type>Collision2D</type>
+          <declname>collision</declname>
+        </param>
+        <briefdescription>
+<para>Unity method for collision exit. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>collision</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="101" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="101" bodyend="109"/>
+        <references refid="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" compoundref="_block_8cs" startline="17">colliding</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1a6b8519d3020da91174a559812c5507a1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.InitializeHealthBar</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeHealthBar</name>
+        <briefdescription>
+<para>Setups health bar for this block on spawn. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="118" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="118" bodyend="128"/>
+        <references refid="class_block_1a741e65e4bc06c6dda179f4022e771238" compoundref="_block_8cs" startline="11">maxHealth</references>
+        <referencedby refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" compoundref="_block_8cs" startline="46" endline="53">Start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1a811afe7532736aa03e428fdcb5e1f87c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Block.Killed</definition>
+        <argsstring>()</argsstring>
+        <name>Killed</name>
+        <briefdescription>
+<para>This method is called when the block is killed. It displays death effects and notifies the player that the block was killed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="138" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="138" bodyend="151"/>
+        <references refid="class_block_1a51ba17e105f66d97e108af7d58a866e7" compoundref="_block_8cs" startline="19">isDead</references>
+        <references refid="class_block_1ae6a8857e57ab779bc167cf58c8610adf" compoundref="_block_8cs" startline="33">killEffect</references>
+        <references refid="class_block_1ae2d733e9177e81a098a5e8ad41e657d7" compoundref="_block_8cs" startline="30">slider</references>
+        <referencedby refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" compoundref="_block_8cs" startline="64" endline="81">FixedUpdate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_block_1ae942250d697a273bf784dd882bee800e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Block.GetKillReward</definition>
+        <argsstring>()</argsstring>
+        <name>GetKillReward</name>
+        <briefdescription>
+<para>Simple getter for the kill reward </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="157" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="157" bodyend="160"/>
+        <references refid="class_block_1a020f60a52df860f2a176ecc94912fb6e" compoundref="_block_8cs" startline="24">killReward</references>
+      </memberdef>
+      <memberdef kind="function" id="class_block_1ab3f46e8a6f03e77e117e179339283cd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Block.GetKillExpReward</definition>
+        <argsstring>()</argsstring>
+        <name>GetKillExpReward</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="162" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="162" bodyend="165"/>
+        <references refid="class_block_1ac6499321cf6579c29c7835a471471146" compoundref="_block_8cs" startline="27">killExpReward</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>Block</label>
+        <link refid="class_block"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>BlockSpawner</label>
+        <link refid="class_block_spawner"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Block</label>
+        <link refid="class_block"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="10">
+        <label>Shop</label>
+        <link refid="class_shop"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>uiManager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>blockSpawner</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="12">
+        <label>SoundManager</label>
+        <link refid="class_sound_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>UIManager</label>
+        <link refid="class_u_i_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="9">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>dataSavingManager</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>shop</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>soundManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DataSavingManager</label>
+        <link refid="class_data_saving_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>gameData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" line="7" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Block.cs" bodystart="6" bodyend="168"/>
+    <listofallmembers>
+      <member refid="class_block_1aea8a2421037f1766afa39f4e542221fb" prot="private" virt="non-virtual"><scope>Block</scope><name>blockSpawner</name></member>
+      <member refid="class_block_1a4d880b19ec8a1de74a72779f76b018de" prot="private" virt="non-virtual"><scope>Block</scope><name>blockType</name></member>
+      <member refid="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" prot="private" virt="non-virtual"><scope>Block</scope><name>colliding</name></member>
+      <member refid="class_block_1a03a97fd9257760002053e67c9a03b68f" prot="private" virt="non-virtual"><scope>Block</scope><name>currentHealth</name></member>
+      <member refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" prot="private" virt="non-virtual"><scope>Block</scope><name>FixedUpdate</name></member>
+      <member refid="class_block_1ab3f46e8a6f03e77e117e179339283cd7" prot="public" virt="non-virtual"><scope>Block</scope><name>GetKillExpReward</name></member>
+      <member refid="class_block_1ae942250d697a273bf784dd882bee800e" prot="public" virt="non-virtual"><scope>Block</scope><name>GetKillReward</name></member>
+      <member refid="class_block_1a249a4046cd0dde231bd0c02dfde32a03" prot="private" virt="non-virtual"><scope>Block</scope><name>healthCanvas</name></member>
+      <member refid="class_block_1a6b8519d3020da91174a559812c5507a1" prot="private" virt="non-virtual"><scope>Block</scope><name>InitializeHealthBar</name></member>
+      <member refid="class_block_1a51ba17e105f66d97e108af7d58a866e7" prot="private" virt="non-virtual"><scope>Block</scope><name>isDead</name></member>
+      <member refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" prot="private" virt="non-virtual"><scope>Block</scope><name>Killed</name></member>
+      <member refid="class_block_1ae6a8857e57ab779bc167cf58c8610adf" prot="private" virt="non-virtual"><scope>Block</scope><name>killEffect</name></member>
+      <member refid="class_block_1ac6499321cf6579c29c7835a471471146" prot="private" virt="non-virtual"><scope>Block</scope><name>killExpReward</name></member>
+      <member refid="class_block_1a020f60a52df860f2a176ecc94912fb6e" prot="private" virt="non-virtual"><scope>Block</scope><name>killReward</name></member>
+      <member refid="class_block_1a741e65e4bc06c6dda179f4022e771238" prot="private" virt="non-virtual"><scope>Block</scope><name>maxHealth</name></member>
+      <member refid="class_block_1a1b5fdaa7d789d5bd403a684c63d877b7" prot="private" virt="non-virtual"><scope>Block</scope><name>OnCollisionEnter2D</name></member>
+      <member refid="class_block_1aef3bf763908c134ccf661482c6173e01" prot="private" virt="non-virtual"><scope>Block</scope><name>OnCollisionExit2D</name></member>
+      <member refid="class_block_1a57e2f7c11023a1f05b24ad83354cc9b6" prot="private" virt="non-virtual"><scope>Block</scope><name>physicsBody</name></member>
+      <member refid="class_block_1a7881b20981be7cc3b466089b586086ec" prot="private" virt="non-virtual"><scope>Block</scope><name>player</name></member>
+      <member refid="class_block_1ae2d733e9177e81a098a5e8ad41e657d7" prot="private" virt="non-virtual"><scope>Block</scope><name>slider</name></member>
+      <member refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" prot="private" virt="non-virtual"><scope>Block</scope><name>Start</name></member>
+      <member refid="class_block_1a9f15d04d26d5b046dc6f632e45995612" prot="private" virt="non-virtual"><scope>Block</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

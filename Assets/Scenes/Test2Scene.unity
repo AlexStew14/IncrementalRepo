@@ -3602,6 +3602,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 268044674}
   - {fileID: 1765445206}
+  - {fileID: 927434258}
   panels:
   - {fileID: 1388283134}
   - {fileID: 901978834}
@@ -3902,6 +3903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 396581101}
+  helperPrefab: {fileID: 7783007350324936729, guid: 3a9a3375a5019154a968adaaeed537b3, type: 3}
 --- !u!4 &778076540
 Transform:
   m_ObjectHideFlags: 0
@@ -4529,7 +4531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4991, y: -232.85}
+  m_AnchoredPosition: {x: -0.4991, y: -80}
   m_SizeDelta: {x: 801, y: 1265.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &901978834
@@ -9179,7 +9181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa754806df745934fbe14fe9761d6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 1
+  startingMoney: 50000
 --- !u!1 &1896233111
 GameObject:
   m_ObjectHideFlags: 0
@@ -9396,7 +9398,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882208012}
   m_HandleRect: {fileID: 882208011}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_block" kind="class"><name>Block</name>
+    <member refid="class_block_1a741e65e4bc06c6dda179f4022e771238" kind="variable"><name>maxHealth</name></member>
+    <member refid="class_block_1a03a97fd9257760002053e67c9a03b68f" kind="variable"><name>currentHealth</name></member>
+    <member refid="class_block_1a4d880b19ec8a1de74a72779f76b018de" kind="variable"><name>blockType</name></member>
+    <member refid="class_block_1ab03ddc4ed18d695e55dfbfaf921a9129" kind="variable"><name>colliding</name></member>
+    <member refid="class_block_1a51ba17e105f66d97e108af7d58a866e7" kind="variable"><name>isDead</name></member>
+    <member refid="class_block_1a7881b20981be7cc3b466089b586086ec" kind="variable"><name>player</name></member>
+    <member refid="class_block_1a020f60a52df860f2a176ecc94912fb6e" kind="variable"><name>killReward</name></member>
+    <member refid="class_block_1ac6499321cf6579c29c7835a471471146" kind="variable"><name>killExpReward</name></member>
+    <member refid="class_block_1ae2d733e9177e81a098a5e8ad41e657d7" kind="variable"><name>slider</name></member>
+    <member refid="class_block_1ae6a8857e57ab779bc167cf58c8610adf" kind="variable"><name>killEffect</name></member>
+    <member refid="class_block_1a249a4046cd0dde231bd0c02dfde32a03" kind="variable"><name>healthCanvas</name></member>
+    <member refid="class_block_1a57e2f7c11023a1f05b24ad83354cc9b6" kind="variable"><name>physicsBody</name></member>
+    <member refid="class_block_1aea8a2421037f1766afa39f4e542221fb" kind="variable"><name>blockSpawner</name></member>
+    <member refid="class_block_1a7024e2a6c192fa9a2f1ec855a2f2b2e2" kind="function"><name>Start</name></member>
+    <member refid="class_block_1a9f15d04d26d5b046dc6f632e45995612" kind="function"><name>Update</name></member>
+    <member refid="class_block_1a0f7d6006d3529aa4278fe8b37f5fac28" kind="function"><name>FixedUpdate</name></member>
+    <member refid="class_block_1a1b5fdaa7d789d5bd403a684c63d877b7" kind="function"><name>OnCollisionEnter2D</name></member>
+    <member refid="class_block_1aef3bf763908c134ccf661482c6173e01" kind="function"><name>OnCollisionExit2D</name></member>
+    <member refid="class_block_1a6b8519d3020da91174a559812c5507a1" kind="function"><name>InitializeHealthBar</name></member>
+    <member refid="class_block_1a811afe7532736aa03e428fdcb5e1f87c" kind="function"><name>Killed</name></member>
+    <member refid="class_block_1ae942250d697a273bf784dd882bee800e" kind="function"><name>GetKillReward</name></member>
+    <member refid="class_block_1ab3f46e8a6f03e77e117e179339283cd7" kind="function"><name>GetKillExpReward</name></member>
+  </compound>
+  <compound refid="class_block_spawn_data" kind="class"><name>BlockSpawnData</name>
+    <member refid="class_block_spawn_data_1ab9935fd4ea260484a6d10ad6c1ac69f6" kind="variable"><name>maxCurrentBlocks</name></member>
+    <member refid="class_block_spawn_data_1ad82a47682c6e6d667b1757f018e7a037" kind="variable"><name>spawnTime</name></member>
+  </compound>
+  <compound refid="class_block_spawner" kind="class"><name>BlockSpawner</name>
+    <member refid="class_block_spawner_1a8f9d0d1d95ef437feb5c64e50902f01a" kind="variable"><name>blockPrefab</name></member>
+    <member refid="class_block_spawner_1a8771f890af7ae96b78721a0e53ea13f8" kind="variable"><name>timer</name></member>
+    <member refid="class_block_spawner_1aac33dde806d6e8119eed8a416eab21af" kind="variable"><name>currentBlockCount</name></member>
+    <member refid="class_block_spawner_1adf56f63e73f600ff37bb7795e24d388a" kind="variable"><name>dataSavingManager</name></member>
+    <member refid="class_block_spawner_1a238aa8d1007ef05797751ef9c629911b" kind="variable"><name>blockSpawnData</name></member>
+    <member refid="class_block_spawner_1af0883aa99fdce9adc15d405002c44d6b" kind="variable"><name>currentBlockSpriteArray</name></member>
+    <member refid="class_block_spawner_1ab442660d0441854452ed78ecf13d7b3f" kind="property"><name>BlockDictionary</name></member>
+    <member refid="class_block_spawner_1a036b799612336cf9275ea4250bdf9a17" kind="property"><name>TotalBlocksSpawned</name></member>
+    <member refid="class_block_spawner_1a78dcece111ea4ad505e2e1e931f430ba" kind="function"><name>Start</name></member>
+    <member refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" kind="function"><name>Update</name></member>
+    <member refid="class_block_spawner_1a8654e73ef774e0a83ad007f7abbaf281" kind="function"><name>CreateBlock</name></member>
+    <member refid="class_block_spawner_1a26e6a1cc826702f80b0256ad27e86a56" kind="function"><name>BlockDestroyed</name></member>
+    <member refid="class_block_spawner_1a050616f65a9e26896101e42058666721" kind="function"><name>FlatSpawnSpeedIncrease</name></member>
+  </compound>
+  <compound refid="class_button_control" kind="class"><name>ButtonControl</name>
+    <member refid="class_button_control_1a59c1fe3b5f8912c7fd5cecad0e5c036d" kind="function"><name>Start</name></member>
+    <member refid="class_button_control_1a9f7bc59a486786f46284beacc1d9e288" kind="function"><name>Update</name></member>
+    <member refid="class_button_control_1a21d6e08dfe8a7cf698a4614625702609" kind="function"><name>StartPressed</name></member>
+    <member refid="class_button_control_1a853b35eaa16bc091419e2d9289edc476" kind="function"><name>HowToPlayPressed</name></member>
+    <member refid="class_button_control_1a3abcd6d7489cc77da88613a3c20b3465" kind="function"><name>SettingsPressed</name></member>
+    <member refid="class_button_control_1aa89eb9a375737c06849bb11175ad84e4" kind="function"><name>QuitPressed</name></member>
+  </compound>
+  <compound refid="class_c_f_x___auto_destruct_shuriken" kind="class"><name>CFX_AutoDestructShuriken</name>
+    <member refid="class_c_f_x___auto_destruct_shuriken_1af933c2afeb229b6b610b542751580e36" kind="variable"><name>OnlyDeactivate</name></member>
+    <member refid="class_c_f_x___auto_destruct_shuriken_1ac4d9ac089af7a4b618e92b6f2c59ce33" kind="function"><name>OnEnable</name></member>
+    <member refid="class_c_f_x___auto_destruct_shuriken_1abfd04e5b2b3a5da35a40d07d16827282" kind="function"><name>CheckIfAlive</name></member>
+  </compound>
+  <compound refid="class_data_saving_manager" kind="class"><name>DataSavingManager</name>
+    <member refid="class_data_saving_manager_1a584b3c9e31d4166ae4710be72c1b3aaa" kind="variable"><name>saveFileName</name></member>
+    <member refid="class_data_saving_manager_1ae2d2eb8782cd8aa2addc7490165d28ce" kind="variable"><name>saveFilePath</name></member>
+    <member refid="class_data_saving_manager_1a7b491548402f41b6d37f82d2ce96df11" kind="variable"><name>gameData</name></member>
+    <member refid="class_data_saving_manager_1a2ce6a87ee26cd107e1fa8c897633a2c1" kind="variable"><name>startingMoney</name></member>
+    <member refid="class_data_saving_manager_1a22efeecd01cec11eafc9c5f4917413b1" kind="function"><name>Awake</name></member>
+    <member refid="class_data_saving_manager_1a5a47b40b391fddd3874a8439632c856a" kind="function"><name>Update</name></member>
+    <member refid="class_data_saving_manager_1ad35ec0f89955bf1e477e62e83c48ecef" kind="function"><name>InitializeGameData</name></member>
+    <member refid="class_data_saving_manager_1ac97b0ef560fb8084242e64697e589a19" kind="function"><name>Load</name></member>
+    <member refid="class_data_saving_manager_1a6ebbe821489fe86f9795bcc669e05f83" kind="function"><name>SeedGameData</name></member>
+    <member refid="class_data_saving_manager_1a0895200e9da10522f1a47fa5314eecc1" kind="function"><name>SeedPlayerData</name></member>
+    <member refid="class_data_saving_manager_1ae72e7f98bb139911afb9d91b5c159773" kind="function"><name>SeedHelperData</name></member>
+    <member refid="class_data_saving_manager_1a4cf5ed1a00c625035cce8f51416e9fed" kind="function"><name>SeedBlockSpawnData</name></member>
+    <member refid="class_data_saving_manager_1a0ca8d3071a271af4ae20df60178eb5b3" kind="function"><name>SeedOtherValues</name></member>
+    <member refid="class_data_saving_manager_1a1c5df6f33dcc5fb2b2bf1ee9830bc9c8" kind="function"><name>SeedSkills</name></member>
+    <member refid="class_data_saving_manager_1af5431128323dfd3196c26adc2c7874ef" kind="function"><name>Save</name></member>
+    <member refid="class_data_saving_manager_1a828e2c962f21dc2b4503fd75cc838057" kind="function"><name>Delete</name></member>
+    <member refid="class_data_saving_manager_1a194efaf1d69b614d51341fb24dba618e" kind="function"><name>GetSkill</name></member>
+    <member refid="class_data_saving_manager_1ab95ea9507fd1ca984b1c2c374211c498" kind="function"><name>GetSkillDictionary</name></member>
+    <member refid="class_data_saving_manager_1ab0706c603400367c74f6c4abcd00e3a4" kind="function"><name>SetSkill</name></member>
+    <member refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" kind="function"><name>GetOtherValue</name></member>
+    <member refid="class_data_saving_manager_1aa3952a86c16f52c9f3e11d95caedbd4d" kind="function"><name>SetOtherValue</name></member>
+    <member refid="class_data_saving_manager_1a1eb0cb47896e2bc2305fd1839a5693b6" kind="function"><name>GetPlayerData</name></member>
+    <member refid="class_data_saving_manager_1a066eb3614c632bb21c63fa4ffc9530c3" kind="function"><name>SetPlayerData</name></member>
+    <member refid="class_data_saving_manager_1a69c7133c342b8d7589e85522b97c7312" kind="function"><name>GetBlockSpawnData</name></member>
+    <member refid="class_data_saving_manager_1a0e3592f885dc70d8182caec56ebafda0" kind="function"><name>SetBlockSpawnData</name></member>
+    <member refid="class_data_saving_manager_1a92cf0a3b955c0c9df3aab5ec22ef6f0c" kind="function"><name>GetHelperData</name></member>
+    <member refid="class_data_saving_manager_1af1d6b712204f5af5f42bc11f51eb7b1a" kind="function"><name>SetHelperData</name></member>
+  </compound>
+  <compound refid="class_game_data" kind="class"><name>GameData</name>
+    <member refid="class_game_data_1a27a1518428fb413a633d44eb4635f64a" kind="variable"><name>OtherValues</name></member>
+    <member refid="class_game_data_1af08436b3965970f56a198dbce438ae82" kind="variable"><name>skillDictionary</name></member>
+    <member refid="class_game_data_1aff57508aaaba2a8d751bae92a59221a0" kind="variable"><name>HelperDictionary</name></member>
+    <member refid="class_game_data_1a2eda498feca369f72fc220b270f76b05" kind="variable"><name>playerData</name></member>
+    <member refid="class_game_data_1abca9114adfc435b331bca000a2fb79ea" kind="variable"><name>blockSpawnData</name></member>
+  </compound>
+  <compound refid="class_helper" kind="class"><name>Helper</name>
+    <member refid="class_helper_1a205013cefeaebdbc057577ee85acdbf2" kind="variable"><name>soundManager</name></member>
+    <member refid="class_helper_1affc9ea378a4dbb12606c2c0476b0de35" kind="variable"><name>dataSavingManager</name></member>
+    <member refid="class_helper_1a67634e66cd897d6b60492b954e9a1095" kind="variable"><name>helperData</name></member>
+    <member refid="class_helper_1ae56a6190e2eb3c75098d0cca7edeccc7" kind="variable"><name>targetPos</name></member>
+    <member refid="class_helper_1a7a3d020a0245cd1846e29fc6c7f257f3" kind="variable"><name>moving</name></member>
+    <member refid="class_helper_1a5abed7a9d825922f9b25e949f70e0d77" kind="variable"><name>damageTimeRemaining</name></member>
+    <member refid="class_helper_1ad399e3cb87ddd2d4e2eb70e9fb0c5c67" kind="variable"><name>damageTimerRunning</name></member>
+    <member refid="class_helper_1aa8bc9cbc3b34bed270b11b9f9fc80680" kind="variable"><name>sprite</name></member>
+    <member refid="class_helper_1a706008c6cc1a2d59e5a8dd8c8c255f09" kind="variable"><name>cdValue</name></member>
+    <member refid="class_helper_1a784648072deb4827175fb1122228f223" kind="variable"><name>blockSpawner</name></member>
+    <member refid="class_helper_1a063cf736f3dd8e5e0c8120a58951adb9" kind="variable"><name>offset</name></member>
+    <member refid="class_helper_1a62e8b2c22f312ecdbce70e45b9f8afb6" kind="function"><name>Start</name></member>
+    <member refid="class_helper_1a4638a7e349f91f3bb8d742583a617b6b" kind="function"><name>Update</name></member>
+    <member refid="class_helper_1aed75b4532544984d2823a4af691ae591" kind="function"><name>MoveHelper</name></member>
+    <member refid="class_helper_1a1f19dbcbc42043cb1fa2d0c6a4aba0d9" kind="function"><name>FindBlockInRadius</name></member>
+    <member refid="class_helper_1af9638b02acab7183a45010983131ee69" kind="function"><name>StartCountdown</name></member>
+  </compound>
+  <compound refid="class_helper_data" kind="class"><name>HelperData</name>
+    <member refid="class_helper_data_1ac78f990ece2e484868ff9581cff76492" kind="variable"><name>baseDamage</name></member>
+    <member refid="class_helper_data_1adf927a6b449aa523e6faeecbc94b7843" kind="variable"><name>finalDamage</name></member>
+    <member refid="class_helper_data_1a81347efbcc88773b5036db87b0b87892" kind="variable"><name>prestigeDmgMultiplier</name></member>
+    <member refid="class_helper_data_1a052073a9d15ded35902b8b79fac44c23" kind="variable"><name>runDmgMultiplier</name></member>
+    <member refid="class_helper_data_1a5bbbe9cbf3ac33827e8bf765dcbe1809" kind="variable"><name>baseAttackSpeed</name></member>
+    <member refid="class_helper_data_1ac707f0829eab86269b8979dc6a6bcb25" kind="variable"><name>finalAttackSpeed</name></member>
+    <member refid="class_helper_data_1a0fa056d9fea967bc40b112ac5ab6dc76" kind="variable"><name>runAtkSpeedMult</name></member>
+    <member refid="class_helper_data_1a3e4f49a79c7b1310e8601de14d9dbfdb" kind="variable"><name>prestigeAtkSpeedMult</name></member>
+    <member refid="class_helper_data_1a34141e709acb31f9eb468c776fc85cfc" kind="variable"><name>moveSpeed</name></member>
+  </compound>
+  <compound refid="class_player" kind="class"><name>Player</name>
+    <member refid="class_player_1a68faa49d3f538f449643730976414881" kind="variable"><name>soundManager</name></member>
+    <member refid="class_player_1a38ea9ee9f58c86fad6dd36fcae61f18b" kind="variable"><name>shop</name></member>
+    <member refid="class_player_1a5882ac2500b3fb259dd74e9eaeced51e" kind="variable"><name>dataSavingManager</name></member>
+    <member refid="class_player_1a912c5b32576b7cbb68e6b6b3786fce48" kind="variable"><name>playerData</name></member>
+    <member refid="class_player_1a178b11c876e07c8f6866445329c5404d" kind="variable"><name>pink_guy</name></member>
+    <member refid="class_player_1a70b6b51d74cd56fa84d032a4024792e6" kind="variable"><name>anim</name></member>
+    <member refid="class_player_1ab06efa71f49975563061ef3e5c6142e5" kind="variable"><name>clickPos</name></member>
+    <member refid="class_player_1a4eaa08ee005e3af3ee91fe5456fd20d8" kind="variable"><name>moving</name></member>
+    <member refid="class_player_1a5b344deb4c43c95fbc8575b9dd7716dc" kind="variable"><name>damageTimeRemaining</name></member>
+    <member refid="class_player_1ad14f0036230380f987e362b546454513" kind="variable"><name>damageTimerRunning</name></member>
+    <member refid="class_player_1aea53f64a37269e7378929cf92feba188" kind="variable"><name>sprite</name></member>
+    <member refid="class_player_1a1a09a3ded16ac1646f6bdd4f25fe0ddd" kind="function"><name>Start</name></member>
+    <member refid="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" kind="function"><name>Awake</name></member>
+    <member refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" kind="function"><name>Update</name></member>
+    <member refid="class_player_1a89714ea4c1fccb0a9265e61d3afd17ee" kind="function"><name>UpdateDamage</name></member>
+    <member refid="class_player_1a4110f439170b6aa377d4e749143bd00a" kind="function"><name>UpdateAttackSpeed</name></member>
+    <member refid="class_player_1a6967af441e8792e3319bd0ea67bdd351" kind="function"><name>SavePlayerData</name></member>
+    <member refid="class_player_1ad1d691bf2e2e054aaed9fa388f651164" kind="function"><name>MovePlayer</name></member>
+    <member refid="class_player_1ac8e3207a73ffba1ecbe813d5f080a36b" kind="function"><name>GetDamage</name></member>
+    <member refid="class_player_1af77ca324319e67d3f031e9b2e23805e3" kind="function"><name>GetAttackSpeed</name></member>
+    <member refid="class_player_1a781a319eafa17be389aedd1253f63f62" kind="function"><name>CanAttack</name></member>
+    <member refid="class_player_1aba4c4ee84133a2ebc1667102244e198d" kind="function"><name>Attacked</name></member>
+    <member refid="class_player_1af6ef8664829276d4bb6399977991972c" kind="function"><name>FlatDmgIncrease</name></member>
+    <member refid="class_player_1a8725d201010bac545c8f539be06da4f6" kind="function"><name>FlatAttackSpeedIncrease</name></member>
+    <member refid="class_player_1a4ac32f6974ade562cb2eb26f50ad89bc" kind="function"><name>FlatMovementSpeedIncrease</name></member>
+    <member refid="class_player_1a83ba9e90bbff475b50cc4cdc5b000bad" kind="function"><name>StopMoving</name></member>
+    <member refid="class_player_1a744ef42e8546b45bbbe359cfe4b765e4" kind="function"><name>KilledBlock</name></member>
+  </compound>
+  <compound refid="class_player_data" kind="class"><name>PlayerData</name>
+    <member refid="class_player_data_1a7a9cecf91d9d2a0087c1afdb965b4a2a" kind="variable"><name>level</name></member>
+    <member refid="class_player_data_1a886645497ac35b23c3dd10572ab8473e" kind="variable"><name>baseDamage</name></member>
+    <member refid="class_player_data_1a54623d8105944881dbb307541a2acdf5" kind="variable"><name>finalDamage</name></member>
+    <member refid="class_player_data_1ad0ea7b558295927312e791d0a4524cd8" kind="variable"><name>prestigeDmgMultiplier</name></member>
+    <member refid="class_player_data_1aa71c330e532655a8f74f42d9632d19ec" kind="variable"><name>runDmgMultiplier</name></member>
+    <member refid="class_player_data_1a71c73866840da5721eeb96686cf428f9" kind="variable"><name>baseAttackSpeed</name></member>
+    <member refid="class_player_data_1a184f6bb7509138415826e5e88debfbf6" kind="variable"><name>finalAttackSpeed</name></member>
+    <member refid="class_player_data_1a23e928c8b1b235f3a3edd60fb01952a6" kind="variable"><name>runAtkSpeedMult</name></member>
+    <member refid="class_player_data_1a4dade69424407e7d2aba769695201c80" kind="variable"><name>prestigeAtkSpeedMult</name></member>
+    <member refid="class_player_data_1a063b5264d06a45697e50b5c9dcd26276" kind="variable"><name>moveSpeed</name></member>
+  </compound>
+  <compound refid="class_shop" kind="class"><name>Shop</name>
+    <member refid="class_shop_1a5cc97b8e25ede694e5e9e9f93f1ee879" kind="variable"><name>skillDictionary</name></member>
+    <member refid="class_shop_1a404199ff8f5b20ebcd99a273c06cf99f" kind="variable"><name>dataSavingManager</name></member>
+    <member refid="class_shop_1a0f9baa693a9a17141e327000ff857c09" kind="variable"><name>uiManager</name></member>
+    <member refid="class_shop_1a73b3542e4ace7d63972ce2d285387b94" kind="variable"><name>blockSpawner</name></member>
+    <member refid="class_shop_1a6398a78486c0bab84f6d9b82a2051113" kind="variable"><name>player</name></member>
+    <member refid="class_shop_1a7de223af7d29eed6fcf980bf2b90c9b2" kind="variable"><name>playerMoney</name></member>
+    <member refid="class_shop_1a11ae557ee69bbe884ab51e619ea9a5ef" kind="variable"><name>playerMoneyMult</name></member>
+    <member refid="class_shop_1ae0e651cd12e281aa7a6436d02355756b" kind="function"><name>Start</name></member>
+    <member refid="class_shop_1a41ec87cc228509d14232052a67281eb7" kind="function"><name>Update</name></member>
+    <member refid="class_shop_1aa8f727f16dcac5a6e911876640ed3d17" kind="function"><name>UpdatePlayerMoneyAndUI</name></member>
+    <member refid="class_shop_1a2f67645669cd30e9379e2564e545f691" kind="function"><name>ApplyPlayerUpgrade</name></member>
+    <member refid="class_shop_1a475d4930e1136798b42df6c5f1524d2c" kind="function"><name>KilledBlock</name></member>
+    <member refid="class_shop_1a41dfdf955bc1042875f10070f42bd264" kind="function"><name>GetMoney</name></member>
+    <member refid="class_shop_1a9f07d9a9379fb3660e62a26abe7443e5" kind="function"><name>UpgradeSkill</name></member>
+  </compound>
+  <compound refid="class_skill" kind="class"><name>Skill</name>
+    <member refid="class_skill_1a16c9dac60459d8478ac92f2ed8b175b8" kind="property"><name>level</name></member>
+    <member refid="class_skill_1abe1f61e1bcecc1c110e0a738f16d756d" kind="property"><name>maxLevel</name></member>
+    <member refid="class_skill_1aa57b2eb6b287eecf7d3d22f9ee5473d4" kind="property"><name>upgradeCost</name></member>
+    <member refid="class_skill_1a9994d82fd8c23d60ccc92e31d2c085da" kind="property"><name>currentStatIncrease</name></member>
+    <member refid="class_skill_1ab39bb774833c3358719b7c9a7c161284" kind="property"><name>totalStatIncrease</name></member>
+    <member refid="class_skill_1a4ecf2b1219327db0dcf9b7c6e73ba4f2" kind="property"><name>nextStatIncrease</name></member>
+    <member refid="class_skill_1a51ba89240d0da6427ed2b4c35742636e" kind="property"><name>name</name></member>
+    <member refid="class_skill_1a5dda8763943790dd3a2a764474f2aeaf" kind="property"><name>type</name></member>
+    <member refid="class_skill_1ae60b288d22d60f7d80d4d859f1ec9177" kind="property"><name>costFunction</name></member>
+    <member refid="class_skill_1af06914bc56bc6802155538ecc76e5d4c" kind="property"><name>improvementFunction</name></member>
+    <member refid="class_skill_1a42c367ba66b8ca908e24837da009d029" kind="function"><name>CheckUpgrade</name></member>
+    <member refid="class_skill_1a4bdac57ba69e19912150530204ef1f10" kind="function"><name>Upgrade</name></member>
+  </compound>
+  <compound refid="class_sound_manager" kind="class"><name>SoundManager</name>
+    <member refid="class_sound_manager_1a5453385ea0735dda3775c1134bc29207" kind="variable"><name>BlockDestroyed</name></member>
+    <member refid="class_sound_manager_1a23646fefe380c2ad3fd950f0f767aee6" kind="variable"><name>Attack</name></member>
+    <member refid="class_sound_manager_1adfe146914a2614dd76f8278c29f6a74f" kind="function"><name>Start</name></member>
+    <member refid="class_sound_manager_1aba6cc29a03dfe5117ef532e875558ff3" kind="function"><name>Update</name></member>
+    <member refid="class_sound_manager_1a57b94d01a06e5d9116b3531d19294ed9" kind="function"><name>PlayBlockDestroyed</name></member>
+    <member refid="class_sound_manager_1aae9dc49565e7bd18280c45b7a865ee85" kind="function"><name>PlayAttack</name></member>
+  </compound>
+  <compound refid="class_u_i_manager" kind="class"><name>UIManager</name>
+    <member refid="class_u_i_manager_1ac88c8cf3c60b85683f2c2a4d7407bb51" kind="variable"><name>shopPanel</name></member>
+    <member refid="class_u_i_manager_1af3ce52bd14f6fec1f0eaf1384c297ffa" kind="variable"><name>shop</name></member>
+    <member refid="class_u_i_manager_1acea02a15e2e9cb939eae73f9363b0896" kind="variable"><name>currentMoney</name></member>
+    <member refid="class_u_i_manager_1aa7ac2d7330aafa0cdeeb6a08a0a2bcb1" kind="variable"><name>buttons</name></member>
+    <member refid="class_u_i_manager_1a2bd6b48b13b9e14e6292e4b713f59584" kind="function"><name>Start</name></member>
+    <member refid="class_u_i_manager_1a2c160b46442117ccc04c3cbe856ab10c" kind="function"><name>SetDescriptionText</name></member>
+    <member refid="class_u_i_manager_1ab30f65b7af910abac8dbdb1775cc526f" kind="function"><name>LoadSkillDescriptions</name></member>
+    <member refid="class_u_i_manager_1a4a694dac7968c09248d821cd66186a88" kind="function"><name>SetMoneyText</name></member>
+    <member refid="class_u_i_manager_1a9bde1d0d0bf76445db78cad8161c2594" kind="function"><name>ToggleShopPanel</name></member>
+    <member refid="class_u_i_manager_1a491d202346e24d2bf0e5ceadc3fbbb21" kind="function"><name>UpgradeSkill</name></member>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections" kind="namespace"><name>System::Collections</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_serialization_1_1_formatters_1_1_binary" kind="namespace"><name>System::Runtime::Serialization::Formatters::Binary</name>
+  </compound>
+  <compound refid="namespace_t_m_pro" kind="namespace"><name>TMPro</name>
+  </compound>
+  <compound refid="namespace_unity_engine" kind="namespace"><name>UnityEngine</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_scene_management" kind="namespace"><name>UnityEngine::SceneManagement</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_u_i" kind="namespace"><name>UnityEngine::UI</name>
+  </compound>
+  <compound refid="_block_8cs" kind="file"><name>Block.cs</name>
+  </compound>
+  <compound refid="_block_spawner_8cs" kind="file"><name>BlockSpawner.cs</name>
+  </compound>
+  <compound refid="_data_saving_manager_8cs" kind="file"><name>DataSavingManager.cs</name>
+  </compound>
+  <compound refid="_helper_8cs" kind="file"><name>Helper.cs</name>
+  </compound>
+  <compound refid="_button_control_8cs" kind="file"><name>ButtonControl.cs</name>
+  </compound>
+  <compound refid="_player_8cs" kind="file"><name>Player.cs</name>
+  </compound>
+  <compound refid="_shop_8cs" kind="file"><name>Shop.cs</name>
+  </compound>
+  <compound refid="_skill_8cs" kind="file"><name>Skill.cs</name>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234" kind="enum"><name>SkillType</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a1c3167e87dbf05805c2478024dbfd684" kind="enumvalue"><name>DMG</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a9c4e227aba5e13caeea5838338d4bcdc" kind="enumvalue"><name>DMGPCT</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a340a2c129bef9adc94da6ca1ca1a41ab" kind="enumvalue"><name>ATTKSPEED</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a649897481121960743eb84344472c503" kind="enumvalue"><name>ATTKSPEEDPCT</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a41ea32179674d58970f5d1b83e2f1c6f" kind="enumvalue"><name>KILLREWARD</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a7f0a8e810ff821a5fe7c9856cdce770c" kind="enumvalue"><name>KILLREWARDPCT</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a5f845a8184e99ec73520eb0777d900cf" kind="enumvalue"><name>SPAWNSPEED</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234aca0e8aebc4dbcb08546508c593622048" kind="enumvalue"><name>SPAWNSPEEDPCT</name></member>
+    <member refid="_skill_8cs_1af4541d30ebbff76b1f9f689519789234a8f5662373d8e0067e47c528dc1829a95" kind="enumvalue"><name>MOVEMENTSPEED</name></member>
+  </compound>
+  <compound refid="_sound_manager_8cs" kind="file"><name>SoundManager.cs</name>
+  </compound>
+  <compound refid="_u_i_manager_8cs" kind="file"><name>UIManager.cs</name>
+  </compound>
+  <compound refid="_c_f_x___auto_destruct_shuriken_8cs" kind="file"><name>CFX_AutoDestructShuriken.cs</name>
+  </compound>
+  <compound refid="dir_922748130eb887031323750a5e84b1f9" kind="dir"><name>C:/Users/alex</name>
+  </compound>
+  <compound refid="dir_67b1d6474cbc23fe4e95de63d57d5fba" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets</name>
+  </compound>
+  <compound refid="dir_c5055a9bccb367ef50fa705b0c293bed" kind="dir"><name>C:/Users/alex/Documents</name>
+  </compound>
+  <compound refid="dir_8f4faec3ebfd990e93aa3240b8b0e907" kind="dir"><name>C:/Users/alex/Documents/GitHub</name>
+  </compound>
+  <compound refid="dir_0a8caff73fe4c3c139dfe6d8fe68eb15" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/VFX/HitEffect</name>
+  </compound>
+  <compound refid="dir_15ce6681f60cb22f4cf7ac31d4440a90" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo</name>
+  </compound>
+  <compound refid="dir_d58819cb05d39c47c0041f0f78d6e469" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts</name>
+  </compound>
+  <compound refid="dir_62658029fdc2525c049864f832f6f1b0" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts</name>
+  </compound>
+  <compound refid="dir_d522931ffa1371640980b621734a4381" kind="dir"><name>C:/Users</name>
+  </compound>
+  <compound refid="dir_5d11ca5999b514a0ee42f0288378e8ab" kind="dir"><name>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/VFX</name>
+  </compound>
+</doxygenindex>

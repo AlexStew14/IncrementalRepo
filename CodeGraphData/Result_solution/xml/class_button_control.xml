@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_button_control" kind="class" prot="public">
+    <compoundname>ButtonControl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_button_control_1a59c1fe3b5f8912c7fd5cecad0e5c036d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="9" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="9" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_button_control_1a9f7bc59a486786f46284beacc1d9e288" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="14" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_button_control_1a21d6e08dfe8a7cf698a4614625702609" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.StartPressed</definition>
+        <argsstring>()</argsstring>
+        <name>StartPressed</name>
+        <briefdescription>
+<para>OnClick method for the start button being pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="21" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_button_control_1a853b35eaa16bc091419e2d9289edc476" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.HowToPlayPressed</definition>
+        <argsstring>()</argsstring>
+        <name>HowToPlayPressed</name>
+        <briefdescription>
+<para>OnClick method for the start button being pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="29" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_button_control_1a3abcd6d7489cc77da88613a3c20b3465" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.SettingsPressed</definition>
+        <argsstring>()</argsstring>
+        <name>SettingsPressed</name>
+        <briefdescription>
+<para>OnClick method for the start button being pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="36" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_button_control_1aa89eb9a375737c06849bb11175ad84e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ButtonControl.QuitPressed</definition>
+        <argsstring>()</argsstring>
+        <name>QuitPressed</name>
+        <briefdescription>
+<para>OnClick method for the start button being pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="43" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="43" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="24">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="23">
+        <label>ButtonControl</label>
+        <link refid="class_button_control"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="26">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="25">
+        <label>ButtonControl</label>
+        <link refid="class_button_control"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" line="7" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/MainMenuScripts/ButtonControl.cs" bodystart="6" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_button_control_1a853b35eaa16bc091419e2d9289edc476" prot="public" virt="non-virtual"><scope>ButtonControl</scope><name>HowToPlayPressed</name></member>
+      <member refid="class_button_control_1aa89eb9a375737c06849bb11175ad84e4" prot="public" virt="non-virtual"><scope>ButtonControl</scope><name>QuitPressed</name></member>
+      <member refid="class_button_control_1a3abcd6d7489cc77da88613a3c20b3465" prot="public" virt="non-virtual"><scope>ButtonControl</scope><name>SettingsPressed</name></member>
+      <member refid="class_button_control_1a59c1fe3b5f8912c7fd5cecad0e5c036d" prot="private" virt="non-virtual"><scope>ButtonControl</scope><name>Start</name></member>
+      <member refid="class_button_control_1a21d6e08dfe8a7cf698a4614625702609" prot="public" virt="non-virtual"><scope>ButtonControl</scope><name>StartPressed</name></member>
+      <member refid="class_button_control_1a9f7bc59a486786f46284beacc1d9e288" prot="private" virt="non-virtual"><scope>ButtonControl</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

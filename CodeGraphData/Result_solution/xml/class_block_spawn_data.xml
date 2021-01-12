@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_block_spawn_data" kind="class" prot="public">
+    <compoundname>BlockSpawnData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_block_spawn_data_1ab9935fd4ea260484a6d10ad6c1ac69f6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BlockSpawnData.maxCurrentBlocks</definition>
+        <argsstring></argsstring>
+        <name>maxCurrentBlocks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="84" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="84" bodyend="-1"/>
+        <referencedby refid="class_block_spawner_1a2f4f3908dcbd49f4d576edd7a1c71e3c" compoundref="_block_spawner_8cs" startline="38" endline="49">BlockSpawner.Update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_block_spawn_data_1ad82a47682c6e6d667b1757f018e7a037" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BlockSpawnData.spawnTime</definition>
+        <argsstring></argsstring>
+        <name>spawnTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="86" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" line="83" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/BlockSpawner.cs" bodystart="82" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_block_spawn_data_1ab9935fd4ea260484a6d10ad6c1ac69f6" prot="public" virt="non-virtual"><scope>BlockSpawnData</scope><name>maxCurrentBlocks</name></member>
+      <member refid="class_block_spawn_data_1ad82a47682c6e6d667b1757f018e7a037" prot="public" virt="non-virtual"><scope>BlockSpawnData</scope><name>spawnTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

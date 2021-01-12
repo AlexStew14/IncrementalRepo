@@ -15,11 +15,13 @@ public class Helper : MonoBehaviour
     private HelperData helperData;
 
     // Movement Fields
-    private Vector3 targetPos = new Vector3(3,3,0);
+    private Vector3 targetPos = new Vector3(3, 3, 0);
+
     private bool moving = false;
 
     // Attack Speed handling
     private float damageTimeRemaining = -1.0f;
+
     private bool damageTimerRunning = false;
 
     // Sprite Renderer for flipping sprite
@@ -31,24 +33,26 @@ public class Helper : MonoBehaviour
 
     private float offset = 1.5f;
 
-    #endregion
+    #endregion Private Fields
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
+    {
+    }
+
+    public void Init(string name)
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
-        helperData = dataSavingManager.GetHelperData("Helper1");
-
         transform.position = targetPos;
-
-        StartCoroutine(StartCountdown(15.0f));
+        helperData = dataSavingManager.GetSkill(name).helperData;
+        StartCoroutine(StartCountdown(helperData.idleTime));
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         MoveHelper();
     }
@@ -57,7 +61,7 @@ public class Helper : MonoBehaviour
     {
         if (transform.position != targetPos && moving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
         }
         else
         {
@@ -72,7 +76,7 @@ public class Helper : MonoBehaviour
         {
             Vector3 blockPos = blockSpawner.BlockDictionary[c].position;
 
-            if (blockPos.x < helperPos.x + offset && blockPos.x > helperPos.x - offset && 
+            if (blockPos.x < helperPos.x + offset && blockPos.x > helperPos.x - offset &&
                     blockPos.y < helperPos.y + offset && blockPos.y > helperPos.y - offset)
             {
                 targetPos = blockPos;
@@ -98,28 +102,8 @@ public class Helper : MonoBehaviour
 [Serializable]
 public class HelperData
 {
-    // This represents the base damage before multipliers are applied.
-    public float baseDamage;
-
-    // This represents damage after multiplers applied.
-    public float finalDamage;
-
-    // Multipliers from prestige upgrades.
-    public float prestigeDmgMultiplier;
-
-    // Multipliers from the current run.
-    public float runDmgMultiplier;
-
-    // This represents the base attack speed before multipliers are applied.
-    // This represents the time in seconds between attacks.
-    // Multipliers will decrease the attack speed value
-    public float baseAttackSpeed;
-
-    public float finalAttackSpeed;
-
-    public float runAtkSpeedMult;
-
-    public float prestigeAtkSpeedMult;
-
-    public float moveSpeed;
+    public float attackDamage;
+    public float attackSpeed;
+    public float idleTime;
+    public float movementSpeed;
 }

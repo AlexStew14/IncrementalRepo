@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_5d11ca5999b514a0ee42f0288378e8ab" kind="dir">
+    <compoundname>C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/VFX</compoundname>
+    <innerdir refid="dir_0a8caff73fe4c3c139dfe6d8fe68eb15">C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/VFX/HitEffect</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/VFX/"/>
+  </compounddef>
+</doxygen>

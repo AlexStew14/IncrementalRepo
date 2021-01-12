@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_helper_data" kind="class" prot="public">
+    <compoundname>HelperData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_helper_data_1ac78f990ece2e484868ff9581cff76492" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.baseDamage</definition>
+        <argsstring></argsstring>
+        <name>baseDamage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="102" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1adf927a6b449aa523e6faeecbc94b7843" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.finalDamage</definition>
+        <argsstring></argsstring>
+        <name>finalDamage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="105" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a81347efbcc88773b5036db87b0b87892" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.prestigeDmgMultiplier</definition>
+        <argsstring></argsstring>
+        <name>prestigeDmgMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="108" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a052073a9d15ded35902b8b79fac44c23" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.runDmgMultiplier</definition>
+        <argsstring></argsstring>
+        <name>runDmgMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="111" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a5bbbe9cbf3ac33827e8bf765dcbe1809" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.baseAttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>baseAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="116" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1ac707f0829eab86269b8979dc6a6bcb25" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.finalAttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>finalAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="118" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a0fa056d9fea967bc40b112ac5ab6dc76" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.runAtkSpeedMult</definition>
+        <argsstring></argsstring>
+        <name>runAtkSpeedMult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="120" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a3e4f49a79c7b1310e8601de14d9dbfdb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.prestigeAtkSpeedMult</definition>
+        <argsstring></argsstring>
+        <name>prestigeAtkSpeedMult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="122" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_helper_data_1a34141e709acb31f9eb468c776fc85cfc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float HelperData.moveSpeed</definition>
+        <argsstring></argsstring>
+        <name>moveSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="124" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" line="100" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/Helper.cs" bodystart="99" bodyend="125"/>
+    <listofallmembers>
+      <member refid="class_helper_data_1a5bbbe9cbf3ac33827e8bf765dcbe1809" prot="public" virt="non-virtual"><scope>HelperData</scope><name>baseAttackSpeed</name></member>
+      <member refid="class_helper_data_1ac78f990ece2e484868ff9581cff76492" prot="public" virt="non-virtual"><scope>HelperData</scope><name>baseDamage</name></member>
+      <member refid="class_helper_data_1ac707f0829eab86269b8979dc6a6bcb25" prot="public" virt="non-virtual"><scope>HelperData</scope><name>finalAttackSpeed</name></member>
+      <member refid="class_helper_data_1adf927a6b449aa523e6faeecbc94b7843" prot="public" virt="non-virtual"><scope>HelperData</scope><name>finalDamage</name></member>
+      <member refid="class_helper_data_1a34141e709acb31f9eb468c776fc85cfc" prot="public" virt="non-virtual"><scope>HelperData</scope><name>moveSpeed</name></member>
+      <member refid="class_helper_data_1a3e4f49a79c7b1310e8601de14d9dbfdb" prot="public" virt="non-virtual"><scope>HelperData</scope><name>prestigeAtkSpeedMult</name></member>
+      <member refid="class_helper_data_1a81347efbcc88773b5036db87b0b87892" prot="public" virt="non-virtual"><scope>HelperData</scope><name>prestigeDmgMultiplier</name></member>
+      <member refid="class_helper_data_1a0fa056d9fea967bc40b112ac5ab6dc76" prot="public" virt="non-virtual"><scope>HelperData</scope><name>runAtkSpeedMult</name></member>
+      <member refid="class_helper_data_1a052073a9d15ded35902b8b79fac44c23" prot="public" virt="non-virtual"><scope>HelperData</scope><name>runDmgMultiplier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

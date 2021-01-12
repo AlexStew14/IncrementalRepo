@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_game_data" kind="class" prot="public">
+    <compoundname>GameData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_game_data_1a27a1518428fb413a633d44eb4635f64a" prot="public" static="no" mutable="no">
+        <type>Dictionary&lt; string, object &gt;</type>
+        <definition>Dictionary&lt;string, object&gt; GameData.OtherValues</definition>
+        <argsstring></argsstring>
+        <name>OtherValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="349" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="349" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a42c4963a426120375837c1a5b43c9fd1" compoundref="_data_saving_manager_8cs" startline="130" endline="138">DataSavingManager.GetOtherValue</referencedby>
+        <referencedby refid="class_data_saving_manager_1aa3952a86c16f52c9f3e11d95caedbd4d" compoundref="_data_saving_manager_8cs" startline="140" endline="146">DataSavingManager.SetOtherValue</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_data_1af08436b3965970f56a198dbce438ae82" prot="public" static="no" mutable="no">
+        <type>Dictionary&lt; string, <ref refid="class_skill" kindref="compound">Skill</ref> &gt;</type>
+        <definition>Dictionary&lt;string, Skill&gt; GameData.skillDictionary</definition>
+        <argsstring></argsstring>
+        <name>skillDictionary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="351" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="351" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a194efaf1d69b614d51341fb24dba618e" compoundref="_data_saving_manager_8cs" startline="107" endline="115">DataSavingManager.GetSkill</referencedby>
+        <referencedby refid="class_data_saving_manager_1ab0706c603400367c74f6c4abcd00e3a4" compoundref="_data_saving_manager_8cs" startline="122" endline="128">DataSavingManager.SetSkill</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_data_1aff57508aaaba2a8d751bae92a59221a0" prot="public" static="no" mutable="no">
+        <type>Dictionary&lt; string, <ref refid="class_helper_data" kindref="compound">HelperData</ref> &gt;</type>
+        <definition>Dictionary&lt;string, HelperData&gt; GameData.HelperDictionary</definition>
+        <argsstring></argsstring>
+        <name>HelperDictionary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="353" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="353" bodyend="-1"/>
+        <referencedby refid="class_data_saving_manager_1a92cf0a3b955c0c9df3aab5ec22ef6f0c" compoundref="_data_saving_manager_8cs" startline="168" endline="176">DataSavingManager.GetHelperData</referencedby>
+        <referencedby refid="class_data_saving_manager_1af1d6b712204f5af5f42bc11f51eb7b1a" compoundref="_data_saving_manager_8cs" startline="178" endline="184">DataSavingManager.SetHelperData</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_data_1a2eda498feca369f72fc220b270f76b05" prot="public" static="no" mutable="no">
+        <type><ref refid="class_player_data" kindref="compound">PlayerData</ref></type>
+        <definition>PlayerData GameData.playerData</definition>
+        <argsstring></argsstring>
+        <name>playerData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="355" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_data_1abca9114adfc435b331bca000a2fb79ea" prot="public" static="no" mutable="no">
+        <type><ref refid="class_block_spawn_data" kindref="compound">BlockSpawnData</ref></type>
+        <definition>BlockSpawnData GameData.blockSpawnData</definition>
+        <argsstring></argsstring>
+        <name>blockSpawnData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="357" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Serializable class used to store player settings in a text file </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="40">
+        <label>BlockSpawnData</label>
+        <link refid="class_block_spawn_data"/>
+      </node>
+      <node id="41">
+        <label>PlayerData</label>
+        <link refid="class_player_data"/>
+      </node>
+      <node id="39">
+        <label>GameData</label>
+        <link refid="class_game_data"/>
+        <childnode refid="40" relation="usage">
+          <edgelabel>blockSpawnData</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>playerData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" line="348" column="1" bodyfile="C:/Users/alex/Documents/GitHub/IncrementalRepo/Assets/Scripts/DataSavingManager.cs" bodystart="347" bodyend="358"/>
+    <listofallmembers>
+      <member refid="class_game_data_1abca9114adfc435b331bca000a2fb79ea" prot="public" virt="non-virtual"><scope>GameData</scope><name>blockSpawnData</name></member>
+      <member refid="class_game_data_1aff57508aaaba2a8d751bae92a59221a0" prot="public" virt="non-virtual"><scope>GameData</scope><name>HelperDictionary</name></member>
+      <member refid="class_game_data_1a27a1518428fb413a633d44eb4635f64a" prot="public" virt="non-virtual"><scope>GameData</scope><name>OtherValues</name></member>
+      <member refid="class_game_data_1a2eda498feca369f72fc220b270f76b05" prot="public" virt="non-virtual"><scope>GameData</scope><name>playerData</name></member>
+      <member refid="class_game_data_1af08436b3965970f56a198dbce438ae82" prot="public" virt="non-virtual"><scope>GameData</scope><name>skillDictionary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
