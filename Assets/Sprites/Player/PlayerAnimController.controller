@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Idle
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2541760844448431252}
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ddec2df7e145c79438de5dd5569264b0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3ec922b9797098b41b1fa68a100af5e6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -77,7 +77,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 62e5bdcab68e11f44905de78167b5d96, type: 2}
+  m_Motion: {fileID: 7400000, guid: c09e6d18a4347854b9f87a10837b38bd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -139,7 +139,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pink_Monster
+  m_Name: PlayerAnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Moving
@@ -219,7 +219,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_walk
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2889527854245421107}
@@ -232,7 +232,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 07abc75b42603004a94c9b0a95e5dc9b, type: 2}
+  m_Motion: {fileID: 7400000, guid: c3d00d2e1f2cccb4c863c55e4b6eb294, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

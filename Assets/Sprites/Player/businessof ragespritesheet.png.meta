@@ -1,0 +1,2184 @@
+fileFormatVersion: 2
+guid: b4db386479360344f8424554a6525a6a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7949281756540792136
+    second: businessof ragespritesheet_0
+  - first:
+      213: -3717478114011376618
+    second: businessof ragespritesheet_1
+  - first:
+      213: -3484590289719114802
+    second: businessof ragespritesheet_2
+  - first:
+      213: 277524632507204609
+    second: businessof ragespritesheet_3
+  - first:
+      213: -333565842614744987
+    second: businessof ragespritesheet_4
+  - first:
+      213: -8157297191813107225
+    second: businessof ragespritesheet_5
+  - first:
+      213: 9152135914440404886
+    second: businessof ragespritesheet_6
+  - first:
+      213: 4844229696306330291
+    second: businessof ragespritesheet_7
+  - first:
+      213: 6026428043618649104
+    second: businessof ragespritesheet_8
+  - first:
+      213: -6174874021359904331
+    second: businessof ragespritesheet_9
+  - first:
+      213: 803571717824901727
+    second: businessof ragespritesheet_10
+  - first:
+      213: -4694672049248647813
+    second: businessof ragespritesheet_11
+  - first:
+      213: 4189687703556898650
+    second: businessof ragespritesheet_12
+  - first:
+      213: -47061847371341247
+    second: businessof ragespritesheet_13
+  - first:
+      213: -4568207318788933102
+    second: businessof ragespritesheet_14
+  - first:
+      213: -2882794621061036781
+    second: businessof ragespritesheet_15
+  - first:
+      213: -2885458086767595680
+    second: businessof ragespritesheet_16
+  - first:
+      213: -1202700923182991000
+    second: businessof ragespritesheet_17
+  - first:
+      213: 6830307865225805091
+    second: businessof ragespritesheet_18
+  - first:
+      213: 2164239301332367073
+    second: businessof ragespritesheet_19
+  - first:
+      213: -3055680567880092291
+    second: businessof ragespritesheet_20
+  - first:
+      213: 2808148429434480453
+    second: businessof ragespritesheet_21
+  - first:
+      213: 3254249000431699299
+    second: businessof ragespritesheet_22
+  - first:
+      213: -8683045300306870709
+    second: businessof ragespritesheet_23
+  - first:
+      213: -1451869276392930884
+    second: businessof ragespritesheet_24
+  - first:
+      213: 6542064461494180028
+    second: businessof ragespritesheet_25
+  - first:
+      213: 5863772233649484460
+    second: businessof ragespritesheet_26
+  - first:
+      213: -4374827016223984132
+    second: businessof ragespritesheet_27
+  - first:
+      213: 591146904428552012
+    second: businessof ragespritesheet_28
+  - first:
+      213: 3982369637518971801
+    second: businessof ragespritesheet_29
+  - first:
+      213: -316035935980584535
+    second: businessof ragespritesheet_30
+  - first:
+      213: 1804925182988765756
+    second: businessof ragespritesheet_31
+  - first:
+      213: 8170338316963064488
+    second: businessof ragespritesheet_32
+  - first:
+      213: -4803921324573400824
+    second: businessof ragespritesheet_33
+  - first:
+      213: -8319906911049287381
+    second: businessof ragespritesheet_34
+  - first:
+      213: -9208638295165807654
+    second: businessof ragespritesheet_35
+  - first:
+      213: -9064415371487467179
+    second: businessof ragespritesheet_36
+  - first:
+      213: -1488916698958784568
+    second: businessof ragespritesheet_37
+  - first:
+      213: -6607069139904861820
+    second: businessof ragespritesheet_38
+  - first:
+      213: 5379724385371709254
+    second: businessof ragespritesheet_39
+  - first:
+      213: -3254686598328469970
+    second: businessof ragespritesheet_40
+  - first:
+      213: 3146006878181198321
+    second: businessof ragespritesheet_41
+  - first:
+      213: 864857995222425404
+    second: businessof ragespritesheet_42
+  - first:
+      213: 1583788132364501869
+    second: businessof ragespritesheet_43
+  - first:
+      213: -4686730226287936936
+    second: businessof ragespritesheet_44
+  - first:
+      213: 5038201917490398508
+    second: businessof ragespritesheet_45
+  - first:
+      213: 2217990574938247755
+    second: businessof ragespritesheet_46
+  - first:
+      213: 1413422772244625268
+    second: businessof ragespritesheet_47
+  - first:
+      213: 2367315398508312890
+    second: businessof ragespritesheet_48
+  - first:
+      213: 2401959047385176726
+    second: businessof ragespritesheet_49
+  - first:
+      213: -7966207266069199172
+    second: businessof ragespritesheet_50
+  - first:
+      213: -2229992337685618474
+    second: businessof ragespritesheet_51
+  - first:
+      213: 4117536418888543232
+    second: businessof ragespritesheet_52
+  - first:
+      213: -5123048152187485628
+    second: businessof ragespritesheet_53
+  - first:
+      213: 1281353737683224027
+    second: businessof ragespritesheet_54
+  - first:
+      213: 8350971647258857308
+    second: businessof ragespritesheet_55
+  - first:
+      213: -8495254209371478809
+    second: businessof ragespritesheet_56
+  - first:
+      213: 3113937806818203149
+    second: businessof ragespritesheet_57
+  - first:
+      213: 8722490444526291134
+    second: businessof ragespritesheet_58
+  - first:
+      213: -2001059251443256377
+    second: businessof ragespritesheet_59
+  - first:
+      213: 2473972786209324593
+    second: businessof ragespritesheet_60
+  - first:
+      213: 1876602555208249706
+    second: businessof ragespritesheet_61
+  - first:
+      213: 6153470287673689404
+    second: businessof ragespritesheet_62
+  - first:
+      213: 3215128024713516698
+    second: businessof ragespritesheet_63
+  - first:
+      213: 3593741183027947022
+    second: businessof ragespritesheet_64
+  - first:
+      213: 7158778146498556660
+    second: businessof ragespritesheet_65
+  - first:
+      213: -5742559463292547567
+    second: businessof ragespritesheet_66
+  - first:
+      213: -23289646009317240
+    second: businessof ragespritesheet_67
+  - first:
+      213: 6163233134004288589
+    second: businessof ragespritesheet_68
+  - first:
+      213: 7620934702054362663
+    second: businessof ragespritesheet_69
+  - first:
+      213: 8222905652466011223
+    second: businessof ragespritesheet_70
+  - first:
+      213: 9057347069423851508
+    second: businessof ragespritesheet_71
+  - first:
+      213: -8474962800484711936
+    second: businessof ragespritesheet_72
+  - first:
+      213: -810189306542112317
+    second: businessof ragespritesheet_73
+  - first:
+      213: 5788170692347297793
+    second: businessof ragespritesheet_74
+  - first:
+      213: 5697392260376460705
+    second: businessof ragespritesheet_75
+  - first:
+      213: -4181143568468026052
+    second: businessof ragespritesheet_76
+  - first:
+      213: -6400297936595308325
+    second: businessof ragespritesheet_77
+  - first:
+      213: -1409297939866893669
+    second: businessof ragespritesheet_78
+  - first:
+      213: -7320356207560067865
+    second: businessof ragespritesheet_79
+  - first:
+      213: -7055562038405380150
+    second: businessof ragespritesheet_80
+  - first:
+      213: -6682608337953450309
+    second: businessof ragespritesheet_81
+  - first:
+      213: -1879050890547369156
+    second: businessof ragespritesheet_82
+  - first:
+      213: 2797217014781423417
+    second: businessof ragespritesheet_83
+  - first:
+      213: 163704818471510866
+    second: businessof ragespritesheet_84
+  - first:
+      213: 135550537696719200
+    second: businessof ragespritesheet_85
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: businessof ragespritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d6b16f3a5815e60800000000000000
+      internalID: 7949281756540792136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6141012f95dd86cc0800000000000000
+      internalID: -3717478114011376618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec34489f79f34afc0800000000000000
+      internalID: -3484590289719114802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1044301de27f9d300800000000000000
+      internalID: 277524632507204609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5688eb922afee5bf0800000000000000
+      internalID: -333565842614744987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 652
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e130ba5c657bce80800000000000000
+      internalID: -8157297191813107225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 598
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fa054cf1be20f70800000000000000
+      internalID: 9152135914440404886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 598
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3babcb23e392a3340800000000000000
+      internalID: 4844229696306330291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 598
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0148754506c22a350800000000000000
+      internalID: 6026428043618649104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 598
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b91e002bc07e4aa0800000000000000
+      internalID: -6174874021359904331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 598
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52f088483cd62b00800000000000000
+      internalID: 803571717824901727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 544
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75449705ac29deb0800000000000000
+      internalID: -4694672049248647813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 544
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fb45ab4c2c42a30800000000000000
+      internalID: 4189687703556898650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 544
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14225f8cf7dc85ff0800000000000000
+      internalID: -47061847371341247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 544
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21afe3f95a77a90c0800000000000000
+      internalID: -4568207318788933102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 490
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315004bd0914ef7d0800000000000000
+      internalID: -2882794621061036781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 490
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f60fb682bc4f7d0800000000000000
+      internalID: -2885458086767595680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 490
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869b4aee1e52f4fe0800000000000000
+      internalID: -1202700923182991000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 490
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d375d90d02ace50800000000000000
+      internalID: 6830307865225805091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 490
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6fadc8d2ce80e10800000000000000
+      internalID: 2164239301332367073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 436
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75717496ba0895d0800000000000000
+      internalID: -3055680567880092291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 436
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547630d4e1c88f620800000000000000
+      internalID: 2808148429434480453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 436
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365c661693a692d20800000000000000
+      internalID: 3254249000431699299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 436
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e759add40af7780800000000000000
+      internalID: -8683045300306870709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1cb40e59ce9dbe0800000000000000
+      internalID: -1451869276392930884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8511567f41aca50800000000000000
+      internalID: 6542064461494180028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2f97667cd406150800000000000000
+      internalID: 5863772233649484460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5ff20f10e7943c0800000000000000
+      internalID: -4374827016223984132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f19804afc243800800000000000000
+      internalID: 591146904428552012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9939e98f518344730800000000000000
+      internalID: 3982369637518971801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a18e9b9df63d9bf0800000000000000
+      internalID: -316035935980584535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 382
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ac33a14e16c0910800000000000000
+      internalID: 1804925182988765756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aaa855396fd26170800000000000000
+      internalID: 8170338316963064488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801e0efe10b055db0800000000000000
+      internalID: -4803921324573400824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29f692ceb0c98c80800000000000000
+      internalID: -8319906911049287381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3559f8248543080800000000000000
+      internalID: -9208638295165807654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55926e5be3ab43280800000000000000
+      internalID: -9064415371487467179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c71a62a62e465be0800000000000000
+      internalID: -1488916698958784568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489668d7f99fe44a0800000000000000
+      internalID: -6607069139904861820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f569353de98aa40800000000000000
+      internalID: 5379724385371709254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26386b68c705d2d0800000000000000
+      internalID: -3254686598328469970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 328
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f90de2669cd8ab20800000000000000
+      internalID: 3146006878181198321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f9362b3c7900c00800000000000000
+      internalID: 864857995222425404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63c0154aeebaf510800000000000000
+      internalID: 1583788132364501869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a7508c0b365feb0800000000000000
+      internalID: -4686730226287936936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2505be43f94be540800000000000000
+      internalID: 5038201917490398508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42db5e2da2e7ce10800000000000000
+      internalID: 2217990574938247755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477b611d58c7d9310800000000000000
+      internalID: 1413422772244625268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a397667ffc46ad020800000000000000
+      internalID: 2367315398508312890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69add680709755120800000000000000
+      internalID: 2401959047385176726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb64fc2c2b8527190800000000000000
+      internalID: -7966207266069199172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 274
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0e76ca8c97d01e0800000000000000
+      internalID: -2229992337685618474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ce59dae8d642930800000000000000
+      internalID: 4117536418888543232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442c4a149d647e8b0800000000000000
+      internalID: -5123048152187485628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd54a3e7f6848c110800000000000000
+      internalID: 1281353737683224027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f0934c77c94e370800000000000000
+      internalID: 8350971647258857308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e465cd6e4bca1a80800000000000000
+      internalID: -8495254209371478809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06de0cdfede63b20800000000000000
+      internalID: 3113937806818203149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb88ab678d28c0970800000000000000
+      internalID: 8722490444526291134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 220
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3373f763fca34e0800000000000000
+      internalID: -2001059251443256377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e7df13421555220800000000000000
+      internalID: 2473972786209324593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6137cfc4180b0a10800000000000000
+      internalID: 1876602555208249706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3506b8cf94856550800000000000000
+      internalID: 6153470287673689404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96d37c67ed6e9c20800000000000000
+      internalID: 3215128024713516698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06a215c0988fd130800000000000000
+      internalID: 3593741183027947022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f230ef9bc6195360800000000000000
+      internalID: 7158778146498556660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ec3e0f7945e40b0800000000000000
+      internalID: -5742559463292547567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8888baab0324daff0800000000000000
+      internalID: -23289646009317240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c3e3491e3388550800000000000000
+      internalID: 6163233134004288589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ec56cebbff2c960800000000000000
+      internalID: 7620934702054362663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 166
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75cc9c4cf11ad1270800000000000000
+      internalID: 8222905652466011223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f71f68fb2922bd70800000000000000
+      internalID: 9057347069423851508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00285783c32e26a80800000000000000
+      internalID: -8474962800484711936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1ccb64e11a1c4f0800000000000000
+      internalID: -810189306542112317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10000b0e396b35050800000000000000
+      internalID: 5788170692347297793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad7cc12314311f40800000000000000
+      internalID: 5697392260376460705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ddd8eb31899f5c0800000000000000
+      internalID: -4181143568468026052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 112
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd03298dfe29d27a0800000000000000
+      internalID: -6400297936595308325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b924b8f8dfa217ce0800000000000000
+      internalID: -1409297939866893669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e47e0b60ded86a90800000000000000
+      internalID: -7320356207560067865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7cd1245bb951e90800000000000000
+      internalID: -7055562038405380150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb698336f1b9243a0800000000000000
+      internalID: -6682608337953450309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bea02bb254ce5e0800000000000000
+      internalID: -1879050890547369156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fa9bdfd06b1d620800000000000000
+      internalID: 2797217014781423417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253a3014aa8954200800000000000000
+      internalID: 163704818471510866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: businessof ragespritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 58
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061b680fe7291e100800000000000000
+      internalID: 135550537696719200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

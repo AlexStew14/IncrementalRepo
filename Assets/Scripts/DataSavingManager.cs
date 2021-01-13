@@ -198,7 +198,7 @@ public class DataSavingManager : MonoBehaviour
     {
         return new BlockSpawnData
         {
-            maxCurrentBlocks = 3,
+            maxCurrentBlocks = 10,
             spawnTime = 3.0f
         };
     }

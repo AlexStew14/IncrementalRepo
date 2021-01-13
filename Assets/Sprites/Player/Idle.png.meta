@@ -1,0 +1,570 @@
+fileFormatVersion: 2
+guid: 574553c02549a44438faba79cc491fd5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7949281756540792136
+    second: businessof ragespritesheet_0
+  - first:
+      213: -3717478114011376618
+    second: businessof ragespritesheet_1
+  - first:
+      213: -3484590289719114802
+    second: businessof ragespritesheet_2
+  - first:
+      213: 277524632507204609
+    second: businessof ragespritesheet_3
+  - first:
+      213: -333565842614744987
+    second: businessof ragespritesheet_4
+  - first:
+      213: -8157297191813107225
+    second: businessof ragespritesheet_5
+  - first:
+      213: 9152135914440404886
+    second: businessof ragespritesheet_6
+  - first:
+      213: 4844229696306330291
+    second: businessof ragespritesheet_7
+  - first:
+      213: 6026428043618649104
+    second: businessof ragespritesheet_8
+  - first:
+      213: -6174874021359904331
+    second: businessof ragespritesheet_9
+  - first:
+      213: 803571717824901727
+    second: businessof ragespritesheet_10
+  - first:
+      213: -4694672049248647813
+    second: businessof ragespritesheet_11
+  - first:
+      213: 4189687703556898650
+    second: businessof ragespritesheet_12
+  - first:
+      213: -47061847371341247
+    second: businessof ragespritesheet_13
+  - first:
+      213: -4568207318788933102
+    second: businessof ragespritesheet_14
+  - first:
+      213: -2882794621061036781
+    second: businessof ragespritesheet_15
+  - first:
+      213: -2885458086767595680
+    second: businessof ragespritesheet_16
+  - first:
+      213: -1202700923182991000
+    second: businessof ragespritesheet_17
+  - first:
+      213: 6830307865225805091
+    second: businessof ragespritesheet_18
+  - first:
+      213: 2164239301332367073
+    second: businessof ragespritesheet_19
+  - first:
+      213: -3055680567880092291
+    second: businessof ragespritesheet_20
+  - first:
+      213: 2808148429434480453
+    second: businessof ragespritesheet_21
+  - first:
+      213: 3254249000431699299
+    second: businessof ragespritesheet_22
+  - first:
+      213: -8683045300306870709
+    second: businessof ragespritesheet_23
+  - first:
+      213: -1451869276392930884
+    second: businessof ragespritesheet_24
+  - first:
+      213: 6542064461494180028
+    second: businessof ragespritesheet_25
+  - first:
+      213: 5863772233649484460
+    second: businessof ragespritesheet_26
+  - first:
+      213: -4374827016223984132
+    second: businessof ragespritesheet_27
+  - first:
+      213: 591146904428552012
+    second: businessof ragespritesheet_28
+  - first:
+      213: 3982369637518971801
+    second: businessof ragespritesheet_29
+  - first:
+      213: -316035935980584535
+    second: businessof ragespritesheet_30
+  - first:
+      213: 1804925182988765756
+    second: businessof ragespritesheet_31
+  - first:
+      213: 8170338316963064488
+    second: businessof ragespritesheet_32
+  - first:
+      213: -4803921324573400824
+    second: businessof ragespritesheet_33
+  - first:
+      213: -8319906911049287381
+    second: businessof ragespritesheet_34
+  - first:
+      213: -9208638295165807654
+    second: businessof ragespritesheet_35
+  - first:
+      213: -9064415371487467179
+    second: businessof ragespritesheet_36
+  - first:
+      213: -1488916698958784568
+    second: businessof ragespritesheet_37
+  - first:
+      213: -6607069139904861820
+    second: businessof ragespritesheet_38
+  - first:
+      213: 5379724385371709254
+    second: businessof ragespritesheet_39
+  - first:
+      213: -3254686598328469970
+    second: businessof ragespritesheet_40
+  - first:
+      213: 3146006878181198321
+    second: businessof ragespritesheet_41
+  - first:
+      213: 864857995222425404
+    second: businessof ragespritesheet_42
+  - first:
+      213: 1583788132364501869
+    second: businessof ragespritesheet_43
+  - first:
+      213: -4686730226287936936
+    second: businessof ragespritesheet_44
+  - first:
+      213: 5038201917490398508
+    second: businessof ragespritesheet_45
+  - first:
+      213: 2217990574938247755
+    second: businessof ragespritesheet_46
+  - first:
+      213: 1413422772244625268
+    second: businessof ragespritesheet_47
+  - first:
+      213: 2367315398508312890
+    second: businessof ragespritesheet_48
+  - first:
+      213: 2401959047385176726
+    second: businessof ragespritesheet_49
+  - first:
+      213: -7966207266069199172
+    second: businessof ragespritesheet_50
+  - first:
+      213: -2229992337685618474
+    second: businessof ragespritesheet_51
+  - first:
+      213: 4117536418888543232
+    second: businessof ragespritesheet_52
+  - first:
+      213: -5123048152187485628
+    second: businessof ragespritesheet_53
+  - first:
+      213: 1281353737683224027
+    second: businessof ragespritesheet_54
+  - first:
+      213: 8350971647258857308
+    second: businessof ragespritesheet_55
+  - first:
+      213: -8495254209371478809
+    second: businessof ragespritesheet_56
+  - first:
+      213: 3113937806818203149
+    second: businessof ragespritesheet_57
+  - first:
+      213: 8722490444526291134
+    second: businessof ragespritesheet_58
+  - first:
+      213: -2001059251443256377
+    second: businessof ragespritesheet_59
+  - first:
+      213: 2473972786209324593
+    second: businessof ragespritesheet_60
+  - first:
+      213: 1876602555208249706
+    second: businessof ragespritesheet_61
+  - first:
+      213: 6153470287673689404
+    second: businessof ragespritesheet_62
+  - first:
+      213: 3215128024713516698
+    second: businessof ragespritesheet_63
+  - first:
+      213: 3593741183027947022
+    second: businessof ragespritesheet_64
+  - first:
+      213: 7158778146498556660
+    second: businessof ragespritesheet_65
+  - first:
+      213: -5742559463292547567
+    second: businessof ragespritesheet_66
+  - first:
+      213: -23289646009317240
+    second: businessof ragespritesheet_67
+  - first:
+      213: 6163233134004288589
+    second: businessof ragespritesheet_68
+  - first:
+      213: 7620934702054362663
+    second: businessof ragespritesheet_69
+  - first:
+      213: 8222905652466011223
+    second: businessof ragespritesheet_70
+  - first:
+      213: 9057347069423851508
+    second: businessof ragespritesheet_71
+  - first:
+      213: -8474962800484711936
+    second: businessof ragespritesheet_72
+  - first:
+      213: -810189306542112317
+    second: businessof ragespritesheet_73
+  - first:
+      213: 5788170692347297793
+    second: businessof ragespritesheet_74
+  - first:
+      213: 5697392260376460705
+    second: businessof ragespritesheet_75
+  - first:
+      213: -4181143568468026052
+    second: businessof ragespritesheet_76
+  - first:
+      213: -6400297936595308325
+    second: businessof ragespritesheet_77
+  - first:
+      213: -1409297939866893669
+    second: businessof ragespritesheet_78
+  - first:
+      213: -7320356207560067865
+    second: businessof ragespritesheet_79
+  - first:
+      213: -7055562038405380150
+    second: businessof ragespritesheet_80
+  - first:
+      213: -6682608337953450309
+    second: businessof ragespritesheet_81
+  - first:
+      213: -1879050890547369156
+    second: businessof ragespritesheet_82
+  - first:
+      213: 2797217014781423417
+    second: businessof ragespritesheet_83
+  - first:
+      213: 163704818471510866
+    second: businessof ragespritesheet_84
+  - first:
+      213: 135550537696719200
+    second: businessof ragespritesheet_85
+  - first:
+      213: 4723107735738678597
+    second: Idle_0
+  - first:
+      213: -7385789195546760866
+    second: Idle_1
+  - first:
+      213: 3234629978573100161
+    second: Idle_2
+  - first:
+      213: 6373048116405451881
+    second: Idle_3
+  - first:
+      213: 7264182050183361747
+    second: Idle_4
+  - first:
+      213: -2834552850196481573
+    second: Idle_5
+  - first:
+      213: 3278449094680734212
+    second: Idle_6
+  - first:
+      213: 3384493420599841878
+    second: Idle_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Idle_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 8
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d7a982679db8140800000000000000
+      internalID: 4723107735738678597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 8
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e596485bbd7608990800000000000000
+      internalID: -7385789195546760866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 8
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184dda4e3d6b3ec20800000000000000
+      internalID: 3234629978573100161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_3
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 8
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cb1dafe7d917850800000000000000
+      internalID: 6373048116405451881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 8
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4b2fc561f8fc460800000000000000
+      internalID: 7264182050183361747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 8
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9b7fa6335a9a8d0800000000000000
+      internalID: -2834552850196481573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 8
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a65a6e4146f7d20800000000000000
+      internalID: 3278449094680734212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_7
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 8
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654108f85d228fe20800000000000000
+      internalID: 3384493420599841878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
