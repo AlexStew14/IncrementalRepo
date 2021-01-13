@@ -47,12 +47,13 @@ public class Shop : MonoBehaviour
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
-        UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"));
+        skillDictionary = dataSavingManager.GetSkillDictionary();
+
+        UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"), skillDictionary);
 
         playerMoneyMult = (float)dataSavingManager.GetOtherValue("MoneyMultiplier");
 
         // Load skill dictionary into shop and ui
-        skillDictionary = dataSavingManager.GetSkillDictionary();
         uiManager.LoadSkillDescriptions(skillDictionary);
         LoadHelpers();
     }
@@ -89,7 +90,7 @@ public class Shop : MonoBehaviour
     /// <param name="killReward"></param>
     public void KilledBlock(int killReward)
     {
-        UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney);
+        UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
     }
 
     /// <summary>
@@ -97,10 +98,11 @@ public class Shop : MonoBehaviour
     /// This is the only place where the player's money is changed.
     /// </summary>
     /// <param name="money"></param>
-    private void UpdatePlayerMoneyAndUI(int money)
+    private void UpdatePlayerMoneyAndUI(int money, Dictionary<string, Skill> skillDict)
     {
         playerMoney = money;
         uiManager.SetMoneyText(money);
+        uiManager.SetButtonStates(skillDict, money);
         dataSavingManager.SetOtherValue("Money", money);
         dataSavingManager.Save();
     }
@@ -176,7 +178,7 @@ public class Shop : MonoBehaviour
 
         if (upgradedSkill.Upgrade(playerMoney, out int remainingMoney))
         {
-            UpdatePlayerMoneyAndUI(remainingMoney);
+            UpdatePlayerMoneyAndUI(remainingMoney, skillDictionary);
 
             dataSavingManager.SetOtherValue("Money", playerMoney);
             dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);

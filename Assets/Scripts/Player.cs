@@ -198,7 +198,7 @@ public class Player : MonoBehaviour, IAttacker
 
     public void StopMoving()
     {
-        clickPos = transform.position;
+        //clickPos = transform.position;
         moving = false;
     }
 

@@ -129,12 +129,9 @@ public class DataSavingManager : MonoBehaviour
 
     public object GetOtherValue(string key)
     {
-        return
-            (
-                (gameData.OtherValues.ContainsKey(key))
-                ? gameData.OtherValues[key]
-                : null
-            );
+        if (gameData.OtherValues.ContainsKey(key))
+            return gameData.OtherValues[key];
+        return null;
     }
 
     public void SetOtherValue(string key, object value)
@@ -230,9 +227,9 @@ public class DataSavingManager : MonoBehaviour
                 level = 1,
                 maxLevel = 100,
                 type = SkillType.DMG,
-                upgradeCost = 5,
-                costFunction = (x) => x * 2,
-                improvementFunction = (x) => ++x
+                upgradeCost = 1,
+                costFunction = (x) => (int)(x * 1.3f) + 1,
+                improvementFunction = (x) => (int)(x * 1.2f) + 1
             });
 
         skillDictionary.Add("AttackSpeed",
@@ -260,9 +257,9 @@ public class DataSavingManager : MonoBehaviour
                 level = 1,
                 maxLevel = 10,
                 type = SkillType.KILLREWARD,
-                upgradeCost = 15,
-                costFunction = (x) => (int)(x * 1.5f),
-                improvementFunction = (x) => x
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => (x * 2)
             });
 
         skillDictionary.Add("SpawnSpeed",
@@ -270,7 +267,7 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "SpawnSpeed",
                 currentStatIncrease = 0,
-                nextStatIncrease = .1f,
+                nextStatIncrease = .3f,
                 totalStatIncrease = 0,
                 level = 1,
                 maxLevel = 25,
@@ -300,13 +297,13 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Helper1",
                 currentStatIncrease = 0,
-                nextStatIncrease = .05f,
+                nextStatIncrease = .1f,
                 totalStatIncrease = 0,
                 level = 1,
                 maxLevel = 50,
                 type = SkillType.HELPER,
                 upgradeCost = 25,
-                costFunction = (x) => (int)(x * 1.5f),
+                costFunction = (x) => (int)(x * 1.3f),
                 improvementFunction = (x) => x,
                 helperData = new HelperData
                 {

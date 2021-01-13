@@ -68,6 +68,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetButtonStates(Dictionary<string, Skill> skillDictionary, int money)
+    {
+        foreach (Button b in buttons)
+        {
+            string skillName = b.name;
+            Skill s = skillDictionary[skillName];
+            if (s == null)
+                continue;
+
+            b.interactable = s.CheckUpgrade(money);
+        }
+    }
+
     private void SetDescriptionText(Button skillButton, Skill skill)
     {
         //var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
