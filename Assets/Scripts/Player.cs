@@ -127,8 +127,8 @@ public class Player : MonoBehaviour, IAttacker
     /// </summary>
     public void Attacked()
     {
+        anim.Play("Player_Punch");
         soundManager.PlayAttack();
-
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
     }
@@ -200,11 +200,6 @@ public class Player : MonoBehaviour, IAttacker
     {
         //clickPos = transform.position;
         moving = false;
-    }
-
-    public void Punching(bool b)
-    {
-        anim.SetBool("Punching", b);
     }
 
     #endregion Movement

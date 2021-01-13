@@ -74,7 +74,8 @@ public class Shop : MonoBehaviour
 
         helpers.ForEach(s =>
         {
-            var helper = Instantiate(helperPrefab);
+            Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
+            var helper = Instantiate(helperPrefab, randPos, transform.rotation);
             helper.gameObject.GetComponent<Helper>().Init(s.Value.name);
         });
     }
@@ -153,7 +154,8 @@ public class Shop : MonoBehaviour
         {
             if (upgradedSkill.level == 2)
             {
-                var helper = Instantiate(helperPrefab);
+                Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
+                var helper = Instantiate(helperPrefab, randPos, transform.rotation);
                 helper.gameObject.GetComponent<Helper>().Init(upgradedSkill.name);
             }
         }

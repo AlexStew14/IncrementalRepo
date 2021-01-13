@@ -72,11 +72,12 @@ public class Block : MonoBehaviour
             {
                 if (a.CanAttack(transform))
                 {
+                    a.Attacked();
+                    a.StopMoving();
                     currentHealth -= a.GetDamage();
                     slider.value = currentHealth;
                     Debug.Log("Block attacked, health: " + currentHealth);
-                    a.Attacked();
-                    a.StopMoving();
+
                     if (currentHealth <= 0)
                     {
                         Killed();
@@ -97,7 +98,6 @@ public class Block : MonoBehaviour
 
         if (c.tag == "Player")
         {
-            player.Punching(true);
             collidingAttackers.Add(c.GetComponent<Player>());
         }
         else if (c.tag == "Helper")
@@ -116,7 +116,6 @@ public class Block : MonoBehaviour
 
         if (c.tag == "Player")
         {
-            player.Punching(false);
             collidingAttackers.Remove(c.GetComponent<Player>());
         }
         else if (c.tag == "Helper")
