@@ -15,6 +15,11 @@ public class Helper : MonoBehaviour, IAttacker
     [SerializeField]
     private HelperData helperData;
 
+    [SerializeField]
+    private GameObject character;
+
+    private Animator anim;
+
     // Movement Fields
     private Vector3 targetPos = new Vector3(3, 3, 0);
 
@@ -55,13 +60,17 @@ public class Helper : MonoBehaviour, IAttacker
 
         transform.position = targetPos;
         helperData = dataSavingManager.GetSkill(name).helperData;
+
+        anim = character.GetComponent<Animator>();
+
         StartCoroutine(StartCountdown(helperData.idleTime));
     }
 
     // Update is called once per frame
     private void Update()
     {
-        MoveHelper();
+        if (moving)
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
 
         if (currentTarget != null && currentTarget.gameObject.GetComponent<Block>().isDead)
         {
@@ -82,40 +91,12 @@ public class Helper : MonoBehaviour, IAttacker
         }
     }
 
-    private void MoveHelper()
-    {
-        if (transform.position != targetPos && moving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
-        }
-        else
-        {
-            moving = false;
-        }
-    }
-
-    private bool FindBlockInRadius()
-    {
-        Vector3 helperPos = this.transform.position;
-        foreach (int c in blockSpawner.BlockDictionary.Keys)
-        {
-            Vector3 blockPos = blockSpawner.BlockDictionary[c].position;
-
-            if (blockPos.x < helperPos.x + offset && blockPos.x > helperPos.x - offset &&
-                    blockPos.y < helperPos.y + offset && blockPos.y > helperPos.y - offset)
-            {
-                targetPos = blockPos;
-                return true;
-            }
-        }
-        return false;
-    }
-
     private IEnumerator StartCountdown(float countdownValue)
     {
         cdValue = countdownValue;
         countDownRunning = true;
         moving = false;
+        anim.SetBool("Moving", false);
         while (cdValue > 0)
         {
             UnityEngine.Debug.Log("Countdown: " + cdValue);
@@ -135,6 +116,7 @@ public class Helper : MonoBehaviour, IAttacker
             currentTarget = blockSpawner.BlockDictionary.ElementAt(0).Value;
 
             moving = true;
+            anim.SetBool("Moving", true);
         }
     }
 
@@ -175,6 +157,7 @@ public class Helper : MonoBehaviour, IAttacker
     public void StopMoving()
     {
         moving = false;
+        anim.SetBool("Moving", false);
         targetPos = transform.position;
     }
 

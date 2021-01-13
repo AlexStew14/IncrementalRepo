@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, IAttacker
 
     // Animation Fields
     [SerializeField]
-    private GameObject Character;
+    private GameObject character;
 
     private Animator anim;
 
@@ -55,8 +55,8 @@ public class Player : MonoBehaviour, IAttacker
 
         transform.position = clickPos;
 
-        anim = Character.GetComponent<Animator>();
-        sprite = Character.GetComponent<SpriteRenderer>();
+        anim = character.GetComponent<Animator>();
+        sprite = character.GetComponent<SpriteRenderer>();
     }
 
     private void Awake()

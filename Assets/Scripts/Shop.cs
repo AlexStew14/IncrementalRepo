@@ -75,7 +75,7 @@ public class Shop : MonoBehaviour
         helpers.ForEach(s =>
         {
             Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
-            var helper = Instantiate(helperPrefab, randPos, transform.rotation);
+            var helper = Instantiate(helperPrefab, randPos, Quaternion.identity);
             helper.gameObject.GetComponent<Helper>().Init(s.Value.name);
         });
     }
