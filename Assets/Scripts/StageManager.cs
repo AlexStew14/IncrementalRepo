@@ -56,7 +56,7 @@ public class StageManager : MonoBehaviour
 
         shop.KilledBlock(blockKillReward);
 
-        uiManager.SetMapLevelText(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
+        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
     }
 
     private void InitalizeStageAndMapLevel()
@@ -70,7 +70,7 @@ public class StageManager : MonoBehaviour
         anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(currentStage.animatorName);
         blockSpawner.currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
 
-        uiManager.SetMapLevelText(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
+        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
     }
 
     private void SwitchMapLevel(int mapLevelKey)
@@ -83,7 +83,7 @@ public class StageManager : MonoBehaviour
                 completed = false,
                 mapLevelKey = mapLevelKey,
                 currentCount = 0,
-                maxCount = 25
+                maxCount = (int)dataSavingManager.GetOtherValue("MaxKillCount")
             };
 
             dataSavingManager.AddMapLevel(mapLevelKey, mapLevel);
@@ -93,15 +93,21 @@ public class StageManager : MonoBehaviour
         dataSavingManager.SetOtherValue("CurrentMapLevel", mapLevelKey);
         dataSavingManager.Save();
 
-        if (mapLevelKey % 10 == 0)
+        int mapLevelRemainder = mapLevelKey % (int)dataSavingManager.GetOtherValue("LevelPerStage");
+
+        if (mapLevelRemainder == 0)
         {
             SwitchStage(mapLevelKey % 100);
+        }
+        else if (mapLevelRemainder == (int)dataSavingManager.GetOtherValue("LevelPerStage") - 1)
+        {
+            SwitchStage(mapLevelKey - (mapLevelKey % 100));
         }
 
         blockHealth = blockHealthFunc(mapLevelKey);
         blockKillReward = killRewardFunc(mapLevelKey);
 
-        uiManager.SetMapLevelText(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
+        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
 
         blockSpawner.ClearBlocks();
     }

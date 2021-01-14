@@ -253,7 +253,9 @@ public class DataSavingManager : MonoBehaviour
                 {"Money", startingMoney},
                 {"MoneyMultiplier", 1.0f},
                 {"CurrentStage", 0 },
-                {"CurrentMapLevel", 0 }
+                {"CurrentMapLevel", 0 },
+                {"MaxKillCount", 10 },
+                {"LevelPerStage", 10 }
             };
     }
 
@@ -269,7 +271,7 @@ public class DataSavingManager : MonoBehaviour
                 blockSpritesPath = "Blocks/Stage1",
             });
 
-        stageDictionary.Add(25,
+        stageDictionary.Add(10,
             new Stage
             {
                 stageKey = 10,
@@ -289,7 +291,7 @@ public class DataSavingManager : MonoBehaviour
             {
                 completed = false,
                 currentCount = 0,
-                maxCount = 25,
+                maxCount = 10,
                 mapLevelKey = 0
             });
 

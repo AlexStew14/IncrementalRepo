@@ -121,13 +121,19 @@ public class UIManager : MonoBehaviour
         currentMoney.text = money.ToString();
     }
 
-    public void SetMapLevelText(int currentKill, int maxKill, int levelNum)
+    public void SetMapLevelTextAndButtonStatuses(int currentKill, int maxKill, int levelNum)
     {
         var mapLevelInfo = mapLevelPanel.transform.Find("LevelInfo");
 
         string text = "Lvl:" + levelNum + "\n" + currentKill + "/" + maxKill;
 
         mapLevelInfo.gameObject.GetComponent<TextMeshProUGUI>().text = text;
+
+        var nextButton = mapLevelPanel.transform.Find("NextLevel");
+        var prevButton = mapLevelPanel.transform.Find("PrevLevel");
+
+        nextButton.gameObject.GetComponent<Button>().interactable = currentKill >= maxKill;
+        prevButton.gameObject.GetComponent<Button>().interactable = levelNum != 0;
     }
 
     /// <summary>
