@@ -16,6 +16,7 @@ TagManager:
   - Exp
   - LevelText
   - Helper
+  - StageManager
   layers:
   - Default
   - TransparentFX

@@ -119,12 +119,32 @@ public class DataSavingManager : MonoBehaviour
         return gameData.skillDictionary;
     }
 
+    public Dictionary<int, Stage> GetStageDictionary()
+    {
+        return gameData.stageDictionary;
+    }
+
+    public void SetStage(int key, Stage value)
+    {
+        if (gameData.stageDictionary.ContainsKey(key))
+            gameData.stageDictionary[key] = value;
+        else
+            Debug.LogError("Stage Not Found");
+    }
+
+    public Stage GetStage(int key)
+    {
+        if (gameData.stageDictionary.ContainsKey(key))
+            return gameData.stageDictionary[key];
+        return null;
+    }
+
     public void SetSkill(string key, Skill value)
     {
         if (gameData.skillDictionary.ContainsKey(key))
             gameData.skillDictionary[key] = value;
         else
-            gameData.skillDictionary.Add(key, value);
+            Debug.LogError("Skill Not Found");
     }
 
     public object GetOtherValue(string key)
@@ -139,7 +159,7 @@ public class DataSavingManager : MonoBehaviour
         if (gameData.OtherValues.ContainsKey(key))
             gameData.OtherValues[key] = value;
         else
-            gameData.OtherValues.Add(key, value);
+            Debug.LogError("Other Value Not Found");
     }
 
     public PlayerData GetPlayerData()
@@ -173,7 +193,8 @@ public class DataSavingManager : MonoBehaviour
             OtherValues = SeedOtherValues(),
             playerData = SeedPlayerData(),
             skillDictionary = SeedSkills(),
-            blockSpawnData = SeedBlockSpawnData()
+            blockSpawnData = SeedBlockSpawnData(),
+            stageDictionary = SeedStageDictionary()
         };
     }
 
@@ -209,8 +230,38 @@ public class DataSavingManager : MonoBehaviour
             {
                 { "TotalBlocksSpawned", 1 },
                 {"Money", startingMoney},
-                {"MoneyMultiplier", 1.0f }
+                {"MoneyMultiplier", 1.0f},
+                {"CurrentStage", 1 }
             };
+    }
+
+    private Dictionary<int, Stage> SeedStageDictionary()
+    {
+        Dictionary<int, Stage> stageDictionary = new Dictionary<int, Stage>();
+
+        stageDictionary.Add(1,
+            new Stage
+            {
+                stageKey = 1,
+                animatorName = "Backgrounds/Stage1/Animator",
+                blockSpritesPath = "Blocks/Stage1",
+                completed = false,
+                currentCount = 0,
+                maxCount = 2
+            });
+
+        stageDictionary.Add(2,
+            new Stage
+            {
+                stageKey = 2,
+                animatorName = "Backgrounds/Stage2/Animator",
+                blockSpritesPath = "Blocks/Stage2",
+                completed = false,
+                currentCount = 0,
+                maxCount = 25
+            });
+
+        return stageDictionary;
     }
 
     private Dictionary<string, Skill> SeedSkills()
@@ -329,6 +380,8 @@ public class GameData
     public Dictionary<string, object> OtherValues;
 
     public Dictionary<string, Skill> skillDictionary;
+
+    public Dictionary<int, Stage> stageDictionary;
 
     public PlayerData playerData;
 

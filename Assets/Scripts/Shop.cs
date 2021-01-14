@@ -28,6 +28,8 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private Transform helperPrefab;
 
+    private StageManager stageManager;
+
     /// <summary>
     /// The shop manages the player's money.
     /// This class is the only place the player's money should be altered.
@@ -46,6 +48,7 @@ public class Shop : MonoBehaviour
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
+        stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
 
         skillDictionary = dataSavingManager.GetSkillDictionary();
 
@@ -92,6 +95,7 @@ public class Shop : MonoBehaviour
     public void KilledBlock(int killReward)
     {
         UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
+        stageManager.KilledBlock();
     }
 
     /// <summary>
