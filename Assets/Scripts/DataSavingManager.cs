@@ -139,6 +139,26 @@ public class DataSavingManager : MonoBehaviour
         return null;
     }
 
+    public void SetMapLevel(int key, MapLevel value)
+    {
+        if (gameData.mapLevelDictionary.ContainsKey(key))
+            gameData.mapLevelDictionary[key] = value;
+        else
+            Debug.LogError("Stage Not Found");
+    }
+
+    public MapLevel GetMapLevel(int key)
+    {
+        if (gameData.mapLevelDictionary.ContainsKey(key))
+            return gameData.mapLevelDictionary[key];
+        return null;
+    }
+
+    public void AddMapLevel(int key, MapLevel value)
+    {
+        gameData.mapLevelDictionary.Add(key, value);
+    }
+
     public void SetSkill(string key, Skill value)
     {
         if (gameData.skillDictionary.ContainsKey(key))
@@ -194,7 +214,8 @@ public class DataSavingManager : MonoBehaviour
             playerData = SeedPlayerData(),
             skillDictionary = SeedSkills(),
             blockSpawnData = SeedBlockSpawnData(),
-            stageDictionary = SeedStageDictionary()
+            stageDictionary = SeedStageDictionary(),
+            mapLevelDictionary = SeedMapLevelDictionary()
         };
     }
 
@@ -219,7 +240,7 @@ public class DataSavingManager : MonoBehaviour
     {
         return new BlockSpawnData
         {
-            maxCurrentBlocks = 10,
+            maxCurrentBlocks = 3,
             spawnTime = 3.0f
         };
     }
@@ -231,7 +252,8 @@ public class DataSavingManager : MonoBehaviour
                 { "TotalBlocksSpawned", 1 },
                 {"Money", startingMoney},
                 {"MoneyMultiplier", 1.0f},
-                {"CurrentStage", 1 }
+                {"CurrentStage", 0 },
+                {"CurrentMapLevel", 0 }
             };
     }
 
@@ -239,48 +261,91 @@ public class DataSavingManager : MonoBehaviour
     {
         Dictionary<int, Stage> stageDictionary = new Dictionary<int, Stage>();
 
-        stageDictionary.Add(1,
+        stageDictionary.Add(0,
             new Stage
             {
-                stageKey = 1,
+                stageKey = 0,
                 animatorName = "Backgrounds/Stage1/Animator",
                 blockSpritesPath = "Blocks/Stage1",
-                completed = false,
-                currentCount = 0,
-                maxCount = 2
             });
 
-        stageDictionary.Add(2,
+        stageDictionary.Add(25,
             new Stage
             {
-                stageKey = 2,
+                stageKey = 10,
                 animatorName = "Backgrounds/Stage2/Animator",
                 blockSpritesPath = "Blocks/Stage2",
-                completed = false,
-                currentCount = 0,
-                maxCount = 25
             });
 
         return stageDictionary;
+    }
+
+    private Dictionary<int, MapLevel> SeedMapLevelDictionary()
+    {
+        Dictionary<int, MapLevel> mapLevelDictionary = new Dictionary<int, MapLevel>();
+
+        mapLevelDictionary.Add(0,
+            new MapLevel
+            {
+                completed = false,
+                currentCount = 0,
+                maxCount = 25,
+                mapLevelKey = 0
+            });
+
+        return mapLevelDictionary;
     }
 
     private Dictionary<string, Skill> SeedSkills()
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
-        skillDictionary.Add("Damage",
+        Func<int, int> dmgCost = (x) => (int)(x * 1.3f) + 1;
+        Func<float, float> dmgImprove = (x) => (int)(x * 1.2f) + 1;
+
+        skillDictionary.Add("Damage1",
             new Skill
             {
-                name = "Damage",
+                name = "Damage1",
                 currentStatIncrease = 0,
                 nextStatIncrease = 1,
                 totalStatIncrease = 0,
                 level = 1,
-                maxLevel = 100,
+                maxLevel = 10000,
                 type = SkillType.DMG,
                 upgradeCost = 1,
-                costFunction = (x) => (int)(x * 1.3f) + 1,
-                improvementFunction = (x) => (int)(x * 1.2f) + 1
+                costFunction = dmgCost,
+                improvementFunction = dmgImprove
+            });
+
+        skillDictionary.Add("Damage2",
+            new Skill
+            {
+                name = "Damage2",
+                currentStatIncrease = 0,
+                nextStatIncrease = 100,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10000,
+                type = SkillType.DMG,
+                upgradeCost = 100,
+                costFunction = dmgCost,
+                improvementFunction = (x) => ((int)(x * 1.2f) + 1) * 10
+            });
+
+        skillDictionary.Add("Damage3",
+            new Skill
+            {
+                name = "Damage3",
+                currentStatIncrease = 0,
+                nextStatIncrease = 10000,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10000,
+                type = SkillType.DMG,
+                upgradeCost = 1000,
+                costFunction = dmgCost,
+                improvementFunction = (x) => ((int)(x * 1.2f) + 1) * 100
             });
 
         skillDictionary.Add("AttackSpeed",
@@ -382,6 +447,8 @@ public class GameData
     public Dictionary<string, Skill> skillDictionary;
 
     public Dictionary<int, Stage> stageDictionary;
+
+    public Dictionary<int, MapLevel> mapLevelDictionary;
 
     public PlayerData playerData;
 

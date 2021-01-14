@@ -19,11 +19,11 @@ public class BlockSpawner : MonoBehaviour
     [SerializeField]
     private BlockSpawnData blockSpawnData;
 
-    public Dictionary<int, Transform> BlockDictionary { get; private set; }
+    public Dictionary<int, Transform> blockDictionary { get; private set; }
 
     public int TotalBlocksSpawned { get; private set; }
 
-    [SerializeField]
+    [HideInInspector]
     public Sprite[] currentBlockSpriteArray;
 
     #endregion Fields
@@ -36,7 +36,7 @@ public class BlockSpawner : MonoBehaviour
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         TotalBlocksSpawned = (int)dataSavingManager.GetOtherValue("TotalBlocksSpawned");
         blockSpawnData = dataSavingManager.GetBlockSpawnData();
-        BlockDictionary = new Dictionary<int, Transform>();
+        blockDictionary = new Dictionary<int, Transform>();
     }
 
     // Update is called once per frame
@@ -69,7 +69,7 @@ public class BlockSpawner : MonoBehaviour
 
         dataSavingManager.SetOtherValue("TotalBlocksSpawned", TotalBlocksSpawned);
 
-        BlockDictionary.Add(block.GetComponent<Block>().blockKey, block);
+        blockDictionary.Add(block.GetComponent<Block>().blockKey, block);
 
         ++TotalBlocksSpawned;
         ++currentBlockCount;
@@ -78,7 +78,7 @@ public class BlockSpawner : MonoBehaviour
     public void BlockDestroyed(Transform block)
     {
         --currentBlockCount;
-        BlockDictionary.Remove(block.GetComponent<Block>().blockKey);
+        blockDictionary.Remove(block.GetComponent<Block>().blockKey);
     }
 
     public void FlatSpawnSpeedIncrease(float spawnSpeedIncrease)
@@ -86,6 +86,21 @@ public class BlockSpawner : MonoBehaviour
         blockSpawnData.spawnTime -= spawnSpeedIncrease;
         dataSavingManager.SetBlockSpawnData(blockSpawnData);
         dataSavingManager.Save();
+    }
+
+    public bool ContainsBlock(Transform block)
+    {
+        return blockDictionary.ContainsKey(block.gameObject.GetComponent<Block>().blockKey);
+    }
+
+    public void ClearBlocks()
+    {
+        foreach (var k in blockDictionary.Keys)
+        {
+            --currentBlockCount;
+            blockDictionary[k].gameObject.GetComponent<Block>().DestroyBlock();
+        }
+        blockDictionary.Clear();
     }
 
     #endregion Block Spawning Methods

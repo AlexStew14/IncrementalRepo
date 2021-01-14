@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
 
     private Player player;
 
+    private StageManager stageManager;
+
     /// <summary>
     /// Buttons used for skills in the shop panel.
     /// </summary>
@@ -31,6 +33,9 @@ public class UIManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject[] panels;
+
+    [SerializeField]
+    private GameObject mapLevelPanel;
 
     #endregion Private Fields
 
@@ -44,6 +49,7 @@ public class UIManager : MonoBehaviour
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
     }
 
     #endregion Unity Methods
@@ -64,11 +70,11 @@ public class UIManager : MonoBehaviour
             if (s == null)
                 continue;
 
-            SetDescriptionText(b, s);
+            SetSkillDescriptionText(b, s);
         }
     }
 
-    public void SetButtonStates(Dictionary<string, Skill> skillDictionary, int money)
+    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, int money)
     {
         foreach (Button b in buttons)
         {
@@ -81,24 +87,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void SetDescriptionText(Button skillButton, Skill skill)
+    private void SetSkillDescriptionText(Button skillButton, Skill skill)
     {
         //var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
         var parent = skillButton.gameObject.transform.parent;
 
         parent.Find("Level").gameObject.GetComponent<TextMeshProUGUI>().text = "Lv. " + skill.level;
-        parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>().text = "+" + skill.nextStatIncrease;
-        skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
 
-        //description.text = "Price: " + skill.upgradeCost + "\nTotal Stat Increase: " + skill.totalStatIncrease + "\nNext Level Increase: " + skill.nextStatIncrease;
-        /*if (shop.GetMoney() < skill.upgradeCost)
+        var bonus = parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>();
+
+        string bonusText = "+" + skill.nextStatIncrease;
+
+        switch (skill.type)
         {
-            skillButton.interactable = false;
+            case SkillType.DMG:
+                bonusText += " dmg";
+                break;
+
+            default:
+                break;
         }
-        else
-        {
-            skillButton.interactable = true; ;
-        }*/
+
+        bonus.text = bonusText;
+        skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
     }
 
     /// <summary>
@@ -107,7 +118,16 @@ public class UIManager : MonoBehaviour
     /// <param name="money"></param>
     public void SetMoneyText(int money)
     {
-        currentMoney.text = "Money: " + money;
+        currentMoney.text = money.ToString();
+    }
+
+    public void SetMapLevelText(int currentKill, int maxKill, int levelNum)
+    {
+        var mapLevelInfo = mapLevelPanel.transform.Find("LevelInfo");
+
+        string text = "Lvl:" + levelNum + "\n" + currentKill + "/" + maxKill;
+
+        mapLevelInfo.gameObject.GetComponent<TextMeshProUGUI>().text = text;
     }
 
     /// <summary>
@@ -131,7 +151,7 @@ public class UIManager : MonoBehaviour
         string skillName = skillButton.name;
         if (shop.UpgradeSkill(skillName, out Skill upgradedSkill))
         {
-            SetDescriptionText(skillButton, upgradedSkill);
+            SetSkillDescriptionText(skillButton, upgradedSkill);
         }
     }
 
@@ -143,6 +163,16 @@ public class UIManager : MonoBehaviour
         }
 
         panel.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        stageManager.NextLevel();
+    }
+
+    public void PrevLevel()
+    {
+        stageManager.PrevLevel();
     }
 
     #endregion Skill UI Methods

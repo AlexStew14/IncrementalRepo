@@ -203,22 +203,6 @@ public class Player : MonoBehaviour, IAttacker
     }
 
     #endregion Movement
-
-    #region Block Death Events
-
-    /// <summary>
-    /// This will handle the rewards for the player killing enemy.
-    /// </summary>
-    /// <param name="block"></param>
-    public void KilledBlock(Block block)
-    {
-        shop.KilledBlock(block.GetKillReward());
-        playerData.level += block.GetKillExpReward();
-        soundManager.PlayBlockDestroyed();
-        Debug.Log(playerData.level);
-    }
-
-    #endregion Block Death Events
 }
 
 /// <summary>

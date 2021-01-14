@@ -10,22 +10,5 @@ public class Stage
 
     public string animatorName;
 
-    public int currentCount;
-
-    public int maxCount;
-
-    public bool completed = false;
-
     public int stageKey;
-
-    public int KilledBlock()
-    {
-        if (currentCount >= maxCount)
-        {
-            completed = true;
-            return maxCount;
-        }
-
-        return ++currentCount;
-    }
 }

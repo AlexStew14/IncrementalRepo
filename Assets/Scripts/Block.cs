@@ -7,22 +7,13 @@ public class Block : MonoBehaviour
 {
     #region Private Fields
 
-    [SerializeField]
-    private float maxHealth = 5.0f;
+    private float maxHealth;
 
-    private float currentHealth = 5.0f;
-
-    private string blockType;
+    private float currentHealth;
 
     public bool isDead { get; private set; } = false;
 
     private Player player;
-
-    [SerializeField]
-    private int killReward = 1;
-
-    [SerializeField]
-    private int killExpReward = 10;
 
     [SerializeField]
     private Slider slider;
@@ -35,6 +26,8 @@ public class Block : MonoBehaviour
     private Rigidbody2D physicsBody;
 
     private BlockSpawner blockSpawner;
+
+    private StageManager stageManager;
 
     private List<IAttacker> collidingAttackers;
 
@@ -50,6 +43,11 @@ public class Block : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
+
+        stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
+        maxHealth = stageManager.blockHealth;
+        currentHealth = maxHealth;
+
         physicsBody = GetComponent<Rigidbody2D>();
         collidingAttackers = new List<IAttacker>();
         InitializeHealthBar();
@@ -138,7 +136,7 @@ public class Block : MonoBehaviour
         slider.value = maxHealth;
 
         var pos = Camera.main.WorldToScreenPoint(transform.position);
-        pos.y += 80.0f;
+        pos.y += 100.0f;
         slider.transform.position = pos;
         slider.transform.SetParent(healthCanvas.transform, true);
     }
@@ -156,7 +154,7 @@ public class Block : MonoBehaviour
         blockSpawner.BlockDestroyed(transform);
         isDead = true;
         gameObject.layer = 6;
-        player.KilledBlock(this);
+        stageManager.KilledBlock();
         Destroy(slider.gameObject);
         var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
         physicsBody.bodyType = RigidbodyType2D.Dynamic;
@@ -167,18 +165,10 @@ public class Block : MonoBehaviour
         Destroy(transform.gameObject, 1.0f);
     }
 
-    /// <summary>
-    /// Simple getter for the kill reward
-    /// </summary>
-    /// <returns></returns>
-    public int GetKillReward()
+    public void DestroyBlock()
     {
-        return killReward;
-    }
-
-    public int GetKillExpReward()
-    {
-        return killExpReward;
+        Destroy(slider.gameObject);
+        Destroy(transform.gameObject);
     }
 
     #endregion Death Methods

@@ -95,7 +95,6 @@ public class Shop : MonoBehaviour
     public void KilledBlock(int killReward)
     {
         UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
-        stageManager.KilledBlock();
     }
 
     /// <summary>
@@ -107,7 +106,7 @@ public class Shop : MonoBehaviour
     {
         playerMoney = money;
         uiManager.SetMoneyText(money);
-        uiManager.SetButtonStates(skillDict, money);
+        uiManager.SetSkillButtonStatuses(skillDict, money);
         dataSavingManager.SetOtherValue("Money", money);
         dataSavingManager.Save();
     }

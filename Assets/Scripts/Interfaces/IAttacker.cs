@@ -15,7 +15,5 @@ public interface IAttacker
 
     public void Attacked();
 
-    public void KilledBlock(Block block);
-
     public void StopMoving();
 }

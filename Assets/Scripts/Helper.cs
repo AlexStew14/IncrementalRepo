@@ -37,8 +37,6 @@ public class Helper : MonoBehaviour, IAttacker
 
     private BlockSpawner blockSpawner;
 
-    private float offset = 1.5f;
-
     private Transform currentTarget;
     private Shop shop;
 
@@ -72,7 +70,7 @@ public class Helper : MonoBehaviour, IAttacker
         if (moving)
             transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
 
-        if (currentTarget != null && currentTarget.gameObject.GetComponent<Block>().isDead)
+        if (currentTarget != null && !blockSpawner.ContainsBlock(currentTarget))
         {
             currentTarget = null;
             StartCoroutine(StartCountdown(helperData.idleTime));
@@ -105,15 +103,15 @@ public class Helper : MonoBehaviour, IAttacker
         }
 
         countDownRunning = false;
-        if (blockSpawner.BlockDictionary.Count == 0)
+        if (blockSpawner.blockDictionary.Count == 0)
         {
             StartCoroutine(StartCountdown(helperData.idleTime));
         }
         else
         {
             // Gets closest block
-            targetPos = blockSpawner.BlockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value.position;
-            currentTarget = blockSpawner.BlockDictionary.ElementAt(0).Value;
+            targetPos = blockSpawner.blockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value.position;
+            currentTarget = blockSpawner.blockDictionary.ElementAt(0).Value;
 
             moving = true;
             anim.SetBool("Moving", true);
@@ -147,11 +145,6 @@ public class Helper : MonoBehaviour, IAttacker
     {
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
-    }
-
-    public void KilledBlock(Block block)
-    {
-        shop.KilledBlock(block.GetKillReward());
     }
 
     public void StopMoving()
