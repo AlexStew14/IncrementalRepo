@@ -44,6 +44,12 @@ public class Skill
     // The next value in the improvement function, used for displaying on ui.
     public float nextStatIncrease { get; set; }
 
+    // Every n levels, the skill is multiplied by milestoneMultiplier.
+    // This is that n.
+    public int milestoneLevel;
+
+    public int milestoneMultipler;
+
     // The name of the skill
     public string name { get; set; }
 
@@ -64,7 +70,7 @@ public class Skill
     /// </summary>
     /// <param name="currentMoney"></param>
     /// <returns></returns>
-    public bool CheckUpgrade(int currentMoney)
+    public bool CheckUpgrade(long currentMoney)
     {
         return (currentMoney >= upgradeCost) && (level < maxLevel);
     }
@@ -75,7 +81,7 @@ public class Skill
     /// <param name="currentMoney"></param>
     /// <param name="remainingMoney"></param>
     /// <returns></returns>
-    public bool Upgrade(int currentMoney, out int remainingMoney)
+    public bool Upgrade(long currentMoney, out long remainingMoney)
     {
         if (!CheckUpgrade(currentMoney))
         {
@@ -86,9 +92,16 @@ public class Skill
         remainingMoney = currentMoney - upgradeCost;
 
         ++level;
+
         totalStatIncrease += nextStatIncrease;
         currentStatIncrease = nextStatIncrease;
         nextStatIncrease = improvementFunction(currentStatIncrease);
+
+        if (level % milestoneLevel == 0)
+        {
+            nextStatIncrease *= milestoneMultipler;
+        }
+
         upgradeCost = costFunction(upgradeCost);
 
         if (type == SkillType.HELPER)
@@ -100,8 +113,8 @@ public class Skill
     private void HelperUpgrade()
     {
         helperData.attackDamage *= (1.0f + currentStatIncrease);
-        helperData.attackSpeed *= (1.0f - currentStatIncrease);
-        helperData.idleTime *= (1.0f - currentStatIncrease);
+        helperData.attackSpeed /= (1.0f + currentStatIncrease);
+        helperData.idleTime /= (1.0f + currentStatIncrease);
         helperData.movementSpeed *= (1.0f + currentStatIncrease);
     }
 }

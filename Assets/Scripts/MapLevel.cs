@@ -16,9 +16,10 @@ public class MapLevel
 
     public int KilledBlock()
     {
-        if (currentCount >= maxCount)
+        if (currentCount >= maxCount - 1)
         {
             completed = true;
+            currentCount = maxCount;
             return maxCount;
         }
 

@@ -18,11 +18,11 @@ public class StageManager : MonoBehaviour
 
     private Shop shop;
 
-    private int blockKillReward;
+    private long blockKillReward;
 
     public float blockHealth { get; private set; }
 
-    private Func<int, int> killRewardFunc = x => (int)Mathf.Ceil(Mathf.Pow(1.3f, x)) + x;
+    private Func<int, long> killRewardFunc = x => (long)Mathf.Ceil(Mathf.Pow(1.3f, x)) + x;
 
     private Func<int, float> blockHealthFunc = x => 5 * Mathf.Pow(1.5f, x);
 
@@ -101,7 +101,7 @@ public class StageManager : MonoBehaviour
         }
         else if (mapLevelRemainder == (int)dataSavingManager.GetOtherValue("LevelPerStage") - 1)
         {
-            SwitchStage(mapLevelKey - (mapLevelKey % 100));
+            SwitchStage((mapLevelKey % 100) - mapLevelRemainder);
         }
 
         blockHealth = blockHealthFunc(mapLevelKey);

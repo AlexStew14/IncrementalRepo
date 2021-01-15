@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, int money)
+    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, long money)
     {
         foreach (Button b in buttons)
         {
@@ -116,7 +116,7 @@ public class UIManager : MonoBehaviour
     /// Called by shop when the player's money changes.
     /// </summary>
     /// <param name="money"></param>
-    public void SetMoneyText(int money)
+    public void SetMoneyText(long money)
     {
         currentMoney.text = money.ToString();
     }

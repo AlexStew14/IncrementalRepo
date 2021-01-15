@@ -279,6 +279,70 @@ public class DataSavingManager : MonoBehaviour
                 blockSpritesPath = "Blocks/Stage2",
             });
 
+        stageDictionary.Add(20,
+            new Stage
+            {
+                stageKey = 20,
+                animatorName = "Backgrounds/Stage3/Animator",
+                blockSpritesPath = "Blocks/Stage3",
+            });
+
+        stageDictionary.Add(30,
+            new Stage
+            {
+                stageKey = 30,
+                animatorName = "Backgrounds/Stage4/Animator",
+                blockSpritesPath = "Blocks/Stage4",
+            });
+
+        stageDictionary.Add(40,
+            new Stage
+            {
+                stageKey = 40,
+                animatorName = "Backgrounds/Stage5/Animator",
+                blockSpritesPath = "Blocks/Stage5",
+            });
+
+        stageDictionary.Add(50,
+            new Stage
+            {
+                stageKey = 50,
+                animatorName = "Backgrounds/Stage6/Animator",
+                blockSpritesPath = "Blocks/Stage6",
+            });
+
+        stageDictionary.Add(60,
+            new Stage
+            {
+                stageKey = 60,
+                animatorName = "Backgrounds/Stage7/Animator",
+                blockSpritesPath = "Blocks/Stage7",
+            });
+
+        stageDictionary.Add(70,
+            new Stage
+            {
+                stageKey = 70,
+                animatorName = "Backgrounds/Stage8/Animator",
+                blockSpritesPath = "Blocks/Stage8",
+            });
+
+        stageDictionary.Add(80,
+            new Stage
+            {
+                stageKey = 80,
+                animatorName = "Backgrounds/Stage9/Animator",
+                blockSpritesPath = "Blocks/Stage9",
+            });
+
+        stageDictionary.Add(90,
+            new Stage
+            {
+                stageKey = 90,
+                animatorName = "Backgrounds/Stage10/Animator",
+                blockSpritesPath = "Blocks/Stage10",
+            });
+
         return stageDictionary;
     }
 
@@ -303,7 +367,9 @@ public class DataSavingManager : MonoBehaviour
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
         Func<int, int> dmgCost = (x) => (int)(x * 1.3f) + 1;
-        Func<float, float> dmgImprove = (x) => (int)(x * 1.2f) + 1;
+        Func<float, float> dmgImprove = x => x;
+        int milestoneLevel = 10;
+        int milestoneMultiplier = 5;
 
         skillDictionary.Add("Damage1",
             new Skill
@@ -317,7 +383,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.DMG,
                 upgradeCost = 1,
                 costFunction = dmgCost,
-                improvementFunction = dmgImprove
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
             });
 
         skillDictionary.Add("Damage2",
@@ -332,7 +400,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.DMG,
                 upgradeCost = 100,
                 costFunction = dmgCost,
-                improvementFunction = (x) => ((int)(x * 1.2f) + 1) * 10
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
             });
 
         skillDictionary.Add("Damage3",
@@ -347,7 +417,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.DMG,
                 upgradeCost = 1000,
                 costFunction = dmgCost,
-                improvementFunction = (x) => ((int)(x * 1.2f) + 1) * 100
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
             });
 
         skillDictionary.Add("AttackSpeed",
@@ -362,7 +434,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.ATTKSPEED,
                 upgradeCost = 10,
                 costFunction = (x) => (int)(x * 1.7f),
-                improvementFunction = (x) => x
+                improvementFunction = (x) => x,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
             });
 
         skillDictionary.Add("KillReward",
@@ -377,7 +451,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.KILLREWARD,
                 upgradeCost = 5,
                 costFunction = (x) => (int)(x * 3.0f),
-                improvementFunction = (x) => (x * 2)
+                improvementFunction = (x) => (x * 2),
+                milestoneLevel = 10000,
+                milestoneMultipler = 1
             });
 
         skillDictionary.Add("SpawnSpeed",
@@ -392,7 +468,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.SPAWNSPEED,
                 upgradeCost = 20,
                 costFunction = (x) => (int)(x * 1.5f),
-                improvementFunction = (x) => x
+                improvementFunction = (x) => x,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1
             });
 
         skillDictionary.Add("MovementSpeed",
@@ -407,7 +485,9 @@ public class DataSavingManager : MonoBehaviour
                 type = SkillType.MOVEMENTSPEED,
                 upgradeCost = 20,
                 costFunction = (x) => (int)(x * 1.5f),
-                improvementFunction = (x) => x
+                improvementFunction = (x) => x,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1
             });
 
         skillDictionary.Add("Helper1",
@@ -425,11 +505,13 @@ public class DataSavingManager : MonoBehaviour
                 improvementFunction = (x) => x,
                 helperData = new HelperData
                 {
-                    attackDamage = 1.0f,
+                    attackDamage = 5.0f,
                     attackSpeed = 1.0f,
                     idleTime = 3.0f,
                     movementSpeed = 1.0f,
-                }
+                },
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = 1.5
             });
 
         return skillDictionary;

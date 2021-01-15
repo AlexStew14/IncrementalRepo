@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
     /// The shop manages the player's money.
     /// This class is the only place the player's money should be altered.
     /// </summary>
-    private int playerMoney;
+    private long playerMoney;
 
     private float playerMoneyMult;
 
@@ -92,9 +92,9 @@ public class Shop : MonoBehaviour
     /// blocks.
     /// </summary>
     /// <param name="killReward"></param>
-    public void KilledBlock(int killReward)
+    public void KilledBlock(long killReward)
     {
-        UpdatePlayerMoneyAndUI((int)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
+        UpdatePlayerMoneyAndUI((long)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
     }
 
     /// <summary>
@@ -102,7 +102,7 @@ public class Shop : MonoBehaviour
     /// This is the only place where the player's money is changed.
     /// </summary>
     /// <param name="money"></param>
-    private void UpdatePlayerMoneyAndUI(int money, Dictionary<string, Skill> skillDict)
+    private void UpdatePlayerMoneyAndUI(long money, Dictionary<string, Skill> skillDict)
     {
         playerMoney = money;
         uiManager.SetMoneyText(money);
@@ -115,7 +115,7 @@ public class Shop : MonoBehaviour
     /// Getter for the player's money.
     /// </summary>
     /// <returns></returns>
-    public int GetMoney()
+    public long GetMoney()
     {
         return playerMoney;
     }
@@ -181,7 +181,7 @@ public class Shop : MonoBehaviour
             return false;
         }
 
-        if (upgradedSkill.Upgrade(playerMoney, out int remainingMoney))
+        if (upgradedSkill.Upgrade(playerMoney, out long remainingMoney))
         {
             UpdatePlayerMoneyAndUI(remainingMoney, skillDictionary);
 
