@@ -75,12 +75,13 @@ public class Shop : MonoBehaviour
         // Gets only skills that are helpers and unlocked.
         var helpers = skillDictionary.Where(s => s.Value.type == SkillType.HELPER && s.Value.level >= 2).ToList();
 
-        helpers.ForEach(s =>
+        foreach (var s in helpers)
         {
-            Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
+            Vector2 randPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-4f, 4f));
             var helper = Instantiate(helperPrefab, randPos, Quaternion.identity);
+
             helper.gameObject.GetComponent<Helper>().Init(s.Value.name);
-        });
+        }
     }
 
     #endregion Init Methods
@@ -157,8 +158,8 @@ public class Shop : MonoBehaviour
         {
             if (upgradedSkill.level == 2)
             {
-                Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
-                var helper = Instantiate(helperPrefab, randPos, transform.rotation);
+                Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4f));
+                var helper = Instantiate(helperPrefab, randPos, Quaternion.identity);
                 helper.gameObject.GetComponent<Helper>().Init(upgradedSkill.name);
             }
         }

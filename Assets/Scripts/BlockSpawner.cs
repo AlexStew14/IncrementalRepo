@@ -59,7 +59,7 @@ public class BlockSpawner : MonoBehaviour
 
     private void CreateBlock()
     {
-        Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4));
+        Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4f));
         Transform block = Instantiate(blockPrefab, randPos, transform.rotation);
         block.GetComponent<Block>().blockKey = TotalBlocksSpawned;
 

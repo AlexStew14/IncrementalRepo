@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 1233040462}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d754700b5d778c5448cf13b254a830fe, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
     attackSpeed: 0
     idleTime: 0
     movementSpeed: 0
+    helperAnimatorName: 
   character: {fileID: 1233040462}
 --- !u!61 &152544219062660650
 BoxCollider2D:

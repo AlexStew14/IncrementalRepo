@@ -61,6 +61,8 @@ public class Helper : MonoBehaviour, IAttacker
 
         anim = character.GetComponent<Animator>();
 
+        anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(helperData.helperAnimatorName);
+
         StartCoroutine(StartCountdown(helperData.idleTime));
     }
 
@@ -164,4 +166,5 @@ public class HelperData
     public float attackSpeed;
     public float idleTime;
     public float movementSpeed;
+    public string helperAnimatorName;
 }

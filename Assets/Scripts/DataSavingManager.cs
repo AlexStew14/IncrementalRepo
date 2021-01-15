@@ -498,7 +498,7 @@ public class DataSavingManager : MonoBehaviour
                 nextStatIncrease = .1f,
                 totalStatIncrease = 0,
                 level = 1,
-                maxLevel = 50,
+                maxLevel = 100000,
                 type = SkillType.HELPER,
                 upgradeCost = 25,
                 costFunction = (x) => (int)(x * 1.3f),
@@ -509,6 +509,57 @@ public class DataSavingManager : MonoBehaviour
                     attackSpeed = 1.0f,
                     idleTime = 3.0f,
                     movementSpeed = 1.0f,
+                    helperAnimatorName = "Helpers/Helper1/Animator"
+                },
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = 1.5f
+            });
+
+        skillDictionary.Add("Helper2",
+            new Skill
+            {
+                name = "Helper2",
+                currentStatIncrease = 0,
+                nextStatIncrease = .1f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 100000,
+                type = SkillType.HELPER,
+                upgradeCost = 250,
+                costFunction = (x) => (int)(x * 1.3f),
+                improvementFunction = (x) => x,
+                helperData = new HelperData
+                {
+                    attackDamage = 50.0f,
+                    attackSpeed = 1.0f,
+                    idleTime = 3.0f,
+                    movementSpeed = 1.0f,
+                    helperAnimatorName = "Helpers/Helper2/Animator"
+                },
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = 1.5f
+            });
+
+        skillDictionary.Add("Helper3",
+            new Skill
+            {
+                name = "Helper3",
+                currentStatIncrease = 0,
+                nextStatIncrease = .1f,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 100000,
+                type = SkillType.HELPER,
+                upgradeCost = 1000,
+                costFunction = (x) => (int)(x * 1.3f),
+                improvementFunction = (x) => x,
+                helperData = new HelperData
+                {
+                    attackDamage = 300.0f,
+                    attackSpeed = 1.0f,
+                    idleTime = 3.0f,
+                    movementSpeed = 1.0f,
+                    helperAnimatorName = "Helpers/Helper3/Animator"
                 },
                 milestoneLevel = milestoneLevel,
                 milestoneMultipler = 1.5f
