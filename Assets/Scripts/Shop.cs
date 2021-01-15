@@ -52,7 +52,7 @@ public class Shop : MonoBehaviour
 
         skillDictionary = dataSavingManager.GetSkillDictionary();
 
-        UpdatePlayerMoneyAndUI((int)dataSavingManager.GetOtherValue("Money"), skillDictionary);
+        UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"), skillDictionary);
 
         playerMoneyMult = (float)dataSavingManager.GetOtherValue("MoneyMultiplier");
 

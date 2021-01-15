@@ -48,7 +48,7 @@ public class Skill
     // This is that n.
     public int milestoneLevel;
 
-    public int milestoneMultipler;
+    public float milestoneMultipler;
 
     // The name of the skill
     public string name { get; set; }

@@ -15,7 +15,7 @@ public class DataSavingManager : MonoBehaviour
 
     private GameData gameData;
 
-    public int startingMoney;
+    public long startingMoney;
 
     #endregion Fields
 
@@ -369,7 +369,7 @@ public class DataSavingManager : MonoBehaviour
         Func<int, int> dmgCost = (x) => (int)(x * 1.3f) + 1;
         Func<float, float> dmgImprove = x => x;
         int milestoneLevel = 10;
-        int milestoneMultiplier = 5;
+        float milestoneMultiplier = 5f;
 
         skillDictionary.Add("Damage1",
             new Skill
@@ -511,7 +511,7 @@ public class DataSavingManager : MonoBehaviour
                     movementSpeed = 1.0f,
                 },
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.5
+                milestoneMultipler = 1.5f
             });
 
         return skillDictionary;
