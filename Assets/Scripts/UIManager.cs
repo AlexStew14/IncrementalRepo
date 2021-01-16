@@ -96,12 +96,16 @@ public class UIManager : MonoBehaviour
 
         var bonus = parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>();
 
-        string bonusText = "+" + skill.nextStatIncrease;
+        string bonusText = "";
 
         switch (skill.type)
         {
             case SkillType.DMG:
-                bonusText += " dmg";
+                bonusText += "+" + skill.nextStatIncrease + " dmg";
+                break;
+
+            case SkillType.HELPER:
+                bonusText += "+" + (skill.nextStatIncrease * 100.0f) + "%";
                 break;
 
             default:

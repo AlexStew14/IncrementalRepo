@@ -90,6 +90,8 @@ public class BlockSpawner : MonoBehaviour
 
     public bool ContainsBlock(Transform block)
     {
+        if (block == null)
+            return false;
         return blockDictionary.ContainsKey(block.gameObject.GetComponent<Block>().blockKey);
     }
 

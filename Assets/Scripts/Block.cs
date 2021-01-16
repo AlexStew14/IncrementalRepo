@@ -156,7 +156,7 @@ public class Block : MonoBehaviour
         gameObject.layer = 6;
         stageManager.KilledBlock();
         Destroy(slider.gameObject);
-        var effect = Instantiate(killEffect.transform, transform.position, transform.rotation);
+        Instantiate(killEffect.transform, transform.position, transform.rotation);
         physicsBody.bodyType = RigidbodyType2D.Dynamic;
         physicsBody.WakeUp();
         // TODO THE BLOCK SHOULD FLY AWAY FROM THE DIRECTION THE PLAYER HIT IT.

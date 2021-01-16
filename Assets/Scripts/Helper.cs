@@ -21,7 +21,7 @@ public class Helper : MonoBehaviour, IAttacker
     private Animator anim;
 
     // Movement Fields
-    private Vector3 targetPos = new Vector3(3, 3, 0);
+    private Vector3 targetPos;
 
     private bool moving = false;
 
@@ -55,8 +55,6 @@ public class Helper : MonoBehaviour, IAttacker
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
-
-        transform.position = targetPos;
         helperData = dataSavingManager.GetSkill(name).helperData;
 
         anim = character.GetComponent<Animator>();
@@ -72,7 +70,7 @@ public class Helper : MonoBehaviour, IAttacker
         if (moving)
             transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
 
-        if (currentTarget != null && !blockSpawner.ContainsBlock(currentTarget))
+        if (!blockSpawner.ContainsBlock(currentTarget))
         {
             currentTarget = null;
             StartCoroutine(StartCountdown(helperData.idleTime));
@@ -95,8 +93,7 @@ public class Helper : MonoBehaviour, IAttacker
     {
         cdValue = countdownValue;
         countDownRunning = true;
-        moving = false;
-        anim.SetBool("Moving", false);
+        StopMoving();
         while (cdValue > 0)
         {
             UnityEngine.Debug.Log("Countdown: " + cdValue);
@@ -112,8 +109,8 @@ public class Helper : MonoBehaviour, IAttacker
         else
         {
             // Gets closest block
-            targetPos = blockSpawner.blockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value.position;
-            currentTarget = blockSpawner.blockDictionary.ElementAt(0).Value;
+            currentTarget = blockSpawner.blockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value;
+            targetPos = currentTarget.position;
 
             moving = true;
             anim.SetBool("Moving", true);
