@@ -22,9 +22,11 @@ public class StageManager : MonoBehaviour
 
     public float blockHealth { get; private set; }
 
-    private Func<int, long> killRewardFunc = x => (long)Mathf.Ceil(Mathf.Pow(1.3f, x)) + x;
+    private Func<int, long> killRewardFunc = x => (long)Math.Round(Math.Pow(1.3, x)) + x;
 
     private Func<int, float> blockHealthFunc = x => 5 * Mathf.Pow(1.5f, x);
+
+    private Func<int, long> prestigeKillRewardFunc = x => (long)Math.Round(Math.Pow(1.12, x - 100));
 
     public Stage currentStage { get; private set; }
 
@@ -42,19 +44,21 @@ public class StageManager : MonoBehaviour
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
-        InitalizeStageAndMapLevel();
-    }
+        uiManager.SetPrestigeButtonStatus(CanPrestige());
 
-    // Update is called once per frame
-    private void Update()
-    {
+        InitalizeStageAndMapLevel();
     }
 
     public void KilledBlock()
     {
         currentMapLevel.KilledBlock();
 
-        shop.KilledBlock(blockKillReward);
+        shop.AddMoney(blockKillReward);
+
+        if (currentMapLevel.mapLevelKey > 100)
+        {
+            shop.AddPendingPrestigeMoney(prestigeKillRewardFunc(currentMapLevel.mapLevelKey));
+        }
 
         uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
     }
@@ -87,6 +91,9 @@ public class StageManager : MonoBehaviour
             };
 
             dataSavingManager.AddMapLevel(mapLevelKey, mapLevel);
+
+            if (mapLevelKey == 101)
+                uiManager.SetPrestigeButtonStatus(true);
         }
 
         currentMapLevel = mapLevel;
@@ -131,5 +138,20 @@ public class StageManager : MonoBehaviour
     {
         if (currentMapLevel.mapLevelKey > 0)
             SwitchMapLevel(currentMapLevel.mapLevelKey - 1);
+    }
+
+    public bool CanPrestige()
+    {
+        return dataSavingManager.GetMapLevel(101) != null;
+    }
+
+    public void Prestige()
+    {
+        if (CanPrestige())
+            return;
+
+        dataSavingManager.ClearMapLevelDictionary();
+        SwitchMapLevel(0);
+        shop.Prestige();
     }
 }

@@ -53,6 +53,8 @@ public class Skill
     // The name of the skill
     public string name { get; set; }
 
+    public bool isPrestige = false;
+
     // The type of skill
     public SkillType type { get; set; }
 
@@ -68,28 +70,28 @@ public class Skill
     /// <summary>
     /// Checks to make sure the upgrade can occur
     /// </summary>
-    /// <param name="currentMoney"></param>
+    /// <param name="currentCurrency"></param>
     /// <returns></returns>
-    public bool CheckUpgrade(long currentMoney)
+    public bool CheckUpgrade(long currentCurrency)
     {
-        return (currentMoney >= upgradeCost) && (level < maxLevel);
+        return (currentCurrency >= upgradeCost) && (level < maxLevel);
     }
 
     /// <summary>
     /// Calls CheckUpgrade, handles the internal state of the skill and provides the remaining amount of money the player has.
     /// </summary>
-    /// <param name="currentMoney"></param>
-    /// <param name="remainingMoney"></param>
+    /// <param name="currentCurrency"></param>
+    /// <param name="remainingCurrency"></param>
     /// <returns></returns>
-    public bool Upgrade(long currentMoney, out long remainingMoney)
+    public bool Upgrade(long currentCurrency, out long remainingCurrency)
     {
-        if (!CheckUpgrade(currentMoney))
+        if (!CheckUpgrade(currentCurrency))
         {
-            remainingMoney = 0;
+            remainingCurrency = 0;
             return false;
         }
 
-        remainingMoney = currentMoney - upgradeCost;
+        remainingCurrency = currentCurrency - upgradeCost;
 
         ++level;
 

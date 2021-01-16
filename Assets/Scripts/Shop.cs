@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 /// <summary>
 /// This class handles the state of all skills and updates the player to reflect skill changes.
@@ -10,11 +11,6 @@ using System.Linq;
 public class Shop : MonoBehaviour
 {
     #region Private Fields
-
-    /// <summary>
-    /// This dictionary holds all skills with the skillName being the key.
-    /// </summary>
-    private Dictionary<string, Skill> skillDictionary;
 
     private DataSavingManager dataSavingManager;
 
@@ -36,6 +32,15 @@ public class Shop : MonoBehaviour
     /// </summary>
     private long playerMoney;
 
+    private long playerPrestigeMoney;
+
+    // Prestige money is rewarded for block kills above level 100.
+    // Until the player prestiges, this prestige money is pending.
+    // Upon prestige, the pending prestige money is added to their balance.
+    private long pendingPrestigeMoney;
+
+    private float playerPrestigeMoneyMult;
+
     private float playerMoneyMult;
 
     #endregion Private Fields
@@ -50,14 +55,15 @@ public class Shop : MonoBehaviour
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
 
-        skillDictionary = dataSavingManager.GetSkillDictionary();
-
-        UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"), skillDictionary);
+        UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
+        UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
+        UpdatePendingPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PendingPrestigeMoney"));
 
         playerMoneyMult = (float)dataSavingManager.GetOtherValue("MoneyMultiplier");
+        playerPrestigeMoneyMult = (float)dataSavingManager.GetOtherValue("PrestigeMoneyMultiplier");
 
         // Load skill dictionary into shop and ui
-        uiManager.LoadSkillDescriptions(skillDictionary);
+        uiManager.LoadSkillDescriptions(dataSavingManager.GetSkillDictionary());
         LoadHelpers();
     }
 
@@ -73,11 +79,11 @@ public class Shop : MonoBehaviour
     private void LoadHelpers()
     {
         // Gets only skills that are helpers and unlocked.
-        var helpers = skillDictionary.Where(s => s.Value.type == SkillType.HELPER && s.Value.level >= 2).ToList();
+        var helpers = dataSavingManager.GetSkillDictionary().Where(s => s.Value.type == SkillType.HELPER && s.Value.level >= 2).ToList();
 
         foreach (var s in helpers)
         {
-            Vector2 randPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-4f, 4f));
+            Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4f));
             var helper = Instantiate(helperPrefab, randPos, Quaternion.identity);
 
             helper.gameObject.GetComponent<Helper>().Init(s.Value.name);
@@ -93,9 +99,42 @@ public class Shop : MonoBehaviour
     /// blocks.
     /// </summary>
     /// <param name="killReward"></param>
-    public void KilledBlock(long killReward)
+    public void AddMoney(long killReward)
     {
-        UpdatePlayerMoneyAndUI((long)(killReward * playerMoneyMult) + playerMoney, skillDictionary);
+        UpdatePlayerMoneyAndUI((long)(killReward * playerMoneyMult) + playerMoney);
+    }
+
+    public void AddPendingPrestigeMoney(long killReward)
+    {
+        UpdatePendingPrestigeMoneyAndUI((long)(killReward * playerPrestigeMoneyMult));
+    }
+
+    public void Prestige()
+    {
+        playerPrestigeMoney += pendingPrestigeMoney;
+        pendingPrestigeMoney = 0;
+
+        dataSavingManager.SetOtherValue("PendingPrestigeMoney", pendingPrestigeMoney);
+        dataSavingManager.Save();
+
+        UpdatePlayerPrestigeMoneyAndUI(playerPrestigeMoney);
+    }
+
+    private void UpdatePendingPrestigeMoneyAndUI(long pendingPrestigeMoney)
+    {
+        this.pendingPrestigeMoney += pendingPrestigeMoney;
+        uiManager.SetPendingPrestigeMoneyText(this.pendingPrestigeMoney);
+        dataSavingManager.SetOtherValue("PendingPrestigeMoney", this.pendingPrestigeMoney);
+        dataSavingManager.Save();
+    }
+
+    private void UpdatePlayerPrestigeMoneyAndUI(long prestigeMoney)
+    {
+        playerPrestigeMoney = prestigeMoney;
+        uiManager.SetPrestigeMoneyText(playerPrestigeMoney);
+        uiManager.SetSkillButtonStatuses(dataSavingManager.GetSkillDictionary(), playerMoney, prestigeMoney);
+        dataSavingManager.SetOtherValue("PrestigeMoney", prestigeMoney);
+        dataSavingManager.Save();
     }
 
     /// <summary>
@@ -103,11 +142,11 @@ public class Shop : MonoBehaviour
     /// This is the only place where the player's money is changed.
     /// </summary>
     /// <param name="money"></param>
-    private void UpdatePlayerMoneyAndUI(long money, Dictionary<string, Skill> skillDict)
+    private void UpdatePlayerMoneyAndUI(long money)
     {
         playerMoney = money;
         uiManager.SetMoneyText(money);
-        uiManager.SetSkillButtonStatuses(skillDict, money);
+        uiManager.SetSkillButtonStatuses(dataSavingManager.GetSkillDictionary(), money, playerPrestigeMoney);
         dataSavingManager.SetOtherValue("Money", money);
         dataSavingManager.Save();
     }
@@ -176,17 +215,31 @@ public class Shop : MonoBehaviour
     /// <returns></returns>
     public bool UpgradeSkill(string skillName, out Skill upgradedSkill)
     {
-        upgradedSkill = skillDictionary[skillName];
+        upgradedSkill = dataSavingManager.GetSkillDictionary()[skillName];
         if (upgradedSkill == null)
         {
             return false;
         }
 
+        if (upgradedSkill.isPrestige)
+        {
+            if (upgradedSkill.Upgrade(playerPrestigeMoney, out long remainingPrestigeMoney))
+            {
+                UpdatePlayerPrestigeMoneyAndUI(remainingPrestigeMoney);
+                dataSavingManager.SetOtherValue("PrestigeMoney", remainingPrestigeMoney);
+                dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);
+                dataSavingManager.Save();
+
+                ApplyUpgrade(upgradedSkill);
+                return true;
+            }
+            return false;
+        }
+
         if (upgradedSkill.Upgrade(playerMoney, out long remainingMoney))
         {
-            UpdatePlayerMoneyAndUI(remainingMoney, skillDictionary);
-
-            dataSavingManager.SetOtherValue("Money", playerMoney);
+            UpdatePlayerMoneyAndUI(remainingMoney);
+            dataSavingManager.SetOtherValue("Money", remainingMoney);
             dataSavingManager.SetSkill(upgradedSkill.name, upgradedSkill);
             dataSavingManager.Save();
 

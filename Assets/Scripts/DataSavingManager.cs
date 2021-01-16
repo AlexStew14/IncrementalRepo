@@ -15,7 +15,14 @@ public class DataSavingManager : MonoBehaviour
 
     private GameData gameData;
 
-    public long startingMoney;
+    [SerializeField]
+    private long startingMoney;
+
+    [SerializeField]
+    private long startingPrestigeMoney;
+
+    [SerializeField]
+    private long startingPendingPrestigeMoney;
 
     #endregion Fields
 
@@ -159,6 +166,11 @@ public class DataSavingManager : MonoBehaviour
         gameData.mapLevelDictionary.Add(key, value);
     }
 
+    public void ClearMapLevelDictionary()
+    {
+        gameData.mapLevelDictionary.Clear();
+    }
+
     public void SetSkill(string key, Skill value)
     {
         if (gameData.skillDictionary.ContainsKey(key))
@@ -252,6 +264,9 @@ public class DataSavingManager : MonoBehaviour
                 { "TotalBlocksSpawned", 1 },
                 {"Money", startingMoney},
                 {"MoneyMultiplier", 1.0f},
+                {"PrestigeMoney",  startingPrestigeMoney},
+                {"PendingPrestigeMoney", startingPendingPrestigeMoney },
+                {"PrestigeMoneyMultiplier", 1.0f },
                 {"CurrentStage", 0 },
                 {"CurrentMapLevel", 0 },
                 {"MaxKillCount", 10 },
@@ -436,7 +451,8 @@ public class DataSavingManager : MonoBehaviour
                 costFunction = (x) => (int)(x * 1.7f),
                 improvementFunction = (x) => x,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = milestoneMultiplier,
+                isPrestige = true
             });
 
         skillDictionary.Add("KillReward",
@@ -487,7 +503,8 @@ public class DataSavingManager : MonoBehaviour
                 costFunction = (x) => (int)(x * 1.5f),
                 improvementFunction = (x) => x,
                 milestoneLevel = 10000,
-                milestoneMultipler = 1
+                milestoneMultipler = 1,
+                isPrestige = true
             });
 
         skillDictionary.Add("Helper1",

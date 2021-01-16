@@ -17,6 +17,8 @@ TagManager:
   - LevelText
   - Helper
   - StageManager
+  - CurrentPrestigeMoney
+  - PendingPrestigeMoney
   layers:
   - Default
   - TransparentFX

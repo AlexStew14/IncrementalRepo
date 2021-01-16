@@ -17,6 +17,10 @@ public class UIManager : MonoBehaviour
     private Shop shop;
 
     private TextMeshProUGUI currentMoney;
+    private TextMeshProUGUI currentPrestigeMoney;
+
+    [SerializeField]
+    private TextMeshProUGUI pendingPrestigeMoney;
 
     private Player player;
 
@@ -27,6 +31,9 @@ public class UIManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Button[] buttons;
+
+    [SerializeField]
+    private Button prestigeButton;
 
     /// <summary>
     /// Panels used for displaying different shop sections.
@@ -48,6 +55,7 @@ public class UIManager : MonoBehaviour
 
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
+        currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
     }
@@ -74,7 +82,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, long money)
+    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, long money, long prestigeMoney)
     {
         foreach (Button b in buttons)
         {
@@ -83,7 +91,10 @@ public class UIManager : MonoBehaviour
             if (s == null)
                 continue;
 
-            b.interactable = s.CheckUpgrade(money);
+            if (s.isPrestige)
+                b.interactable = s.CheckUpgrade(prestigeMoney);
+            else
+                b.interactable = s.CheckUpgrade(money);
         }
     }
 
@@ -123,6 +134,26 @@ public class UIManager : MonoBehaviour
     public void SetMoneyText(long money)
     {
         currentMoney.text = money.ToString();
+    }
+
+    public void SetPrestigeMoneyText(long money)
+    {
+        currentPrestigeMoney.text = money.ToString();
+    }
+
+    public void SetPendingPrestigeMoneyText(long money)
+    {
+        pendingPrestigeMoney.text = "+" + money;
+    }
+
+    public void SetPrestigeButtonStatus(bool status)
+    {
+        prestigeButton.interactable = status;
+    }
+
+    public void Prestige()
+    {
+        stageManager.Prestige();
     }
 
     public void SetMapLevelTextAndButtonStatuses(int currentKill, int maxKill, int levelNum)
