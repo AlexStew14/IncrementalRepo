@@ -19,6 +19,7 @@ TagManager:
   - StageManager
   - CurrentPrestigeMoney
   - PendingPrestigeMoney
+  - Character
   layers:
   - Default
   - TransparentFX

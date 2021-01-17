@@ -55,8 +55,10 @@ public class Player : MonoBehaviour, IAttacker
 
         transform.position = clickPos;
 
-        anim = character.GetComponent<Animator>();
-        sprite = character.GetComponent<SpriteRenderer>();
+        //anim = character.GetComponent<Animator>();
+        anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+        //sprite = character.GetComponent<SpriteRenderer>();
+        sprite = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
     }
 
     private void Awake()
