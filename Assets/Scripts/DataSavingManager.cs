@@ -50,7 +50,9 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            Load();
+            //Load();
+            // TODO this is only for debug.
+            Delete();
         }
         else
         {

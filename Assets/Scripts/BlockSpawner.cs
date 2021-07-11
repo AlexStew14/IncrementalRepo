@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class BlockSpawner : MonoBehaviour
@@ -26,6 +27,8 @@ public class BlockSpawner : MonoBehaviour
     [HideInInspector]
     public Sprite[] currentBlockSpriteArray;
 
+    private UnityAction<System.Object> blockKilled;
+
     #endregion Fields
 
     #region Unity Methods
@@ -37,6 +40,9 @@ public class BlockSpawner : MonoBehaviour
         TotalBlocksSpawned = (int)dataSavingManager.GetOtherValue("TotalBlocksSpawned");
         blockSpawnData = dataSavingManager.GetBlockSpawnData();
         blockDictionary = new Dictionary<int, Transform>();
+
+        blockKilled = new UnityAction<object>(BlockKilled);
+        EventManager.StartListening("BlockKilled", blockKilled);
     }
 
     // Update is called once per frame
@@ -75,10 +81,11 @@ public class BlockSpawner : MonoBehaviour
         ++currentBlockCount;
     }
 
-    public void BlockDestroyed(Transform block)
+    public void BlockKilled(System.Object b)
     {
+        Block deadBlock = (Block)b;
         --currentBlockCount;
-        blockDictionary.Remove(block.GetComponent<Block>().blockKey);
+        blockDictionary.Remove(deadBlock.blockKey);
     }
 
     public void FlatSpawnSpeedIncrease(float spawnSpeedIncrease)

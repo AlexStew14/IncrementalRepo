@@ -13071,7 +13071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa754806df745934fbe14fe9761d6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 10000
+  startingMoney: 0
   startingPrestigeMoney: 0
   startingPendingPrestigeMoney: 0
 --- !u!1 &1879935446
@@ -13761,7 +13761,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882208012}
   m_HandleRect: {fileID: 882208011}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System.Linq;
 using System;
 
@@ -43,6 +44,8 @@ public class Shop : MonoBehaviour
 
     private float playerMoneyMult;
 
+    private UnityAction<System.Object> blockKilled;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -54,6 +57,9 @@ public class Shop : MonoBehaviour
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
+
+        blockKilled = new UnityAction<object>(BlockKilled);
+        EventManager.StartListening("BlockKilled", blockKilled);
 
         UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
         UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
@@ -94,14 +100,10 @@ public class Shop : MonoBehaviour
 
     #region Money Handling
 
-    /// <summary>
-    /// This method is called by the player when a block is killed and handles the reward money for killing
-    /// blocks.
-    /// </summary>
-    /// <param name="killReward"></param>
-    public void AddMoney(long killReward)
+    public void BlockKilled(System.Object b)
     {
-        UpdatePlayerMoneyAndUI((long)(killReward * playerMoneyMult) + playerMoney);
+        Block deadBlock = (Block)b;
+        UpdatePlayerMoneyAndUI((long)(deadBlock.killReward * playerMoneyMult) + playerMoney);
     }
 
     public void AddPendingPrestigeMoney(long killReward)

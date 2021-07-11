@@ -1,0 +1,2 @@
+﻿BlockKilled: Block triggers this when it dies and passes itself.
+UpdateLevelUI: StageManager triggers this when a block dies, passes the current MapLevel.

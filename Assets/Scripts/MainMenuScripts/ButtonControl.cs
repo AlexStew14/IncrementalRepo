@@ -20,7 +20,7 @@ public class ButtonControl : MonoBehaviour
     /// </summary>
     public void StartPressed()
     {
-        SceneManager.LoadScene("Test2Scene");
+        SceneManager.LoadScene("GameScene");
     }
 
     /// <summary>

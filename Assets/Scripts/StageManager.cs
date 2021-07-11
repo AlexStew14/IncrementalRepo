@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StageManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class StageManager : MonoBehaviour
 
     private Shop shop;
 
-    private long blockKillReward;
+    public long blockKillReward { get; private set; }
 
     public float blockHealth { get; private set; }
 
@@ -34,6 +35,8 @@ public class StageManager : MonoBehaviour
 
     private UIManager uiManager;
 
+    private UnityAction<System.Object> blockKilled;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -44,23 +47,25 @@ public class StageManager : MonoBehaviour
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
+        blockKilled = new UnityAction<object>(BlockKilled);
+
+        EventManager.StartListening("BlockKilled", blockKilled);
+
         uiManager.SetPrestigeButtonStatus(CanPrestige());
 
         InitalizeStageAndMapLevel();
     }
 
-    public void KilledBlock()
+    public void BlockKilled(System.Object killed)
     {
         currentMapLevel.KilledBlock();
-
-        shop.AddMoney(blockKillReward);
 
         if (currentMapLevel.mapLevelKey > 100)
         {
             shop.AddPendingPrestigeMoney(prestigeKillRewardFunc(currentMapLevel.mapLevelKey));
         }
 
-        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
+        EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
 
     private void InitalizeStageAndMapLevel()
@@ -74,7 +79,7 @@ public class StageManager : MonoBehaviour
         anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(currentStage.animatorName);
         blockSpawner.currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
 
-        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
+        EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
 
     private void SwitchMapLevel(int mapLevelKey)
@@ -114,8 +119,6 @@ public class StageManager : MonoBehaviour
         blockHealth = blockHealthFunc(mapLevelKey);
         blockKillReward = killRewardFunc(mapLevelKey);
 
-        uiManager.SetMapLevelTextAndButtonStatuses(currentMapLevel.currentCount, currentMapLevel.maxCount, currentMapLevel.mapLevelKey);
-
         blockSpawner.ClearBlocks();
     }
 
@@ -147,7 +150,7 @@ public class StageManager : MonoBehaviour
 
     public void Prestige()
     {
-        if (CanPrestige())
+        if (!CanPrestige())
             return;
 
         dataSavingManager.ClearMapLevelDictionary();

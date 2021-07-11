@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -44,9 +45,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject mapLevelPanel;
 
+    private UnityAction<System.Object> updateLevelUI;
+
     #endregion Private Fields
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        updateLevelUI = new UnityAction<object>(UpdateLevelUI);
+        EventManager.StartListening("UpdateLevelUI", updateLevelUI);
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -156,19 +165,21 @@ public class UIManager : MonoBehaviour
         stageManager.Prestige();
     }
 
-    public void SetMapLevelTextAndButtonStatuses(int currentKill, int maxKill, int levelNum)
+    public void UpdateLevelUI(System.Object level)
     {
+        MapLevel mapLevel = (MapLevel)level;
+
         var mapLevelInfo = mapLevelPanel.transform.Find("LevelInfo");
 
-        string text = "Lvl:" + levelNum + "\n" + currentKill + "/" + maxKill;
+        string text = "Lvl:" + mapLevel.mapLevelKey + "\n" + mapLevel.currentCount + "/" + mapLevel.maxCount;
 
         mapLevelInfo.gameObject.GetComponent<TextMeshProUGUI>().text = text;
 
         var nextButton = mapLevelPanel.transform.Find("NextLevel");
         var prevButton = mapLevelPanel.transform.Find("PrevLevel");
 
-        nextButton.gameObject.GetComponent<Button>().interactable = currentKill >= maxKill;
-        prevButton.gameObject.GetComponent<Button>().interactable = levelNum != 0;
+        nextButton.gameObject.GetComponent<Button>().interactable = mapLevel.currentCount >= mapLevel.maxCount;
+        prevButton.gameObject.GetComponent<Button>().interactable = mapLevel.mapLevelKey != 0;
     }
 
     /// <summary>

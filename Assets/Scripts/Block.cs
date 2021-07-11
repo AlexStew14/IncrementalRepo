@@ -13,8 +13,6 @@ public class Block : MonoBehaviour
 
     public bool isDead { get; private set; } = false;
 
-    private Player player;
-
     [SerializeField]
     private Slider slider;
 
@@ -25,11 +23,11 @@ public class Block : MonoBehaviour
 
     private Rigidbody2D physicsBody;
 
-    private BlockSpawner blockSpawner;
-
     private StageManager stageManager;
 
     private List<IAttacker> collidingAttackers;
+
+    public long killReward { get; private set; }
 
     #endregion Private Fields
 
@@ -40,13 +38,12 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         healthCanvas = GameObject.FindGameObjectWithTag("HealthCanvas").GetComponent<Canvas>();
-        blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
         stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
         maxHealth = stageManager.blockHealth;
         currentHealth = maxHealth;
+        killReward = stageManager.blockKillReward;
 
         physicsBody = GetComponent<Rigidbody2D>();
         collidingAttackers = new List<IAttacker>();
@@ -151,10 +148,12 @@ public class Block : MonoBehaviour
     /// </summary>
     private void Killed()
     {
-        blockSpawner.BlockDestroyed(transform);
         isDead = true;
         gameObject.layer = 6;
-        stageManager.KilledBlock();
+
+        EventManager.TriggerEvent("BlockKilled", this);
+
+        // stageManager.KilledBlock();
         Destroy(slider.gameObject);
         Instantiate(killEffect.transform, transform.position, transform.rotation);
         physicsBody.bodyType = RigidbodyType2D.Dynamic;
