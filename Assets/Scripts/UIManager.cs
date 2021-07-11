@@ -25,8 +25,6 @@ public class UIManager : MonoBehaviour
 
     private Player player;
 
-    private StageManager stageManager;
-
     /// <summary>
     /// Buttons used for skills in the shop panel.
     /// </summary>
@@ -66,7 +64,6 @@ public class UIManager : MonoBehaviour
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
     }
 
     #endregion Unity Methods
@@ -160,11 +157,6 @@ public class UIManager : MonoBehaviour
         prestigeButton.interactable = status;
     }
 
-    public void Prestige()
-    {
-        stageManager.Prestige();
-    }
-
     public void UpdateLevelUI(System.Object level)
     {
         MapLevel mapLevel = (MapLevel)level;
@@ -217,14 +209,19 @@ public class UIManager : MonoBehaviour
         panel.SetActive(true);
     }
 
+    public void TryPrestige()
+    {
+        EventManager.TriggerEvent("TryPrestige", null);
+    }
+
     public void NextLevel()
     {
-        stageManager.NextLevel();
+        EventManager.TriggerEvent("TryNextLevel", null);
     }
 
     public void PrevLevel()
     {
-        stageManager.PrevLevel();
+        EventManager.TriggerEvent("TryPrevLevel", null);
     }
 
     #endregion Skill UI Methods

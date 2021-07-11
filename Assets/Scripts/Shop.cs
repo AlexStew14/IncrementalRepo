@@ -46,6 +46,8 @@ public class Shop : MonoBehaviour
 
     private UnityAction<System.Object> blockKilled;
 
+    private UnityAction<System.Object> prestige;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -60,6 +62,9 @@ public class Shop : MonoBehaviour
 
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
+
+        prestige = new UnityAction<object>(Prestige);
+        EventManager.StartListening("Prestige", prestige);
 
         UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
         UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
@@ -111,7 +116,7 @@ public class Shop : MonoBehaviour
         UpdatePendingPrestigeMoneyAndUI((long)(killReward * playerPrestigeMoneyMult));
     }
 
-    public void Prestige()
+    public void Prestige(System.Object unused)
     {
         playerPrestigeMoney += pendingPrestigeMoney;
         pendingPrestigeMoney = 0;

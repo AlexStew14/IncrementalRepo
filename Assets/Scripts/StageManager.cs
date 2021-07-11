@@ -11,8 +11,6 @@ public class StageManager : MonoBehaviour
 
     private Animator anim;
 
-    private SpriteRenderer spriteRenderer;
-
     private DataSavingManager dataSavingManager;
 
     private BlockSpawner blockSpawner;
@@ -35,21 +33,34 @@ public class StageManager : MonoBehaviour
 
     private UIManager uiManager;
 
-    private UnityAction<System.Object> blockKilled;
+    private UnityAction<object> blockKilled;
+
+    private UnityAction<object> tryPrestige;
+
+    private UnityAction<object> tryNextLevel;
+
+    private UnityAction<object> tryPrevLevel;
 
     // Start is called before the first frame update
     private void Start()
     {
         anim = stageBackground.GetComponent<Animator>();
-        spriteRenderer = stageBackground.GetComponent<SpriteRenderer>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         blockKilled = new UnityAction<object>(BlockKilled);
-
         EventManager.StartListening("BlockKilled", blockKilled);
+
+        tryPrestige = new UnityAction<object>(Prestige);
+        EventManager.StartListening("TryPrestige", tryPrestige);
+
+        tryNextLevel = new UnityAction<object>(NextLevel);
+        EventManager.StartListening("TryNextLevel", tryNextLevel);
+
+        tryPrevLevel = new UnityAction<object>(PrevLevel);
+        EventManager.StartListening("TryPrevLevel", tryPrevLevel);
 
         uiManager.SetPrestigeButtonStatus(CanPrestige());
 
@@ -120,6 +131,8 @@ public class StageManager : MonoBehaviour
         blockKillReward = killRewardFunc(mapLevelKey);
 
         blockSpawner.ClearBlocks();
+
+        EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
 
     private void SwitchStage(int stageKey)
@@ -131,13 +144,14 @@ public class StageManager : MonoBehaviour
         blockSpawner.currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
     }
 
-    public void NextLevel()
+    public void NextLevel(object unused)
     {
+        Debug.Log("TryNextLevel triggered");
         if (currentMapLevel.completed)
             SwitchMapLevel(currentMapLevel.mapLevelKey + 1);
     }
 
-    public void PrevLevel()
+    public void PrevLevel(object unused)
     {
         if (currentMapLevel.mapLevelKey > 0)
             SwitchMapLevel(currentMapLevel.mapLevelKey - 1);
@@ -148,13 +162,14 @@ public class StageManager : MonoBehaviour
         return dataSavingManager.GetMapLevel(101) != null;
     }
 
-    public void Prestige()
+    public void Prestige(System.Object unused)
     {
         if (!CanPrestige())
             return;
 
         dataSavingManager.ClearMapLevelDictionary();
         SwitchMapLevel(0);
-        shop.Prestige();
+
+        EventManager.TriggerEvent("Prestige", null);
     }
 }

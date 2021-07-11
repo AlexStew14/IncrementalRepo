@@ -1,2 +1,6 @@
 ﻿BlockKilled: Block triggers this when it dies and passes itself.
 UpdateLevelUI: StageManager triggers this when a block dies, passes the current MapLevel.
+TryPrestige: UIManager triggers this when prestige button is pressed, StageManager is listening.
+Prestige: StageManager triggers this upon successful prestige.
+TryNextLevel: Triggered by UIManager, listened by StageManager.
+TryPrevLevel: Ditto.
