@@ -96,7 +96,6 @@ public class Helper : MonoBehaviour, IAttacker
         StopMoving();
         while (cdValue > 0)
         {
-            UnityEngine.Debug.Log("Countdown: " + cdValue);
             yield return new WaitForSeconds(Math.Min(1.0f, cdValue));
             cdValue--;
         }

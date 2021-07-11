@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 using System;
+using UnityEngine.UI;
 
 /// <summary>
 /// This class handles the state of all skills and updates the player to reflect skill changes.
@@ -48,6 +49,8 @@ public class Shop : MonoBehaviour
 
     private UnityAction<System.Object> prestige;
 
+    private UnityAction<object> tryUpgrade;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -65,6 +68,9 @@ public class Shop : MonoBehaviour
 
         prestige = new UnityAction<object>(Prestige);
         EventManager.StartListening("Prestige", prestige);
+
+        tryUpgrade = new UnityAction<object>(UpgradeSkill);
+        EventManager.StartListening("TryUpgrade", UpgradeSkill);
 
         UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
         UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
@@ -109,6 +115,7 @@ public class Shop : MonoBehaviour
     {
         Block deadBlock = (Block)b;
         UpdatePlayerMoneyAndUI((long)(deadBlock.killReward * playerMoneyMult) + playerMoney);
+        AddPendingPrestigeMoney(deadBlock.killPrestigeReward);
     }
 
     public void AddPendingPrestigeMoney(long killReward)
@@ -220,13 +227,14 @@ public class Shop : MonoBehaviour
     /// <param name="skillName"></param>
     /// <param name="upgradedSkill"></param>
     /// <returns></returns>
-    public bool UpgradeSkill(string skillName, out Skill upgradedSkill)
+    public void UpgradeSkill(object skillButton)
     {
-        upgradedSkill = dataSavingManager.GetSkillDictionary()[skillName];
+        Button sButton = (Button)skillButton;
+        string skillName = sButton.name;
+
+        Skill upgradedSkill = dataSavingManager.GetSkillDictionary()[skillName];
         if (upgradedSkill == null)
-        {
-            return false;
-        }
+            return;
 
         if (upgradedSkill.isPrestige)
         {
@@ -238,9 +246,10 @@ public class Shop : MonoBehaviour
                 dataSavingManager.Save();
 
                 ApplyUpgrade(upgradedSkill);
-                return true;
+                EventManager.TriggerEvent("Upgrade", (sButton, upgradedSkill));
+                return;
             }
-            return false;
+            return;
         }
 
         if (upgradedSkill.Upgrade(playerMoney, out long remainingMoney))
@@ -251,9 +260,10 @@ public class Shop : MonoBehaviour
             dataSavingManager.Save();
 
             ApplyUpgrade(upgradedSkill);
-            return true;
+            EventManager.TriggerEvent("Upgrade", (sButton, upgradedSkill));
+            return;
         }
-        return false;
+        return;
     }
 
     #endregion Player Upgrading

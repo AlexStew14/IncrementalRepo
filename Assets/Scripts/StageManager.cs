@@ -13,11 +13,9 @@ public class StageManager : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
-    private BlockSpawner blockSpawner;
-
-    private Shop shop;
-
     public long blockKillReward { get; private set; }
+
+    public long blockKillPrestigeReward { get; private set; }
 
     public float blockHealth { get; private set; }
 
@@ -30,8 +28,6 @@ public class StageManager : MonoBehaviour
     public Stage currentStage { get; private set; }
 
     private MapLevel currentMapLevel;
-
-    private UIManager uiManager;
 
     private UnityAction<object> blockKilled;
 
@@ -46,9 +42,6 @@ public class StageManager : MonoBehaviour
     {
         anim = stageBackground.GetComponent<Animator>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
-        blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
-        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
-        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
@@ -62,7 +55,7 @@ public class StageManager : MonoBehaviour
         tryPrevLevel = new UnityAction<object>(PrevLevel);
         EventManager.StartListening("TryPrevLevel", tryPrevLevel);
 
-        uiManager.SetPrestigeButtonStatus(CanPrestige());
+        EventManager.TriggerEvent("TogglePrestige", CanPrestige());
 
         InitalizeStageAndMapLevel();
     }
@@ -70,11 +63,6 @@ public class StageManager : MonoBehaviour
     public void BlockKilled(System.Object killed)
     {
         currentMapLevel.KilledBlock();
-
-        if (currentMapLevel.mapLevelKey > 100)
-        {
-            shop.AddPendingPrestigeMoney(prestigeKillRewardFunc(currentMapLevel.mapLevelKey));
-        }
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
@@ -87,8 +75,14 @@ public class StageManager : MonoBehaviour
         blockHealth = blockHealthFunc(currentMapLevel.mapLevelKey);
         blockKillReward = killRewardFunc(currentMapLevel.mapLevelKey);
 
+        if (currentMapLevel.mapLevelKey > 100)
+            blockKillPrestigeReward = prestigeKillRewardFunc(currentMapLevel.mapLevelKey);
+        else
+            blockKillPrestigeReward = 0;
+
         anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(currentStage.animatorName);
-        blockSpawner.currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
+
+        EventManager.TriggerEvent("LoadStage", currentStage);
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
@@ -109,7 +103,7 @@ public class StageManager : MonoBehaviour
             dataSavingManager.AddMapLevel(mapLevelKey, mapLevel);
 
             if (mapLevelKey == 101)
-                uiManager.SetPrestigeButtonStatus(true);
+                EventManager.TriggerEvent("TogglePrestige", true);
         }
 
         currentMapLevel = mapLevel;
@@ -130,7 +124,12 @@ public class StageManager : MonoBehaviour
         blockHealth = blockHealthFunc(mapLevelKey);
         blockKillReward = killRewardFunc(mapLevelKey);
 
-        blockSpawner.ClearBlocks();
+        if (currentMapLevel.mapLevelKey > 100)
+            blockKillPrestigeReward = prestigeKillRewardFunc(currentMapLevel.mapLevelKey);
+        else
+            blockKillPrestigeReward = 0;
+
+        EventManager.TriggerEvent("LoadMapLevel");
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
@@ -140,13 +139,14 @@ public class StageManager : MonoBehaviour
         currentStage = dataSavingManager.GetStage(stageKey);
         dataSavingManager.SetOtherValue("CurrentStage", stageKey);
         dataSavingManager.Save();
+
         anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(currentStage.animatorName);
-        blockSpawner.currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
+
+        EventManager.TriggerEvent("LoadStage", currentStage);
     }
 
     public void NextLevel(object unused)
     {
-        Debug.Log("TryNextLevel triggered");
         if (currentMapLevel.completed)
             SwitchMapLevel(currentMapLevel.mapLevelKey + 1);
     }

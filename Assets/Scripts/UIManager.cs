@@ -15,8 +15,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject shopPanel;
 
-    private Shop shop;
-
     private TextMeshProUGUI currentMoney;
     private TextMeshProUGUI currentPrestigeMoney;
 
@@ -45,6 +43,10 @@ public class UIManager : MonoBehaviour
 
     private UnityAction<System.Object> updateLevelUI;
 
+    private UnityAction<object> upgrade;
+
+    private UnityAction<object> togglePrestige;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -53,14 +55,18 @@ public class UIManager : MonoBehaviour
     {
         updateLevelUI = new UnityAction<object>(UpdateLevelUI);
         EventManager.StartListening("UpdateLevelUI", updateLevelUI);
+
+        upgrade = new UnityAction<object>(SetSkillDescriptionText);
+        EventManager.StartListening("Upgrade", upgrade);
+
+        togglePrestige = new UnityAction<object>(SetPrestigeButtonStatus);
+        EventManager.StartListening("TogglePrestige", togglePrestige);
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         shopPanel.SetActive(false);
-
-        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -84,7 +90,7 @@ public class UIManager : MonoBehaviour
             if (s == null)
                 continue;
 
-            SetSkillDescriptionText(b, s);
+            SetSkillDescriptionText((b, s));
         }
     }
 
@@ -104,8 +110,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void SetSkillDescriptionText(Button skillButton, Skill skill)
+    private void SetSkillDescriptionText(object buttonAndSkill)
     {
+        (Button, Skill) input = ((Button, Skill))buttonAndSkill;
+        Button skillButton = input.Item1;
+        Skill skill = input.Item2;
+
         //var description = skillButton.gameObject.transform.Find("Description").gameObject.GetComponent<Text>();
         var parent = skillButton.gameObject.transform.parent;
 
@@ -152,9 +162,9 @@ public class UIManager : MonoBehaviour
         pendingPrestigeMoney.text = "+" + money;
     }
 
-    public void SetPrestigeButtonStatus(bool status)
+    public void SetPrestigeButtonStatus(object status)
     {
-        prestigeButton.interactable = status;
+        prestigeButton.interactable = (bool)status;
     }
 
     public void UpdateLevelUI(System.Object level)
@@ -193,10 +203,7 @@ public class UIManager : MonoBehaviour
     public void UpgradeSkill(Button skillButton)
     {
         string skillName = skillButton.name;
-        if (shop.UpgradeSkill(skillName, out Skill upgradedSkill))
-        {
-            SetSkillDescriptionText(skillButton, upgradedSkill);
-        }
+        EventManager.TriggerEvent("TryUpgrade", skillButton);
     }
 
     public void SwitchPanel(GameObject panel)

@@ -2,5 +2,10 @@
 UpdateLevelUI: StageManager triggers this when a block dies, passes the current MapLevel.
 TryPrestige: UIManager triggers this when prestige button is pressed, StageManager is listening.
 Prestige: StageManager triggers this upon successful prestige.
+TogglePrestige: Sets whether or not prestige is possible. triggered by StageManager and listened by UI.
 TryNextLevel: Triggered by UIManager, listened by StageManager.
 TryPrevLevel: Ditto.
+TryUpgrade: Triggered by UIManager, listened by Shop.
+Upgrade: Triggered by Shop on successful upgrade, passes skill button from UI and upgraded skill.
+LoadStage: Triggered by StageManager when stage is switched or initialized. Listened by BlockSpawner.
+LoadMapLevel: Triggered by StageManager when MapLevel is switched or init. Listened by BlockSpawner.

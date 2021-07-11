@@ -29,6 +29,8 @@ public class Block : MonoBehaviour
 
     public long killReward { get; private set; }
 
+    public long killPrestigeReward { get; private set; }
+
     #endregion Private Fields
 
     public int blockKey;
@@ -44,6 +46,7 @@ public class Block : MonoBehaviour
         maxHealth = stageManager.blockHealth;
         currentHealth = maxHealth;
         killReward = stageManager.blockKillReward;
+        killPrestigeReward = stageManager.blockKillPrestigeReward;
 
         physicsBody = GetComponent<Rigidbody2D>();
         collidingAttackers = new List<IAttacker>();
@@ -71,7 +74,7 @@ public class Block : MonoBehaviour
                     a.StopMoving();
                     currentHealth -= a.GetDamage();
                     slider.value = currentHealth;
-                    Debug.Log("Block attacked, health: " + currentHealth);
+                    //Debug.Log("Block attacked, health: " + currentHealth);
 
                     if (currentHealth <= 0)
                     {

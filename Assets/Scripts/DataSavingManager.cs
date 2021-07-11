@@ -70,7 +70,7 @@ public class DataSavingManager : MonoBehaviour
             // Serialize data into file
             bf.Serialize(file, this.gameData);
             file.Close();
-            Debug.Log("Game data saved");
+            //Debug.Log("Game data saved");
         }
     }
 
@@ -84,7 +84,7 @@ public class DataSavingManager : MonoBehaviour
             gameData = (GameData)bf.Deserialize(file);
             file.Close();
 
-            Debug.Log("Game data loaded");
+            //Debug.Log("Game data loaded");
         }
         catch (Exception)
         {

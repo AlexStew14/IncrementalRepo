@@ -29,6 +29,10 @@ public class BlockSpawner : MonoBehaviour
 
     private UnityAction<System.Object> blockKilled;
 
+    private UnityAction<object> loadStage;
+
+    private UnityAction<object> loadMapLevel;
+
     #endregion Fields
 
     #region Unity Methods
@@ -43,6 +47,12 @@ public class BlockSpawner : MonoBehaviour
 
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
+
+        loadStage = new UnityAction<object>(LoadStage);
+        EventManager.StartListening("LoadStage", loadStage);
+
+        loadMapLevel = new UnityAction<object>(ClearBlocks);
+        EventManager.StartListening("LoadMapLevel", loadMapLevel);
     }
 
     // Update is called once per frame
@@ -102,7 +112,7 @@ public class BlockSpawner : MonoBehaviour
         return blockDictionary.ContainsKey(block.gameObject.GetComponent<Block>().blockKey);
     }
 
-    public void ClearBlocks()
+    public void ClearBlocks(object unused)
     {
         foreach (var k in blockDictionary.Keys)
         {
@@ -110,6 +120,12 @@ public class BlockSpawner : MonoBehaviour
             blockDictionary[k].gameObject.GetComponent<Block>().DestroyBlock();
         }
         blockDictionary.Clear();
+    }
+
+    private void LoadStage(object stage)
+    {
+        Stage currentStage = (Stage)stage;
+        currentBlockSpriteArray = Resources.LoadAll<Sprite>(currentStage.blockSpritesPath);
     }
 
     #endregion Block Spawning Methods
