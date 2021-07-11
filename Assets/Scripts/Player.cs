@@ -13,8 +13,6 @@ public class Player : MonoBehaviour, IAttacker
 
     private SoundManager soundManager;
 
-    private Shop shop;
-
     private DataSavingManager dataSavingManager;
 
     [SerializeField]
@@ -49,7 +47,6 @@ public class Player : MonoBehaviour, IAttacker
     private void Start()
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
 
         playerData = dataSavingManager.GetPlayerData();

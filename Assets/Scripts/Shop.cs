@@ -26,8 +26,6 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private Transform helperPrefab;
 
-    private StageManager stageManager;
-
     /// <summary>
     /// The shop manages the player's money.
     /// This class is the only place the player's money should be altered.
@@ -45,9 +43,9 @@ public class Shop : MonoBehaviour
 
     private float playerMoneyMult;
 
-    private UnityAction<System.Object> blockKilled;
+    private UnityAction<object> blockKilled;
 
-    private UnityAction<System.Object> prestige;
+    private UnityAction<object> prestige;
 
     private UnityAction<object> tryUpgrade;
 
@@ -61,7 +59,6 @@ public class Shop : MonoBehaviour
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
-        stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
 
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
@@ -70,7 +67,7 @@ public class Shop : MonoBehaviour
         EventManager.StartListening("Prestige", prestige);
 
         tryUpgrade = new UnityAction<object>(UpgradeSkill);
-        EventManager.StartListening("TryUpgrade", UpgradeSkill);
+        EventManager.StartListening("TryUpgrade", tryUpgrade);
 
         UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
         UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
@@ -111,7 +108,7 @@ public class Shop : MonoBehaviour
 
     #region Money Handling
 
-    public void BlockKilled(System.Object b)
+    private void BlockKilled(object b)
     {
         Block deadBlock = (Block)b;
         UpdatePlayerMoneyAndUI((long)(deadBlock.killReward * playerMoneyMult) + playerMoney);
@@ -123,7 +120,7 @@ public class Shop : MonoBehaviour
         UpdatePendingPrestigeMoneyAndUI((long)(killReward * playerPrestigeMoneyMult));
     }
 
-    public void Prestige(System.Object unused)
+    private void Prestige(object unused)
     {
         playerPrestigeMoney += pendingPrestigeMoney;
         pendingPrestigeMoney = 0;
@@ -227,7 +224,7 @@ public class Shop : MonoBehaviour
     /// <param name="skillName"></param>
     /// <param name="upgradedSkill"></param>
     /// <returns></returns>
-    public void UpgradeSkill(object skillButton)
+    private void UpgradeSkill(object skillButton)
     {
         Button sButton = (Button)skillButton;
         string skillName = sButton.name;

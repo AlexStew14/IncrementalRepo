@@ -60,7 +60,7 @@ public class StageManager : MonoBehaviour
         InitalizeStageAndMapLevel();
     }
 
-    public void BlockKilled(System.Object killed)
+    private void BlockKilled(object killed)
     {
         currentMapLevel.KilledBlock();
 
@@ -145,13 +145,13 @@ public class StageManager : MonoBehaviour
         EventManager.TriggerEvent("LoadStage", currentStage);
     }
 
-    public void NextLevel(object unused)
+    private void NextLevel(object unused)
     {
         if (currentMapLevel.completed)
             SwitchMapLevel(currentMapLevel.mapLevelKey + 1);
     }
 
-    public void PrevLevel(object unused)
+    private void PrevLevel(object unused)
     {
         if (currentMapLevel.mapLevelKey > 0)
             SwitchMapLevel(currentMapLevel.mapLevelKey - 1);
@@ -162,7 +162,7 @@ public class StageManager : MonoBehaviour
         return dataSavingManager.GetMapLevel(101) != null;
     }
 
-    public void Prestige(System.Object unused)
+    private void Prestige(object unused)
     {
         if (!CanPrestige())
             return;

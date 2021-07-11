@@ -27,7 +27,7 @@ public class BlockSpawner : MonoBehaviour
     [HideInInspector]
     public Sprite[] currentBlockSpriteArray;
 
-    private UnityAction<System.Object> blockKilled;
+    private UnityAction<object> blockKilled;
 
     private UnityAction<object> loadStage;
 
@@ -91,7 +91,7 @@ public class BlockSpawner : MonoBehaviour
         ++currentBlockCount;
     }
 
-    public void BlockKilled(System.Object b)
+    private void BlockKilled(object b)
     {
         Block deadBlock = (Block)b;
         --currentBlockCount;
@@ -112,7 +112,7 @@ public class BlockSpawner : MonoBehaviour
         return blockDictionary.ContainsKey(block.gameObject.GetComponent<Block>().blockKey);
     }
 
-    public void ClearBlocks(object unused)
+    private void ClearBlocks(object unused)
     {
         foreach (var k in blockDictionary.Keys)
         {
