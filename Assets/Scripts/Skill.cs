@@ -104,7 +104,7 @@ public class Skill
             nextStatIncrease *= milestoneMultipler;
         }
 
-        upgradeCost = costFunction(upgradeCost);
+        upgradeCost = costFunction(level);
 
         if (type == SkillType.HELPER)
             HelperUpgrade();

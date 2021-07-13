@@ -50,9 +50,9 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            Load();
+            //Load();
             // TODO this is only for debug.
-            //Delete();
+            Delete();
         }
         else
         {
@@ -246,7 +246,7 @@ public class DataSavingManager : MonoBehaviour
             prestigeDmgMultiplier = 1.0f,
             runAtkSpeedMult = 1.0f,
             runDmgMultiplier = 1.0f,
-            moveSpeed = 1.0f
+            moveSpeed = 2.0f
         };
     }
 
@@ -383,10 +383,11 @@ public class DataSavingManager : MonoBehaviour
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
-        Func<int, int> dmgCost = (x) => (int)(x * 1.3f) + 1;
+        Func<int, int> dmgCost = (x) => (int)(Math.Pow(1.08, x)) + 5;
+        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.07, x)) + 250;
         Func<float, float> dmgImprove = x => x;
-        int milestoneLevel = 10;
-        float milestoneMultiplier = 5f;
+        int milestoneLevel = 25;
+        float milestoneMultiplier = 2f;
 
         skillDictionary.Add("Damage1",
             new Skill
@@ -395,14 +396,14 @@ public class DataSavingManager : MonoBehaviour
                 currentStatIncrease = 0,
                 nextStatIncrease = 1,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 1,
+                upgradeCost = 5,
                 costFunction = dmgCost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("Damage2",
@@ -410,22 +411,73 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage2",
                 currentStatIncrease = 0,
-                nextStatIncrease = 100,
+                nextStatIncrease = 10,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 100,
-                costFunction = dmgCost,
+                upgradeCost = 250,
+                costFunction = dmg2Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("Damage3",
             new Skill
             {
                 name = "Damage3",
+                currentStatIncrease = 0,
+                nextStatIncrease = 10000,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10000,
+                type = SkillType.DMG,
+                upgradeCost = 1000,
+                costFunction = dmgCost,
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
+            });
+
+        skillDictionary.Add("Damage4",
+            new Skill
+            {
+                name = "Damage4",
+                currentStatIncrease = 0,
+                nextStatIncrease = 10000,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10000,
+                type = SkillType.DMG,
+                upgradeCost = 1000,
+                costFunction = dmgCost,
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
+            });
+
+        skillDictionary.Add("Damage5",
+            new Skill
+            {
+                name = "Damage5",
+                currentStatIncrease = 0,
+                nextStatIncrease = 10000,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10000,
+                type = SkillType.DMG,
+                upgradeCost = 1000,
+                costFunction = dmgCost,
+                improvementFunction = dmgImprove,
+                milestoneLevel = milestoneLevel,
+                milestoneMultipler = milestoneMultiplier
+            });
+
+        skillDictionary.Add("Damage6",
+            new Skill
+            {
+                name = "Damage6",
                 currentStatIncrease = 0,
                 nextStatIncrease = 10000,
                 totalStatIncrease = 0,

@@ -19,11 +19,11 @@ public class StageManager : MonoBehaviour
 
     public float blockHealth { get; private set; }
 
-    private Func<int, long> killRewardFunc = x => (long)Math.Round(Math.Pow(1.3, x)) + x;
+    private Func<int, long> killRewardFunc = x => (long)Math.Pow(1.05, x);
 
-    private Func<int, float> blockHealthFunc = x => 5 * Mathf.Pow(1.5f, x);
+    private Func<int, float> blockHealthFunc = x => (float)((Math.Pow(1.08, x) / (.15 * ((x / 10) + 1))) - 3);
 
-    private Func<int, long> prestigeKillRewardFunc = x => (long)Math.Round(Math.Pow(1.12, x - 100));
+    private Func<int, long> prestigeKillRewardFunc = x => (long)Math.Round(Math.Log10(x - 99.9f)) + 1;
 
     public Stage currentStage { get; private set; }
 

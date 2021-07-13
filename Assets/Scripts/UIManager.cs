@@ -39,6 +39,9 @@ public class UIManager : MonoBehaviour
     private GameObject[] panels;
 
     [SerializeField]
+    private GameObject[] damagePanels;
+
+    [SerializeField]
     private GameObject mapLevelPanel;
 
     private UnityAction<System.Object> updateLevelUI;
@@ -94,6 +97,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetSkillPanelsVisibility(Dictionary<string, Skill> skillDictionary)
+    {
+        for (int i = 1; i < damagePanels.Length; i++)
+        {
+            damagePanels[i].SetActive(skillDictionary["Damage" + i].level > 9);
+        }
+    }
+
     public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, long money, long prestigeMoney)
     {
         foreach (Button b in buttons)
@@ -128,7 +139,7 @@ public class UIManager : MonoBehaviour
         switch (skill.type)
         {
             case SkillType.DMG:
-                bonusText += "+" + skill.nextStatIncrease + " dmg";
+                bonusText += "+" + string.Format("{0:0.##}", skill.nextStatIncrease) + " dmg";
                 break;
 
             case SkillType.HELPER:
