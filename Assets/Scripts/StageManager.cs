@@ -19,6 +19,8 @@ public class StageManager : MonoBehaviour
 
     public float blockHealth { get; private set; }
 
+    public bool bossLevel { get; private set; }
+
     private Func<int, long> killRewardFunc = x => (long)Math.Pow(1.05, x);
 
     private Func<int, float> blockHealthFunc = x => (float)((Math.Pow(1.08, x) / (.15 * ((x / 10) + 1))) - 3);
@@ -36,6 +38,10 @@ public class StageManager : MonoBehaviour
     private UnityAction<object> tryNextLevel;
 
     private UnityAction<object> tryPrevLevel;
+
+    private UnityAction<object> failedBoss;
+
+    private UnityAction<object> killedBoss;
 
     // Start is called before the first frame update
     private void Start()
@@ -55,6 +61,12 @@ public class StageManager : MonoBehaviour
         tryPrevLevel = new UnityAction<object>(PrevLevel);
         EventManager.StartListening("TryPrevLevel", tryPrevLevel);
 
+        failedBoss = new UnityAction<object>(FailedBoss);
+        EventManager.StartListening("FailedBoss", failedBoss);
+
+        killedBoss = new UnityAction<object>(KilledBoss);
+        EventManager.StartListening("KilledBoss", killedBoss);
+
         EventManager.TriggerEvent("TogglePrestige", CanPrestige());
 
         InitalizeStageAndMapLevel();
@@ -70,6 +82,10 @@ public class StageManager : MonoBehaviour
     private void InitalizeStageAndMapLevel()
     {
         currentMapLevel = dataSavingManager.GetMapLevel((int)dataSavingManager.GetOtherValue("CurrentMapLevel"));
+
+        if (currentMapLevel.mapLevelKey % 10 == 9)
+            currentMapLevel = dataSavingManager.GetMapLevel(currentMapLevel.mapLevelKey - 1);
+
         currentStage = dataSavingManager.GetStage((int)dataSavingManager.GetOtherValue("CurrentStage"));
 
         blockHealth = blockHealthFunc(currentMapLevel.mapLevelKey);
@@ -92,12 +108,18 @@ public class StageManager : MonoBehaviour
         var mapLevel = dataSavingManager.GetMapLevel(mapLevelKey);
         if (mapLevel == null)
         {
+            int maxCount;
+            if (mapLevelKey % 10 == 9)
+                maxCount = 1;
+            else
+                maxCount = (int)dataSavingManager.GetOtherValue("MaxKillCount");
+
             mapLevel = new MapLevel
             {
                 completed = false,
                 mapLevelKey = mapLevelKey,
                 currentCount = 0,
-                maxCount = (int)dataSavingManager.GetOtherValue("MaxKillCount")
+                maxCount = maxCount
             };
 
             dataSavingManager.AddMapLevel(mapLevelKey, mapLevel);
@@ -124,12 +146,21 @@ public class StageManager : MonoBehaviour
         blockHealth = blockHealthFunc(mapLevelKey);
         blockKillReward = killRewardFunc(mapLevelKey);
 
+        if (mapLevelKey % 10 == 9)
+        {
+            blockHealth *= 15;
+            blockKillReward *= 10;
+            bossLevel = true;
+        }
+        else
+            bossLevel = false;
+
         if (currentMapLevel.mapLevelKey > 100)
             blockKillPrestigeReward = prestigeKillRewardFunc(currentMapLevel.mapLevelKey);
         else
             blockKillPrestigeReward = 0;
 
-        EventManager.TriggerEvent("LoadMapLevel");
+        EventManager.TriggerEvent("LoadMapLevel", currentMapLevel);
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
@@ -171,5 +202,15 @@ public class StageManager : MonoBehaviour
         SwitchMapLevel(0);
 
         EventManager.TriggerEvent("Prestige", null);
+    }
+
+    private void FailedBoss(object unused)
+    {
+        SwitchMapLevel(currentMapLevel.mapLevelKey);
+    }
+
+    private void KilledBoss(object unused)
+    {
+        SwitchMapLevel(currentMapLevel.mapLevelKey + 1);
     }
 }

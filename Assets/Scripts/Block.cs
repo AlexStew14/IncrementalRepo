@@ -31,6 +31,8 @@ public class Block : MonoBehaviour
 
     public long killPrestigeReward { get; private set; }
 
+    private bool isBoss;
+
     #endregion Private Fields
 
     public int blockKey;
@@ -47,6 +49,7 @@ public class Block : MonoBehaviour
         currentHealth = maxHealth;
         killReward = stageManager.blockKillReward;
         killPrestigeReward = stageManager.blockKillPrestigeReward;
+        isBoss = stageManager.bossLevel;
 
         physicsBody = GetComponent<Rigidbody2D>();
         collidingAttackers = new List<IAttacker>();
@@ -136,7 +139,11 @@ public class Block : MonoBehaviour
         slider.value = maxHealth;
 
         var pos = Camera.main.WorldToScreenPoint(transform.position);
-        pos.y += 100.0f;
+        if (!isBoss)
+            pos.y += 100.0f;
+        else
+            pos.y += 500f;
+
         slider.transform.position = pos;
         slider.transform.SetParent(healthCanvas.transform, true);
     }
@@ -155,6 +162,9 @@ public class Block : MonoBehaviour
         gameObject.layer = 6;
 
         EventManager.TriggerEvent("BlockKilled", this);
+
+        if (isBoss)
+            EventManager.TriggerEvent("KilledBoss");
 
         // stageManager.KilledBlock();
         Destroy(slider.gameObject);

@@ -9,3 +9,4 @@ TryUpgrade: Triggered by UIManager, listened by Shop.
 Upgrade: Triggered by Shop on successful upgrade, passes skill button from UI and upgraded skill.
 LoadStage: Triggered by StageManager when stage is switched or initialized. Listened by BlockSpawner.
 LoadMapLevel: Triggered by StageManager when MapLevel is switched or init. Listened by BlockSpawner.
+FailedBoss: Triggered by BlockSpawner if the boss is not killed in time. StageManager resets Level.

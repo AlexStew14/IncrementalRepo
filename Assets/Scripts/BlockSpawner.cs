@@ -13,6 +13,8 @@ public class BlockSpawner : MonoBehaviour
 
     private float timer = -1.0f;
 
+    private float bossTimer = 30.0f;
+
     private int currentBlockCount = 0;
 
     private DataSavingManager dataSavingManager;
@@ -33,9 +35,19 @@ public class BlockSpawner : MonoBehaviour
 
     private UnityAction<object> loadMapLevel;
 
+    private bool fightingBoss;
+
+    public Transform bossPrefab;
+
     #endregion Fields
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        loadStage = new UnityAction<object>(LoadStage);
+        EventManager.StartListening("LoadStage", loadStage);
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -45,25 +57,32 @@ public class BlockSpawner : MonoBehaviour
         blockSpawnData = dataSavingManager.GetBlockSpawnData();
         blockDictionary = new Dictionary<int, Transform>();
 
+        loadMapLevel = new UnityAction<object>(HandleLevelChange);
+        EventManager.StartListening("LoadMapLevel", loadMapLevel);
+
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
-
-        loadStage = new UnityAction<object>(LoadStage);
-        EventManager.StartListening("LoadStage", loadStage);
-
-        loadMapLevel = new UnityAction<object>(ClearBlocks);
-        EventManager.StartListening("LoadMapLevel", loadMapLevel);
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (fightingBoss)
+        {
+            bossTimer -= Time.deltaTime;
+            if (bossTimer <= 0f)
+            {
+                EventManager.TriggerEvent("FailedBoss");
+            }
+            return;
+        }
+
         if (currentBlockCount < blockSpawnData.maxCurrentBlocks)
         {
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
-                CreateBlock();
+                CreateBlock(false);
                 timer = blockSpawnData.spawnTime;
             }
         }
@@ -73,10 +92,15 @@ public class BlockSpawner : MonoBehaviour
 
     #region Block Spawning Methods
 
-    private void CreateBlock()
+    private void CreateBlock(bool createBoss)
     {
         Vector2 randPos = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-4f, 4f));
-        Transform block = Instantiate(blockPrefab, randPos, transform.rotation);
+        Transform block;
+        if (createBoss)
+            block = Instantiate(bossPrefab, new Vector2(0, -1), transform.rotation);
+        else
+            block = Instantiate(blockPrefab, randPos, transform.rotation);
+
         block.GetComponent<Block>().blockKey = TotalBlocksSpawned;
 
         SpriteRenderer blockSprite = block.gameObject.GetComponent<SpriteRenderer>();
@@ -112,14 +136,38 @@ public class BlockSpawner : MonoBehaviour
         return blockDictionary.ContainsKey(block.gameObject.GetComponent<Block>().blockKey);
     }
 
-    private void ClearBlocks(object unused)
+    private void HandleLevelChange(object level)
     {
-        foreach (var k in blockDictionary.Keys)
+        MapLevel mapLevel = (MapLevel)level;
+
+        if (blockDictionary != null)
         {
-            --currentBlockCount;
-            blockDictionary[k].gameObject.GetComponent<Block>().DestroyBlock();
+            // Clear all blocks from the map
+            foreach (var k in blockDictionary.Keys)
+            {
+                --currentBlockCount;
+                blockDictionary[k].gameObject.GetComponent<Block>().DestroyBlock();
+            }
+            blockDictionary.Clear();
         }
-        blockDictionary.Clear();
+
+        // Handle boss levels
+        if (mapLevel.mapLevelKey % 10 == 9)
+        {
+            StartBossFight();
+        }
+        else
+            fightingBoss = false;
+    }
+
+    private void StartBossFight()
+    {
+        fightingBoss = true;
+        if (blockDictionary != null)
+        {
+            bossTimer = 30.0f;
+            CreateBlock(true);
+        }
     }
 
     private void LoadStage(object stage)
