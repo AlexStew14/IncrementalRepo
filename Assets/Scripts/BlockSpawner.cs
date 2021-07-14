@@ -70,6 +70,7 @@ public class BlockSpawner : MonoBehaviour
         if (fightingBoss)
         {
             bossTimer -= Time.deltaTime;
+            EventManager.TriggerEvent("SetBossTimer", bossTimer);
             if (bossTimer <= 0f)
             {
                 EventManager.TriggerEvent("FailedBoss");
@@ -157,7 +158,10 @@ public class BlockSpawner : MonoBehaviour
             StartBossFight();
         }
         else
+        {
             fightingBoss = false;
+            EventManager.TriggerEvent("EndBoss");
+        }
     }
 
     private void StartBossFight()
@@ -165,6 +169,7 @@ public class BlockSpawner : MonoBehaviour
         fightingBoss = true;
         if (blockDictionary != null)
         {
+            EventManager.TriggerEvent("StartBoss", 30.0f);
             bossTimer = 30.0f;
             CreateBlock(true);
         }

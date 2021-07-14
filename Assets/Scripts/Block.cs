@@ -71,10 +71,10 @@ public class Block : MonoBehaviour
         {
             foreach (IAttacker a in collidingAttackers)
             {
+                a.StopMoving();
                 if (a.CanAttack(transform))
                 {
                     a.Attacked();
-                    a.StopMoving();
                     currentHealth -= a.GetDamage();
                     slider.value = currentHealth;
                     //Debug.Log("Block attacked, health: " + currentHealth);

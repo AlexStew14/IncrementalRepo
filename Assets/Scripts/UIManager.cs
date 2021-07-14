@@ -44,11 +44,23 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject mapLevelPanel;
 
-    private UnityAction<System.Object> updateLevelUI;
+    [SerializeField]
+    private GameObject bossTimerPanel;
+
+    [SerializeField]
+    private Slider bossTimerSlider;
+
+    private UnityAction<object> updateLevelUI;
 
     private UnityAction<object> upgrade;
 
     private UnityAction<object> togglePrestige;
+
+    private UnityAction<object> startBoss;
+
+    private UnityAction<object> setBossTimer;
+
+    private UnityAction<object> endBoss;
 
     #endregion Private Fields
 
@@ -73,6 +85,15 @@ public class UIManager : MonoBehaviour
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        startBoss = new UnityAction<object>(StartBossFight);
+        EventManager.StartListening("StartBoss", startBoss);
+
+        setBossTimer = new UnityAction<object>(SetBossTimer);
+        EventManager.StartListening("SetBossTimer", setBossTimer);
+
+        endBoss = new UnityAction<object>(EndBossFight);
+        EventManager.StartListening("EndBoss", endBoss);
     }
 
     #endregion Unity Methods
@@ -240,6 +261,26 @@ public class UIManager : MonoBehaviour
     public void PrevLevel()
     {
         EventManager.TriggerEvent("TryPrevLevel", null);
+    }
+
+    private void StartBossFight(object fightTime)
+    {
+        float time = (float)fightTime;
+        bossTimerSlider.maxValue = time;
+        bossTimerSlider.minValue = 0.0f;
+        bossTimerSlider.value = time;
+        bossTimerPanel.SetActive(true);
+    }
+
+    private void SetBossTimer(object fightTime)
+    {
+        float time = (float)fightTime;
+        bossTimerSlider.value = time;
+    }
+
+    private void EndBossFight(object unused)
+    {
+        bossTimerPanel.SetActive(false);
     }
 
     #endregion Skill UI Methods

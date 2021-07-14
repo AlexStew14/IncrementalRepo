@@ -10,3 +10,6 @@ Upgrade: Triggered by Shop on successful upgrade, passes skill button from UI an
 LoadStage: Triggered by StageManager when stage is switched or initialized. Listened by BlockSpawner.
 LoadMapLevel: Triggered by StageManager when MapLevel is switched or init. Listened by BlockSpawner.
 FailedBoss: Triggered by BlockSpawner if the boss is not killed in time. StageManager resets Level.
+StartBoss: Triggered by BlockSpawner spawning the boss. UIManager uses this to set up time slider.
+SetBossTimer: Triggered by BlockSpawner subtracting from the boss timer. UIManager uses this to set the slider value.
+EndBoss: Triggered by BlockSpawner when boss fight is over. UIManager uses this to hide the boss timer.

@@ -149,7 +149,6 @@ public class Helper : MonoBehaviour, IAttacker
     {
         moving = false;
         anim.SetBool("Moving", false);
-        targetPos = transform.position;
     }
 
     #endregion IAttacker Methods
