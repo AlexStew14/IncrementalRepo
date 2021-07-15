@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 121657142}
   - component: {fileID: 121657144}
   - component: {fileID: 121657143}
+  - component: {fileID: 121657145}
   m_Layer: 5
   m_Name: CurrentMoney
   m_TagString: CurrentMoney
@@ -977,6 +978,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121657141}
   m_CullTransparentMesh: 1
+--- !u!95 &121657145
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121657141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8ddad107c5fe0e4085664ffc587f0fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &122792625
 GameObject:
   m_ObjectHideFlags: 0

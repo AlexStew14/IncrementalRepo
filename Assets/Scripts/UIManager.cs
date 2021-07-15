@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     private GameObject shopPanel;
 
     private TextMeshProUGUI currentMoney;
+    private Animator currentMoneyAnimator;
+
     private TextMeshProUGUI currentPrestigeMoney;
 
     [SerializeField]
@@ -62,6 +64,8 @@ public class UIManager : MonoBehaviour
 
     private UnityAction<object> endBoss;
 
+    private UnityAction<object> goldArrived;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -83,6 +87,7 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(false);
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
+        currentMoneyAnimator = currentMoney.GetComponent<Animator>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
@@ -94,6 +99,11 @@ public class UIManager : MonoBehaviour
 
         endBoss = new UnityAction<object>(EndBossFight);
         EventManager.StartListening("EndBoss", endBoss);
+
+        goldArrived = new UnityAction<object>(GoldArrived);
+        EventManager.StartListening("GoldArrived", goldArrived);
+
+        Debug.Log(Camera.main.ScreenToWorldPoint(currentMoney.transform.position));
     }
 
     #endregion Unity Methods
@@ -281,6 +291,11 @@ public class UIManager : MonoBehaviour
     private void EndBossFight(object unused)
     {
         bossTimerPanel.SetActive(false);
+    }
+
+    private void GoldArrived(object unused)
+    {
+        currentMoneyAnimator.Play("moneyBounce", -1, 0f);
     }
 
     #endregion Skill UI Methods
