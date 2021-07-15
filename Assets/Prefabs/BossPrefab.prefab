@@ -327,6 +327,7 @@ MonoBehaviour:
   slider: {fileID: 5600987605582741666}
   killEffect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   blockKey: 0
+  damageText: {fileID: 5857905926428384930, guid: 7ad1afd460f392a43a1804635a2a4267, type: 3}
 --- !u!50 &2534408488171966047
 Rigidbody2D:
   serializedVersion: 4

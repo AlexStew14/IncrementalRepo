@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,9 @@ public class Block : MonoBehaviour
     #endregion Private Fields
 
     public int blockKey;
+
+    [SerializeField]
+    private GameObject damageText;
 
     #region Unity Methods
 
@@ -74,16 +78,8 @@ public class Block : MonoBehaviour
                 a.StopMoving();
                 if (a.CanAttack(transform))
                 {
-                    a.Attacked();
-                    currentHealth -= a.GetDamage();
-                    slider.value = currentHealth;
-                    //Debug.Log("Block attacked, health: " + currentHealth);
-
-                    if (currentHealth <= 0)
-                    {
-                        Killed();
+                    if (TakingDamageisDead(a))
                         return;
-                    }
                 }
             }
         }
@@ -181,6 +177,23 @@ public class Block : MonoBehaviour
     {
         Destroy(slider.gameObject);
         Destroy(transform.gameObject);
+    }
+
+    private bool TakingDamageisDead(IAttacker attacker)
+    {
+        attacker.Attacked();
+        float damageTaken = attacker.GetDamage();
+        currentHealth -= damageTaken;
+
+        GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);
+        dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damageTaken.ToString());
+        slider.value = currentHealth;
+        //Debug.Log("Block attacked, health: " + currentHealth);
+
+        if (currentHealth <= 0)
+            Killed();
+
+        return isDead;
     }
 
     #endregion Death Methods
