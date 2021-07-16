@@ -46,6 +46,11 @@ public class Player : MonoBehaviour, IAttacker
 
     private UnityAction<object> purchasedAbility;
 
+    [SerializeField]
+    private GameObject[] abilityPrefabs;
+
+    private Dictionary<int, ParticleSystem> abilityEffectsDict;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -71,6 +76,8 @@ public class Player : MonoBehaviour, IAttacker
 
         purchasedAbility = new UnityAction<object>(PurchasedAbility);
         EventManager.StartListening("PurchasedAbility", purchasedAbility);
+
+        abilityEffectsDict = new Dictionary<int, ParticleSystem>();
     }
 
     private void Awake()
@@ -167,6 +174,34 @@ public class Player : MonoBehaviour, IAttacker
             {
                 if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
                     playerData.finalMoveSpeed = playerData.baseMoveSpeed * a.totalStatIncrease;
+                else if (a.abilitySubType == AbilitySubType.DAMAGE)
+                    playerData.finalDamage = playerData.baseDamage * a.totalStatIncrease;
+
+                if (abilityEffectsDict.ContainsKey(a.prefabIndex))
+                {
+                    var particles = abilityEffectsDict[a.prefabIndex];
+                    if (a.duration > 0)
+                    {
+                        var main = particles.main;
+                        main.duration = a.duration;
+                    }
+                    particles.Play();
+                }
+                else
+                {
+                    GameObject abilityEffect = Instantiate(abilityPrefabs[a.prefabIndex], transform.position, Quaternion.identity);
+                    abilityEffect.transform.parent = transform;
+
+                    ParticleSystem particles = abilityEffect.GetComponent<ParticleSystem>();
+                    abilityEffectsDict.Add(a.prefabIndex, particles);
+                    if (a.duration > 0)
+                    {
+                        var main = particles.main;
+                        main.duration = a.duration;
+                    }
+
+                    particles.Play();
+                }
             }
         }
     }
@@ -198,6 +233,10 @@ public class Player : MonoBehaviour, IAttacker
             if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
             {
                 playerData.finalMoveSpeed = playerData.baseMoveSpeed;
+            }
+            else if (a.abilitySubType == AbilitySubType.DAMAGE)
+            {
+                playerData.finalDamage = playerData.baseDamage;
             }
         }
     }

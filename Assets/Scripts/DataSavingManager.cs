@@ -660,6 +660,27 @@ public class DataSavingManager : MonoBehaviour
                 cooldown = 0,
                 level = 0,
                 maxLevel = 100,
+                prefabIndex = 0,
+                upgradeCost = 5,
+                costFunction = (x) => x,
+                improvementFunction = (x) => x
+            });
+
+        skillDictionary.Add("Ability2",
+            new Ability
+            {
+                name = "Ability1",
+                type = SkillType.ABILITY,
+                abilityType = AbilityType.PASSIVE,
+                abilitySubType = AbilitySubType.DAMAGE,
+                currentStatIncrease = 0,
+                nextStatIncrease = 5,
+                activationChance = 15,
+                duration = 0,
+                cooldown = 0,
+                level = 0,
+                maxLevel = 100,
+                prefabIndex = 1,
                 upgradeCost = 5,
                 costFunction = (x) => x,
                 improvementFunction = (x) => x

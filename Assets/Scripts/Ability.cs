@@ -10,7 +10,8 @@ public enum AbilityType
 
 public enum AbilitySubType
 {
-    MOVEMENTSPEED
+    MOVEMENTSPEED,
+    DAMAGE
 }
 
 [Serializable]
@@ -30,6 +31,8 @@ public class Ability : Skill
     public bool activated;
 
     private bool readyToCast;
+
+    public int prefabIndex;
 
     public override bool Upgrade(long currentCurrency, out long remainingCurrency)
     {
