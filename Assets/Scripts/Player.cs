@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 /// <summary>
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour, IAttacker
 
     public bool canMove = true;
 
+    private List<Ability> purchasedPassives;
+    private List<Ability> purchasedActives;
+
+    private UnityAction<object> purchasedAbility;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -50,13 +57,20 @@ public class Player : MonoBehaviour, IAttacker
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
 
         playerData = dataSavingManager.GetPlayerData();
+        var purchasedAbilities = dataSavingManager.GetAbilityDictionary().Values.Where(s => s.level > 0).ToList();
+
+        purchasedPassives = purchasedAbilities.Where(a => a.abilityType == AbilityType.PASSIVE).ToList();
+        purchasedActives = purchasedAbilities.Where(a => a.abilityType == AbilityType.ACTIVE).ToList();
 
         transform.position = clickPos;
 
         //anim = character.GetComponent<Animator>();
-        anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+        anim = gameObject.transform.GetChild(0).GetComponent<Animator>();
         //sprite = character.GetComponent<SpriteRenderer>();
-        sprite = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
+        sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        purchasedAbility = new UnityAction<object>(PurchasedAbility);
+        EventManager.StartListening("PurchasedAbility", purchasedAbility);
     }
 
     private void Awake()
@@ -73,16 +87,14 @@ public class Player : MonoBehaviour, IAttacker
         if (damageTimerRunning)
         {
             if (damageTimeRemaining > 0)
-            {
                 damageTimeRemaining -= Time.deltaTime;
-            }
             else
-            {
                 damageTimerRunning = false;
-            }
         }
 
         anim.SetBool("Moving", moving);
+
+        CheckAbilities();
     }
 
     #endregion Unity Methods
@@ -98,7 +110,7 @@ public class Player : MonoBehaviour, IAttacker
     /// Provides the final damage value.
     /// </summary>
     /// <returns></returns>
-    public float GetDamage()
+    private float GetDamage()
     {
         return playerData.finalDamage;
     }
@@ -125,12 +137,69 @@ public class Player : MonoBehaviour, IAttacker
     /// <summary>
     /// Called when the player has attacked, used to reset timer.
     /// </summary>
-    public void Attacked()
+    public float Attacked()
     {
         anim.Play("Player_Punch");
         soundManager.PlayAttack();
+
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
+
+        ProcAbilities();
+
+        return GetDamage();
+    }
+
+    private void PurchasedAbility(object ability)
+    {
+        Ability a = (Ability)ability;
+        if (a.abilityType == AbilityType.ACTIVE)
+            purchasedActives.Add(a);
+        else
+            purchasedPassives.Add(a);
+    }
+
+    private void ProcAbilities()
+    {
+        foreach (Ability a in purchasedPassives)
+        {
+            if (a.Cast())
+            {
+                if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
+                    playerData.finalMoveSpeed = playerData.baseMoveSpeed * a.totalStatIncrease;
+            }
+        }
+    }
+
+    private void CheckAbilities()
+    {
+        List<Ability> endedAbilities = new List<Ability>();
+
+        foreach (Ability a in purchasedActives)
+        {
+            if (a.UpdateAndHasEnded(Time.deltaTime))
+                endedAbilities.Add(a);
+        }
+
+        foreach (Ability a in purchasedPassives)
+        {
+            if (a.UpdateAndHasEnded(Time.deltaTime))
+                endedAbilities.Add(a);
+        }
+
+        if (endedAbilities.Count() > 0)
+            UndoAbilites(endedAbilities);
+    }
+
+    private void UndoAbilites(List<Ability> endedAbilities)
+    {
+        foreach (Ability a in endedAbilities)
+        {
+            if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
+            {
+                playerData.finalMoveSpeed = playerData.baseMoveSpeed;
+            }
+        }
     }
 
     /// <summary>
@@ -153,7 +222,7 @@ public class Player : MonoBehaviour, IAttacker
 
     public void FlatMovementSpeedIncrease(float movementSpeedIncrease)
     {
-        playerData.moveSpeed += movementSpeedIncrease;
+        playerData.baseMoveSpeed += movementSpeedIncrease;
         SavePlayerData();
     }
 
@@ -188,7 +257,7 @@ public class Player : MonoBehaviour, IAttacker
 
         if (transform.position != clickPos && moving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
         }
         else
         {
@@ -236,5 +305,7 @@ public class PlayerData
 
     public float prestigeAtkSpeedMult;
 
-    public float moveSpeed;
+    public float finalMoveSpeed;
+
+    public float baseMoveSpeed;
 }

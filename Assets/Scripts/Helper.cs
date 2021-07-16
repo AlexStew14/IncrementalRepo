@@ -129,7 +129,7 @@ public class Helper : MonoBehaviour, IAttacker
         return false;
     }
 
-    public float GetDamage()
+    private float GetDamage()
     {
         return helperData.attackDamage;
     }
@@ -139,10 +139,11 @@ public class Helper : MonoBehaviour, IAttacker
         return helperData.attackSpeed;
     }
 
-    public void Attacked()
+    public float Attacked()
     {
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
+        return GetDamage();
     }
 
     public void StopMoving()

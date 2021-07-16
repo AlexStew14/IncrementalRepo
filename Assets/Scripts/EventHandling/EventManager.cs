@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class Event : UnityEvent<System.Object> { }
+public class CustomEvent : UnityEvent<System.Object> { }
 
 public class EventManager : MonoBehaviour
 {
-    private Dictionary<string, Event> _eventDictionary;
+    private Dictionary<string, CustomEvent> _eventDictionary;
 
     private static EventManager eventManager;
 
@@ -37,20 +37,20 @@ public class EventManager : MonoBehaviour
     {
         if (_eventDictionary == null)
         {
-            _eventDictionary = new Dictionary<string, Event>();
+            _eventDictionary = new Dictionary<string, CustomEvent>();
         }
     }
 
     public static void StartListening(string eventName, UnityAction<System.Object> listener)
     {
-        Event thisEvent = null;
+        CustomEvent thisEvent = null;
         if (Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.AddListener(listener);
         }
         else
         {
-            thisEvent = new Event();
+            thisEvent = new CustomEvent();
             thisEvent.AddListener(listener);
             Instance._eventDictionary.Add(eventName, thisEvent);
         }
@@ -59,7 +59,7 @@ public class EventManager : MonoBehaviour
     public static void StopListening(string eventName, UnityAction<System.Object> listener)
     {
         if (Instance == null) return;
-        Event thisEvent = null;
+        CustomEvent thisEvent = null;
         if (Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.RemoveListener(listener);
@@ -68,7 +68,7 @@ public class EventManager : MonoBehaviour
 
     public static void TriggerEvent(string eventName, System.Object arg = null)
     {
-        Event thisEvent = null;
+        CustomEvent thisEvent = null;
         if (Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             Debug.Log(eventName + " triggered.");

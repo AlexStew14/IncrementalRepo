@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using System.Linq;
 
 public class DataSavingManager : MonoBehaviour
 {
@@ -50,9 +51,9 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            Load();
+            //Load();
             // TODO this is only for debug.
-            //Delete();
+            Delete();
         }
         else
         {
@@ -126,6 +127,13 @@ public class DataSavingManager : MonoBehaviour
     public Dictionary<string, Skill> GetSkillDictionary()
     {
         return gameData.skillDictionary;
+    }
+
+    public Dictionary<string, Ability> GetAbilityDictionary()
+    {
+        return gameData.skillDictionary.Where(kvp => kvp.Value.type == SkillType.ABILITY)
+            .Select(kvp => new KeyValuePair<string, Ability>(kvp.Key, kvp.Value as Ability))
+            .ToDictionary(x => x.Key, x => x.Value);
     }
 
     public Dictionary<int, Stage> GetStageDictionary()
@@ -246,7 +254,8 @@ public class DataSavingManager : MonoBehaviour
             prestigeDmgMultiplier = 1.0f,
             runAtkSpeedMult = 1.0f,
             runDmgMultiplier = 1.0f,
-            moveSpeed = 2.0f
+            baseMoveSpeed = 2.0f,
+            finalMoveSpeed = 2.0f
         };
     }
 
@@ -634,6 +643,26 @@ public class DataSavingManager : MonoBehaviour
                 },
                 milestoneLevel = milestoneLevel,
                 milestoneMultipler = 1.5f
+            });
+
+        // ******************** Abilities **********************
+        skillDictionary.Add("Ability1",
+            new Ability
+            {
+                name = "Ability1",
+                type = SkillType.ABILITY,
+                abilityType = AbilityType.PASSIVE,
+                abilitySubType = AbilitySubType.MOVEMENTSPEED,
+                currentStatIncrease = 0,
+                nextStatIncrease = 3,
+                activationChance = 10,
+                duration = 2,
+                cooldown = 0,
+                level = 0,
+                maxLevel = 100,
+                upgradeCost = 5,
+                costFunction = (x) => x,
+                improvementFunction = (x) => x
             });
 
         return skillDictionary;

@@ -17,12 +17,13 @@ public enum SkillType
     SPAWNSPEED,
     SPAWNSPEEDPCT,
     MOVEMENTSPEED,
-    HELPER
+    HELPER,
+    ABILITY
 }
 
 /// <summary>
 /// This is a data class that represents a skill.
-/// Skills are created via initialization statement. (Example in Shop start)
+/// Skills are created via seeding in DataSavingManager.
 /// </summary>
 [Serializable]
 public class Skill
@@ -83,7 +84,7 @@ public class Skill
     /// <param name="currentCurrency"></param>
     /// <param name="remainingCurrency"></param>
     /// <returns></returns>
-    public bool Upgrade(long currentCurrency, out long remainingCurrency)
+    public virtual bool Upgrade(long currentCurrency, out long remainingCurrency)
     {
         if (!CheckUpgrade(currentCurrency))
         {

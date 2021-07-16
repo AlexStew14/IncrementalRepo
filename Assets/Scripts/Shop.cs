@@ -215,6 +215,13 @@ public class Shop : MonoBehaviour
                 helper.gameObject.GetComponent<Helper>().Init(upgradedSkill.name);
             }
         }
+        else if (upgradedSkill.type == SkillType.ABILITY)
+        {
+            if (upgradedSkill.level == 1)
+            {
+                EventManager.TriggerEvent("PurchasedAbility", upgradedSkill as Ability);
+            }
+        }
     }
 
     /// <summary>

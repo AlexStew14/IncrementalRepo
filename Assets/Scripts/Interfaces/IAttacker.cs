@@ -9,11 +9,9 @@ public interface IAttacker
 {
     public bool CanAttack(Transform target);
 
-    public float GetDamage();
-
     public float GetAttackSpeed();
 
-    public void Attacked();
+    public float Attacked();
 
     public void StopMoving();
 }

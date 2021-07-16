@@ -102,8 +102,6 @@ public class UIManager : MonoBehaviour
 
         goldArrived = new UnityAction<object>(GoldArrived);
         EventManager.StartListening("GoldArrived", goldArrived);
-
-        Debug.Log(Camera.main.ScreenToWorldPoint(currentMoney.transform.position));
     }
 
     #endregion Unity Methods

@@ -14,3 +14,4 @@ StartBoss: Triggered by BlockSpawner spawning the boss. UIManager uses this to s
 SetBossTimer: Triggered by BlockSpawner subtracting from the boss timer. UIManager uses this to set the slider value.
 EndBoss: Triggered by BlockSpawner when boss fight is over. UIManager uses this to hide the boss timer.
 GoldArrived: Triggered by GoldText when it reaches current money text. Listened by UIManager to animate text.
+PurchasedAbility: Triggered by Shop when an ability reaches level 1. Player listens to add to purchased abilities.

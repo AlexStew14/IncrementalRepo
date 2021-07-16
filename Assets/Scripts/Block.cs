@@ -187,8 +187,7 @@ public class Block : MonoBehaviour
 
     private bool TakingDamageisDead(IAttacker attacker)
     {
-        attacker.Attacked();
-        float damageTaken = attacker.GetDamage();
+        float damageTaken = attacker.Attacked();
         currentHealth -= damageTaken;
 
         GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);
