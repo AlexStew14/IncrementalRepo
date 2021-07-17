@@ -23,7 +23,11 @@ public class Ability : Skill
     public float duration;
     private float durationLeft;
 
-    public int activationChance;
+    public float activationChance;
+    public float maxActivationChance;
+    public float nextChanceIncrease;
+
+    public Func<float, float> activationFunction { get; set; }
 
     public float cooldown;
     private float cooldownLeft;
@@ -50,6 +54,16 @@ public class Ability : Skill
         currentStatIncrease = nextStatIncrease;
         nextStatIncrease = improvementFunction(currentStatIncrease);
         upgradeCost = costFunction(level);
+
+        if (activationChance + nextChanceIncrease >= maxActivationChance)
+        {
+            activationChance = maxActivationChance;
+            activationFunction = (x) => 0;
+        }
+        else
+            activationChance = activationChance + nextChanceIncrease;
+
+        nextChanceIncrease = activationFunction(activationChance);
 
         return true;
     }
@@ -85,8 +99,9 @@ public class Ability : Skill
         if (!readyToCast)
             return false;
 
-        int rand = UnityEngine.Random.Range(1, 101);
-        if (rand >= activationChance)
+        float rand = UnityEngine.Random.Range(.0f, 1.0f);
+        Debug.Log("rand: " + rand + " chance: " + activationChance);
+        if (rand > activationChance)
             return false;
 
         activated = true;
@@ -95,5 +110,20 @@ public class Ability : Skill
 
         Debug.Log("Ability has procced");
         return true;
+    }
+
+    public static string FormatSubType(AbilitySubType abs)
+    {
+        switch (abs)
+        {
+            case AbilitySubType.DAMAGE:
+                return "Damage";
+
+            case AbilitySubType.MOVEMENTSPEED:
+                return "Speed";
+
+            default:
+                return "INVALID";
+        }
     }
 }

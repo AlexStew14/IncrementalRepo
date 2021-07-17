@@ -139,7 +139,7 @@ public class Helper : MonoBehaviour, IAttacker
         return helperData.attackSpeed;
     }
 
-    public float Attacked()
+    public float Attacked(GameObject target)
     {
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;

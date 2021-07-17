@@ -20,7 +20,7 @@ public class GoldText : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
-        targetPosition = Camera.main.ScreenToWorldPoint(GameObject.FindGameObjectWithTag("CurrentMoney").transform.position);
+        targetPosition = Camera.main.ScreenToWorldPoint(GameObject.FindGameObjectWithTag("MoneyIcon").transform.position);
         journeyLength = Vector3.Distance(transform.position, targetPosition);
 
         goldText = transform.GetChild(0).GetComponent<TextMeshPro>();

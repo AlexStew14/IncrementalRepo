@@ -51,6 +51,8 @@ public class Player : MonoBehaviour, IAttacker
 
     private Dictionary<int, ParticleSystem> abilityEffectsDict;
 
+    private GameObject target;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -144,8 +146,11 @@ public class Player : MonoBehaviour, IAttacker
     /// <summary>
     /// Called when the player has attacked, used to reset timer.
     /// </summary>
-    public float Attacked()
+    public float Attacked(GameObject target)
     {
+        this.target = target;
+        sprite.flipX = target.transform.position.x < transform.position.x;
+
         anim.Play("Player_Punch");
         soundManager.PlayAttack();
 
@@ -177,31 +182,35 @@ public class Player : MonoBehaviour, IAttacker
                 else if (a.abilitySubType == AbilitySubType.DAMAGE)
                     playerData.finalDamage = playerData.baseDamage * a.totalStatIncrease;
 
+                ParticleSystem particles;
                 if (abilityEffectsDict.ContainsKey(a.prefabIndex))
                 {
-                    var particles = abilityEffectsDict[a.prefabIndex];
+                    particles = abilityEffectsDict[a.prefabIndex];
                     if (a.duration > 0)
                     {
                         var main = particles.main;
                         main.duration = a.duration;
                     }
-                    particles.Play();
                 }
                 else
                 {
                     GameObject abilityEffect = Instantiate(abilityPrefabs[a.prefabIndex], transform.position, Quaternion.identity);
-                    abilityEffect.transform.parent = transform;
+                    if (a.abilitySubType != AbilitySubType.DAMAGE)
+                        abilityEffect.transform.parent = transform;
 
-                    ParticleSystem particles = abilityEffect.GetComponent<ParticleSystem>();
+                    particles = abilityEffect.GetComponent<ParticleSystem>();
                     abilityEffectsDict.Add(a.prefabIndex, particles);
                     if (a.duration > 0)
                     {
                         var main = particles.main;
                         main.duration = a.duration;
                     }
-
-                    particles.Play();
                 }
+
+                if (a.abilitySubType == AbilitySubType.DAMAGE)
+                    particles.transform.position = target.transform.position;
+
+                particles.Play();
             }
         }
     }
@@ -284,14 +293,7 @@ public class Player : MonoBehaviour, IAttacker
             clickPos = Camera.main.ScreenToWorldPoint(temp);
             moving = true;
 
-            if (clickPos.x < transform.position.x)
-            {
-                sprite.flipX = true;
-            }
-            else if (clickPos.x >= transform.position.x)
-            {
-                sprite.flipX = false;
-            }
+            sprite.flipX = clickPos.x < transform.position.x;
         }
 
         if (transform.position != clickPos && moving)

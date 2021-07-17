@@ -11,7 +11,7 @@ public interface IAttacker
 
     public float GetAttackSpeed();
 
-    public float Attacked();
+    public float Attacked(GameObject target);
 
     public void StopMoving();
 }

@@ -187,11 +187,12 @@ public class Block : MonoBehaviour
 
     private bool TakingDamageisDead(IAttacker attacker)
     {
-        float damageTaken = attacker.Attacked();
+        float damageTaken = attacker.Attacked(gameObject);
         currentHealth -= damageTaken;
 
         GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);
-        dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damageTaken.ToString());
+        string damage = string.Format("{0:#}", damageTaken);
+        dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damage);
         slider.value = currentHealth;
         //Debug.Log("Block attacked, health: " + currentHealth);
 

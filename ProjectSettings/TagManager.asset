@@ -21,6 +21,7 @@ TagManager:
   - PendingPrestigeMoney
   - Character
   - EventManager
+  - MoneyIcon
   layers:
   - Default
   - TransparentFX

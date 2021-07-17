@@ -163,6 +163,9 @@ public class UIManager : MonoBehaviour
 
         var bonus = parent.Find("Bonus").gameObject.GetComponent<TextMeshProUGUI>();
 
+        var name = parent.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
+
+        string nameText = "";
         string bonusText = "";
 
         switch (skill.type)
@@ -175,11 +178,21 @@ public class UIManager : MonoBehaviour
                 bonusText += "+" + (skill.nextStatIncrease * 100.0f) + "%";
                 break;
 
+            case SkillType.ABILITY:
+                Ability a = skill as Ability;
+                bonusText = string.Format("+{0:0.##}x\n+{1:P2}",
+                    a.nextStatIncrease, a.nextChanceIncrease);
+
+                nameText = string.Format("{0:0.##}x {1}\n{2:P2} Chance",
+                    a.totalStatIncrease, Ability.FormatSubType(a.abilitySubType), a.activationChance);
+                break;
+
             default:
                 break;
         }
 
         bonus.text = bonusText;
+        name.text = nameText;
         skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
     }
 

@@ -392,8 +392,8 @@ public class DataSavingManager : MonoBehaviour
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
-        Func<int, int> dmgCost = (x) => (int)(Math.Pow(1.08, x)) + 5;
-        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.07, x)) + 250;
+        Func<int, int> dmgCost = (x) => (int)(Math.Pow(1.08, x) * 5);
+        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.07, x) * 250);
         Func<float, float> dmgImprove = x => x;
         int milestoneLevel = 25;
         float milestoneMultiplier = 2f;
@@ -645,6 +645,9 @@ public class DataSavingManager : MonoBehaviour
                 milestoneMultipler = 1.5f
             });
 
+        Func<int, int> abilCost = (x) => (int)(Math.Pow(1.08, x) * 25);
+        Func<int, int> abilCost2 = (x) => (int)(Math.Pow(1.08, x) * 100);
+
         // ******************** Abilities **********************
         skillDictionary.Add("Ability1",
             new Ability
@@ -654,36 +657,40 @@ public class DataSavingManager : MonoBehaviour
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.MOVEMENTSPEED,
                 currentStatIncrease = 0,
-                nextStatIncrease = 3,
-                activationChance = 10,
+                nextStatIncrease = 1.5f,
+                nextChanceIncrease = .05f,
+                maxActivationChance = .25f,
                 duration = 2,
                 cooldown = 0,
                 level = 0,
                 maxLevel = 100,
                 prefabIndex = 0,
-                upgradeCost = 5,
-                costFunction = (x) => x,
-                improvementFunction = (x) => x
+                upgradeCost = 25,
+                activationFunction = (x) => .025f,
+                costFunction = abilCost,
+                improvementFunction = (x) => .1f
             });
 
         skillDictionary.Add("Ability2",
             new Ability
             {
-                name = "Ability1",
+                name = "Ability2",
                 type = SkillType.ABILITY,
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.DAMAGE,
                 currentStatIncrease = 0,
-                nextStatIncrease = 5,
-                activationChance = 15,
+                nextStatIncrease = 2,
+                nextChanceIncrease = .15f,
+                maxActivationChance = 1f,
                 duration = 0,
                 cooldown = 0,
                 level = 0,
                 maxLevel = 100,
                 prefabIndex = 1,
-                upgradeCost = 5,
-                costFunction = (x) => x,
-                improvementFunction = (x) => x
+                upgradeCost = 100,
+                activationFunction = (x) => .025f,
+                costFunction = abilCost2,
+                improvementFunction = (x) => .2f
             });
 
         return skillDictionary;

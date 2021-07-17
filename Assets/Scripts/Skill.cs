@@ -59,7 +59,7 @@ public class Skill
     // The type of skill
     public SkillType type { get; set; }
 
-    // An anonymous function used to determine the price of the next upgrade level given the current price.
+    // An anonymous function used to determine the price of the next upgrade level given the current level.
     public Func<int, int> costFunction { get; set; }
 
     // An anonymous function used to determine the value of the next upgrade level given the current value.
