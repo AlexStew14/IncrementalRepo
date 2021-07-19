@@ -248,7 +248,6 @@ public class UIManager : MonoBehaviour
         shopPanel.SetActive(!shopPanel.activeSelf);
         autoButton.SetActive(!autoButton.activeSelf);
         player.StopMoving();
-        player.canMove = !player.canMove;
     }
 
     /// <summary>

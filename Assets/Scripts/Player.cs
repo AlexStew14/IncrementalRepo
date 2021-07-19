@@ -43,8 +43,6 @@ public class Player : MonoBehaviour
     // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
-    public bool canMove = true;
-
     private List<Ability> purchasedPassives;
     private List<Ability> purchasedActives;
 
@@ -105,11 +103,13 @@ public class Player : MonoBehaviour
         if ((targetBlock == null || targetBlock.isDead) && autoEnabled)
             GetNewTarget();
 
-        if (targetBlock != null && !targetBlock.isDead && CanAttack() && fightingBlock)
+        if (CanAttack())
             Attacked();
 
-        if (canMove)
+        if (targetBlock != null || !autoEnabled)
             MovePlayer();
+        else
+            moving = false;
 
         if (damageTimerRunning)
         {
@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
 
     private bool CanAttack()
     {
-        return !damageTimerRunning;
+        return targetBlock != null && !targetBlock.isDead && fightingBlock && !damageTimerRunning;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -180,6 +180,11 @@ public class Player : MonoBehaviour
             targetBlock = null;
             fightingBlock = false;
         }
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        fightingBlock = true;
     }
 
     /// <summary>
@@ -225,8 +230,11 @@ public class Player : MonoBehaviour
                     particles = abilityEffectsDict[a.prefabIndex];
                     if (a.duration > 0)
                     {
-                        var main = particles.main;
-                        main.duration = a.duration;
+                        if (particles.isStopped)
+                        {
+                            var main = particles.main;
+                            main.duration = a.duration;
+                        }
                     }
                 }
                 else
@@ -323,27 +331,28 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (!autoEnabled && Input.GetMouseButton(0))
+        if (!autoEnabled)
         {
-            Vector3 temp = Input.mousePosition;
-            temp.z = 10f;
-            clickPos = Camera.main.ScreenToWorldPoint(temp);
-            moving = true;
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 temp = Input.mousePosition;
+                temp.z = 10f;
+                clickPos = Camera.main.ScreenToWorldPoint(temp);
+                moving = true;
 
-            sprite.flipX = clickPos.x < transform.position.x;
-        }
+                sprite.flipX = clickPos.x < transform.position.x;
+            }
 
-        if (!autoEnabled && (transform.position != clickPos && moving))
-        {
-            transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+            if (moving)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+            }
         }
         else
         {
-            moving = false;
-            if (autoEnabled && !fightingBlock && transform.position != clickPos)
+            if (!fightingBlock)
             {
-                transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
-
+                transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, playerData.finalMoveSpeed * Time.deltaTime);
                 moving = true;
                 sprite.flipX = clickPos.x < transform.position.x;
             }
@@ -356,13 +365,11 @@ public class Player : MonoBehaviour
         {
             var target = blockSpawner.blockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value;
             targetBlock = target.gameObject.GetComponent<Block>();
-            clickPos = target.position;
             fightingBlock = false;
         }
         else
         {
-            clickPos = transform.position;
-            moving = false;
+            targetBlock = null;
         }
     }
 

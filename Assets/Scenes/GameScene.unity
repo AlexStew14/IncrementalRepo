@@ -2213,7 +2213,6 @@ MonoBehaviour:
     finalMoveSpeed: 0
     baseMoveSpeed: 0
   character: {fileID: 1876420641899530792, guid: 6238c333050b20e4e82f3d9ecb2a6d2e, type: 3}
-  canMove: 1
   abilityPrefabs:
   - {fileID: 189212, guid: 89e6b9ae156b16c42bd4da5aa094d1fc, type: 3}
   - {fileID: 135520, guid: 71f41880794ca1941a088c95db570547, type: 3}
@@ -4711,6 +4710,7 @@ MonoBehaviour:
   - {fileID: 522005708}
   - {fileID: 998819138}
   - {fileID: 1769568382}
+  autoButton: {fileID: 1570713465}
   damagePanels:
   - {fileID: 1216740098}
   mapLevelPanel: {fileID: 2057496616}
@@ -11137,7 +11137,7 @@ GameObject:
   - component: {fileID: 1570713468}
   - component: {fileID: 1570713467}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AutoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11206,7 +11206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570713468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 669363970}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ToggleAutoMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570713468
 MonoBehaviour:
   m_ObjectHideFlags: 0

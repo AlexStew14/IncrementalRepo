@@ -22,6 +22,7 @@ TagManager:
   - Character
   - EventManager
   - MoneyIcon
+  - Block
   layers:
   - Default
   - TransparentFX
