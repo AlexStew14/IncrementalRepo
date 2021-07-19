@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Helper : MonoBehaviour, IAttacker
+public class Helper : MonoBehaviour
 {
     #region Private Fields
 

@@ -26,8 +26,6 @@ public class Block : MonoBehaviour
 
     private StageManager stageManager;
 
-    private List<IAttacker> collidingAttackers;
-
     public long killReward { get; private set; }
 
     public long killPrestigeReward { get; private set; }
@@ -59,69 +57,12 @@ public class Block : MonoBehaviour
         isBoss = stageManager.bossLevel;
 
         physicsBody = GetComponent<Rigidbody2D>();
-        collidingAttackers = new List<IAttacker>();
         InitializeHealthBar();
     }
 
     // Update is called once per frame
     private void Update()
     {
-    }
-
-    /// <summary>
-    /// Handles physics and collisions.
-    /// Blocks take damage when they collide with player if the player can attack.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (collidingAttackers.Count != 0 && !isDead)
-        {
-            foreach (IAttacker a in collidingAttackers)
-            {
-                a.StopMoving();
-                if (a.CanAttack(transform))
-                {
-                    if (TakingDamageisDead(a))
-                        return;
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// Unity method for collision enter.
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject c = collision.gameObject;
-
-        if (c.tag == "Player")
-        {
-            collidingAttackers.Add(c.GetComponent<Player>());
-        }
-        else if (c.tag == "Helper")
-        {
-            collidingAttackers.Add(c.GetComponent<Helper>());
-        }
-    }
-
-    /// <summary>
-    /// Unity method for collision exit.
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        GameObject c = collision.gameObject;
-
-        if (c.tag == "Player")
-        {
-            collidingAttackers.Remove(c.GetComponent<Player>());
-        }
-        else if (c.tag == "Helper")
-        {
-            collidingAttackers.Remove(c.GetComponent<Helper>());
-        }
     }
 
     #endregion Unity Methods
@@ -185,9 +126,8 @@ public class Block : MonoBehaviour
         Destroy(transform.gameObject);
     }
 
-    private bool TakingDamageisDead(IAttacker attacker)
+    public bool TakingDamageisDead(float damageTaken)
     {
-        float damageTaken = attacker.Attacked(gameObject);
         currentHealth -= damageTaken;
 
         GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);

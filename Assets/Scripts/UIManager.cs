@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour
     private GameObject[] panels;
 
     [SerializeField]
+    private GameObject autoButton;
+
+    [SerializeField]
     private GameObject[] damagePanels;
 
     [SerializeField]
@@ -243,6 +246,7 @@ public class UIManager : MonoBehaviour
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
+        autoButton.SetActive(!autoButton.activeSelf);
         player.StopMoving();
         player.canMove = !player.canMove;
     }
@@ -307,6 +311,12 @@ public class UIManager : MonoBehaviour
     private void GoldArrived(object unused)
     {
         currentMoneyAnimator.Play("moneyBounce", -1, 0f);
+    }
+
+    public void ToggleAutoMode()
+    {
+        player.StopMoving();
+        EventManager.TriggerEvent("ToggleAuto");
     }
 
     #endregion Skill UI Methods

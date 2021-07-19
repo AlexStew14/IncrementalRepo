@@ -9,13 +9,15 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// This class represents the player and holds stats and handles gameplay related to the player.
 /// </summary>
-public class Player : MonoBehaviour, IAttacker
+public class Player : MonoBehaviour
 {
     #region Private Fields
 
     private SoundManager soundManager;
 
     private DataSavingManager dataSavingManager;
+
+    private BlockSpawner blockSpawner;
 
     [SerializeField]
     private PlayerData playerData;
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour, IAttacker
 
     private bool damageTimerRunning = false;
 
+    private bool autoEnabled = false;
+
     // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
@@ -46,12 +50,16 @@ public class Player : MonoBehaviour, IAttacker
 
     private UnityAction<object> purchasedAbility;
 
+    private UnityAction<object> toggleAuto;
+
     [SerializeField]
     private GameObject[] abilityPrefabs;
 
     private Dictionary<int, ParticleSystem> abilityEffectsDict;
 
-    private GameObject target;
+    private Block targetBlock;
+
+    private bool fightingBlock;
 
     #endregion Private Fields
 
@@ -62,6 +70,7 @@ public class Player : MonoBehaviour, IAttacker
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
+        blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
         playerData = dataSavingManager.GetPlayerData();
         var purchasedAbilities = dataSavingManager.GetAbilityDictionary().Values.Where(s => s.level > 0).ToList();
@@ -79,6 +88,9 @@ public class Player : MonoBehaviour, IAttacker
         purchasedAbility = new UnityAction<object>(PurchasedAbility);
         EventManager.StartListening("PurchasedAbility", purchasedAbility);
 
+        toggleAuto = new UnityAction<object>(ToggleAuto);
+        EventManager.StartListening("ToggleAuto", toggleAuto);
+
         abilityEffectsDict = new Dictionary<int, ParticleSystem>();
     }
 
@@ -90,6 +102,12 @@ public class Player : MonoBehaviour, IAttacker
     // Update is called once per frame
     private void Update()
     {
+        if ((targetBlock == null || targetBlock.isDead) && autoEnabled)
+            GetNewTarget();
+
+        if (targetBlock != null && !targetBlock.isDead && CanAttack() && fightingBlock)
+            Attacked();
+
         if (canMove)
             MovePlayer();
 
@@ -138,28 +156,47 @@ public class Player : MonoBehaviour, IAttacker
         return playerData.finalAttackSpeed;
     }
 
-    public bool CanAttack(Transform target)
+    private bool CanAttack()
     {
         return !damageTimerRunning;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject c = collision.gameObject;
+        if (c.CompareTag("Block"))
+        {
+            targetBlock = c.GetComponent<Block>();
+            fightingBlock = true;
+            moving = false;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        GameObject c = collision.gameObject;
+        if (c.CompareTag("Block"))
+        {
+            targetBlock = null;
+            fightingBlock = false;
+        }
     }
 
     /// <summary>
     /// Called when the player has attacked, used to reset timer.
     /// </summary>
-    public float Attacked(GameObject target)
+    public void Attacked()
     {
-        this.target = target;
-        sprite.flipX = target.transform.position.x < transform.position.x;
+        sprite.flipX = targetBlock.transform.position.x < transform.position.x;
 
         anim.Play("Player_Punch");
         soundManager.PlayAttack();
+        ProcAbilities();
+
+        targetBlock.TakingDamageisDead(GetDamage());
 
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
-
-        ProcAbilities();
-
-        return GetDamage();
     }
 
     private void PurchasedAbility(object ability)
@@ -208,7 +245,7 @@ public class Player : MonoBehaviour, IAttacker
                 }
 
                 if (a.abilitySubType == AbilitySubType.DAMAGE)
-                    particles.transform.position = target.transform.position;
+                    particles.transform.position = targetBlock.transform.position;
 
                 particles.Play();
             }
@@ -286,7 +323,7 @@ public class Player : MonoBehaviour, IAttacker
 
     private void MovePlayer()
     {
-        if (Input.GetMouseButton(0))
+        if (!autoEnabled && Input.GetMouseButton(0))
         {
             Vector3 temp = Input.mousePosition;
             temp.z = 10f;
@@ -296,12 +333,35 @@ public class Player : MonoBehaviour, IAttacker
             sprite.flipX = clickPos.x < transform.position.x;
         }
 
-        if (transform.position != clickPos && moving)
+        if (!autoEnabled && (transform.position != clickPos && moving))
         {
             transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
         }
         else
         {
+            moving = false;
+            if (autoEnabled && !fightingBlock && transform.position != clickPos)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+
+                moving = true;
+                sprite.flipX = clickPos.x < transform.position.x;
+            }
+        }
+    }
+
+    private void GetNewTarget()
+    {
+        if (blockSpawner.blockDictionary.Count() > 0)
+        {
+            var target = blockSpawner.blockDictionary.OrderBy(s => Vector2.Distance(transform.position, s.Value.position)).First().Value;
+            targetBlock = target.gameObject.GetComponent<Block>();
+            clickPos = target.position;
+            fightingBlock = false;
+        }
+        else
+        {
+            clickPos = transform.position;
             moving = false;
         }
     }
@@ -310,6 +370,21 @@ public class Player : MonoBehaviour, IAttacker
     {
         //clickPos = transform.position;
         moving = false;
+    }
+
+    private void ToggleAuto(object unused)
+    {
+        autoEnabled = !autoEnabled;
+        if (autoEnabled)
+        {
+            playerData.baseMoveSpeed /= 3;
+            playerData.finalMoveSpeed /= 3;
+        }
+        else
+        {
+            playerData.baseMoveSpeed *= 3;
+            playerData.finalMoveSpeed *= 3;
+        }
     }
 
     #endregion Movement
