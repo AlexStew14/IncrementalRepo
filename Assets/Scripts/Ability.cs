@@ -11,7 +11,8 @@ public enum AbilityType
 public enum AbilitySubType
 {
     MOVEMENTSPEED,
-    DAMAGE
+    DAMAGE,
+    AREADAMAGE
 }
 
 [Serializable]
@@ -26,6 +27,8 @@ public class Ability : Skill
     public float activationChance;
     public float maxActivationChance;
     public float nextChanceIncrease;
+
+    public float radius;
 
     public Func<float, float> activationFunction { get; set; }
 
@@ -121,6 +124,9 @@ public class Ability : Skill
 
             case AbilitySubType.MOVEMENTSPEED:
                 return "Speed";
+
+            case AbilitySubType.AREADAMAGE:
+                return "Area Damage";
 
             default:
                 return "INVALID";

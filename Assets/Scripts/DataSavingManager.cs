@@ -647,6 +647,7 @@ public class DataSavingManager : MonoBehaviour
 
         Func<int, int> abilCost = (x) => (int)(Math.Pow(1.08, x) * 25);
         Func<int, int> abilCost2 = (x) => (int)(Math.Pow(1.08, x) * 100);
+        Func<int, int> abilCost3 = (x) => (int)(Math.Pow(1.08, x) * 250);
 
         // ******************** Abilities **********************
         skillDictionary.Add("Ability1",
@@ -691,6 +692,29 @@ public class DataSavingManager : MonoBehaviour
                 activationFunction = (x) => .025f,
                 costFunction = abilCost2,
                 improvementFunction = (x) => .2f
+            });
+
+        skillDictionary.Add("Ability3",
+            new Ability
+            {
+                name = "Ability3",
+                type = SkillType.ABILITY,
+                abilityType = AbilityType.PASSIVE,
+                abilitySubType = AbilitySubType.AREADAMAGE,
+                currentStatIncrease = 0,
+                nextStatIncrease = .5f,
+                nextChanceIncrease = .15f,
+                maxActivationChance = 1f,
+                radius = 2f,
+                duration = 0,
+                cooldown = 0,
+                level = 0,
+                maxLevel = 100,
+                prefabIndex = 1,
+                upgradeCost = 250,
+                activationFunction = (x) => .025f,
+                costFunction = abilCost3,
+                improvementFunction = (x) => .1f
             });
 
         return skillDictionary;

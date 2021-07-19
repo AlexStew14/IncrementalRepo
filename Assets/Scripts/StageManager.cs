@@ -69,6 +69,9 @@ public class StageManager : MonoBehaviour
 
         EventManager.TriggerEvent("TogglePrestige", CanPrestige());
 
+        if (dataSavingManager.GetMapLevel(10) != null)
+            EventManager.TriggerEvent("UnlockedAuto");
+
         InitalizeStageAndMapLevel();
     }
 
@@ -126,6 +129,8 @@ public class StageManager : MonoBehaviour
 
             if (mapLevelKey == 101)
                 EventManager.TriggerEvent("TogglePrestige", true);
+            else if (mapLevelKey == 10)
+                EventManager.TriggerEvent("UnlockedAuto");
         }
 
         currentMapLevel = mapLevel;

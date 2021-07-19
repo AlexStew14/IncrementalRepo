@@ -196,9 +196,18 @@ public class Player : MonoBehaviour
 
         anim.Play("Player_Punch");
         soundManager.PlayAttack();
-        ProcAbilities();
+        List<Transform> targets = ProcAbilities();
 
-        targetBlock.TakingDamageisDead(GetDamage());
+        if (targets.Count() == 0)
+            targetBlock.TakingDamageisDead(GetDamage());
+        else
+        {
+            foreach (var t in targets)
+            {
+                Block tBlock = t.gameObject.GetComponent<Block>();
+                tBlock.TakingDamageisDead(GetDamage());
+            }
+        }
 
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
@@ -213,8 +222,10 @@ public class Player : MonoBehaviour
             purchasedPassives.Add(a);
     }
 
-    private void ProcAbilities()
+    private List<Transform> ProcAbilities()
     {
+        List<Transform> targets = new List<Transform>();
+
         foreach (Ability a in purchasedPassives)
         {
             if (a.Cast())
@@ -223,6 +234,15 @@ public class Player : MonoBehaviour
                     playerData.finalMoveSpeed = playerData.baseMoveSpeed * a.totalStatIncrease;
                 else if (a.abilitySubType == AbilitySubType.DAMAGE)
                     playerData.finalDamage = playerData.baseDamage * a.totalStatIncrease;
+                else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
+                {
+                    var t = blockSpawner.blockDictionary.Where(s => Vector2.Distance(transform.position, s.Value.position) <= a.radius)
+                          .Select(s => s.Value).ToList();
+
+                    targets.AddRange(t);
+
+                    playerData.finalDamage = playerData.finalDamage * a.totalStatIncrease;
+                }
 
                 ParticleSystem particles;
                 if (abilityEffectsDict.ContainsKey(a.prefabIndex))
@@ -258,6 +278,8 @@ public class Player : MonoBehaviour
                 particles.Play();
             }
         }
+
+        return targets;
     }
 
     private void CheckAbilities()
@@ -289,6 +311,10 @@ public class Player : MonoBehaviour
                 playerData.finalMoveSpeed = playerData.baseMoveSpeed;
             }
             else if (a.abilitySubType == AbilitySubType.DAMAGE)
+            {
+                playerData.finalDamage = playerData.baseDamage;
+            }
+            else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
             {
                 playerData.finalDamage = playerData.baseDamage;
             }
@@ -345,7 +371,10 @@ public class Player : MonoBehaviour
 
             if (moving)
             {
-                transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+                if (transform.position != clickPos)
+                    transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+                else
+                    moving = false;
             }
         }
         else

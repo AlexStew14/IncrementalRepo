@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     private Player player;
 
+    private bool autoUnlocked = false;
+
     /// <summary>
     /// Buttons used for skills in the shop panel.
     /// </summary>
@@ -69,6 +71,8 @@ public class UIManager : MonoBehaviour
 
     private UnityAction<object> goldArrived;
 
+    private UnityAction<object> unlockedAuto;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -83,12 +87,16 @@ public class UIManager : MonoBehaviour
 
         togglePrestige = new UnityAction<object>(SetPrestigeButtonStatus);
         EventManager.StartListening("TogglePrestige", togglePrestige);
+
+        unlockedAuto = new UnityAction<object>(UnlockedAuto);
+        EventManager.StartListening("UnlockedAuto", unlockedAuto);
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         shopPanel.SetActive(false);
+        autoButton.SetActive(false);
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         currentMoneyAnimator = currentMoney.GetComponent<Animator>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
@@ -246,7 +254,7 @@ public class UIManager : MonoBehaviour
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
-        autoButton.SetActive(!autoButton.activeSelf);
+        autoButton.SetActive(!autoButton.activeSelf && autoUnlocked);
         player.StopMoving();
     }
 
@@ -316,6 +324,12 @@ public class UIManager : MonoBehaviour
     {
         player.StopMoving();
         EventManager.TriggerEvent("ToggleAuto");
+    }
+
+    private void UnlockedAuto(object unused)
+    {
+        autoButton.SetActive(true);
+        autoUnlocked = true;
     }
 
     #endregion Skill UI Methods
