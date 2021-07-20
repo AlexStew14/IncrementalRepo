@@ -214,7 +214,7 @@ public class Shop : MonoBehaviour
         }
         else if (upgradedSkill.type == SkillType.SPAWNSPEED)
         {
-            blockSpawner.FlatSpawnSpeedIncrease(upgradedSkill.currentStatIncrease);
+            blockSpawner.PctSpawnSpeedUpgrade(upgradedSkill.currentStatIncrease);
         }
         else if (upgradedSkill.type == SkillType.MOVEMENTSPEED)
         {

@@ -51,9 +51,9 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            Load();
+            //Load();
             // TODO this is only for debug.
-            //Delete();
+            Delete();
         }
         else
         {
@@ -544,18 +544,20 @@ public class DataSavingManager : MonoBehaviour
                 milestoneMultipler = 1
             });
 
+        Func<int, int> spawnCost = (x) => (int)(Math.Pow(1.08, x) * 25);
+
         skillDictionary.Add("SpawnSpeed",
             new Skill
             {
                 name = "SpawnSpeed",
                 currentStatIncrease = 0,
-                nextStatIncrease = .3f,
+                nextStatIncrease = .99f,
                 totalStatIncrease = 0,
                 level = 1,
-                maxLevel = 25,
+                maxLevel = 500,
                 type = SkillType.SPAWNSPEED,
-                upgradeCost = 20,
-                costFunction = (x) => (int)(x * 1.5f),
+                upgradeCost = 25,
+                costFunction = spawnCost,
                 improvementFunction = (x) => x,
                 milestoneLevel = 10000,
                 milestoneMultipler = 1

@@ -123,9 +123,9 @@ public class BlockSpawner : MonoBehaviour
         blockDictionary.Remove(deadBlock.blockKey);
     }
 
-    public void FlatSpawnSpeedIncrease(float spawnSpeedIncrease)
+    public void PctSpawnSpeedUpgrade(float spawnSpeedMult)
     {
-        blockSpawnData.spawnTime -= spawnSpeedIncrease;
+        blockSpawnData.spawnTime *= spawnSpeedMult;
         dataSavingManager.SetBlockSpawnData(blockSpawnData);
         dataSavingManager.Save();
     }

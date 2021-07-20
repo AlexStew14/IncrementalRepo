@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
     private List<Ability> purchasedPassives;
     private List<Ability> purchasedActives;
 
+    private Dictionary<Ability, double> appliedAbilities;
+
     private UnityAction<object> purchasedAbility;
 
     private UnityAction<object> toggleAuto;
@@ -90,6 +92,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening("ToggleAuto", toggleAuto);
 
         abilityEffectsDict = new Dictionary<int, ParticleSystem>();
+        appliedAbilities = new Dictionary<Ability, double>();
     }
 
     private void Awake()
@@ -251,6 +254,8 @@ public class Player : MonoBehaviour
                     playerData.finalDamage = playerData.finalDamage * a.totalStatIncrease;
                 }
 
+                appliedAbilities.Add(a, a.totalStatIncrease);
+
                 ParticleSystem particles;
                 if (abilityEffectsDict.ContainsKey(a.prefabIndex))
                 {
@@ -315,16 +320,18 @@ public class Player : MonoBehaviour
         {
             if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
             {
-                playerData.finalMoveSpeed = playerData.baseMoveSpeed;
+                playerData.finalMoveSpeed /= (float)appliedAbilities[a];
             }
             else if (a.abilitySubType == AbilitySubType.DAMAGE)
             {
-                playerData.finalDamage = playerData.baseDamage;
+                playerData.finalDamage /= (float)appliedAbilities[a];
             }
             else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
             {
-                playerData.finalDamage = playerData.baseDamage;
+                playerData.finalDamage /= (float)appliedAbilities[a];
             }
+
+            appliedAbilities.Remove(a);
         }
     }
 
@@ -420,12 +427,10 @@ public class Player : MonoBehaviour
         autoEnabled = !autoEnabled;
         if (autoEnabled)
         {
-            playerData.baseMoveSpeed /= 3;
             playerData.finalMoveSpeed /= 3;
         }
         else
         {
-            playerData.baseMoveSpeed *= 3;
             playerData.finalMoveSpeed *= 3;
         }
     }

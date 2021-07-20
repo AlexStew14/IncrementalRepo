@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     private Player player;
 
     private bool autoUnlocked = false;
+    private bool autoEnabled = false;
 
     /// <summary>
     /// Buttons used for skills in the shop panel.
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
     private GameObject autoButton;
 
     [SerializeField]
-    private GameObject[] damagePanels;
+    private GameObject[] abilityPanels;
 
     [SerializeField]
     private GameObject mapLevelPanel;
@@ -147,9 +148,9 @@ public class UIManager : MonoBehaviour
 
     public void SetSkillPanelsVisibility(Dictionary<string, Skill> skillDictionary)
     {
-        for (int i = 1; i < damagePanels.Length; i++)
+        for (int i = 1; i < abilityPanels.Length; i++)
         {
-            damagePanels[i].SetActive(skillDictionary["Damage" + i].level > 9);
+            abilityPanels[i].SetActive(skillDictionary["Ability" + i].level > 9);
         }
     }
 
@@ -191,6 +192,7 @@ public class UIManager : MonoBehaviour
         {
             case SkillType.DMG:
                 bonusText += "+" + string.Format("{0:0.##}", skill.nextStatIncrease) + " dmg";
+                nameText = "Base Damage\nTotal: " + skill.totalStatIncrease;
                 break;
 
             case SkillType.HELPER:
@@ -331,6 +333,12 @@ public class UIManager : MonoBehaviour
     public void ToggleAutoMode()
     {
         player.StopMoving();
+        autoEnabled = !autoEnabled;
+        if (autoEnabled)
+            autoButton.GetComponent<Image>().color = Color.green;
+        else
+            autoButton.GetComponent<Image>().color = Color.red;
+
         EventManager.TriggerEvent("ToggleAuto");
     }
 
@@ -343,6 +351,8 @@ public class UIManager : MonoBehaviour
     private void HandleOfflineProgress(object offlineMoney)
     {
         offlinePanel.SetActive(true);
+        player.StopMoving();
+
         TextMeshProUGUI rewardText = offlinePanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         rewardText.text = "Welcome Back!\nYou've Earned " + (long)offlineMoney + " Gold while away!";
         GoldArrived(null);
