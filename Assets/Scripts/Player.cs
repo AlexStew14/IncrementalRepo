@@ -272,7 +272,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     GameObject abilityEffect = Instantiate(abilityPrefabs[a.prefabIndex], transform.position, Quaternion.identity);
-                    if (a.abilitySubType != AbilitySubType.DAMAGE)
+                    if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
                         abilityEffect.transform.parent = transform;
 
                     particles = abilityEffect.GetComponent<ParticleSystem>();
@@ -284,7 +284,7 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if (a.abilitySubType == AbilitySubType.DAMAGE)
+                if (a.abilitySubType == AbilitySubType.DAMAGE || a.abilitySubType == AbilitySubType.AREADAMAGE)
                     particles.transform.position = targetBlock.transform.position;
 
                 particles.Play();

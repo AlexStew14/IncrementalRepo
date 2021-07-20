@@ -1970,6 +1970,7 @@ MonoBehaviour:
   character: {fileID: 1876420641899530792, guid: 6238c333050b20e4e82f3d9ecb2a6d2e, type: 3}
   abilityPrefabs:
   - {fileID: 189212, guid: 89e6b9ae156b16c42bd4da5aa094d1fc, type: 3}
+  - {fileID: 104674, guid: 7d94f95c4fa5bad48a97306b1143b882, type: 3}
   - {fileID: 135520, guid: 71f41880794ca1941a088c95db570547, type: 3}
 --- !u!4 &396581102
 Transform:
@@ -4489,8 +4490,10 @@ MonoBehaviour:
   - {fileID: 998819138}
   - {fileID: 1769568382}
   autoButton: {fileID: 1570713465}
-  damagePanels:
-  - {fileID: 1216740098}
+  abilityPanels:
+  - {fileID: 643567796}
+  - {fileID: 746045989}
+  - {fileID: 1162520262}
   mapLevelPanel: {fileID: 2057496616}
   bossTimerPanel: {fileID: 1476832708}
   offlinePanel: {fileID: 1163302278}
