@@ -49,6 +49,8 @@ public class Shop : MonoBehaviour
 
     private UnityAction<object> tryUpgrade;
 
+    private UnityAction<object> offlineProgress;
+
     #endregion Private Fields
 
     #region Unity Methods
@@ -60,6 +62,8 @@ public class Shop : MonoBehaviour
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         blockSpawner = GameObject.FindGameObjectWithTag("BlockSpawner").GetComponent<BlockSpawner>();
 
+        offlineProgress = new UnityAction<object>(HandleOfflineProgress);
+        EventManager.StartListening("OfflineProgress", offlineProgress);
         blockKilled = new UnityAction<object>(BlockKilled);
         EventManager.StartListening("BlockKilled", blockKilled);
 
@@ -147,6 +151,16 @@ public class Shop : MonoBehaviour
         uiManager.SetSkillButtonStatuses(dataSavingManager.GetSkillDictionary(), playerMoney, prestigeMoney);
         dataSavingManager.SetOtherValue("PrestigeMoney", prestigeMoney);
         dataSavingManager.Save();
+    }
+
+    /// <summary>
+    /// This takes in offline money
+    /// </summary>
+    /// <param name="offlineMoney"></param>
+    private void HandleOfflineProgress(object offlineMoney)
+    {
+        Debug.LogWarning("Offline triggered");
+        UpdatePlayerMoneyAndUI((long)offlineMoney + playerMoney);
     }
 
     /// <summary>

@@ -51,14 +51,16 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            //Load();
+            Load();
             // TODO this is only for debug.
-            Delete();
+            //Delete();
         }
         else
         {
             SeedGameData();
         }
+
+        InvokeRepeating("SetTimeStamp", 15, 15);
     }
 
     public void Save()
@@ -84,7 +86,6 @@ public class DataSavingManager : MonoBehaviour
             FileStream file = File.Open(saveFilePath, FileMode.Open);
             gameData = (GameData)bf.Deserialize(file);
             file.Close();
-
             //Debug.Log("Game data loaded");
         }
         catch (Exception)
@@ -92,6 +93,11 @@ public class DataSavingManager : MonoBehaviour
             Debug.Log("Game data file is corrupt and could not be loaded");
             Delete();
         }
+    }
+
+    private void SetTimeStamp()
+    {
+        SetOtherValue("TimeStamp", DateTime.Now);
     }
 
     /// <summary>
@@ -263,8 +269,8 @@ public class DataSavingManager : MonoBehaviour
     {
         return new BlockSpawnData
         {
-            maxCurrentBlocks = 3,
-            spawnTime = 3.0f
+            maxCurrentBlocks = 5,
+            spawnTime = 2f
         };
     }
 
@@ -281,7 +287,10 @@ public class DataSavingManager : MonoBehaviour
                 {"CurrentStage", 0 },
                 {"CurrentMapLevel", 0 },
                 {"MaxKillCount", 10 },
-                {"LevelPerStage", 10 }
+                {"LevelPerStage", 10 },
+                {"TimeStamp", System.DateTime.Now },
+                {"OfflineMultiplier", .1 },
+                {"UnlockedAuto", false }
             };
     }
 

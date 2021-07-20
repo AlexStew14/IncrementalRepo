@@ -55,23 +55,22 @@ public class UIManager : MonoBehaviour
     private GameObject bossTimerPanel;
 
     [SerializeField]
+    private GameObject offlinePanel;
+
+    [SerializeField]
     private Slider bossTimerSlider;
 
     private UnityAction<object> updateLevelUI;
-
     private UnityAction<object> upgrade;
-
     private UnityAction<object> togglePrestige;
-
     private UnityAction<object> startBoss;
-
     private UnityAction<object> setBossTimer;
-
     private UnityAction<object> endBoss;
-
     private UnityAction<object> goldArrived;
-
     private UnityAction<object> unlockedAuto;
+    private UnityAction<object> offlineProgress;
+
+    private DataSavingManager dataSavingManager;
 
     #endregion Private Fields
 
@@ -87,9 +86,6 @@ public class UIManager : MonoBehaviour
 
         togglePrestige = new UnityAction<object>(SetPrestigeButtonStatus);
         EventManager.StartListening("TogglePrestige", togglePrestige);
-
-        unlockedAuto = new UnityAction<object>(UnlockedAuto);
-        EventManager.StartListening("UnlockedAuto", unlockedAuto);
     }
 
     // Start is called before the first frame update
@@ -97,6 +93,8 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(false);
         autoButton.SetActive(false);
+        offlinePanel.SetActive(false);
+
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
         currentMoneyAnimator = currentMoney.GetComponent<Animator>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
@@ -113,6 +111,16 @@ public class UIManager : MonoBehaviour
 
         goldArrived = new UnityAction<object>(GoldArrived);
         EventManager.StartListening("GoldArrived", goldArrived);
+
+        unlockedAuto = new UnityAction<object>(UnlockedAuto);
+        EventManager.StartListening("UnlockedAuto", unlockedAuto);
+
+        offlineProgress = new UnityAction<object>(HandleOfflineProgress);
+        EventManager.StartListening("OfflineProgress", offlineProgress);
+
+        dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
+        if ((bool)dataSavingManager.GetOtherValue("UnlockedAuto"))
+            UnlockedAuto(null);
     }
 
     #endregion Unity Methods
@@ -330,6 +338,19 @@ public class UIManager : MonoBehaviour
     {
         autoButton.SetActive(true);
         autoUnlocked = true;
+    }
+
+    private void HandleOfflineProgress(object offlineMoney)
+    {
+        offlinePanel.SetActive(true);
+        TextMeshProUGUI rewardText = offlinePanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        rewardText.text = "Welcome Back!\nYou've Earned " + (long)offlineMoney + " Gold while away!";
+        GoldArrived(null);
+    }
+
+    public void CloseOfflinePanel()
+    {
+        offlinePanel.SetActive(false);
     }
 
     #endregion Skill UI Methods

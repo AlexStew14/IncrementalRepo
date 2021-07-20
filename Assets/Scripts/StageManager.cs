@@ -43,6 +43,8 @@ public class StageManager : MonoBehaviour
 
     private UnityAction<object> killedBoss;
 
+    private DateTime timeStamp;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -69,10 +71,8 @@ public class StageManager : MonoBehaviour
 
         EventManager.TriggerEvent("TogglePrestige", CanPrestige());
 
-        if (dataSavingManager.GetMapLevel(10) != null)
-            EventManager.TriggerEvent("UnlockedAuto");
-
         InitalizeStageAndMapLevel();
+        Invoke("HandleOfflineProgress", 1.0f);
     }
 
     private void BlockKilled(object killed)
@@ -106,6 +106,28 @@ public class StageManager : MonoBehaviour
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
     }
 
+    private void HandleOfflineProgress()
+    {
+        if ((bool)dataSavingManager.GetOtherValue("UnlockedAuto"))
+        {
+            PlayerData playerData = dataSavingManager.GetPlayerData();
+            double secondsOffline = (DateTime.Now - (DateTime)dataSavingManager.GetOtherValue("TimeStamp")).TotalSeconds;
+            float dps = (1 / playerData.baseAttackSpeed) * playerData.baseDamage;
+
+            double totalDamage = secondsOffline * dps;
+            double blocksKilled = totalDamage / blockHealth;
+
+            double offlineReward = blocksKilled * blockKillReward * (double)dataSavingManager.GetOtherValue("OfflineMultiplier");
+
+            Debug.LogWarning("seconds offline: " + secondsOffline);
+
+            dataSavingManager.SetOtherValue("TimeStamp", DateTime.Now);
+            dataSavingManager.Save();
+
+            EventManager.TriggerEvent("OfflineProgress", (long)(offlineReward));
+        }
+    }
+
     private void SwitchMapLevel(int mapLevelKey)
     {
         var mapLevel = dataSavingManager.GetMapLevel(mapLevelKey);
@@ -130,7 +152,11 @@ public class StageManager : MonoBehaviour
             if (mapLevelKey == 101)
                 EventManager.TriggerEvent("TogglePrestige", true);
             else if (mapLevelKey == 10)
+            {
                 EventManager.TriggerEvent("UnlockedAuto");
+                dataSavingManager.SetOtherValue("UnlockedAuto", true);
+                dataSavingManager.Save();
+            }
         }
 
         currentMapLevel = mapLevel;

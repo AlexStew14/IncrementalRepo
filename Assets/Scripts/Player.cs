@@ -184,7 +184,14 @@ public class Player : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        fightingBlock = true;
+        GameObject c = collision.gameObject;
+        if (c.CompareTag("Block"))
+        {
+            if (targetBlock == null)
+                targetBlock = c.GetComponent<Block>();
+
+            fightingBlock = true;
+        }
     }
 
     /// <summary>
