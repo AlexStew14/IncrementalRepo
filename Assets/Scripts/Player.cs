@@ -206,18 +206,11 @@ public class Player : MonoBehaviour
 
         anim.Play("Player_Punch");
         soundManager.PlayAttack();
-        List<Transform> targets = ProcAbilities();
 
-        if (targets.Count() == 0)
+        bool dealtDamage = ProcAbilities();
+
+        if (!dealtDamage)
             targetBlock.TakingDamageisDead(GetDamage());
-        else
-        {
-            foreach (var t in targets)
-            {
-                Block tBlock = t.gameObject.GetComponent<Block>();
-                tBlock.TakingDamageisDead(GetDamage());
-            }
-        }
 
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
@@ -232,26 +225,43 @@ public class Player : MonoBehaviour
             purchasedPassives.Add(a);
     }
 
-    private List<Transform> ProcAbilities()
+    private bool ProcAbilities()
     {
-        List<Transform> targets = new List<Transform>();
-
+        bool damageDealt = false;
         foreach (Ability a in purchasedPassives)
         {
-            if (a.Cast())
+            // Only want to cast max 1 damaging ability per cast
+            if ((!damageDealt || a.abilitySubType == AbilitySubType.MOVEMENTSPEED) && a.Cast())
             {
                 if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
                     playerData.finalMoveSpeed = playerData.baseMoveSpeed * a.totalStatIncrease;
                 else if (a.abilitySubType == AbilitySubType.DAMAGE)
-                    playerData.finalDamage = playerData.baseDamage * a.totalStatIncrease;
+                {
+                    if (targetBlock != null && !targetBlock.isDead)
+                        targetBlock.TakingDamageisDead(playerData.baseDamage * a.totalStatIncrease);
+
+                    damageDealt = true;
+                }
                 else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
                 {
                     var t = blockSpawner.blockDictionary.Where(s => Vector2.Distance(transform.position, s.Value.position) <= a.radius)
                           .Select(s => s.Value).ToList();
 
-                    targets.AddRange(t);
+                    foreach (var b in t)
+                    {
+                        Block block = b.gameObject.GetComponent<Block>();
+                        if (block != null && !block.isDead)
+                            block.TakingDamageisDead(playerData.baseDamage * a.totalStatIncrease);
+                    }
 
-                    playerData.finalDamage = playerData.finalDamage * a.totalStatIncrease;
+                    damageDealt = true;
+                }
+                else if (a.abilitySubType == AbilitySubType.DAMAGEOVERTIME)
+                {
+                    if (targetBlock != null && !targetBlock.isDead)
+                        targetBlock.DamageOverTime((playerData.finalDamage * a.totalStatIncrease) / a.duration, a.duration);
+
+                    damageDealt = true;
                 }
 
                 appliedAbilities.Add(a, a.totalStatIncrease);
@@ -260,14 +270,6 @@ public class Player : MonoBehaviour
                 if (abilityEffectsDict.ContainsKey(a.prefabIndex))
                 {
                     particles = abilityEffectsDict[a.prefabIndex];
-                    if (a.duration > 0)
-                    {
-                        if (particles.isStopped)
-                        {
-                            var main = particles.main;
-                            main.duration = a.duration;
-                        }
-                    }
                 }
                 else
                 {
@@ -284,14 +286,13 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if (a.abilitySubType == AbilitySubType.DAMAGE || a.abilitySubType == AbilitySubType.AREADAMAGE)
+                if (a.abilitySubType != AbilitySubType.MOVEMENTSPEED)
                     particles.transform.position = targetBlock.transform.position;
 
                 particles.Play();
             }
         }
-
-        return targets;
+        return damageDealt;
     }
 
     private void CheckAbilities()
@@ -324,11 +325,12 @@ public class Player : MonoBehaviour
             }
             else if (a.abilitySubType == AbilitySubType.DAMAGE)
             {
-                playerData.finalDamage /= (float)appliedAbilities[a];
             }
             else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
             {
-                playerData.finalDamage /= (float)appliedAbilities[a];
+            }
+            else if (a.abilitySubType == AbilitySubType.DAMAGEOVERTIME)
+            {
             }
 
             appliedAbilities.Remove(a);

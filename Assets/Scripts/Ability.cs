@@ -12,7 +12,8 @@ public enum AbilitySubType
 {
     MOVEMENTSPEED,
     DAMAGE,
-    AREADAMAGE
+    AREADAMAGE,
+    DAMAGEOVERTIME
 }
 
 [Serializable]
@@ -127,6 +128,9 @@ public class Ability : Skill
 
             case AbilitySubType.AREADAMAGE:
                 return "Area Damage";
+
+            case AbilitySubType.DAMAGEOVERTIME:
+                return "Damage Over Time";
 
             default:
                 return "INVALID";

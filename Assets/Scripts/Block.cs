@@ -142,5 +142,20 @@ public class Block : MonoBehaviour
         return isDead;
     }
 
+    public void DamageOverTime(float damage, float duration)
+    {
+        StartCoroutine(InflictDamage(damage, duration));
+    }
+
+    private IEnumerator InflictDamage(float damage, float duration)
+    {
+        while (!isDead && duration > 0)
+        {
+            duration -= .2f;
+            TakingDamageisDead(damage);
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+
     #endregion Death Methods
 }
