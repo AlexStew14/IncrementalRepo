@@ -402,7 +402,11 @@ public class DataSavingManager : MonoBehaviour
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
         Func<int, int> dmgCost = (x) => (int)(Math.Pow(1.08, x) * 5);
-        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.07, x) * 250);
+        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.08, x) * 25);
+        Func<int, int> dmg3Cost = (x) => (int)(Math.Pow(1.08, x) * 50);
+        Func<int, int> dmg4Cost = (x) => (int)(Math.Pow(1.08, x) * 250);
+        Func<int, int> dmg5Cost = (x) => (int)(Math.Pow(1.08, x) * 500);
+        Func<int, int> dmg6Cost = (x) => (int)(Math.Pow(1.08, x) * 1000);
         Func<float, float> dmgImprove = x => x;
         int milestoneLevel = 25;
         float milestoneMultiplier = 2f;
@@ -429,12 +433,12 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage2",
                 currentStatIncrease = 0,
-                nextStatIncrease = 10,
+                nextStatIncrease = 5,
                 totalStatIncrease = 0,
                 level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 250,
+                upgradeCost = 25,
                 costFunction = dmg2Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
@@ -446,16 +450,16 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage3",
                 currentStatIncrease = 0,
-                nextStatIncrease = 10000,
+                nextStatIncrease = 25,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 1000,
-                costFunction = dmgCost,
+                upgradeCost = 50,
+                costFunction = dmg3Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("Damage4",
@@ -463,16 +467,16 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage4",
                 currentStatIncrease = 0,
-                nextStatIncrease = 10000,
+                nextStatIncrease = 100,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 1000,
-                costFunction = dmgCost,
+                upgradeCost = 250,
+                costFunction = dmg4Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("Damage5",
@@ -480,16 +484,16 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage5",
                 currentStatIncrease = 0,
-                nextStatIncrease = 10000,
+                nextStatIncrease = 250,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
-                upgradeCost = 1000,
-                costFunction = dmgCost,
+                upgradeCost = 500,
+                costFunction = dmg5Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("Damage6",
@@ -497,16 +501,16 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "Damage6",
                 currentStatIncrease = 0,
-                nextStatIncrease = 10000,
+                nextStatIncrease = 500,
                 totalStatIncrease = 0,
-                level = 1,
+                level = 0,
                 maxLevel = 10000,
                 type = SkillType.DMG,
                 upgradeCost = 1000,
-                costFunction = dmgCost,
+                costFunction = dmg6Cost,
                 improvementFunction = dmgImprove,
                 milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier
+                milestoneMultipler = 1.25f
             });
 
         skillDictionary.Add("AttackSpeed",
@@ -695,7 +699,7 @@ public class DataSavingManager : MonoBehaviour
                 nextChanceIncrease = .05f,
                 maxActivationChance = .35f,
                 duration = 0,
-                cooldown = 2f,
+                cooldown = 0,
                 level = 0,
                 maxLevel = 100,
                 prefabIndex = 1,
@@ -718,7 +722,7 @@ public class DataSavingManager : MonoBehaviour
                 maxActivationChance = .35f,
                 radius = 2f,
                 duration = 0,
-                cooldown = 2f,
+                cooldown = 0,
                 level = 0,
                 maxLevel = 100,
                 prefabIndex = 2,
@@ -740,7 +744,7 @@ public class DataSavingManager : MonoBehaviour
                 nextChanceIncrease = .05f,
                 maxActivationChance = .35f,
                 duration = 3,
-                cooldown = 2f,
+                cooldown = 0,
                 level = 0,
                 maxLevel = 100,
                 prefabIndex = 3,

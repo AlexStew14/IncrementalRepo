@@ -131,7 +131,7 @@ public class Block : MonoBehaviour
         currentHealth -= damageTaken;
 
         GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);
-        string damage = string.Format("{0:#}", damageTaken);
+        string damage = string.Format("{0:0.#}", damageTaken);
         dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damage);
         slider.value = currentHealth;
         //Debug.Log("Block attacked, health: " + currentHealth);

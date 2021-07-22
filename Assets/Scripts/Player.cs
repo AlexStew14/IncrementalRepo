@@ -225,10 +225,33 @@ public class Player : MonoBehaviour
             purchasedPassives.Add(a);
     }
 
+    /// <summary>
+    /// Code from https://answers.unity.com/questions/956636/how-to-randomly-iterate-through-a-list-of-objects.html
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="array"></param>
+    private void ShuffleArray<T>(T[] array)
+    {
+        int n = array.Length;
+        for (int i = 0; i < n; i++)
+        {
+            // Pick a new index higher than current for each item in the array
+            int r = i + UnityEngine.Random.Range(0, n - i);
+
+            // Swap item into new spot
+            T t = array[r];
+            array[r] = array[i];
+            array[i] = t;
+        }
+    }
+
     private bool ProcAbilities()
     {
+        var shuffledPassives = purchasedPassives.ToArray();
+        ShuffleArray(shuffledPassives);
+
         bool damageDealt = false;
-        foreach (Ability a in purchasedPassives)
+        foreach (Ability a in shuffledPassives)
         {
             // Only want to cast max 1 damaging ability per cast
             if ((!damageDealt || a.abilitySubType == AbilitySubType.MOVEMENTSPEED) && a.Cast())

@@ -83,6 +83,7 @@ public class Shop : MonoBehaviour
         // Load skill dictionary into shop and ui
         uiManager.LoadSkillDescriptions(dataSavingManager.GetSkillDictionary());
         uiManager.SetSkillPanelsVisibility(dataSavingManager.GetSkillDictionary());
+        uiManager.SetDamagePanelsVisibilty(dataSavingManager.GetSkillDictionary());
         LoadHelpers();
     }
 
@@ -174,6 +175,7 @@ public class Shop : MonoBehaviour
         uiManager.SetMoneyText(money);
         uiManager.SetSkillButtonStatuses(dataSavingManager.GetSkillDictionary(), money, playerPrestigeMoney);
         uiManager.SetSkillPanelsVisibility(dataSavingManager.GetSkillDictionary());
+        uiManager.SetDamagePanelsVisibilty(dataSavingManager.GetSkillDictionary());
         dataSavingManager.SetOtherValue("Money", money);
         dataSavingManager.Save();
     }
