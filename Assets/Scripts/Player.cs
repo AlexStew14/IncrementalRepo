@@ -46,11 +46,11 @@ public class Player : MonoBehaviour
     private List<Ability> purchasedPassives;
     private List<Ability> purchasedActives;
 
-    private Dictionary<Ability, double> appliedAbilities;
+    private Dictionary<string, double> appliedAbilities;
 
     private UnityAction<object> purchasedAbility;
 
-    private UnityAction<object> toggleAuto;
+    private UnityAction<object> toggleAutoMove;
 
     [SerializeField]
     private GameObject[] abilityPrefabs;
@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
     private Block targetBlock;
 
     private bool fightingBlock;
+
+    private double finalMoveSpeed;
 
     #endregion Private Fields
 
@@ -80,19 +82,21 @@ public class Player : MonoBehaviour
 
         transform.position = clickPos;
 
+        finalMoveSpeed = playerData.baseMoveSpeed;
+
         //anim = character.GetComponent<Animator>();
         anim = gameObject.transform.GetChild(0).GetComponent<Animator>();
         //sprite = character.GetComponent<SpriteRenderer>();
         sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
 
+        abilityEffectsDict = new Dictionary<int, ParticleSystem>();
+        appliedAbilities = new Dictionary<string, double>();
+
         purchasedAbility = new UnityAction<object>(PurchasedAbility);
         EventManager.StartListening("PurchasedAbility", purchasedAbility);
 
-        toggleAuto = new UnityAction<object>(ToggleAuto);
-        EventManager.StartListening("ToggleAuto", toggleAuto);
-
-        abilityEffectsDict = new Dictionary<int, ParticleSystem>();
-        appliedAbilities = new Dictionary<Ability, double>();
+        toggleAutoMove = new UnityAction<object>(ToggleAutoMove);
+        EventManager.StartListening("ToggleAutoMove", toggleAutoMove);
     }
 
     private void Awake()
@@ -257,7 +261,7 @@ public class Player : MonoBehaviour
             if ((!damageDealt || a.abilitySubType == AbilitySubType.MOVEMENTSPEED) && a.Cast())
             {
                 if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
-                    playerData.finalMoveSpeed = playerData.baseMoveSpeed * a.totalStatIncrease;
+                    finalMoveSpeed *= a.totalStatIncrease;
                 else if (a.abilitySubType == AbilitySubType.DAMAGE)
                 {
                     if (targetBlock != null && !targetBlock.isDead)
@@ -287,7 +291,7 @@ public class Player : MonoBehaviour
                     damageDealt = true;
                 }
 
-                appliedAbilities.Add(a, a.totalStatIncrease);
+                appliedAbilities.Add(a.name, a.totalStatIncrease);
 
                 ParticleSystem particles;
                 if (abilityEffectsDict.ContainsKey(a.prefabIndex))
@@ -309,7 +313,7 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if (a.abilitySubType != AbilitySubType.MOVEMENTSPEED)
+                if (targetBlock != null && a.abilitySubType != AbilitySubType.MOVEMENTSPEED)
                     particles.transform.position = targetBlock.transform.position;
 
                 particles.Play();
@@ -344,19 +348,10 @@ public class Player : MonoBehaviour
         {
             if (a.abilitySubType == AbilitySubType.MOVEMENTSPEED)
             {
-                playerData.finalMoveSpeed /= (float)appliedAbilities[a];
-            }
-            else if (a.abilitySubType == AbilitySubType.DAMAGE)
-            {
-            }
-            else if (a.abilitySubType == AbilitySubType.AREADAMAGE)
-            {
-            }
-            else if (a.abilitySubType == AbilitySubType.DAMAGEOVERTIME)
-            {
+                finalMoveSpeed /= appliedAbilities[a.name];
             }
 
-            appliedAbilities.Remove(a);
+            appliedAbilities.Remove(a.name);
         }
     }
 
@@ -411,7 +406,7 @@ public class Player : MonoBehaviour
             if (moving)
             {
                 if (transform.position != clickPos)
-                    transform.position = Vector3.MoveTowards(transform.position, clickPos, (float)(playerData.finalMoveSpeed * Time.deltaTime));
+                    transform.position = Vector3.MoveTowards(transform.position, clickPos, (float)(finalMoveSpeed * Time.deltaTime));
                 else
                     moving = false;
             }
@@ -420,7 +415,7 @@ public class Player : MonoBehaviour
         {
             if (!fightingBlock)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, (float)(playerData.finalMoveSpeed * Time.deltaTime));
+                transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, (float)(finalMoveSpeed * Time.deltaTime));
                 moving = true;
                 sprite.flipX = clickPos.x < transform.position.x;
             }
@@ -447,17 +442,13 @@ public class Player : MonoBehaviour
         moving = false;
     }
 
-    private void ToggleAuto(object unused)
+    private void ToggleAutoMove(object unused)
     {
         autoEnabled = !autoEnabled;
         if (autoEnabled)
-        {
-            playerData.finalMoveSpeed /= 3;
-        }
+            finalMoveSpeed /= 3;
         else
-        {
-            playerData.finalMoveSpeed *= 3;
-        }
+            finalMoveSpeed *= 3;
     }
 
     #endregion Movement
@@ -491,8 +482,6 @@ public class PlayerData
     public double runAtkSpeedMult;
 
     public double prestigeAtkSpeedMult;
-
-    public double finalMoveSpeed;
 
     public double baseMoveSpeed;
 }

@@ -38,7 +38,7 @@ public class Ability : Skill
 
     public bool activated;
 
-    private bool readyToCast;
+    private bool readyToCast = true;
 
     public int prefabIndex;
 

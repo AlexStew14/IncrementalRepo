@@ -15,8 +15,6 @@ public class BlockSpawner : MonoBehaviour
 
     private double bossTimer = 30.0;
 
-    private int currentBlockCount = 0;
-
     private DataSavingManager dataSavingManager;
 
     [SerializeField]
@@ -78,7 +76,7 @@ public class BlockSpawner : MonoBehaviour
             return;
         }
 
-        if (currentBlockCount < blockSpawnData.maxCurrentBlocks)
+        if (blockDictionary.Count < blockSpawnData.maxCurrentBlocks)
         {
             timer -= Time.deltaTime;
             if (timer <= 0f)
@@ -113,13 +111,11 @@ public class BlockSpawner : MonoBehaviour
         blockDictionary.Add(block.GetComponent<Block>().blockKey, block);
 
         ++TotalBlocksSpawned;
-        ++currentBlockCount;
     }
 
     private void BlockKilled(object b)
     {
         Block deadBlock = (Block)b;
-        --currentBlockCount;
         blockDictionary.Remove(deadBlock.blockKey);
     }
 
@@ -146,7 +142,6 @@ public class BlockSpawner : MonoBehaviour
             // Clear all blocks from the map
             foreach (var k in blockDictionary.Keys)
             {
-                --currentBlockCount;
                 blockDictionary[k].gameObject.GetComponent<Block>().DestroyBlock();
             }
             blockDictionary.Clear();

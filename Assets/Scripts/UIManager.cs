@@ -27,7 +27,8 @@ public class UIManager : MonoBehaviour
     private Player player;
 
     private bool autoUnlocked = false;
-    private bool autoEnabled = false;
+    private bool autoMoveEnabled = false;
+    private bool autoStageEnabled = false;
 
     /// <summary>
     /// Buttons used for skills in the shop panel.
@@ -45,7 +46,10 @@ public class UIManager : MonoBehaviour
     private GameObject[] panels;
 
     [SerializeField]
-    private GameObject autoButton;
+    private GameObject autoMoveButton;
+
+    [SerializeField]
+    private GameObject autoStageButton;
 
     [SerializeField]
     private GameObject[] abilityPanels;
@@ -97,7 +101,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         shopPanel.SetActive(false);
-        autoButton.SetActive(false);
+        autoMoveButton.SetActive(false);
+        autoStageButton.SetActive(false);
         offlinePanel.SetActive(false);
 
         currentMoney = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<TextMeshProUGUI>();
@@ -283,7 +288,8 @@ public class UIManager : MonoBehaviour
     public void ToggleShopPanel()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
-        autoButton.SetActive(!autoButton.activeSelf && autoUnlocked);
+        autoMoveButton.SetActive(!autoMoveButton.activeSelf && autoUnlocked);
+        autoStageButton.SetActive(!autoStageButton.activeSelf);
         player.StopMoving();
     }
 
@@ -295,7 +301,6 @@ public class UIManager : MonoBehaviour
     /// <param name="skillButton"></param>
     public void UpgradeSkill(Button skillButton)
     {
-        string skillName = skillButton.name;
         EventManager.TriggerEvent("TryUpgrade", skillButton);
     }
 
@@ -335,8 +340,8 @@ public class UIManager : MonoBehaviour
 
     private void SetBossTimer(object fightTime)
     {
-        float time = (float)fightTime;
-        bossTimerSlider.value = time;
+        double time = (double)fightTime;
+        bossTimerSlider.value = (float)time;
     }
 
     private void EndBossFight(object unused)
@@ -349,21 +354,34 @@ public class UIManager : MonoBehaviour
         currentMoneyAnimator.Play("moneyBounce", -1, 0f);
     }
 
-    public void ToggleAutoMode()
+    public void ToggleAutoMove()
     {
         player.StopMoving();
-        autoEnabled = !autoEnabled;
-        if (autoEnabled)
-            autoButton.GetComponent<Image>().color = Color.green;
+        autoMoveEnabled = !autoMoveEnabled;
+        if (autoMoveEnabled)
+            autoMoveButton.GetComponent<Image>().color = Color.green;
         else
-            autoButton.GetComponent<Image>().color = Color.red;
+            autoMoveButton.GetComponent<Image>().color = Color.red;
 
-        EventManager.TriggerEvent("ToggleAuto");
+        EventManager.TriggerEvent("ToggleAutoMove");
+    }
+
+    public void ToggleAutoStage()
+    {
+        player.StopMoving();
+        autoStageEnabled = !autoStageEnabled;
+        if (autoStageEnabled)
+            autoStageButton.GetComponent<Image>().color = Color.green;
+        else
+            autoStageButton.GetComponent<Image>().color = Color.red;
+
+        EventManager.TriggerEvent("ToggleAutoStage");
     }
 
     private void UnlockedAuto(object unused)
     {
-        autoButton.SetActive(true);
+        autoMoveButton.SetActive(true);
+        autoStageButton.SetActive(true);
         autoUnlocked = true;
     }
 

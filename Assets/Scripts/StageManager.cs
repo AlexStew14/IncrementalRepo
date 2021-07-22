@@ -32,18 +32,14 @@ public class StageManager : MonoBehaviour
     private MapLevel currentMapLevel;
 
     private UnityAction<object> blockKilled;
-
     private UnityAction<object> tryPrestige;
-
     private UnityAction<object> tryNextLevel;
-
     private UnityAction<object> tryPrevLevel;
-
     private UnityAction<object> failedBoss;
-
     private UnityAction<object> killedBoss;
+    private UnityAction<object> toggleAutoStage;
 
-    private DateTime timeStamp;
+    private bool autoStage;
 
     // Start is called before the first frame update
     private void Start()
@@ -69,6 +65,9 @@ public class StageManager : MonoBehaviour
         killedBoss = new UnityAction<object>(KilledBoss);
         EventManager.StartListening("KilledBoss", killedBoss);
 
+        toggleAutoStage = new UnityAction<object>(ToggleAutoStage);
+        EventManager.StartListening("ToggleAutoStage", toggleAutoStage);
+
         EventManager.TriggerEvent("TogglePrestige", CanPrestige());
 
         InitalizeStageAndMapLevel();
@@ -80,6 +79,9 @@ public class StageManager : MonoBehaviour
         currentMapLevel.KilledBlock();
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
+
+        if (autoStage)
+            NextLevel(null);
     }
 
     private void InitalizeStageAndMapLevel()
@@ -124,7 +126,7 @@ public class StageManager : MonoBehaviour
             dataSavingManager.SetOtherValue("TimeStamp", DateTime.Now);
             dataSavingManager.Save();
 
-            EventManager.TriggerEvent("OfflineProgress", (long)(offlineReward));
+            EventManager.TriggerEvent("OfflineProgress", offlineReward);
         }
     }
 
@@ -243,5 +245,12 @@ public class StageManager : MonoBehaviour
     private void KilledBoss(object unused)
     {
         SwitchMapLevel(currentMapLevel.mapLevelKey + 1);
+    }
+
+    private void ToggleAutoStage(object unused)
+    {
+        autoStage = !autoStage;
+        if (autoStage)
+            NextLevel(null);
     }
 }
