@@ -8,9 +8,9 @@ public class Block : MonoBehaviour
 {
     #region Private Fields
 
-    private float maxHealth;
+    private double maxHealth;
 
-    private float currentHealth;
+    private double currentHealth;
 
     public bool isDead { get; private set; } = false;
 
@@ -26,9 +26,9 @@ public class Block : MonoBehaviour
 
     private StageManager stageManager;
 
-    public long killReward { get; private set; }
+    public double killReward { get; private set; }
 
-    public long killPrestigeReward { get; private set; }
+    public double killPrestigeReward { get; private set; }
 
     private bool isBoss;
 
@@ -74,9 +74,9 @@ public class Block : MonoBehaviour
     /// </summary>
     private void InitializeHealthBar()
     {
-        slider.maxValue = maxHealth;
+        slider.maxValue = (float)maxHealth;
         slider.minValue = 0f;
-        slider.value = maxHealth;
+        slider.value = (float)maxHealth;
 
         var pos = Camera.main.WorldToScreenPoint(transform.position);
         if (!isBoss)
@@ -107,7 +107,7 @@ public class Block : MonoBehaviour
             EventManager.TriggerEvent("KilledBoss");
 
         GameObject gText = Instantiate(goldText, transform.position, Quaternion.identity);
-        gText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(killReward.ToString());
+        gText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(NumberUtils.FormatLargeNumbers(killReward));
 
         // stageManager.KilledBlock();
         Destroy(slider.gameObject);
@@ -126,14 +126,14 @@ public class Block : MonoBehaviour
         Destroy(transform.gameObject);
     }
 
-    public bool TakingDamageisDead(float damageTaken)
+    public bool TakingDamageisDead(double damageTaken)
     {
         currentHealth -= damageTaken;
 
         GameObject dmgText = Instantiate(damageText, transform.position, Quaternion.identity);
-        string damage = string.Format("{0:0.#}", damageTaken);
+        string damage = NumberUtils.FormatLargeNumbers(damageTaken);
         dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damage);
-        slider.value = currentHealth;
+        slider.value = (float)currentHealth;
         //Debug.Log("Block attacked, health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -142,12 +142,12 @@ public class Block : MonoBehaviour
         return isDead;
     }
 
-    public void DamageOverTime(float damage, float duration)
+    public void DamageOverTime(double damage, float duration)
     {
         StartCoroutine(InflictDamage(damage, duration));
     }
 
-    private IEnumerator InflictDamage(float damage, float duration)
+    private IEnumerator InflictDamage(double damage, float duration)
     {
         while (!isDead && duration > 0)
         {

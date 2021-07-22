@@ -13,19 +13,19 @@ public class StageManager : MonoBehaviour
 
     private DataSavingManager dataSavingManager;
 
-    public long blockKillReward { get; private set; }
+    public double blockKillReward { get; private set; }
 
-    public long blockKillPrestigeReward { get; private set; }
+    public double blockKillPrestigeReward { get; private set; }
 
-    public float blockHealth { get; private set; }
+    public double blockHealth { get; private set; }
 
     public bool bossLevel { get; private set; }
 
-    private Func<int, long> killRewardFunc = x => (long)Math.Pow(1.05, x);
+    private Func<int, double> killRewardFunc = x => Math.Pow(1.05, x);
 
-    private Func<int, float> blockHealthFunc = x => (float)((Math.Pow(1.08, x) / (.15 * ((x / 10) + 1))) - 3);
+    private Func<int, double> blockHealthFunc = x => (Math.Pow(1.08, x) / (.15 * ((x / 10) + 1))) - 3;
 
-    private Func<int, long> prestigeKillRewardFunc = x => (long)Math.Round(Math.Log10(x - 99.9f)) + 1;
+    private Func<int, double> prestigeKillRewardFunc = x => Math.Round(Math.Log10(x - 99.9)) + 1;
 
     public Stage currentStage { get; private set; }
 
@@ -112,7 +112,7 @@ public class StageManager : MonoBehaviour
         {
             PlayerData playerData = dataSavingManager.GetPlayerData();
             double secondsOffline = (DateTime.Now - (DateTime)dataSavingManager.GetOtherValue("TimeStamp")).TotalSeconds;
-            float dps = (1 / playerData.baseAttackSpeed) * playerData.baseDamage;
+            double dps = (1 / playerData.baseAttackSpeed) * playerData.baseDamage;
 
             double totalDamage = secondsOffline * dps;
             double blocksKilled = totalDamage / blockHealth;

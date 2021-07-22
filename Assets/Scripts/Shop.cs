@@ -30,18 +30,18 @@ public class Shop : MonoBehaviour
     /// The shop manages the player's money.
     /// This class is the only place the player's money should be altered.
     /// </summary>
-    private long playerMoney;
+    private double playerMoney;
 
-    private long playerPrestigeMoney;
+    private double playerPrestigeMoney;
 
     // Prestige money is rewarded for block kills above level 100.
     // Until the player prestiges, this prestige money is pending.
     // Upon prestige, the pending prestige money is added to their balance.
-    private long pendingPrestigeMoney;
+    private double pendingPrestigeMoney;
 
-    private float playerPrestigeMoneyMult;
+    private double playerPrestigeMoneyMult;
 
-    private float playerMoneyMult;
+    private double playerMoneyMult;
 
     private UnityAction<object> blockKilled;
 
@@ -73,12 +73,12 @@ public class Shop : MonoBehaviour
         tryUpgrade = new UnityAction<object>(UpgradeSkill);
         EventManager.StartListening("TryUpgrade", tryUpgrade);
 
-        UpdatePlayerMoneyAndUI((long)dataSavingManager.GetOtherValue("Money"));
-        UpdatePlayerPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PrestigeMoney"));
-        UpdatePendingPrestigeMoneyAndUI((long)dataSavingManager.GetOtherValue("PendingPrestigeMoney"));
+        UpdatePlayerMoneyAndUI((double)dataSavingManager.GetOtherValue("Money"));
+        UpdatePlayerPrestigeMoneyAndUI((double)dataSavingManager.GetOtherValue("PrestigeMoney"));
+        UpdatePendingPrestigeMoneyAndUI((double)dataSavingManager.GetOtherValue("PendingPrestigeMoney"));
 
-        playerMoneyMult = (float)dataSavingManager.GetOtherValue("MoneyMultiplier");
-        playerPrestigeMoneyMult = (float)dataSavingManager.GetOtherValue("PrestigeMoneyMultiplier");
+        playerMoneyMult = (double)dataSavingManager.GetOtherValue("MoneyMultiplier");
+        playerPrestigeMoneyMult = (double)dataSavingManager.GetOtherValue("PrestigeMoneyMultiplier");
 
         // Load skill dictionary into shop and ui
         uiManager.LoadSkillDescriptions(dataSavingManager.GetSkillDictionary());
@@ -117,13 +117,13 @@ public class Shop : MonoBehaviour
     private void BlockKilled(object b)
     {
         Block deadBlock = (Block)b;
-        UpdatePlayerMoneyAndUI((long)(deadBlock.killReward * playerMoneyMult) + playerMoney);
+        UpdatePlayerMoneyAndUI(deadBlock.killReward * playerMoneyMult + playerMoney);
         AddPendingPrestigeMoney(deadBlock.killPrestigeReward);
     }
 
-    public void AddPendingPrestigeMoney(long killReward)
+    public void AddPendingPrestigeMoney(double killReward)
     {
-        UpdatePendingPrestigeMoneyAndUI((long)(killReward * playerPrestigeMoneyMult));
+        UpdatePendingPrestigeMoneyAndUI(killReward * playerPrestigeMoneyMult);
     }
 
     private void Prestige(object unused)
@@ -137,7 +137,7 @@ public class Shop : MonoBehaviour
         UpdatePlayerPrestigeMoneyAndUI(playerPrestigeMoney);
     }
 
-    private void UpdatePendingPrestigeMoneyAndUI(long pendingPrestigeMoney)
+    private void UpdatePendingPrestigeMoneyAndUI(double pendingPrestigeMoney)
     {
         this.pendingPrestigeMoney += pendingPrestigeMoney;
         uiManager.SetPendingPrestigeMoneyText(this.pendingPrestigeMoney);
@@ -145,7 +145,7 @@ public class Shop : MonoBehaviour
         dataSavingManager.Save();
     }
 
-    private void UpdatePlayerPrestigeMoneyAndUI(long prestigeMoney)
+    private void UpdatePlayerPrestigeMoneyAndUI(double prestigeMoney)
     {
         playerPrestigeMoney = prestigeMoney;
         uiManager.SetPrestigeMoneyText(playerPrestigeMoney);
@@ -161,7 +161,7 @@ public class Shop : MonoBehaviour
     private void HandleOfflineProgress(object offlineMoney)
     {
         Debug.LogWarning("Offline triggered");
-        UpdatePlayerMoneyAndUI((long)offlineMoney + playerMoney);
+        UpdatePlayerMoneyAndUI((double)offlineMoney + playerMoney);
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public class Shop : MonoBehaviour
     /// This is the only place where the player's money is changed.
     /// </summary>
     /// <param name="money"></param>
-    private void UpdatePlayerMoneyAndUI(long money)
+    private void UpdatePlayerMoneyAndUI(double money)
     {
         playerMoney = money;
         uiManager.SetMoneyText(money);
@@ -184,7 +184,7 @@ public class Shop : MonoBehaviour
     /// Getter for the player's money.
     /// </summary>
     /// <returns></returns>
-    public long GetMoney()
+    public double GetMoney()
     {
         return playerMoney;
     }
@@ -260,7 +260,7 @@ public class Shop : MonoBehaviour
 
         if (upgradedSkill.isPrestige)
         {
-            if (upgradedSkill.Upgrade(playerPrestigeMoney, out long remainingPrestigeMoney))
+            if (upgradedSkill.Upgrade(playerPrestigeMoney, out double remainingPrestigeMoney))
             {
                 UpdatePlayerPrestigeMoneyAndUI(remainingPrestigeMoney);
                 dataSavingManager.SetOtherValue("PrestigeMoney", remainingPrestigeMoney);
@@ -274,7 +274,7 @@ public class Shop : MonoBehaviour
             return;
         }
 
-        if (upgradedSkill.Upgrade(playerMoney, out long remainingMoney))
+        if (upgradedSkill.Upgrade(playerMoney, out double remainingMoney))
         {
             UpdatePlayerMoneyAndUI(remainingMoney);
             dataSavingManager.SetOtherValue("Money", remainingMoney);

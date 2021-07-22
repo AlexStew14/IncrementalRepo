@@ -35,21 +35,21 @@ public class Skill
     public int maxLevel { get; set; }
 
     // The money cost for upgrading the skill
-    public int upgradeCost { get; set; }
+    public double upgradeCost { get; set; }
 
     // The current amount the skill is affecting the player, can be flat or percentage.
-    public float currentStatIncrease { get; set; }
+    public double currentStatIncrease { get; set; }
 
-    public float totalStatIncrease { get; set; }
+    public double totalStatIncrease { get; set; }
 
     // The next value in the improvement function, used for displaying on ui.
-    public float nextStatIncrease { get; set; }
+    public double nextStatIncrease { get; set; }
 
     // Every n levels, the skill is multiplied by milestoneMultiplier.
     // This is that n.
     public int milestoneLevel;
 
-    public float milestoneMultipler;
+    public double milestoneMultipler;
 
     // The name of the skill
     public string name { get; set; }
@@ -60,10 +60,10 @@ public class Skill
     public SkillType type { get; set; }
 
     // An anonymous function used to determine the price of the next upgrade level given the current level.
-    public Func<int, int> costFunction { get; set; }
+    public Func<int, double> costFunction { get; set; }
 
     // An anonymous function used to determine the value of the next upgrade level given the current value.
-    public Func<float, float> improvementFunction { get; set; }
+    public Func<double, double> improvementFunction { get; set; }
 
     // HelperData that the skill contains if the skill is of type HELPER
     public HelperData helperData { get; set; } = null;
@@ -73,7 +73,7 @@ public class Skill
     /// </summary>
     /// <param name="currentCurrency"></param>
     /// <returns></returns>
-    public bool CheckUpgrade(long currentCurrency)
+    public bool CheckUpgrade(double currentCurrency)
     {
         return (currentCurrency >= upgradeCost) && (level < maxLevel);
     }
@@ -84,7 +84,7 @@ public class Skill
     /// <param name="currentCurrency"></param>
     /// <param name="remainingCurrency"></param>
     /// <returns></returns>
-    public virtual bool Upgrade(long currentCurrency, out long remainingCurrency)
+    public virtual bool Upgrade(double currentCurrency, out double remainingCurrency)
     {
         if (!CheckUpgrade(currentCurrency))
         {
@@ -115,9 +115,9 @@ public class Skill
 
     private void HelperUpgrade()
     {
-        helperData.attackDamage *= (1.0f + currentStatIncrease);
-        helperData.attackSpeed /= (1.0f + currentStatIncrease);
-        helperData.idleTime /= (1.0f + currentStatIncrease);
-        helperData.movementSpeed *= (1.0f + currentStatIncrease);
+        helperData.attackDamage *= (1.0 + currentStatIncrease);
+        helperData.attackSpeed /= (1.0 + currentStatIncrease);
+        helperData.idleTime /= (1.0 + currentStatIncrease);
+        helperData.movementSpeed *= (1.0 + currentStatIncrease);
     }
 }

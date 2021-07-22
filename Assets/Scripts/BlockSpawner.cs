@@ -11,9 +11,9 @@ public class BlockSpawner : MonoBehaviour
     // Set in inspector
     public Transform blockPrefab;
 
-    private float timer = -1.0f;
+    private double timer = -1.0;
 
-    private float bossTimer = 30.0f;
+    private double bossTimer = 30.0;
 
     private int currentBlockCount = 0;
 
@@ -123,7 +123,7 @@ public class BlockSpawner : MonoBehaviour
         blockDictionary.Remove(deadBlock.blockKey);
     }
 
-    public void PctSpawnSpeedUpgrade(float spawnSpeedMult)
+    public void PctSpawnSpeedUpgrade(double spawnSpeedMult)
     {
         blockSpawnData.spawnTime *= spawnSpeedMult;
         dataSavingManager.SetBlockSpawnData(blockSpawnData);
@@ -189,5 +189,5 @@ public class BlockSpawnData
 {
     public int maxCurrentBlocks;
 
-    public float spawnTime;
+    public double spawnTime;
 }

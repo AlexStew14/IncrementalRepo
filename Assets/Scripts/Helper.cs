@@ -26,14 +26,14 @@ public class Helper : MonoBehaviour
     private bool moving = false;
 
     // Attack Speed handling
-    private float damageTimeRemaining = -1.0f;
+    private double damageTimeRemaining = -1.0f;
 
     private bool damageTimerRunning = false;
 
     // Sprite Renderer for flipping sprite
     private SpriteRenderer sprite;
 
-    private float cdValue = 15.0f;
+    private double cdValue = 15.0f;
 
     private BlockSpawner blockSpawner;
 
@@ -68,7 +68,7 @@ public class Helper : MonoBehaviour
     private void Update()
     {
         if (moving)
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, helperData.movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, (float)(helperData.movementSpeed * Time.deltaTime));
 
         if (!blockSpawner.ContainsBlock(currentTarget))
         {
@@ -89,14 +89,14 @@ public class Helper : MonoBehaviour
         }
     }
 
-    private IEnumerator StartCountdown(float countdownValue)
+    private IEnumerator StartCountdown(double countdownValue)
     {
         cdValue = countdownValue;
         countDownRunning = true;
         StopMoving();
         while (cdValue > 0)
         {
-            yield return new WaitForSeconds(Math.Min(1.0f, cdValue));
+            yield return new WaitForSeconds((float)Math.Min(1.0, cdValue));
             cdValue--;
         }
 
@@ -129,17 +129,17 @@ public class Helper : MonoBehaviour
         return false;
     }
 
-    private float GetDamage()
+    private double GetDamage()
     {
         return helperData.attackDamage;
     }
 
-    public float GetAttackSpeed()
+    public double GetAttackSpeed()
     {
         return helperData.attackSpeed;
     }
 
-    public float Attacked(GameObject target)
+    public double Attacked(GameObject target)
     {
         damageTimeRemaining = GetAttackSpeed();
         damageTimerRunning = true;
@@ -158,9 +158,9 @@ public class Helper : MonoBehaviour
 [Serializable]
 public class HelperData
 {
-    public float attackDamage;
-    public float attackSpeed;
-    public float idleTime;
-    public float movementSpeed;
+    public double attackDamage;
+    public double attackSpeed;
+    public double idleTime;
+    public double movementSpeed;
     public string helperAnimatorName;
 }

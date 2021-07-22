@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private bool moving = false;
 
     // Attack Speed handling
-    private float damageTimeRemaining = -1.0f;
+    private double damageTimeRemaining = -1.0;
 
     private bool damageTimerRunning = false;
 
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
     /// Provides the final damage value.
     /// </summary>
     /// <returns></returns>
-    private float GetDamage()
+    private double GetDamage()
     {
         return playerData.finalDamage;
     }
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
     /// Provides the final attack speed value.
     /// </summary>
     /// <returns></returns>
-    public float GetAttackSpeed()
+    public double GetAttackSpeed()
     {
         return playerData.finalAttackSpeed;
     }
@@ -364,21 +364,21 @@ public class Player : MonoBehaviour
     /// Called by the Shop to increase the player by a flat amount when damage is upgraded.
     /// </summary>
     /// <param name="damageIncrease"></param>
-    public void FlatDmgIncrease(float damageIncrease)
+    public void FlatDmgIncrease(double damageIncrease)
     {
         playerData.baseDamage += damageIncrease;
         UpdateDamage();
         SavePlayerData();
     }
 
-    public void FlatAttackSpeedIncrease(float attkSpeedIncrease)
+    public void FlatAttackSpeedIncrease(double attkSpeedIncrease)
     {
         playerData.baseAttackSpeed -= attkSpeedIncrease;
         UpdateAttackSpeed();
         SavePlayerData();
     }
 
-    public void FlatMovementSpeedIncrease(float movementSpeedIncrease)
+    public void FlatMovementSpeedIncrease(double movementSpeedIncrease)
     {
         playerData.baseMoveSpeed += movementSpeedIncrease;
         SavePlayerData();
@@ -411,7 +411,7 @@ public class Player : MonoBehaviour
             if (moving)
             {
                 if (transform.position != clickPos)
-                    transform.position = Vector3.MoveTowards(transform.position, clickPos, playerData.finalMoveSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, clickPos, (float)(playerData.finalMoveSpeed * Time.deltaTime));
                 else
                     moving = false;
             }
@@ -420,7 +420,7 @@ public class Player : MonoBehaviour
         {
             if (!fightingBlock)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, playerData.finalMoveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, (float)(playerData.finalMoveSpeed * Time.deltaTime));
                 moving = true;
                 sprite.flipX = clickPos.x < transform.position.x;
             }
@@ -469,32 +469,30 @@ public class Player : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
-    public float level;
-
     // This represents the base damage before multipliers are applied.
-    public float baseDamage;
+    public double baseDamage;
 
     // This represents damage after multiplers applied.
-    public float finalDamage;
+    public double finalDamage;
 
     // Multipliers from prestige upgrades.
-    public float prestigeDmgMultiplier;
+    public double prestigeDmgMultiplier;
 
     // Multipliers from the current run.
-    public float runDmgMultiplier;
+    public double runDmgMultiplier;
 
     // This represents the base attack speed before multipliers are applied.
     // This represents the time in seconds between attacks.
     // Multipliers will decrease the attack speed value
-    public float baseAttackSpeed;
+    public double baseAttackSpeed;
 
-    public float finalAttackSpeed;
+    public double finalAttackSpeed;
 
-    public float runAtkSpeedMult;
+    public double runAtkSpeedMult;
 
-    public float prestigeAtkSpeedMult;
+    public double prestigeAtkSpeedMult;
 
-    public float finalMoveSpeed;
+    public double finalMoveSpeed;
 
-    public float baseMoveSpeed;
+    public double baseMoveSpeed;
 }

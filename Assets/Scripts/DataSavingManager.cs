@@ -17,13 +17,13 @@ public class DataSavingManager : MonoBehaviour
     private GameData gameData;
 
     [SerializeField]
-    private long startingMoney;
+    private double startingMoney;
 
     [SerializeField]
-    private long startingPrestigeMoney;
+    private double startingPrestigeMoney;
 
     [SerializeField]
-    private long startingPendingPrestigeMoney;
+    private double startingPendingPrestigeMoney;
 
     #endregion Fields
 
@@ -251,17 +251,16 @@ public class DataSavingManager : MonoBehaviour
     {
         return new PlayerData
         {
-            level = 1000.0f,
-            baseAttackSpeed = 1.0f,
-            baseDamage = 1.0f,
-            finalAttackSpeed = 1.0f,
-            finalDamage = 1.0f,
-            prestigeAtkSpeedMult = 1.0f,
-            prestigeDmgMultiplier = 1.0f,
-            runAtkSpeedMult = 1.0f,
-            runDmgMultiplier = 1.0f,
-            baseMoveSpeed = 2.0f,
-            finalMoveSpeed = 2.0f
+            baseAttackSpeed = 1.0,
+            baseDamage = 1.0,
+            finalAttackSpeed = 1.0,
+            finalDamage = 1.0,
+            prestigeAtkSpeedMult = 1.0,
+            prestigeDmgMultiplier = 1.0,
+            runAtkSpeedMult = 1.0,
+            runDmgMultiplier = 1.0,
+            baseMoveSpeed = 2.0,
+            finalMoveSpeed = 2.0
         };
     }
 
@@ -280,15 +279,15 @@ public class DataSavingManager : MonoBehaviour
             {
                 { "TotalBlocksSpawned", 1 },
                 {"Money", startingMoney},
-                {"MoneyMultiplier", 1.0f},
+                {"MoneyMultiplier", 1.0},
                 {"PrestigeMoney",  startingPrestigeMoney},
                 {"PendingPrestigeMoney", startingPendingPrestigeMoney },
-                {"PrestigeMoneyMultiplier", 1.0f },
+                {"PrestigeMoneyMultiplier", 1.0 },
                 {"CurrentStage", 0 },
                 {"CurrentMapLevel", 0 },
                 {"MaxKillCount", 10 },
                 {"LevelPerStage", 10 },
-                {"TimeStamp", System.DateTime.Now },
+                {"TimeStamp", DateTime.Now },
                 {"OfflineMultiplier", .1 },
                 {"UnlockedAuto", false }
             };
@@ -401,13 +400,13 @@ public class DataSavingManager : MonoBehaviour
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
-        Func<int, int> dmgCost = (x) => (int)(Math.Pow(1.08, x) * 5);
-        Func<int, int> dmg2Cost = (x) => (int)(Math.Pow(1.08, x) * 25);
-        Func<int, int> dmg3Cost = (x) => (int)(Math.Pow(1.08, x) * 50);
-        Func<int, int> dmg4Cost = (x) => (int)(Math.Pow(1.08, x) * 250);
-        Func<int, int> dmg5Cost = (x) => (int)(Math.Pow(1.08, x) * 500);
-        Func<int, int> dmg6Cost = (x) => (int)(Math.Pow(1.08, x) * 1000);
-        Func<float, float> dmgImprove = x => x;
+        Func<int, double> dmgCost = (x) => (Math.Pow(1.08, x) * 5);
+        Func<int, double> dmg2Cost = (x) => (Math.Pow(1.08, x) * 25);
+        Func<int, double> dmg3Cost = (x) => (Math.Pow(1.08, x) * 50);
+        Func<int, double> dmg4Cost = (x) => (Math.Pow(1.08, x) * 250);
+        Func<int, double> dmg5Cost = (x) => (Math.Pow(1.08, x) * 500);
+        Func<int, double> dmg6Cost = (x) => (Math.Pow(1.08, x) * 1000);
+        Func<double, double> dmgImprove = x => x;
         int milestoneLevel = 25;
         float milestoneMultiplier = 2f;
 
@@ -548,7 +547,7 @@ public class DataSavingManager : MonoBehaviour
                 milestoneMultipler = 1
             });
 
-        Func<int, int> spawnCost = (x) => (int)(Math.Pow(1.08, x) * 25);
+        Func<int, double> spawnCost = (x) => (int)(Math.Pow(1.08, x) * 25);
 
         skillDictionary.Add("SpawnSpeed",
             new Skill
@@ -660,9 +659,9 @@ public class DataSavingManager : MonoBehaviour
                 milestoneMultipler = 1.5f
             });
 
-        Func<int, int> abilCost = (x) => (int)(Math.Pow(1.08, x) * 25);
-        Func<int, int> abilCost2 = (x) => (int)(Math.Pow(1.08, x) * 100);
-        Func<int, int> abilCost3 = (x) => (int)(Math.Pow(1.08, x) * 250);
+        Func<int, double> abilCost = (x) => (Math.Pow(1.08, x) * 25);
+        Func<int, double> abilCost2 = (x) => (Math.Pow(1.08, x) * 100);
+        Func<int, double> abilCost3 = (x) => (Math.Pow(1.08, x) * 250);
 
         // ******************** Abilities **********************
         skillDictionary.Add("Ability1",

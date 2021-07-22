@@ -42,7 +42,7 @@ public class Ability : Skill
 
     public int prefabIndex;
 
-    public override bool Upgrade(long currentCurrency, out long remainingCurrency)
+    public override bool Upgrade(double currentCurrency, out double remainingCurrency)
     {
         if (!CheckUpgrade(currentCurrency))
         {
@@ -56,7 +56,7 @@ public class Ability : Skill
 
         totalStatIncrease += nextStatIncrease;
         currentStatIncrease = nextStatIncrease;
-        nextStatIncrease = improvementFunction(currentStatIncrease);
+        nextStatIncrease = improvementFunction(level);
         upgradeCost = costFunction(level);
 
         if (activationChance + nextChanceIncrease >= maxActivationChance)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -165,7 +166,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, long money, long prestigeMoney)
+    public void SetSkillButtonStatuses(Dictionary<string, Skill> skillDictionary, double money, double prestigeMoney)
     {
         foreach (Button b in buttons)
         {
@@ -202,8 +203,8 @@ public class UIManager : MonoBehaviour
         switch (skill.type)
         {
             case SkillType.DMG:
-                bonusText += "+" + string.Format("{0:0.##}", skill.nextStatIncrease);
-                nameText = "Base Damage\nTotal: " + skill.totalStatIncrease;
+                bonusText += "+" + NumberUtils.FormatLargeNumbers(skill.nextStatIncrease);
+                nameText = "Base Damage\nTotal: " + NumberUtils.FormatLargeNumbers(skill.totalStatIncrease);
                 break;
 
             case SkillType.HELPER:
@@ -212,11 +213,13 @@ public class UIManager : MonoBehaviour
 
             case SkillType.ABILITY:
                 Ability a = skill as Ability;
-                bonusText = string.Format("+{0:0.##}x\n+{1:P2}",
-                    a.nextStatIncrease, a.nextChanceIncrease);
+                bonusText = "+" + NumberUtils.FormatLargeNumbers(a.nextStatIncrease)
+                    + "x " + Ability.FormatSubType(a.abilitySubType)
+                    + string.Format("\n{0:P2} Chance", a.activationChance);
 
-                nameText = string.Format("{0:0.##}x {1}\n{2:P2} Chance",
-                    a.totalStatIncrease, Ability.FormatSubType(a.abilitySubType), a.activationChance);
+                nameText = NumberUtils.FormatLargeNumbers(a.totalStatIncrease)
+                    + "x " + Ability.FormatSubType(a.abilitySubType)
+                    + string.Format("\n{0:P2} Chance", a.activationChance);
                 break;
 
             default:
@@ -225,26 +228,31 @@ public class UIManager : MonoBehaviour
 
         bonus.text = bonusText;
         name.text = nameText;
-        skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = skill.upgradeCost.ToString();
+
+        string upgradeText = "Maxed";
+        if (skill.level < skill.maxLevel)
+            upgradeText = NumberUtils.FormatLargeNumbers(skill.upgradeCost);
+
+        skillButton.gameObject.transform.Find("Price").gameObject.GetComponent<TextMeshProUGUI>().text = upgradeText;
     }
 
     /// <summary>
     /// Called by shop when the player's money changes.
     /// </summary>
     /// <param name="money"></param>
-    public void SetMoneyText(long money)
+    public void SetMoneyText(double money)
     {
-        currentMoney.text = money.ToString();
+        currentMoney.text = NumberUtils.FormatLargeNumbers(money);
     }
 
-    public void SetPrestigeMoneyText(long money)
+    public void SetPrestigeMoneyText(double money)
     {
-        currentPrestigeMoney.text = money.ToString();
+        currentPrestigeMoney.text = NumberUtils.FormatLargeNumbers(money);
     }
 
-    public void SetPendingPrestigeMoneyText(long money)
+    public void SetPendingPrestigeMoneyText(double money)
     {
-        pendingPrestigeMoney.text = "+" + money;
+        pendingPrestigeMoney.text = "+" + NumberUtils.FormatLargeNumbers(money);
     }
 
     public void SetPrestigeButtonStatus(object status)
@@ -252,7 +260,7 @@ public class UIManager : MonoBehaviour
         prestigeButton.interactable = (bool)status;
     }
 
-    public void UpdateLevelUI(System.Object level)
+    public void UpdateLevelUI(object level)
     {
         MapLevel mapLevel = (MapLevel)level;
 
@@ -365,7 +373,7 @@ public class UIManager : MonoBehaviour
         player.StopMoving();
 
         TextMeshProUGUI rewardText = offlinePanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        rewardText.text = "Welcome Back!\nYou've Earned " + (long)offlineMoney + " Gold while away!";
+        rewardText.text = "Welcome Back!\nYou've Earned " + NumberUtils.FormatLargeNumbers((double)offlineMoney) + " Gold while away!";
         GoldArrived(null);
     }
 
