@@ -212,6 +212,21 @@ public class UIManager : MonoBehaviour
                 nameText = "Base Damage\nTotal: " + NumberUtils.FormatLargeNumbers(skill.totalStatIncrease);
                 break;
 
+            case SkillType.ATTKSPEED:
+                bonusText += string.Format("-{0:P2}", 1 - skill.nextStatIncrease);
+                nameText = "Attack Delay\nTotal: " + skill.totalStatIncrease;
+                break;
+
+            case SkillType.MOVEMENTSPEED:
+                bonusText += "+" + skill.nextStatIncrease;
+                nameText = "Movement Speed\nTotal: " + skill.totalStatIncrease;
+                break;
+
+            case SkillType.SPAWNSPEED:
+                bonusText += string.Format("-{0:P2}", 1 - skill.nextStatIncrease);
+                nameText = "Block Spawn Time\nTotal: " + skill.totalStatIncrease;
+                break;
+
             case SkillType.HELPER:
                 bonusText += "+" + (skill.nextStatIncrease * 100.0f) + "%";
                 break;
@@ -220,7 +235,7 @@ public class UIManager : MonoBehaviour
                 Ability a = skill as Ability;
                 bonusText = "+" + NumberUtils.FormatLargeNumbers(a.nextStatIncrease)
                     + "x " + Ability.FormatSubType(a.abilitySubType)
-                    + string.Format("\n{0:P2} Chance", a.activationChance);
+                    + string.Format("\n{0:P2} Chance", a.nextChanceIncrease);
 
                 nameText = NumberUtils.FormatLargeNumbers(a.totalStatIncrease)
                     + "x " + Ability.FormatSubType(a.abilitySubType)

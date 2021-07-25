@@ -206,7 +206,7 @@ public class Shop : MonoBehaviour
         }
         else if (upgradedSkill.type == SkillType.ATTKSPEED)
         {
-            player.FlatAttackSpeedIncrease(upgradedSkill.currentStatIncrease);
+            player.PctAttackSpeedUpgrade(upgradedSkill.currentStatIncrease);
         }
         else if (upgradedSkill.type == SkillType.KILLREWARD)
         {

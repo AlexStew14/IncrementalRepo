@@ -366,9 +366,9 @@ public class Player : MonoBehaviour
         SavePlayerData();
     }
 
-    public void FlatAttackSpeedIncrease(double attkSpeedIncrease)
+    public void PctAttackSpeedUpgrade(double atkSpdMult)
     {
-        playerData.baseAttackSpeed -= attkSpeedIncrease;
+        playerData.baseAttackSpeed *= atkSpdMult;
         UpdateAttackSpeed();
         SavePlayerData();
     }

@@ -51,9 +51,9 @@ public class DataSavingManager : MonoBehaviour
         // If player config has been saved previously, load it
         if (File.Exists(saveFilePath))
         {
-            Load();
+            //Load();
             // TODO this is only for debug.
-            //Delete();
+            Delete();
         }
         else
         {
@@ -400,11 +400,13 @@ public class DataSavingManager : MonoBehaviour
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
 
         Func<int, double> dmgCost = (x) => (Math.Pow(1.08, x) * 5);
-        Func<int, double> dmg2Cost = (x) => (Math.Pow(1.08, x) * 25);
-        Func<int, double> dmg3Cost = (x) => (Math.Pow(1.08, x) * 50);
-        Func<int, double> dmg4Cost = (x) => (Math.Pow(1.08, x) * 250);
-        Func<int, double> dmg5Cost = (x) => (Math.Pow(1.08, x) * 500);
-        Func<int, double> dmg6Cost = (x) => (Math.Pow(1.08, x) * 1000);
+
+        Func<int, double> attkSpdCost = (x) => Math.Pow(1.08, x) * 10;
+
+        Func<int, double> spawnCost = (x) => (Math.Pow(1.08, x) * 25);
+
+        Func<int, double> moveSpeedCost = (x) => (Math.Pow(1.08, x) * 25);
+
         Func<double, double> dmgImprove = x => x;
         int milestoneLevel = 25;
         float milestoneMultiplier = 2f;
@@ -426,134 +428,29 @@ public class DataSavingManager : MonoBehaviour
                 milestoneMultipler = 1.25f
             });
 
-        skillDictionary.Add("Damage2",
-            new Skill
-            {
-                name = "Damage2",
-                currentStatIncrease = 0,
-                nextStatIncrease = 5,
-                totalStatIncrease = 0,
-                level = 0,
-                maxLevel = 10000,
-                type = SkillType.DMG,
-                upgradeCost = 25,
-                costFunction = dmg2Cost,
-                improvementFunction = dmgImprove,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.25f
-            });
-
-        skillDictionary.Add("Damage3",
-            new Skill
-            {
-                name = "Damage3",
-                currentStatIncrease = 0,
-                nextStatIncrease = 25,
-                totalStatIncrease = 0,
-                level = 0,
-                maxLevel = 10000,
-                type = SkillType.DMG,
-                upgradeCost = 50,
-                costFunction = dmg3Cost,
-                improvementFunction = dmgImprove,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.25f
-            });
-
-        skillDictionary.Add("Damage4",
-            new Skill
-            {
-                name = "Damage4",
-                currentStatIncrease = 0,
-                nextStatIncrease = 100,
-                totalStatIncrease = 0,
-                level = 0,
-                maxLevel = 10000,
-                type = SkillType.DMG,
-                upgradeCost = 250,
-                costFunction = dmg4Cost,
-                improvementFunction = dmgImprove,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.25f
-            });
-
-        skillDictionary.Add("Damage5",
-            new Skill
-            {
-                name = "Damage5",
-                currentStatIncrease = 0,
-                nextStatIncrease = 250,
-                totalStatIncrease = 0,
-                level = 0,
-                maxLevel = 10000,
-                type = SkillType.DMG,
-                upgradeCost = 500,
-                costFunction = dmg5Cost,
-                improvementFunction = dmgImprove,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.25f
-            });
-
-        skillDictionary.Add("Damage6",
-            new Skill
-            {
-                name = "Damage6",
-                currentStatIncrease = 0,
-                nextStatIncrease = 500,
-                totalStatIncrease = 0,
-                level = 0,
-                maxLevel = 10000,
-                type = SkillType.DMG,
-                upgradeCost = 1000,
-                costFunction = dmg6Cost,
-                improvementFunction = dmgImprove,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.25f
-            });
-
         skillDictionary.Add("AttackSpeed",
             new Skill
             {
                 name = "AttackSpeed",
                 currentStatIncrease = 0,
-                nextStatIncrease = .05f,
+                nextStatIncrease = .99,
                 totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 15,
+                level = 0,
+                maxLevel = 200,
                 type = SkillType.ATTKSPEED,
                 upgradeCost = 10,
-                costFunction = (x) => (int)(x * 1.7f),
+                costFunction = attkSpdCost,
                 improvementFunction = (x) => x,
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = milestoneMultiplier,
-                isPrestige = true
-            });
-
-        skillDictionary.Add("KillReward",
-            new Skill
-            {
-                name = "KillReward",
-                currentStatIncrease = 0,
-                nextStatIncrease = 1,
-                totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 10,
-                type = SkillType.KILLREWARD,
-                upgradeCost = 5,
-                costFunction = (x) => (int)(x * 3.0f),
-                improvementFunction = (x) => (x * 2),
                 milestoneLevel = 10000,
                 milestoneMultipler = 1
             });
-
-        Func<int, double> spawnCost = (x) => (int)(Math.Pow(1.08, x) * 25);
 
         skillDictionary.Add("SpawnSpeed",
             new Skill
             {
                 name = "SpawnSpeed",
                 currentStatIncrease = 0,
-                nextStatIncrease = .99f,
+                nextStatIncrease = .99,
                 totalStatIncrease = 0,
                 level = 1,
                 maxLevel = 500,
@@ -570,92 +467,36 @@ public class DataSavingManager : MonoBehaviour
             {
                 name = "MovementSpeed",
                 currentStatIncrease = 0,
-                nextStatIncrease = .15f,
+                nextStatIncrease = .1,
                 totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 25,
+                level = 0,
+                maxLevel = 100,
                 type = SkillType.MOVEMENTSPEED,
                 upgradeCost = 20,
-                costFunction = (x) => (int)(x * 1.5f),
+                costFunction = moveSpeedCost,
                 improvementFunction = (x) => x,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1
+            });
+
+        // ******************** Prestige Skills ********************
+
+        skillDictionary.Add("KillReward",
+            new Skill
+            {
+                name = "KillReward",
+                currentStatIncrease = 0,
+                nextStatIncrease = 1,
+                totalStatIncrease = 0,
+                level = 1,
+                maxLevel = 10,
+                type = SkillType.KILLREWARD,
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => (x * 2),
                 milestoneLevel = 10000,
                 milestoneMultipler = 1,
                 isPrestige = true
-            });
-
-        skillDictionary.Add("Helper1",
-            new Skill
-            {
-                name = "Helper1",
-                currentStatIncrease = 0,
-                nextStatIncrease = .1f,
-                totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 100000,
-                type = SkillType.HELPER,
-                upgradeCost = 25,
-                costFunction = (x) => (int)(x * 1.3f),
-                improvementFunction = (x) => x,
-                helperData = new HelperData
-                {
-                    attackDamage = 5.0f,
-                    attackSpeed = 1.0f,
-                    idleTime = 3.0f,
-                    movementSpeed = 1.0f,
-                    helperAnimatorName = "Helpers/Helper1/Animator"
-                },
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.5f
-            });
-
-        skillDictionary.Add("Helper2",
-            new Skill
-            {
-                name = "Helper2",
-                currentStatIncrease = 0,
-                nextStatIncrease = .1f,
-                totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 100000,
-                type = SkillType.HELPER,
-                upgradeCost = 250,
-                costFunction = (x) => (int)(x * 1.3f),
-                improvementFunction = (x) => x,
-                helperData = new HelperData
-                {
-                    attackDamage = 50.0f,
-                    attackSpeed = 1.0f,
-                    idleTime = 3.0f,
-                    movementSpeed = 1.0f,
-                    helperAnimatorName = "Helpers/Helper2/Animator"
-                },
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.5f
-            });
-
-        skillDictionary.Add("Helper3",
-            new Skill
-            {
-                name = "Helper3",
-                currentStatIncrease = 0,
-                nextStatIncrease = .1f,
-                totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 100000,
-                type = SkillType.HELPER,
-                upgradeCost = 1000,
-                costFunction = (x) => (int)(x * 1.3f),
-                improvementFunction = (x) => x,
-                helperData = new HelperData
-                {
-                    attackDamage = 300.0f,
-                    attackSpeed = 1.0f,
-                    idleTime = 3.0f,
-                    movementSpeed = 1.0f,
-                    helperAnimatorName = "Helpers/Helper3/Animator"
-                },
-                milestoneLevel = milestoneLevel,
-                milestoneMultipler = 1.5f
             });
 
         Func<int, double> abilCost = (x) => (Math.Pow(1.08, x) * 25);
