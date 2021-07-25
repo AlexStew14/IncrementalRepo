@@ -289,7 +289,7 @@ public class UIManager : MonoBehaviour
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
         autoMoveButton.SetActive(!autoMoveButton.activeSelf && autoUnlocked);
-        autoStageButton.SetActive(!autoStageButton.activeSelf);
+        autoStageButton.SetActive(!autoStageButton.activeSelf && autoUnlocked);
         player.StopMoving();
     }
 
