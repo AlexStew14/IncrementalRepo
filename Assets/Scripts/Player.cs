@@ -286,7 +286,7 @@ public class Player : MonoBehaviour
                 else if (a.abilitySubType == AbilitySubType.DAMAGEOVERTIME)
                 {
                     if (targetBlock != null && !targetBlock.isDead)
-                        targetBlock.DamageOverTime((playerData.finalDamage * a.totalStatIncrease) / a.duration, a.duration);
+                        targetBlock.DamageOverTime((playerData.finalDamage * a.totalStatIncrease) / (a.duration * 5), a.duration);
 
                     damageDealt = true;
                 }
@@ -383,6 +383,7 @@ public class Player : MonoBehaviour
     {
         dataSavingManager.SetPlayerData(playerData);
         dataSavingManager.Save();
+        EventManager.TriggerEvent("PlayerUpgraded");
     }
 
     #endregion Skill Methods
@@ -444,11 +445,13 @@ public class Player : MonoBehaviour
 
     private void ToggleAutoMove(object unused)
     {
+        double autoMoveSpeedMult = (double)dataSavingManager.GetOtherValue("AutoMoveSpeedMultiplier");
+
         autoEnabled = !autoEnabled;
         if (autoEnabled)
-            finalMoveSpeed /= 3;
+            finalMoveSpeed /= autoMoveSpeedMult;
         else
-            finalMoveSpeed *= 3;
+            finalMoveSpeed *= autoMoveSpeedMult;
     }
 
     #endregion Movement

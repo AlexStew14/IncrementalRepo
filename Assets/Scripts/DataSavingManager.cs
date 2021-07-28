@@ -98,6 +98,8 @@ public class DataSavingManager : MonoBehaviour
     private void SetTimeStamp()
     {
         SetOtherValue("TimeStamp", DateTime.Now);
+        EventManager.TriggerEvent("MiscStatsUpdate");
+        Save();
     }
 
     /// <summary>
@@ -267,7 +269,7 @@ public class DataSavingManager : MonoBehaviour
     {
         return new BlockSpawnData
         {
-            maxCurrentBlocks = 5,
+            maxCurrentBlocks = 4,
             spawnTime = 2f
         };
     }
@@ -276,19 +278,25 @@ public class DataSavingManager : MonoBehaviour
     {
         return new Dictionary<string, object>()
             {
-                { "TotalBlocksSpawned", 1 },
+                { "TotalBlocksSpawned", 0 },
+                {"TotalBlocksKilled", 0 },
                 {"Money", startingMoney},
                 {"MoneyMultiplier", 1.0},
+                {"TotalMoneyEarned", 0.0 },
                 {"PrestigeMoney",  startingPrestigeMoney},
                 {"PendingPrestigeMoney", startingPendingPrestigeMoney },
-                {"PrestigeMoneyMultiplier", 1.0 },
+                {"TotalPrestigeMoneyEarned", 0.0},
+                {"PrestigeCount", 0 },
                 {"CurrentStage", 0 },
                 {"CurrentMapLevel", 0 },
                 {"MaxKillCount", 10 },
                 {"LevelPerStage", 10 },
+                {"HighestLevelReached", 0 },
+                {"FirstTimeStamp", DateTime.Now },
                 {"TimeStamp", DateTime.Now },
                 {"OfflineMultiplier", .1 },
-                {"UnlockedAuto", false }
+                {"UnlockedAuto", false },
+                {"AutoMoveSpeedMultiplier", .33 }
             };
     }
 
@@ -502,12 +510,13 @@ public class DataSavingManager : MonoBehaviour
         Func<int, double> abilCost = (x) => (Math.Pow(1.08, x) * 25);
         Func<int, double> abilCost2 = (x) => (Math.Pow(1.08, x) * 100);
         Func<int, double> abilCost3 = (x) => (Math.Pow(1.08, x) * 250);
+        Func<int, double> abilCost4 = (x) => (Math.Pow(1.08, x) * 500);
 
         // ******************** Abilities **********************
-        skillDictionary.Add("Ability1",
+        skillDictionary.Add("Ability3",
             new Ability
             {
-                name = "Ability1",
+                name = "Ability3",
                 type = SkillType.ABILITY,
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.MOVEMENTSPEED,
@@ -522,14 +531,14 @@ public class DataSavingManager : MonoBehaviour
                 prefabIndex = 0,
                 upgradeCost = 25,
                 activationFunction = (x) => .025f,
-                costFunction = abilCost,
+                costFunction = abilCost3,
                 improvementFunction = (x) => .1f
             });
 
-        skillDictionary.Add("Ability2",
+        skillDictionary.Add("Ability1",
             new Ability
             {
-                name = "Ability2",
+                name = "Ability1",
                 type = SkillType.ABILITY,
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.DAMAGE,
@@ -544,14 +553,14 @@ public class DataSavingManager : MonoBehaviour
                 prefabIndex = 1,
                 upgradeCost = 100,
                 activationFunction = (x) => .025f,
-                costFunction = abilCost2,
+                costFunction = abilCost,
                 improvementFunction = (x) => .2f
             });
 
-        skillDictionary.Add("Ability3",
+        skillDictionary.Add("Ability4",
             new Ability
             {
-                name = "Ability3",
+                name = "Ability4",
                 type = SkillType.ABILITY,
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.AREADAMAGE,
@@ -567,14 +576,14 @@ public class DataSavingManager : MonoBehaviour
                 prefabIndex = 2,
                 upgradeCost = 250,
                 activationFunction = (x) => .025f,
-                costFunction = abilCost3,
+                costFunction = abilCost4,
                 improvementFunction = (x) => .1f
             });
 
-        skillDictionary.Add("Ability4",
+        skillDictionary.Add("Ability2",
             new Ability
             {
-                name = "Ability4",
+                name = "Ability2",
                 type = SkillType.ABILITY,
                 abilityType = AbilityType.PASSIVE,
                 abilitySubType = AbilitySubType.DAMAGEOVERTIME,
@@ -589,7 +598,7 @@ public class DataSavingManager : MonoBehaviour
                 prefabIndex = 3,
                 upgradeCost = 250,
                 activationFunction = (x) => .025f,
-                costFunction = abilCost3,
+                costFunction = abilCost2,
                 improvementFunction = (x) => .1f
             });
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,6 +14,51 @@ public class UIManager : MonoBehaviour
 {
     #region Private Fields
 
+    [Header("Player Stats")]
+    [SerializeField]
+    private TextMeshProUGUI baseDamage;
+    [SerializeField]
+    private TextMeshProUGUI damageMult;
+    [SerializeField]
+    private TextMeshProUGUI attackSpeed;
+    [SerializeField]
+    private TextMeshProUGUI movementSpeed;
+    [SerializeField]
+    private TextMeshProUGUI autoMovementSpeed;
+
+    [Header("Block Stats")]
+    [SerializeField]
+    private TextMeshProUGUI blockHealth;
+    [SerializeField]
+    private TextMeshProUGUI blockKillReward;
+    [SerializeField]
+    private TextMeshProUGUI blocksPerLevel;
+    [SerializeField]
+    private TextMeshProUGUI maxBlocksSpawned;
+    [SerializeField]
+    private TextMeshProUGUI blockSpawnSpeed;
+    [SerializeField]
+    private TextMeshProUGUI totalBlocksKilled;
+
+    [Header("Currency Stats")]
+    [SerializeField]
+    private TextMeshProUGUI goldMult;
+    [SerializeField]
+    private TextMeshProUGUI totalMoneyEarned;
+    [SerializeField]
+    private TextMeshProUGUI totalPrestigeMoney;
+    [SerializeField]
+    private TextMeshProUGUI pendingPrestigeMoneyStat;
+
+    [Header("Misc Stats")]
+    [SerializeField]
+    private TextMeshProUGUI prestigeCount;
+    [SerializeField]
+    private TextMeshProUGUI playtime;
+    [SerializeField]
+    private TextMeshProUGUI highestLevel;
+
+    [Header("Other Fields")]
     [SerializeField]
     private GameObject shopPanel;
 
@@ -78,6 +124,10 @@ public class UIManager : MonoBehaviour
     private UnityAction<object> goldArrived;
     private UnityAction<object> unlockedAuto;
     private UnityAction<object> offlineProgress;
+    private UnityAction<object> playerUpgraded;
+    private UnityAction<object> blockStatsUpdate;
+    private UnityAction<object> currencyStatsUpdate;
+    private UnityAction<object> miscStatsUpdate;
 
     private DataSavingManager dataSavingManager;
 
@@ -109,6 +159,7 @@ public class UIManager : MonoBehaviour
         currentMoneyAnimator = currentMoney.GetComponent<Animator>();
         currentPrestigeMoney = GameObject.FindGameObjectWithTag("CurrentPrestigeMoney").GetComponent<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
 
         startBoss = new UnityAction<object>(StartBossFight);
         EventManager.StartListening("StartBoss", startBoss);
@@ -128,7 +179,21 @@ public class UIManager : MonoBehaviour
         offlineProgress = new UnityAction<object>(HandleOfflineProgress);
         EventManager.StartListening("OfflineProgress", offlineProgress);
 
-        dataSavingManager = GameObject.FindGameObjectWithTag("DataSavingManager").GetComponent<DataSavingManager>();
+        playerUpgraded = new UnityAction<object>(LoadPlayerStats);
+        EventManager.StartListening("PlayerUpgraded", playerUpgraded);
+
+        blockStatsUpdate = new UnityAction<object>(LoadBlockStats);
+        EventManager.StartListening("BlockStatsUpdate", blockStatsUpdate);
+
+        currencyStatsUpdate = new UnityAction<object>(LoadCurrencyStats);
+        EventManager.StartListening("CurrencyStatsUpdate", currencyStatsUpdate);
+
+        miscStatsUpdate = new UnityAction<object>(LoadMiscStats);
+        EventManager.StartListening("MiscStatsUpdate", miscStatsUpdate);
+
+        LoadPlayerStats(null);
+        LoadMiscStats(null);
+
         if ((bool)dataSavingManager.GetOtherValue("UnlockedAuto"))
             UnlockedAuto(null);
     }
@@ -136,6 +201,58 @@ public class UIManager : MonoBehaviour
     #endregion Unity Methods
 
     #region Skill UI Methods
+
+    private void LoadPlayerStats(object unused)
+    {
+        PlayerData playerData = dataSavingManager.GetPlayerData();
+        double autoMoveSpeedMult = (double)dataSavingManager.GetOtherValue("AutoMoveSpeedMultiplier");
+
+        baseDamage.text = NumberUtils.FormatLargeNumbers(playerData.baseDamage);
+        damageMult.text = NumberUtils.FormatLargeNumbers(playerData.prestigeDmgMultiplier);
+        attackSpeed.text = NumberUtils.FormatLargeNumbers(playerData.baseAttackSpeed);
+        movementSpeed.text = NumberUtils.FormatLargeNumbers(playerData.baseMoveSpeed);
+        autoMovementSpeed.text = NumberUtils.FormatLargeNumbers(playerData.baseMoveSpeed * autoMoveSpeedMult);
+    }
+
+    private void LoadBlockStats(object blockInfo)
+    {
+        Tuple<double, double> bHealthAndReward = (Tuple<double, double>)blockInfo;
+        BlockSpawnData blockSpawnData = dataSavingManager.GetBlockSpawnData();
+
+        int bPerLevel = (int)dataSavingManager.GetOtherValue("MaxKillCount");
+        int totalBKills = (int)dataSavingManager.GetOtherValue("TotalBlocksKilled");
+
+        blockHealth.text = NumberUtils.FormatLargeNumbers(bHealthAndReward.Item1);
+        blockKillReward.text = NumberUtils.FormatLargeNumbers(bHealthAndReward.Item2);
+        blocksPerLevel.text = bPerLevel.ToString();
+        maxBlocksSpawned.text = blockSpawnData.maxCurrentBlocks.ToString();
+        blockSpawnSpeed.text = NumberUtils.FormatLargeNumbers(blockSpawnData.spawnTime);
+        totalBlocksKilled.text = NumberUtils.FormatLargeNumbers(totalBKills);
+    }
+
+    private void LoadCurrencyStats(object unused)
+    {
+        double gMult = (double)dataSavingManager.GetOtherValue("MoneyMultiplier");
+        double totalMoney = (double)dataSavingManager.GetOtherValue("TotalMoneyEarned");
+        double totalPMoney = (double)dataSavingManager.GetOtherValue("TotalPrestigeMoneyEarned");
+        double pendingPMoney = (double)dataSavingManager.GetOtherValue("PendingPrestigeMoney");
+
+        goldMult.text = NumberUtils.FormatLargeNumbers(gMult);
+        totalMoneyEarned.text = NumberUtils.FormatLargeNumbers(totalMoney);
+        totalPrestigeMoney.text = NumberUtils.FormatLargeNumbers(totalPMoney);
+        pendingPrestigeMoneyStat.text = NumberUtils.FormatLargeNumbers(pendingPMoney);
+    }
+
+    private void LoadMiscStats(object unused)
+    {
+        int pCount = (int)dataSavingManager.GetOtherValue("PrestigeCount");
+        int highestLvl = (int)dataSavingManager.GetOtherValue("HighestLevelReached");
+        var pTime = (DateTime)dataSavingManager.GetOtherValue("TimeStamp") - (DateTime)dataSavingManager.GetOtherValue("FirstTimeStamp");
+
+        prestigeCount.text = pCount.ToString();
+        highestLevel.text = highestLvl.ToString();
+        playtime.text = (int)pTime.TotalHours + ":" + (int)pTime.TotalMinutes + ":" + (int)pTime.TotalSeconds;
+    }
 
     /// <summary>
     /// Called by the shop when the game starts.

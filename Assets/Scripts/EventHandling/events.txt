@@ -19,3 +19,7 @@ ToggleAutoMove: Triggered by UIManager when auto button is pressed. Player liste
 ToggleAutoStage: Triggered by UIManager when auto stage button is pressed. StageManager listens to toggle auto mode.
 UnlockedAuto: Triggered by StageManager when stage 10 is reached. UIManager listens to enable auto button.
 OfflineProgress: Triggered by StageManager, shop listens to add money.
+PlayerUpgraded: Triggered by Player, UIManager uses this to update player stats page.
+BlockStatsUpdate: Triggered by mapLevel changing in StageManager, passes block info so UIManager can update stats page.
+CurrencyStatsUpdate: Tirggered by Shop, UIManager listens to update stats page.
+MiscStatsUpdate: Triggered by StageManager, DataSavingManager and Shop. UIManager listens to update stats page.

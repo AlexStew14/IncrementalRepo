@@ -78,7 +78,10 @@ public class StageManager : MonoBehaviour
     {
         currentMapLevel.KilledBlock();
 
+        dataSavingManager.SetOtherValue("TotalBlocksKilled", (int)dataSavingManager.GetOtherValue("TotalBlocksKilled") + 1);
+
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
+        EventManager.TriggerEvent("BlockStatsUpdate", Tuple.Create(blockHealth, blockKillReward));
 
         if (autoStage)
             NextLevel(null);
@@ -114,10 +117,18 @@ public class StageManager : MonoBehaviour
         {
             PlayerData playerData = dataSavingManager.GetPlayerData();
             double secondsOffline = (DateTime.Now - (DateTime)dataSavingManager.GetOtherValue("TimeStamp")).TotalSeconds;
-            double dps = (1 / playerData.baseAttackSpeed) * playerData.baseDamage;
 
-            double totalDamage = secondsOffline * dps;
-            double blocksKilled = totalDamage / blockHealth;
+            double blocksKilled;
+
+            if (playerData.baseDamage >= blockHealth)
+                blocksKilled = secondsOffline / playerData.baseAttackSpeed;
+            else
+            {
+                double dps = (1 / playerData.baseAttackSpeed) * playerData.baseDamage;
+
+                double totalDamage = secondsOffline * dps;
+                blocksKilled = totalDamage / blockHealth;
+            }
 
             double offlineReward = blocksKilled * blockKillReward * (double)dataSavingManager.GetOtherValue("OfflineMultiplier");
 
@@ -128,6 +139,7 @@ public class StageManager : MonoBehaviour
 
             EventManager.TriggerEvent("OfflineProgress", offlineReward);
         }
+        EventManager.TriggerEvent("BlockStatsUpdate", Tuple.Create(blockHealth, blockKillReward));
     }
 
     private void SwitchMapLevel(int mapLevelKey)
@@ -159,6 +171,10 @@ public class StageManager : MonoBehaviour
                 dataSavingManager.SetOtherValue("UnlockedAuto", true);
                 dataSavingManager.Save();
             }
+
+            dataSavingManager.SetOtherValue("HighestLevelReached", mapLevelKey);
+            dataSavingManager.Save();
+            EventManager.TriggerEvent("MiscStatsUpdate");
         }
 
         currentMapLevel = mapLevel;
@@ -196,6 +212,8 @@ public class StageManager : MonoBehaviour
         EventManager.TriggerEvent("LoadMapLevel", currentMapLevel);
 
         EventManager.TriggerEvent("UpdateLevelUI", currentMapLevel);
+
+        EventManager.TriggerEvent("BlockStatsUpdate", Tuple.Create(blockHealth, blockKillReward));
     }
 
     private void SwitchStage(int stageKey)

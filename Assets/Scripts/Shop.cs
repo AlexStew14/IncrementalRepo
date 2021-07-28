@@ -39,8 +39,6 @@ public class Shop : MonoBehaviour
     // Upon prestige, the pending prestige money is added to their balance.
     private double pendingPrestigeMoney;
 
-    private double playerPrestigeMoneyMult;
-
     private double playerMoneyMult;
 
     private UnityAction<object> blockKilled;
@@ -78,7 +76,6 @@ public class Shop : MonoBehaviour
         UpdatePendingPrestigeMoneyAndUI((double)dataSavingManager.GetOtherValue("PendingPrestigeMoney"));
 
         playerMoneyMult = (double)dataSavingManager.GetOtherValue("MoneyMultiplier");
-        playerPrestigeMoneyMult = (double)dataSavingManager.GetOtherValue("PrestigeMoneyMultiplier");
 
         // Load skill dictionary into shop and ui
         uiManager.LoadSkillDescriptions(dataSavingManager.GetSkillDictionary());
@@ -117,22 +114,27 @@ public class Shop : MonoBehaviour
     private void BlockKilled(object b)
     {
         Block deadBlock = (Block)b;
-        UpdatePlayerMoneyAndUI(deadBlock.killReward * playerMoneyMult + playerMoney);
-        AddPendingPrestigeMoney(deadBlock.killPrestigeReward);
-    }
+        double moneyEarned = deadBlock.killReward * playerMoneyMult;
 
-    public void AddPendingPrestigeMoney(double killReward)
-    {
-        UpdatePendingPrestigeMoneyAndUI(killReward * playerPrestigeMoneyMult);
+        dataSavingManager.SetOtherValue("TotalMoneyEarned", (double)dataSavingManager.GetOtherValue("TotalMoneyEarned") + moneyEarned);
+        dataSavingManager.Save();
+
+        UpdatePlayerMoneyAndUI(moneyEarned + playerMoney);
+        UpdatePendingPrestigeMoneyAndUI(deadBlock.killPrestigeReward);
     }
 
     private void Prestige(object unused)
     {
+        dataSavingManager.SetOtherValue("TotalPrestigeMoneyEarned", (double)dataSavingManager.GetOtherValue("PrestigeMoney") + pendingPrestigeMoney);
         playerPrestigeMoney += pendingPrestigeMoney;
         pendingPrestigeMoney = 0;
 
-        dataSavingManager.SetOtherValue("PendingPrestigeMoney", pendingPrestigeMoney);
+        dataSavingManager.SetOtherValue("PendingPrestigeMoney", 0);
+        dataSavingManager.SetOtherValue("PrestigeCount", (int)dataSavingManager.GetOtherValue("PrestigeCount") + 1);
         dataSavingManager.Save();
+
+        EventManager.TriggerEvent("CurrencyStatsUpdate");
+        EventManager.TriggerEvent("MiscStatsUpdate");
 
         UpdatePlayerPrestigeMoneyAndUI(playerPrestigeMoney);
     }
@@ -143,6 +145,7 @@ public class Shop : MonoBehaviour
         uiManager.SetPendingPrestigeMoneyText(this.pendingPrestigeMoney);
         dataSavingManager.SetOtherValue("PendingPrestigeMoney", this.pendingPrestigeMoney);
         dataSavingManager.Save();
+        EventManager.TriggerEvent("CurrencyStatsUpdate");
     }
 
     private void UpdatePlayerPrestigeMoneyAndUI(double prestigeMoney)
