@@ -16,7 +16,9 @@ public enum SkillType
     MOVEMENTSPEED,
     HELPER,
     ABILITY,
-    BLOCKSPERLEVEL
+    BLOCKSPERLEVEL,
+    DAMAGEMULTIPLIER,
+    AUTOMOVESPEED,
 }
 
 /// <summary>

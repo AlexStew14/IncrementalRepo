@@ -467,6 +467,42 @@ public class DataSavingManager : MonoBehaviour
                 isPrestige = true
             });
 
+        skillDictionary.Add("DamageMultiplier",
+            new Skill
+            {
+                name = "DamageMultiplier",
+                currentStatIncrease = 1,
+                nextStatIncrease = 2,
+                totalStatIncrease = 0,
+                level = 0,
+                maxLevel = 25,
+                type = SkillType.DAMAGEMULTIPLIER,
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => x * 2,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1,
+                isPrestige = true
+            });
+
+        skillDictionary.Add("AutoMoveSpeed",
+            new Skill
+            {
+                name = "AutoMoveSpeed",
+                currentStatIncrease = 1,
+                nextStatIncrease = 1.1,
+                totalStatIncrease = 0,
+                level = 0,
+                maxLevel = 25,
+                type = SkillType.AUTOMOVESPEED,
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => x,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1,
+                isPrestige = true
+            });
+
         return skillDictionary;
     }
 

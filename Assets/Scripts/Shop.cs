@@ -265,6 +265,15 @@ public class Shop : MonoBehaviour
             dataSavingManager.SetOtherValue("BlocksPerLevel", (int)dataSavingManager.GetOtherValue("BlocksPerLevel") - (int)upgradedSkill.currentStatIncrease);
             dataSavingManager.Save();
         }
+        else if (upgradedSkill.type == SkillType.DAMAGEMULTIPLIER)
+        {
+            player.PrestigeDamageUpgrade(upgradedSkill.currentStatIncrease);
+        }
+        else if (upgradedSkill.type == SkillType.AUTOMOVESPEED)
+        {
+            dataSavingManager.SetOtherValue("AutoMoveSpeedMultiplier", (double)dataSavingManager.GetOtherValue("AutoMoveSpeedMultiplier") * upgradedSkill.currentStatIncrease);
+            dataSavingManager.Save();
+        }
     }
 
     /// <summary>

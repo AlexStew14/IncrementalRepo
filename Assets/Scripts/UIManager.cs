@@ -364,9 +364,19 @@ public class UIManager : MonoBehaviour
                 nameText = "Gold Multiplier\nCurrent: " + skill.currentStatIncrease;
                 break;
 
+            case SkillType.DAMAGEMULTIPLIER:
+                bonusText += "x" + NumberUtils.FormatLargeNumbers(skill.nextStatIncrease);
+                nameText = "Damage Multiplier\nCurrent: " + skill.currentStatIncrease;
+                break;
+
             case SkillType.BLOCKSPERLEVEL:
                 bonusText += "-" + (int)skill.nextStatIncrease;
                 nameText = "Blocks Per Level\nCurrent: " + (10 - skill.totalStatIncrease);
+                break;
+
+            case SkillType.AUTOMOVESPEED:
+                bonusText += "x" + (double)skill.nextStatIncrease;
+                nameText = "Auto Move Speed Multiplier\nCurrent: " + dataSavingManager.GetOtherValue("AutoMoveSpeedMultiplier");
                 break;
 
             default:

@@ -468,6 +468,13 @@ public class Player : MonoBehaviour
             finalMoveSpeed *= autoMoveSpeedMult;
     }
 
+    public void PrestigeDamageUpgrade(double multiplier)
+    {
+        playerData.prestigeDmgMultiplier = multiplier;
+        UpdateDamage();
+        SavePlayerData();
+    }
+
     #endregion Movement
 }
 
