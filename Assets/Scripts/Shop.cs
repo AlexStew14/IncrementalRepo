@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System.Linq;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// This class handles the state of all skills and updates the player to reflect skill changes.
@@ -48,6 +49,9 @@ public class Shop : MonoBehaviour
     private UnityAction<object> tryUpgrade;
 
     private UnityAction<object> offlineProgress;
+
+    [SerializeField]
+    private GameObject goldText;
 
     #endregion Private Fields
 
@@ -116,6 +120,9 @@ public class Shop : MonoBehaviour
         Block deadBlock = (Block)b;
         double moneyEarned = deadBlock.killReward * playerMoneyMult;
 
+        GameObject gText = Instantiate(goldText, deadBlock.transform.position, Quaternion.identity);
+        gText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(NumberUtils.FormatLargeNumbers(moneyEarned));
+
         dataSavingManager.SetOtherValue("TotalMoneyEarned", (double)dataSavingManager.GetOtherValue("TotalMoneyEarned") + moneyEarned);
         dataSavingManager.Save();
 
@@ -125,18 +132,30 @@ public class Shop : MonoBehaviour
 
     private void Prestige(object unused)
     {
-        dataSavingManager.SetOtherValue("TotalPrestigeMoneyEarned", (double)dataSavingManager.GetOtherValue("PrestigeMoney") + pendingPrestigeMoney);
-        playerPrestigeMoney += pendingPrestigeMoney;
-        pendingPrestigeMoney = 0;
+        dataSavingManager.ResetNonPrestigeSkills(null, true);
+        dataSavingManager.Save();
 
-        dataSavingManager.SetOtherValue("PendingPrestigeMoney", 0);
+        playerMoney = 0;
+        uiManager.SetMoneyText(0);
+        dataSavingManager.SetOtherValue("Money", 0.0);
+
+        dataSavingManager.SetOtherValue("TotalPrestigeMoneyEarned", (double)dataSavingManager.GetOtherValue("PrestigeMoney") + pendingPrestigeMoney);
+        UpdatePlayerPrestigeMoneyAndUI(playerPrestigeMoney + pendingPrestigeMoney);
+
+        pendingPrestigeMoney = 0;
+        uiManager.SetPendingPrestigeMoneyText(0);
+        dataSavingManager.SetOtherValue("PendingPrestigeMoney", 0.0);
+
         dataSavingManager.SetOtherValue("PrestigeCount", (int)dataSavingManager.GetOtherValue("PrestigeCount") + 1);
         dataSavingManager.Save();
 
+        uiManager.LoadSkillDescriptions(dataSavingManager.GetSkillDictionary());
+
+        player.ResetNonPrestige();
+
         EventManager.TriggerEvent("CurrencyStatsUpdate");
         EventManager.TriggerEvent("MiscStatsUpdate");
-
-        UpdatePlayerPrestigeMoneyAndUI(playerPrestigeMoney);
+        EventManager.TriggerEvent("TogglePrestige", false);
     }
 
     private void UpdatePendingPrestigeMoneyAndUI(double pendingPrestigeMoney)
@@ -213,7 +232,7 @@ public class Shop : MonoBehaviour
         }
         else if (upgradedSkill.type == SkillType.KILLREWARD)
         {
-            playerMoneyMult += upgradedSkill.currentStatIncrease;
+            playerMoneyMult = upgradedSkill.currentStatIncrease;
             dataSavingManager.SetOtherValue("MoneyMultiplier", playerMoneyMult);
             dataSavingManager.Save();
         }
@@ -240,6 +259,11 @@ public class Shop : MonoBehaviour
             {
                 EventManager.TriggerEvent("PurchasedAbility", upgradedSkill as Ability);
             }
+        }
+        else if (upgradedSkill.type == SkillType.BLOCKSPERLEVEL)
+        {
+            dataSavingManager.SetOtherValue("BlocksPerLevel", (int)dataSavingManager.GetOtherValue("BlocksPerLevel") - (int)upgradedSkill.currentStatIncrease);
+            dataSavingManager.Save();
         }
     }
 

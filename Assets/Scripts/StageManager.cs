@@ -151,7 +151,7 @@ public class StageManager : MonoBehaviour
             if (mapLevelKey % 10 == 9)
                 maxCount = 1;
             else
-                maxCount = (int)dataSavingManager.GetOtherValue("MaxKillCount");
+                maxCount = (int)dataSavingManager.GetOtherValue("BlocksPerLevel");
 
             mapLevel = new MapLevel
             {

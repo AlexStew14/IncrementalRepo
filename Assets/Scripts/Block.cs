@@ -39,9 +39,6 @@ public class Block : MonoBehaviour
     [SerializeField]
     private GameObject damageText;
 
-    [SerializeField]
-    private GameObject goldText;
-
     #region Unity Methods
 
     // Start is called before the first frame update
@@ -105,9 +102,6 @@ public class Block : MonoBehaviour
 
         if (isBoss)
             EventManager.TriggerEvent("KilledBoss");
-
-        GameObject gText = Instantiate(goldText, transform.position, Quaternion.identity);
-        gText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(NumberUtils.FormatLargeNumbers(killReward));
 
         // stageManager.KilledBlock();
         Destroy(slider.gameObject);

@@ -219,7 +219,7 @@ public class UIManager : MonoBehaviour
         Tuple<double, double> bHealthAndReward = (Tuple<double, double>)blockInfo;
         BlockSpawnData blockSpawnData = dataSavingManager.GetBlockSpawnData();
 
-        int bPerLevel = (int)dataSavingManager.GetOtherValue("MaxKillCount");
+        int bPerLevel = (int)dataSavingManager.GetOtherValue("BlocksPerLevel");
         int totalBKills = (int)dataSavingManager.GetOtherValue("TotalBlocksKilled");
 
         blockHealth.text = NumberUtils.FormatLargeNumbers(bHealthAndReward.Item1);
@@ -357,6 +357,16 @@ public class UIManager : MonoBehaviour
                 nameText = NumberUtils.FormatLargeNumbers(a.totalStatIncrease)
                     + "x " + Ability.FormatSubType(a.abilitySubType)
                     + string.Format("\n{0:P2} Chance", a.activationChance);
+                break;
+
+            case SkillType.KILLREWARD:
+                bonusText += "x" + NumberUtils.FormatLargeNumbers(skill.nextStatIncrease);
+                nameText = "Gold Multiplier\nCurrent: " + skill.currentStatIncrease;
+                break;
+
+            case SkillType.BLOCKSPERLEVEL:
+                bonusText += "-" + (int)skill.nextStatIncrease;
+                nameText = "Blocks Per Level\nCurrent: " + (10 - skill.totalStatIncrease);
                 break;
 
             default:

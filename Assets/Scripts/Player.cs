@@ -386,6 +386,20 @@ public class Player : MonoBehaviour
         EventManager.TriggerEvent("PlayerUpgraded");
     }
 
+    public void ResetNonPrestige()
+    {
+        dataSavingManager.ResetPlayerNonPrestige();
+        dataSavingManager.Save();
+
+        var purchasedAbilities = dataSavingManager.GetAbilityDictionary().Values.Where(s => s.level > 0).ToList();
+
+        purchasedPassives = purchasedAbilities.Where(a => a.abilityType == AbilityType.PASSIVE).ToList();
+        purchasedActives = purchasedAbilities.Where(a => a.abilityType == AbilityType.ACTIVE).ToList();
+
+        playerData = dataSavingManager.GetPlayerData();
+        EventManager.TriggerEvent("PlayerUpgraded");
+    }
+
     #endregion Skill Methods
 
     #region Movement

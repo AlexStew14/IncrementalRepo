@@ -25,6 +25,9 @@ public class DataSavingManager : MonoBehaviour
     [SerializeField]
     private double startingPendingPrestigeMoney;
 
+    [SerializeField]
+    private int startingMapLevel;
+
     #endregion Fields
 
     #region Unity Methods
@@ -265,6 +268,24 @@ public class DataSavingManager : MonoBehaviour
         };
     }
 
+    public void ResetPlayerNonPrestige()
+    {
+        PlayerData resetData = new PlayerData
+        {
+            baseAttackSpeed = 1.0,
+            baseDamage = 1.0,
+            finalAttackSpeed = 1.0,
+            finalDamage = 1.0,
+            prestigeAtkSpeedMult = gameData.playerData.prestigeAtkSpeedMult,
+            prestigeDmgMultiplier = gameData.playerData.prestigeDmgMultiplier,
+            runAtkSpeedMult = 1.0,
+            runDmgMultiplier = 1.0,
+            baseMoveSpeed = 2.0
+        };
+
+        gameData.playerData = resetData;
+    }
+
     private BlockSpawnData SeedBlockSpawnData()
     {
         return new BlockSpawnData
@@ -288,15 +309,15 @@ public class DataSavingManager : MonoBehaviour
                 {"TotalPrestigeMoneyEarned", 0.0},
                 {"PrestigeCount", 0 },
                 {"CurrentStage", 0 },
-                {"CurrentMapLevel", 0 },
-                {"MaxKillCount", 10 },
+                {"CurrentMapLevel", startingMapLevel },
+                {"BlocksPerLevel", 10 },
                 {"LevelPerStage", 10 },
                 {"HighestLevelReached", 0 },
                 {"FirstTimeStamp", DateTime.Now },
                 {"TimeStamp", DateTime.Now },
                 {"OfflineMultiplier", .1 },
                 {"UnlockedAuto", false },
-                {"AutoMoveSpeedMultiplier", .33 }
+                {"AutoMoveSpeedMultiplier", .33 },
             };
     }
 
@@ -391,13 +412,13 @@ public class DataSavingManager : MonoBehaviour
     {
         Dictionary<int, MapLevel> mapLevelDictionary = new Dictionary<int, MapLevel>();
 
-        mapLevelDictionary.Add(0,
+        mapLevelDictionary.Add(startingMapLevel,
             new MapLevel
             {
                 completed = false,
                 currentCount = 0,
                 maxCount = 10,
-                mapLevelKey = 0
+                mapLevelKey = startingMapLevel
             });
 
         return mapLevelDictionary;
@@ -406,6 +427,60 @@ public class DataSavingManager : MonoBehaviour
     private Dictionary<string, Skill> SeedSkills()
     {
         Dictionary<string, Skill> skillDictionary = new Dictionary<string, Skill>();
+        ResetNonPrestigeSkills(skillDictionary, false);
+
+        // ******************** Prestige Skills ********************
+
+        skillDictionary.Add("KillReward",
+            new Skill
+            {
+                name = "KillReward",
+                currentStatIncrease = 1,
+                nextStatIncrease = 2,
+                totalStatIncrease = 0,
+                level = 0,
+                maxLevel = 25,
+                type = SkillType.KILLREWARD,
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => (x * 2),
+                milestoneLevel = 10000,
+                milestoneMultipler = 1,
+                isPrestige = true
+            });
+
+        skillDictionary.Add("BlocksPerWave",
+            new Skill
+            {
+                name = "BlocksPerWave",
+                currentStatIncrease = 0,
+                nextStatIncrease = 1,
+                totalStatIncrease = 0,
+                level = 0,
+                maxLevel = 9,
+                type = SkillType.BLOCKSPERLEVEL,
+                upgradeCost = 5,
+                costFunction = (x) => (int)(x * 3.0f),
+                improvementFunction = (x) => x,
+                milestoneLevel = 10000,
+                milestoneMultipler = 1,
+                isPrestige = true
+            });
+
+        return skillDictionary;
+    }
+
+    public void ResetNonPrestigeSkills(Dictionary<string, Skill> skillDictionary, bool isPrestige)
+    {
+        if (isPrestige)
+        {
+            skillDictionary = gameData.skillDictionary;
+            foreach (Skill s in skillDictionary.Values.ToList())
+            {
+                if (!s.isPrestige)
+                    skillDictionary.Remove(s.name);
+            }
+        }
 
         Func<int, double> dmgCost = (x) => (Math.Pow(1.08, x) * 5);
 
@@ -485,26 +560,6 @@ public class DataSavingManager : MonoBehaviour
                 improvementFunction = (x) => x,
                 milestoneLevel = 10000,
                 milestoneMultipler = 1
-            });
-
-        // ******************** Prestige Skills ********************
-
-        skillDictionary.Add("KillReward",
-            new Skill
-            {
-                name = "KillReward",
-                currentStatIncrease = 0,
-                nextStatIncrease = 1,
-                totalStatIncrease = 0,
-                level = 1,
-                maxLevel = 10,
-                type = SkillType.KILLREWARD,
-                upgradeCost = 5,
-                costFunction = (x) => (int)(x * 3.0f),
-                improvementFunction = (x) => (x * 2),
-                milestoneLevel = 10000,
-                milestoneMultipler = 1,
-                isPrestige = true
             });
 
         Func<int, double> abilCost = (x) => (Math.Pow(1.08, x) * 25);
@@ -601,8 +656,6 @@ public class DataSavingManager : MonoBehaviour
                 costFunction = abilCost2,
                 improvementFunction = (x) => .1f
             });
-
-        return skillDictionary;
     }
 
     #endregion Seed Data Methods
